@@ -27,7 +27,7 @@ private _roles = [_unit] call FUNC(getUnitRoles);
 // Detectes ACE MEDIC and ACE Engineer
 _roles = [_unit, _roles] call FUNC(rolesByTrait);
 
-INFO_1("Player Roles: %1", _roles);
+INFO_1("Player Roles: %1",_roles);
 systemChat format ['[%1](%2) Player Roles: %3', PREFIX, COMPONENT, _roles];
 
 private _returnArray = [];
