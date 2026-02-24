@@ -30,3 +30,8 @@ dlc = []
 [Test]
 extends = "default"
 mission = "test.VR"
+
+
+[Arsenal]
+extends = "default"
+mission = "arsenal.VR"
