@@ -65,3 +65,8 @@ Further, those kits are hardcoded through the mod itself. They can be disabled t
 | condition        | <STRING>                | Code as String - needs to return boolean.                       | `""` Skip check.     |
 | code             | <STRING>                | Code as String - needs to return array of classnames.           | `""` Skipped.        |
 | items            | <CLASS with SUBCLASSES> | subclasses will get added as item classnames.                   |  |
+
+
+
+### Disable Default Kits
+![Image showcasing the cba settings](https://github.com/CVO-Org/Zorns-Mission-Utility-Mod/blob/main/docs/img/arsenal_disable_defaultKits.png)
