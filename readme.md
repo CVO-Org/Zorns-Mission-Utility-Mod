@@ -47,8 +47,8 @@ Feel free to create a PR if you see something missing!
 ### Once Per Mod
 
 #### Use VSCode Find and Replace across the whole repository
-1. replace PLACEHOLDER: `~MAINPREFIX~` with desired MAINPREFIX, example: `x`
-2. replace PLACEHOLDER: `~PREFIX~` with desired PREFIX, example `ABE`
+1. replace PLACEHOLDER: `zrn` with desired MAINPREFIX, example: `x`
+2. replace PLACEHOLDER: `mum` with desired PREFIX, example `ABE`
 
 #### Update the following files according to your needs
 1. `mod.cpp`

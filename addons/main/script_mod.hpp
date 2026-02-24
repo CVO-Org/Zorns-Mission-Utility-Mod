@@ -1,7 +1,7 @@
-#define MAINPREFIX ~MAINPREFIX~
-#define PREFIX ~PREFIX~
+#define MAINPREFIX zrn
+#define PREFIX mum
 
-#define PREFIX_BEAUTIFIED ~PREFIX~
+#define PREFIX_BEAUTIFIED Mission Utilty Mod
 
 
 #include "script_version.hpp"

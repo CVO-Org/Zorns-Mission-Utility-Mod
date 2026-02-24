@@ -1,11 +1,11 @@
-mainprefix = "~MAINPREFIX~"     # Ideally, replace "~MAINPREFIX~" across the whole repo with your mod's mainprefix, example "t" (without the "")
-prefix = "~PREFIX~"             # Ideally, replace "~PREFIX~" across the whole repo with your mod's prefix, example "mod" (without the "") 
+mainprefix = "zrn"     # Ideally, replace "zrn" across the whole repo with your mod's mainprefix, example "t" (without the "")
+prefix = "mum"             # Ideally, replace "mum" across the whole repo with your mod's prefix, example "mod" (without the "") 
 
-name = "Example Mod"
+name = "Zorns Mission Utility Mod"
 
 [properties]
-author = "Derp Derpington"
-url = "https://github.com/Derpington"
+author = "Zorn"
+url = "https://github.com/CVO-Org/Zorns-Mission-Utility-Mod"
 
 [binarize]
 # enabled = true # Default: true

@@ -2,10 +2,10 @@
 <Project name="mod-template">
     <Package name="Main">
         <Key ID="STR_mod_author">
-            <English>Derp Derpington</English>
+            <English>Zorn</English>
         </Key>
         <Key ID="STR_mod_URL">
-            <English>https://github.com/OverlordZorn/ZRN-Template-Mod</English>
+            <English>https://github.com/CVO-Org/Zorns-Mission-Utility-Mod</English>
         </Key>
     </Package>
 </Project>
