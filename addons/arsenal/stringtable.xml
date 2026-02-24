@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="mission-utility-mod">
+    <Package name="Arsenal">
+        <Container name="CBA Settings">
+            <Key ID="STR_mum_arsenal_set_apply_onRespawn">
+                <English>on Respawn</English>
+            </Key>
+            <Key ID="STR_mum_arsenal_set_apply_onRespawn_desc">
+                <English>Will restore the previously saved loadout on player respawn.</English>
+            </Key>
+            <Key ID="STR_mum_arsenal_set_cat_title">
+                <English>MUM - Arsenal</English>
+            </Key>
+            <Key ID="STR_mum_arsenal_set_save_arsenalClosed">
+                <English>on ACE Arsenal closed</English>
+            </Key>
+            <Key ID="STR_mum_arsenal_set_save_arsenalClosed_desc">
+                <English>Save Player Loadout when the ACE Arsenal is being closed</English>
+            </Key>
+            <Key ID="STR_mum_arsenal_set_save_missionStart">
+                <English>on Mission Start</English>
+            </Key>
+            <Key ID="STR_mum_arsenal_set_save_missionStart_delay">
+                <English>on Mission Start - Delay</English>
+            </Key>
+            <Key ID="STR_mum_arsenal_set_save_missionStart_delay_desc">
+                <English>Delay after mission start before the Loadout is getting saved - in seconds.</English>
+            </Key>
+            <Key ID="STR_mum_arsenal_set_save_missionStart_desc">
+                <English>Save Player Loadout when the Mission starts</English>
+            </Key>
+            <Key ID="STR_mum_arsenal_set_subcat_Load">
+                <English>Load Loadout</English>
+            </Key>
+            <Key ID="STR_mum_arsenal_set_subcat_save">
+                <English>Save Loadout</English>
+            </Key>
+        </Container>
+    </Package>
+</Project>
