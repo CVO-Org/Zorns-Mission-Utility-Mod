@@ -27,8 +27,8 @@ private _roles = [_unit] call FUNC(getUnitRoles);
 // Detectes ACE MEDIC and ACE Engineer
 _roles = [_unit, _roles] call FUNC(rolesByTrait);
 
-diag_log format ['[CVO](ARSENAL) Player Roles: %1', _roles];
-systemChat format ['[CVO](ARSENAL) Player Roles: %1', _roles];
+INFO_1("Player Roles: %1", _roles);
+systemChat format ['[%1](%2) Player Roles: %3', PREFIX, COMPONENT, _roles];
 
 private _returnArray = [];
 
@@ -37,7 +37,7 @@ private _kits = ["arsenal_kits"] call EFUNC(catalog,getCatalog);
 private _playerUID = getPlayerUID _unit;
 
 {
-    
+
     private _kitName = _x;
     private _kit = _y;
 
@@ -64,7 +64,7 @@ private _playerUID = getPlayerUID _unit;
     // #### Condition ####
     private _conditionCode = _kit get "condition";
     private _conditionResult = [_unit, _items] call _conditionCode;
-    
+
     // validate Return
     if (isNil "_conditionResult" || { typeName _conditionResult isNotEqualTo "BOOL" }) then {
         ERROR_1("Bad condition return for Kit: %1",_kitName);
@@ -89,7 +89,7 @@ private _playerUID = getPlayerUID _unit;
     _codeResult = _codeResult select { _x call CBA_fnc_getItemConfig isNotEqualTo configNull };
 
     _returnArray append _codeResult;
-    
+
     ZRN_LOG_MSG_1(Added:,_kitName);
 
 } forEach _kits;
