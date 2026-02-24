@@ -48,7 +48,7 @@
 #endif
 
 #ifndef MAINLOGIC
-    #define MAINLOGIC main 
+    #define MAINLOGIC main
 #endif
 
 #define ADDON DOUBLES(PREFIX,COMPONENT)
