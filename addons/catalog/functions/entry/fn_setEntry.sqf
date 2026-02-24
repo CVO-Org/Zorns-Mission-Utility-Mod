@@ -10,7 +10,7 @@
 * None
 *
 * Example:
-* [QGVAR(somethign), "Key", "value"] call cvo_catalog_fnc_setEntry;
+* [QGVAR(somethign), "Key", "value"] call mum_catalog_fnc_setEntry;
 *
 * Public: No
 */

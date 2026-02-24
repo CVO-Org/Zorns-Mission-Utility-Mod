@@ -10,7 +10,7 @@
 * None
 *
 * Example:
-* [ _catName, _entryName ] call cvo_catalog_fnc_delEntry;
+* [ _catName, _entryName ] call mum_catalog_fnc_delEntry;
 *
 * Public: No
 */

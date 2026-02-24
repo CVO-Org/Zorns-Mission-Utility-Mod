@@ -10,7 +10,7 @@
 * None
 *
 * Example:
-* [ _catName, _entryName, _orDefault, _setDefault ] call cvo_catalog_fnc_getEntry;
+* [ _catName, _entryName, _orDefault, _setDefault ] call mum_catalog_fnc_getEntry;
 *
 * Public: No
 */

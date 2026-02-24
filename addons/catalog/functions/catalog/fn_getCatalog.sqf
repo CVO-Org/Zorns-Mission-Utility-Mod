@@ -10,7 +10,7 @@
 * None
 *
 * Example:
-* ["arsenal_kits"] call cvo_catalog_Fnc_getCatalog
+* ["arsenal_kits"] call mum_catalog_fnc_getCatalog
 *
 * Public: No
 */
