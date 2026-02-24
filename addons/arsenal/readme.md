@@ -40,6 +40,9 @@ Some roles will be automatically assigned, based on a units trait.
 ## Kit Configuration
 
 ### Example Kit Configurations
+
+Example mission folder can be found [here](https://github.com/CVO-Org/Zorns-Mission-Utility-Mod/blob/main/.hemtt/missions/arsenal.VR).
+
 The following kits can be referenced as examples on how to format a kit.
 
 Further, those kits are hardcoded through the mod itself. They can be disabled through CBA Settings when needed.
@@ -47,6 +50,8 @@ Further, those kits are hardcoded through the mod itself. They can be disabled t
 - [Base Kits - Available vor Everyone](kits_base.hpp)
 - [Role Kits - Available for certain Roles](kits_role.hpp)
 - [Personal Kits - Available for individual Players](kits_personal.hpp)
+
+
 
 ### Config Properties
 #### General Attributes
