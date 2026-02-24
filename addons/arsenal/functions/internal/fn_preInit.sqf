@@ -2,7 +2,7 @@
 
 /*
 * Author: Zorn
-* PreInit = 1 Function
+* PreInit Function
 *
 * Arguments:
 *
@@ -15,11 +15,11 @@
 * Public: No
 */
 
-[QGVAR(EH_AddAction), FUNC(addAction)] call CBA_fnc_addEventHandler;
+[QGVAR(EH_initBox), FUNC(initBox)] call CBA_fnc_addEventHandler;
 
 ["ace_arsenal_displayClosed", {
     if (SET(save_arsenalClose)) then {
-        
+
         [
             {
                 private _loadout = [ace_player] call CBA_fnc_getLoadout;

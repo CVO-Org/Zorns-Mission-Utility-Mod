@@ -6,12 +6,12 @@
 *
 * Arguments:
 * None
-* 
+*
 * Return Value:
 * None
 *
 * Example:
-* [] call CVO_Arsenal_fnc_savePlayerLoadout;
+* [] call mum_arsenal_fnc_savePlayerLoadout;
 *
 * Public: No
 */
@@ -25,7 +25,6 @@ private _code = {
 
     private _saveLoadout = {
         player setVariable [QGVAR(Loadout), [player] call CBA_fnc_getLoadout];
-        diag_log "[CVO][Arsenal] player's CVO_Loadout saved";
     };
 
     private _delay = SET(save_missionStart_delay);

@@ -13,7 +13,7 @@
 
     Examples:
         <example>
-        [] call cvo_arsenal_fnc_update;
+        [] call mum_arsenal_fnc_update;
 */
 if (!hasInterface) exitWith {};
 
@@ -30,7 +30,7 @@ private _unit = ACE_player;
 // ## get Roles
 private _roles = [_unit] call FUNC(getUnitRoles);
 _roles = [_unit, _roles] call FUNC(rolesByTrait);
-systemChat format ['[CVO][ARSENAL] Player Roles: %1', _roles];
+systemChat format ['[%1][%2] Player Roles: %3', PREFIX,COMPONENT,_roles];
 
 // ## get PlayerUID
 private _id64 = getPlayerUID _unit;

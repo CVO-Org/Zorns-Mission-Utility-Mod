@@ -10,8 +10,8 @@
 * None
 *
 * Example:
-* [ this, "EOD" ] call cvo_arsenal_fnc_setUnitRoles;
-* [ this, ["EOD", "Officer"] ] call cvo_arsenal_fnc_setUnitRoles;
+* [ this, "EOD" ] call mum_arsenal_fnc_setUnitRoles;
+* [ this, ["EOD", "Officer"] ] call mum_arsenal_fnc_setUnitRoles;
 *
 * Public: No
 */

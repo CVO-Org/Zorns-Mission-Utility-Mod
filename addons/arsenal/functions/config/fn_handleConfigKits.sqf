@@ -2,7 +2,7 @@
 
 /*
 * Author: Zorn
-* Function to add 
+* Function to add
 *
 * Arguments:
 *
@@ -10,7 +10,7 @@
 * None
 *
 * Example:
-* ['something', player] call cvo_arsenal_fnc_handleConfigKits
+* ['something', player] call mum_arsenal_fnc_handleConfigKits
 *
 * Public: No
 */

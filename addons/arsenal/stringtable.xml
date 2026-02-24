@@ -11,6 +11,9 @@
             <Key ID="STR_mum_arsenal_set_cat_title">
                 <English>MUM - Arsenal</English>
             </Key>
+            <Key ID="STR_mum_arsenal_set_cat_title_defaultKits">
+                <English>MUM - Arsenal - Default Kits</English>
+            </Key>
             <Key ID="STR_mum_arsenal_set_save_arsenalClosed">
                 <English>on ACE Arsenal closed</English>
             </Key>
@@ -19,6 +22,9 @@
             </Key>
             <Key ID="STR_mum_arsenal_set_save_missionStart">
                 <English>on Mission Start</English>
+            </Key>
+            <Key ID="STR_mum_arsenal_set_defaultKit_desc">
+                <English>To disable, uncheck the box :smort:</English>
             </Key>
             <Key ID="STR_mum_arsenal_set_save_missionStart_delay">
                 <English>on Mission Start - Delay</English>
@@ -31,6 +37,9 @@
             </Key>
             <Key ID="STR_mum_arsenal_set_subcat_Load">
                 <English>Load Loadout</English>
+            </Key>
+            <Key ID="STR_mum_arsenal_set_subcat_DefaultKits">
+                <English>Default Kits Enabled</English>
             </Key>
             <Key ID="STR_mum_arsenal_set_subcat_save">
                 <English>Save Loadout</English>

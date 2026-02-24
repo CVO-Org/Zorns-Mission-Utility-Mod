@@ -4,7 +4,7 @@ class BaseRoleKit_Medic: baseKit {
     class items {
         class ACE_quikclot {};
         class ACE_elasticBandage {};
-        
+
         class ACE_adenosine {};
         class ACE_morphine {};
 
@@ -19,7 +19,7 @@ class BaseRoleKit_Medic: baseKit {
         class ACE_surgicalKit {};
     };
 };
- 
+
 class BaseRoleKit_Medic_suture: baseKit {
     role = "medic";
     condition = "missionNamespace getVariable ['ace_medical_treatment_consumeSurgicalKit',0] isEqualTo 2";
@@ -97,7 +97,6 @@ class BaseRoleKit_Marksman: baseKit {
     class items {
         class ACE_Tripod {};
         class ACE_RangeCard {};
-        class Rangefinder {};
     };
 };
 
@@ -120,8 +119,8 @@ class BaseRoleKit_RTO: baseKit {
     role = "RTO";
     class items {
         class ACRE_PRC77 {};
-        class ACRE_VHF30108SPIKE {}; 
-        class ACRE_VHF30108 {}; 
+        class ACRE_VHF30108SPIKE {};
+        class ACRE_VHF30108 {};
         class ACRE_VHF30108MAST {};
     };
 };

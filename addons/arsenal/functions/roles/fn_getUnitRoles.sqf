@@ -10,7 +10,7 @@
 * Array of Roles
 *
 * Example:
-* [ace_player] call cvo_arsenal_fnc_getUnitRoles;
+* [ace_player] call mum_arsenal_fnc_getUnitRoles;
 *
 * Public: No
 */

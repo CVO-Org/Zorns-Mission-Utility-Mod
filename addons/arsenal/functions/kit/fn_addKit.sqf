@@ -16,11 +16,11 @@
 */
 
 params [
-    ["_entry", "", [createHashMap] ],
+    ["_entry", nil, [createHashMap] ],
     [ "_key", "", [""] ]
 ];
 
-if (_entry isEqualTo "") exitWith { false };
+if (isNil "_entry") exitWith { false };
 
 if (_key isEqualTo "") then {
     private _index = missionNamespace getVariable [QGVAR(kit_index), 0];

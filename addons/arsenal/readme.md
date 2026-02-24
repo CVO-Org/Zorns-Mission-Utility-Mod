@@ -27,9 +27,9 @@ Some roles will be automatically assigned, based on a units trait.
 
 
 ## How to Implement
-   1. Load MUM Aux Mod
+   1. Load Zorns Mission Utility Mod
    2. Create `mum_arsenal_kits.hpp` and include the mission's `description.ext`
-   3. Define Units Roles via `cvo_arsenal_fnc_addUnitRoles`.
+   3. Define Units Roles via `mum_arsenal_fnc_addUnitRoles`.
         - Examples for the units init field:
           - `[ this, "someRole" ] call mum_arsenal_fnc_addUnitRoles;`
           - `[ this, ["someRole"] ] call mum_arsenal_fnc_addUnitRoles;`
@@ -50,10 +50,10 @@ Further, those kits are hardcoded through the mod itself. They can be disabled t
 
 ### Config Properties
 #### General Attributes
-| Attribute Name        | DataType           | Description                                                                                                 | 
-| :-------------------- | ------------------ | ----------------------------------------------------------------------------------------------------------- | 
-| editor_layer_name     | <STRING>           | Provide an Eden Editor layer name.<br> All Objects inside this Layer will be made into MUM Arsenal Objects. | 
-| object_variable_names | <ARRAY of STRINGS> | Provide the variable names of individual objects to make them into MUM Arsenal Objects.                     | 
+| Attribute Name        | DataType           | Description                                                                                                 |
+| :-------------------- | ------------------ | ----------------------------------------------------------------------------------------------------------- |
+| editor_layer_name     | <STRING>           | Provide an Eden Editor layer name.<br> All Objects inside this Layer will be made into MUM Arsenal Objects. |
+| object_variable_names | <ARRAY of STRINGS> | Provide the variable names of individual objects to make them into MUM Arsenal Objects.                     |
 
  #### Kit Attributes:
 
@@ -65,12 +65,3 @@ Further, those kits are hardcoded through the mod itself. They can be disabled t
 | condition        | <STRING>                | Code as String - needs to return boolean.                       | `""` Skip check.     |
 | code             | <STRING>                | Code as String - needs to return array of classnames.           | `""` Skipped.        |
 | items            | <CLASS with SUBCLASSES> | subclasses will get added as item classnames.                   |  |
-
-
-### Regex Replace Templates
-Regex to update old style Unit Role Definition to the new Function call.
-Only needed when updating an old mission to the new system.
-```regex
-this setVariable \[""MUM_A_ROLES"",\[(.*)\]\];
-[this, [$1]] call mum_arsenal_fnc_addUnitRoles;
-```

@@ -2,17 +2,17 @@
 
 /*
 * Author: Zorn
-* Adds the CVO Arsenal Interaction to an Object
+* Adds the CVO Arsenal Interaction to an Object. Effect is local only. Use CBA Global Event QGVAR(EH_initBox) instead.
 *
 * Arguments:
 *   0 - <OBJECT or ARRAY of OBJECTS> - Object(s) that shall function as an CVO Arsenal
-* 
+*
 * Return Value:
 * None
 *
 * Example:
-* [box] call CVO_Arsenal_fnc_addAction
-* [[box1,box2,box3]] call CVO_Arsenal_fnc_addAction
+* [box] call mum_arsenal_fnc_addAction
+* [[box1,box2,box3]] call mum_arsenal_fnc_addAction
 *
 * Public: Yes
 */
@@ -43,13 +43,16 @@ private _action = [
 ] call ace_interact_menu_fnc_createAction;
 
 {
+
+    systemChat "Adding Arsenal"; // TODO
+
     [
-        _x, 
-        0, 
-        ["ACE_MainActions"], 
+        _x,
+        0,
+        ["ACE_MainActions"],
         _action
     ] call ace_interact_menu_fnc_addActionToObject;
-    
+
 } forEach _objects;
 
 nil

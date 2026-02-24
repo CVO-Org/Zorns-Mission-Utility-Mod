@@ -27,8 +27,6 @@ if (_layerName isNotEqualTo "") then { _objects append flatten (getMissionLayerE
 
 _objects = flatten _objects select { !isNull _x };
 
-[QGVAR(EH_AddAction), _objects, QGVAR(EH_AddAction)] call CBA_fnc_globalEventJIP;
-
-// missionNamespace setVariable [QGVAR(globalAccesspointArray), _objects, true];
+[QGVAR(EH_initBox), _objects, QGVAR(EH_initBox)] call CBA_fnc_globalEventJIP;
 
 nil
