@@ -1,0 +1,21 @@
+on:
+  release:
+    types: [published]
+
+jobs:
+  github-releases-to-discord:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Github Releases To Discord
+        uses: SethCohen/github-releases-to-discord@v1.19.0
+        with:
+          webhook_url: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          username: "Zorn's Mission Utility Mod"
+          avatar_url: "https://github.com/CVO-Org/Zorns-Mission-Utility-Mod/blob/main/img/logo-voron-white_512.png"
+          content: "||<@&1476200955522318426>||"
+          footer_title: "Zorn's Mission Utility Mod"
+          footer_icon_url: "https://github.com/CVO-Org/Zorns-Mission-Utility-Mod/blob/main/img/logo-voron-white_512.png"
+          footer_timestamp: true

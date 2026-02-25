@@ -1,5 +1,5 @@
 #define COMPONENT catalog
-#define COMPONENT_BEAUTIFIED Catalog Framework Addon
+#define COMPONENT_BEAUTIFIED Catalog
 
 
 #include "\zrn\mum\addons\main\script_mod.hpp"
