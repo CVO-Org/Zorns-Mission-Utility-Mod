@@ -2,5 +2,5 @@
 #define COMPONENT_BEAUTIFIED Fonts
 
 
-#include "\zrn\cvo\addons\main\script_mod.hpp"
-#include "\zrn\cvo\addons\main\script_macros.hpp"
+#include "\zrn\mum\addons\main\script_mod.hpp"
+#include "\zrn\mum\addons\main\script_macros.hpp"
