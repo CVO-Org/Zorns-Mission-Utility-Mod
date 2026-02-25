@@ -5,7 +5,7 @@ class CfgPatches {
 
         // Meta information for editor
         name = ADDON_NAME;
-        author = "$STR_mod_author";
+        author = "$STR_mod_Author";
         authors[] = {"OverlordZorn [CVO]"};
 
         url = "$STR_mod_URL";
@@ -14,11 +14,11 @@ class CfgPatches {
 
         // Addon Specific Information
         // Minimum compatible version. When the game's version is lower, pop-up warning will appear when launching the game.
-        requiredVersion = 2.02;
+        requiredVersion = REQUIRED_VERSION;
 
         // Required addons, used for setting load order.
         // When any of the addons is missing, pop-up warning will appear when launching the game.
-        requiredAddons[] = {"cba_main","ace_main"};
+        requiredAddons[] = {"mum_main", "mum_ula", "mum_common", "ace_interaction","cba_common"};
 
         // Optional. If this is 1, if any of requiredAddons[] entry is missing in your game the entire config will be ignored and return no error (but in rpt) so useful to make a compat Mod (Since Arma 3 2.14)
         skipWhenMissingDependencies = 1;
@@ -33,3 +33,14 @@ class CfgPatches {
 
 };
 
+#include "CfgFunctions.hpp"
+
+#include "presets\mum_csc_crates.hpp"
+#include "presets\mum_csc_delivery_modes.hpp"
+#include "presets\mum_csc_destinations.hpp"
+
+// UI
+// UI Stuff
+#include "ui\CommonDefines.hpp"
+#include "ui\BaseControls.hpp"
+#include "ui\mum_csc_request.hpp"
