@@ -16,43 +16,43 @@ private _structuredString = "
     _structuredString,  // Intel Content (Structured Text as STRING)
     nil,                // Intel Group, nil for Default Group (Optional, nil for Default Group: "General")
     false               // Remove Object once Picked up - (Optional - Default: true)
-] call cvo_intel_fnc_createIntel;
+] call mum_intel_fnc_createIntel;
 
 [
     laptop_1,
     "E-Mails",
-    _text,
+    _structuredString,
     nil,
     false
-] call cvo_intel_fnc_createIntel;
+] call mum_intel_fnc_createIntel;
 
 [
     laptop_2,
     "E-Mails",
-    _text,
+    _structuredString,
     nil,
     true
-] call cvo_intel_fnc_createIntel;
+] call mum_intel_fnc_createIntel;
 
 [
     laptop_3,
     "Network-Log",
-    _text,
+    _structuredString,
     "Test Group",
     false
-] call cvo_intel_fnc_createIntel;
+] call mum_intel_fnc_createIntel;
 
 [
     laptop_4,
     "E-Mails",
-    _text,
+    _structuredString,
     "Test Group"
-] call cvo_intel_fnc_createIntel;
+] call mum_intel_fnc_createIntel;
 
 [
     laptop_5,
     "Network-Log",
-    _text,
+    _structuredString,
     "Test Group",
     false
-] call cvo_intel_fnc_createIntel;
+] call mum_intel_fnc_createIntel;

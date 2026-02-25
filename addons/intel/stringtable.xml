@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="MUM-auxiliary">
+    <Package name="Intel">
+        <Container name="CBA Settings">
+            <Key ID="STR_MUM_intel_set_disableIntelSummary">
+                <English>Disable Intel Summary</English>
+            </Key>
+            <Key ID="STR_MUM_intel_set_disableIntelSummary_desc">
+                <English>Disables the Intel Summary Display which informs the player about the amount of remaining intel per intelgroup.</English>
+            </Key>
+        </Container>
+        <Container name="CBA Settings">
+            <Key ID="STR_MUM_intel_set_default_shareWith">
+                <English>Default ShareWith</English>
+            </Key>
+            <Key ID="STR_MUM_intel_set_default_shareWith_desc">
+                <English>Defines the default "ShareWith" option which controls with whom found intel is being shared.</English>
+            </Key>
+        </Container>
+        <Container name="CBA Settings Categories">
+            <Key ID="STR_MUM_Intel_set_cat_title">
+                <English>MUM - Intel</English>
+            </Key>
+            <Key ID="STR_MUM_Intel_set_subcat_general">
+                <English>General</English>
+            </Key>
+        </Container>
+        <Container name="Intel Object">
+            <Key ID="STR_MUM_Intel_PlayerFoundIntel">
+                <English>%1 found intel: "%2"</English>
+                <Italian>% 1 ha trovato il suggerimento "% 2"</Italian>
+                <Polish>%1 znalazł dane wywiadowcze: "%2"</Polish>
+                <German>%1 hat den Hinweis "%2" gefunden</German>
+                <Korean>%1이 인텔 취득: "%2"</Korean>
+                <Japanese>%1 がインテルを発見: "%2"</Japanese>
+                <Chinese>%1 發現情報: "%2"</Chinese>
+                <Chinesesimp>%1 发现情报: "%2"</Chinesesimp>
+            </Key>
+            <Key ID="STR_MUM_Intel_PlayerFoundIntel_You">
+                <English>You</English>
+                <German>Du</German>
+            </Key>
+        </Container>
+    </Package>
+</Project>
