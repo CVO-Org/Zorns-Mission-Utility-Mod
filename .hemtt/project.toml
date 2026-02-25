@@ -1,5 +1,5 @@
 mainprefix = "zrn"     # Ideally, replace "zrn" across the whole repo with your mod's mainprefix, example "t" (without the "")
-prefix = "mum"             # Ideally, replace "mum" across the whole repo with your mod's prefix, example "mod" (without the "") 
+prefix = "mum"             # Ideally, replace "mum" across the whole repo with your mod's prefix, example "mod" (without the "")
 
 name = "Zorns Mission Utility Mod"
 
@@ -23,7 +23,7 @@ include = [
 exclude = [
     "*.psd",        # By default this list is empty
     "*.md",
-    "/.vscode/",
+    "/.vscode/"
 ]
 
 [version]

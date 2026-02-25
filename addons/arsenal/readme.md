@@ -4,6 +4,10 @@ This is an config-based Arsenal Framework for the ACE Arsenal.
 
 This allows mission makers to easily create "kits" and make these kits available via an designated arsenal.
 
+Example mission folder can be found [here](https://github.com/CVO-Org/Zorns-Mission-Utility-Mod/blob/main/.hemtt/missions/arsenal.VR).
+
+This is primarily made for campaigns or missions with a repeating player loadouts.
+
 ## Summary
 - Supports Kits limited for certain "Roles"
 - Auto Assigns "Roles" based on Traits
@@ -28,8 +32,9 @@ Some roles will be automatically assigned, based on a units trait.
 
 ## How to Implement
    1. Load Zorns Mission Utility Mod
-   2. Create `mum_arsenal_kits.hpp` and include the mission's `description.ext`
-   3. Define Units Roles via `mum_arsenal_fnc_addUnitRoles`.
+   2. Create `mum_arsenal.hpp` and include the mission's `description.ext`
+   3. Define kits via config in `mum_arsenal.hpp` file.
+   4. Define Units Roles with `mum_arsenal_fnc_addUnitRoles`, ether via 3den Editor or script.
         - Examples for the units init field:
           - `[ this, "someRole" ] call mum_arsenal_fnc_addUnitRoles;`
           - `[ this, ["someRole"] ] call mum_arsenal_fnc_addUnitRoles;`
@@ -41,7 +46,6 @@ Some roles will be automatically assigned, based on a units trait.
 
 ### Example Kit Configurations
 
-Example mission folder can be found [here](https://github.com/CVO-Org/Zorns-Mission-Utility-Mod/blob/main/.hemtt/missions/arsenal.VR).
 
 The following kits can be referenced as examples on how to format a kit.
 
