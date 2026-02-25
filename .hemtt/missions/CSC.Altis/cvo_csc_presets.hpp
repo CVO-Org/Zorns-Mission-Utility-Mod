@@ -1,25 +1,25 @@
-class cvo_csc_destinations {
+class mum_csc_destinations {
 
-    import baseDestination from cvo_csc_destinations;
+    import baseDestination from mum_csc_destinations;
 
     class test_tarp: baseDestination {
         displayName = "Tarp.";   // Just as an example
         description = "On the Tarp";
 
-        code = "cvo_csc_fnc_base_relativeTo";
+        code = "mum_csc_fnc_base_relativeTo";
 
         scope = 2;
 
         class parameters {
             mode = "OFFSET"; // "BEHIND", "OFFSET"
             offset[] = { 0, 0, 1.5 };   // only used by OFFSET
-            reference = "cvo_tarp"; // TARGET, PLAYER or missionNamespace variablename
+            reference = "mum_tarp"; // TARGET, PLAYER or missionNamespace variablename
         };
     };
 };
 
-class cvo_csc_crates {
-    import baseCrate from cvo_csc_crates;
+class mum_csc_crates {
+    import baseCrate from mum_csc_crates;
 
     class test_BasicAmmunation: baseCrate {
 
@@ -48,5 +48,5 @@ class cvo_csc_crates {
             { "greenmag_ammo_9x21_basic_60Rnd", 5},
             { "greenmag_ammo_45ACP_basic_60Rnd", 10}
         };
-    };    
+    };
 };

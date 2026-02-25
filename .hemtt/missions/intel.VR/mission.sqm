@@ -12,7 +12,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=18;
+		nextID=19;
 	};
 	class Camera
 	{
@@ -42,7 +42,6 @@ addons[]=
 	"A3_Modules_F_Curator_Curator",
 	"A3_Soft_F_Quadbike_01",
 	"A3_Structures_F_Kart_Mil_Flags",
-	"cvo_branding",
 	"A3_Structures_F_Mil_Helipads",
 	"A3_Structures_F_Argo_Military_Fortifications",
 	"A3_Structures_F_Furniture",
@@ -52,7 +51,7 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=17;
+		items=16;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -146,26 +145,19 @@ class AddonsMetaData
 		};
 		class Item13
 		{
-			className="cvo_branding";
-			name="CVO Auxiliary - Branding";
-			author="CVO Team";
-			url="https://github.com/OverlordZorn/CVO-Auxiliary";
-		};
-		class Item14
-		{
 			className="A3_Structures_F_Mil";
 			name="Arma 3 - Military Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item15
+		class Item14
 		{
 			className="A3_Structures_F_Argo";
 			name="Arma 3 Malden - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item16
+		class Item15
 		{
 			className="A3_Structures_F";
 			name="Arma 3 - Buildings and Structures";
@@ -178,7 +170,6 @@ dlcs[]=
 {
 	"Mark",
 	"Kart",
-	"Aow",
 	"Argo"
 };
 randomSeed=4540948;
@@ -209,7 +200,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=23;
+		items=15;
 		class Item0
 		{
 			dataType="Group";
@@ -476,126 +467,6 @@ class Mission
 		};
 		class Item4
 		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={58,8.9768047,-22};
-			};
-			side="Empty";
-			flags=5;
-			class Attributes
-			{
-			};
-			id=192;
-			type="cvo_Flag_Olive";
-		};
-		class Item5
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={44,5.6528969,-22};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-			};
-			id=193;
-			type="cvo_Leadership_Portrait";
-		};
-		class Item6
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={48,6,-22};
-			};
-			side="Empty";
-			class Attributes
-			{
-			};
-			id=195;
-			type="cvo_stencil_black";
-			atlOffset=1;
-		};
-		class Item7
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={50,6,-22};
-			};
-			side="Empty";
-			class Attributes
-			{
-			};
-			id=196;
-			type="cvo_stencil_red";
-			atlOffset=1;
-		};
-		class Item8
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={46,6,-22};
-			};
-			side="Empty";
-			class Attributes
-			{
-			};
-			id=197;
-			type="cvo_stencil_white";
-			atlOffset=1;
-		};
-		class Item9
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={56,8.9768047,-22};
-			};
-			side="Empty";
-			flags=5;
-			class Attributes
-			{
-			};
-			id=198;
-			type="cvo_Flag_Olive";
-		};
-		class Item10
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={56,5.9885817,-26};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-			};
-			id=202;
-			type="cvo_carrier_flag_olive";
-		};
-		class Item11
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={58,5.9885817,-26};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-			};
-			id=203;
-			type="cvo_carrier_flag_red";
-		};
-		class Item12
-		{
 			dataType="Layer";
 			name="civs";
 			class Entities
@@ -620,7 +491,7 @@ class Mission
 							flags=7;
 							class Attributes
 							{
-								init="[this, ""RND""] call cvo_common_fnc_executeUnit;";
+								init="[this, ""RND""] call mum_common_fnc_executeUnit;";
 								name="tgt";
 							};
 							id=5;
@@ -681,7 +552,7 @@ class Mission
 							flags=7;
 							class Attributes
 							{
-								init="[this, ""RND""] call cvo_common_fnc_executeUnit;";
+								init="[this, ""RND""] call mum_common_fnc_executeUnit;";
 								name="tgt_1";
 							};
 							id=109;
@@ -742,7 +613,7 @@ class Mission
 							flags=7;
 							class Attributes
 							{
-								init="[this, ""RND""] call cvo_common_fnc_executeUnit;";
+								init="[this, ""RND""] call mum_common_fnc_executeUnit;";
 								name="tgt_2";
 							};
 							id=111;
@@ -803,7 +674,7 @@ class Mission
 							flags=7;
 							class Attributes
 							{
-								init="[this, ""RND""] call cvo_common_fnc_executeUnit;";
+								init="[this, ""RND""] call mum_common_fnc_executeUnit;";
 								name="tgt_3";
 							};
 							id=113;
@@ -864,7 +735,7 @@ class Mission
 							flags=7;
 							class Attributes
 							{
-								init="[this, ""RND""] call cvo_common_fnc_executeUnit;";
+								init="[this, ""RND""] call mum_common_fnc_executeUnit;";
 								name="tgt_4";
 							};
 							id=115;
@@ -925,7 +796,7 @@ class Mission
 							flags=7;
 							class Attributes
 							{
-								init="[this, ""RND""] call cvo_common_fnc_executeUnit;";
+								init="[this, ""RND""] call mum_common_fnc_executeUnit;";
 								name="tgt_5";
 							};
 							id=117;
@@ -986,7 +857,7 @@ class Mission
 							flags=7;
 							class Attributes
 							{
-								init="[this, ""RND""] call cvo_common_fnc_executeUnit;";
+								init="[this, ""RND""] call mum_common_fnc_executeUnit;";
 								name="tgt_6";
 							};
 							id=119;
@@ -1047,7 +918,7 @@ class Mission
 							flags=7;
 							class Attributes
 							{
-								init="[this, ""RND""] call cvo_common_fnc_executeUnit;";
+								init="[this, ""RND""] call mum_common_fnc_executeUnit;";
 								name="tgt_7";
 							};
 							id=121;
@@ -1108,7 +979,7 @@ class Mission
 							flags=7;
 							class Attributes
 							{
-								init="[this, ""RND""] call cvo_common_fnc_executeUnit;";
+								init="[this, ""RND""] call mum_common_fnc_executeUnit;";
 								name="tgt_8";
 							};
 							id=123;
@@ -1169,7 +1040,7 @@ class Mission
 							flags=7;
 							class Attributes
 							{
-								init="[this, ""RND""] call cvo_common_fnc_executeUnit;";
+								init="[this, ""RND""] call mum_common_fnc_executeUnit;";
 								name="tgt_9";
 							};
 							id=125;
@@ -1230,7 +1101,7 @@ class Mission
 							flags=7;
 							class Attributes
 							{
-								init="[this, ""RND""] call cvo_common_fnc_executeUnit;";
+								init="[this, ""RND""] call mum_common_fnc_executeUnit;";
 								name="tgt_10";
 							};
 							id=127;
@@ -1291,7 +1162,7 @@ class Mission
 							flags=7;
 							class Attributes
 							{
-								init="[this, ""RND""] call cvo_common_fnc_executeUnit;";
+								init="[this, ""RND""] call mum_common_fnc_executeUnit;";
 								name="tgt_11";
 							};
 							id=129;
@@ -1352,7 +1223,7 @@ class Mission
 							flags=7;
 							class Attributes
 							{
-								init="[this, ""RND""] call cvo_common_fnc_executeUnit;";
+								init="[this, ""RND""] call mum_common_fnc_executeUnit;";
 								name="tgt_12";
 							};
 							id=131;
@@ -1413,7 +1284,7 @@ class Mission
 							flags=7;
 							class Attributes
 							{
-								init="[this, ""RND""] call cvo_common_fnc_executeUnit;";
+								init="[this, ""RND""] call mum_common_fnc_executeUnit;";
 								name="tgt_13";
 							};
 							id=133;
@@ -1474,7 +1345,7 @@ class Mission
 							flags=7;
 							class Attributes
 							{
-								init="[this, ""RND""] call cvo_common_fnc_executeUnit;";
+								init="[this, ""RND""] call mum_common_fnc_executeUnit;";
 								name="tgt_14";
 							};
 							id=135;
@@ -1535,7 +1406,7 @@ class Mission
 							flags=7;
 							class Attributes
 							{
-								init="[this, ""RND""] call cvo_common_fnc_executeUnit;";
+								init="[this, ""RND""] call mum_common_fnc_executeUnit;";
 								name="tgt_15";
 							};
 							id=137;
@@ -1596,7 +1467,7 @@ class Mission
 							flags=7;
 							class Attributes
 							{
-								init="[this, ""RND""] call cvo_common_fnc_executeUnit;";
+								init="[this, ""RND""] call mum_common_fnc_executeUnit;";
 								name="tgt_16";
 							};
 							id=139;
@@ -1657,7 +1528,7 @@ class Mission
 							flags=7;
 							class Attributes
 							{
-								init="[this, ""RND""] call cvo_common_fnc_executeUnit;";
+								init="[this, ""RND""] call mum_common_fnc_executeUnit;";
 								name="tgt_17";
 							};
 							id=141;
@@ -1718,7 +1589,7 @@ class Mission
 							flags=7;
 							class Attributes
 							{
-								init="[this, ""RND""] call cvo_common_fnc_executeUnit;";
+								init="[this, ""RND""] call mum_common_fnc_executeUnit;";
 								name="tgt_18";
 							};
 							id=143;
@@ -1779,7 +1650,7 @@ class Mission
 							flags=7;
 							class Attributes
 							{
-								init="[this, ""RND""] call cvo_common_fnc_executeUnit;";
+								init="[this, ""RND""] call mum_common_fnc_executeUnit;";
 								name="tgt_19";
 							};
 							id=145;
@@ -1840,7 +1711,7 @@ class Mission
 							flags=7;
 							class Attributes
 							{
-								init="[this, ""RND""] call cvo_common_fnc_executeUnit;";
+								init="[this, ""RND""] call mum_common_fnc_executeUnit;";
 								name="tgt_20";
 							};
 							id=147;
@@ -1901,7 +1772,7 @@ class Mission
 							flags=7;
 							class Attributes
 							{
-								init="[this, ""RND""] call cvo_common_fnc_executeUnit;";
+								init="[this, ""RND""] call mum_common_fnc_executeUnit;";
 								name="tgt_21";
 							};
 							id=149;
@@ -1962,7 +1833,7 @@ class Mission
 							flags=7;
 							class Attributes
 							{
-								init="[this, ""RND""] call cvo_common_fnc_executeUnit;";
+								init="[this, ""RND""] call mum_common_fnc_executeUnit;";
 								name="tgt_22";
 							};
 							id=151;
@@ -2023,7 +1894,7 @@ class Mission
 							flags=7;
 							class Attributes
 							{
-								init="[this, ""RND""] call cvo_common_fnc_executeUnit;";
+								init="[this, ""RND""] call mum_common_fnc_executeUnit;";
 								name="tgt_23";
 							};
 							id=153;
@@ -2084,7 +1955,7 @@ class Mission
 							flags=7;
 							class Attributes
 							{
-								init="[this, ""RND""] call cvo_common_fnc_executeUnit;";
+								init="[this, ""RND""] call mum_common_fnc_executeUnit;";
 								name="tgt_24";
 							};
 							id=155;
@@ -2145,7 +2016,7 @@ class Mission
 							flags=7;
 							class Attributes
 							{
-								init="[this, ""RND""] call cvo_common_fnc_executeUnit;";
+								init="[this, ""RND""] call mum_common_fnc_executeUnit;";
 								name="tgt_25";
 							};
 							id=157;
@@ -2206,7 +2077,7 @@ class Mission
 							flags=7;
 							class Attributes
 							{
-								init="[this, ""RND""] call cvo_common_fnc_executeUnit;";
+								init="[this, ""RND""] call mum_common_fnc_executeUnit;";
 								name="tgt_26";
 							};
 							id=159;
@@ -2267,7 +2138,7 @@ class Mission
 							flags=7;
 							class Attributes
 							{
-								init="[this, ""RND""] call cvo_common_fnc_executeUnit;";
+								init="[this, ""RND""] call mum_common_fnc_executeUnit;";
 								name="tgt_27";
 							};
 							id=161;
@@ -2328,7 +2199,7 @@ class Mission
 							flags=7;
 							class Attributes
 							{
-								init="[this, ""RND""] call cvo_common_fnc_executeUnit;";
+								init="[this, ""RND""] call mum_common_fnc_executeUnit;";
 								name="tgt_28";
 							};
 							id=163;
@@ -2389,7 +2260,7 @@ class Mission
 							flags=7;
 							class Attributes
 							{
-								init="[this, ""RND""] call cvo_common_fnc_executeUnit;";
+								init="[this, ""RND""] call mum_common_fnc_executeUnit;";
 								name="tgt_29";
 							};
 							id=165;
@@ -2450,7 +2321,7 @@ class Mission
 							flags=7;
 							class Attributes
 							{
-								init="[this, ""RND""] call cvo_common_fnc_executeUnit;";
+								init="[this, ""RND""] call mum_common_fnc_executeUnit;";
 								name="tgt_30";
 							};
 							id=167;
@@ -2511,7 +2382,7 @@ class Mission
 							flags=7;
 							class Attributes
 							{
-								init="[this, ""RND""] call cvo_common_fnc_executeUnit;";
+								init="[this, ""RND""] call mum_common_fnc_executeUnit;";
 								name="tgt_31";
 							};
 							id=169;
@@ -2572,7 +2443,7 @@ class Mission
 							flags=7;
 							class Attributes
 							{
-								init="[this, ""RND""] call cvo_common_fnc_executeUnit;";
+								init="[this, ""RND""] call mum_common_fnc_executeUnit;";
 								name="tgt_32";
 							};
 							id=171;
@@ -2633,7 +2504,7 @@ class Mission
 							flags=7;
 							class Attributes
 							{
-								init="[this, ""RND""] call cvo_common_fnc_executeUnit;";
+								init="[this, ""RND""] call mum_common_fnc_executeUnit;";
 								name="tgt_33";
 							};
 							id=173;
@@ -2694,7 +2565,7 @@ class Mission
 							flags=7;
 							class Attributes
 							{
-								init="[this, ""RND""] call cvo_common_fnc_executeUnit;";
+								init="[this, ""RND""] call mum_common_fnc_executeUnit;";
 								name="tgt_34";
 							};
 							id=175;
@@ -2755,7 +2626,7 @@ class Mission
 							flags=7;
 							class Attributes
 							{
-								init="[this, ""RND""] call cvo_common_fnc_executeUnit;";
+								init="[this, ""RND""] call mum_common_fnc_executeUnit;";
 								name="tgt_35";
 							};
 							id=177;
@@ -2816,7 +2687,7 @@ class Mission
 							flags=7;
 							class Attributes
 							{
-								init="[this, ""RND""] call cvo_common_fnc_executeUnit;";
+								init="[this, ""RND""] call mum_common_fnc_executeUnit;";
 								name="tgt_36";
 							};
 							id=179;
@@ -2877,7 +2748,7 @@ class Mission
 							flags=7;
 							class Attributes
 							{
-								init="[this, ""RND""] call cvo_common_fnc_executeUnit;";
+								init="[this, ""RND""] call mum_common_fnc_executeUnit;";
 								name="tgt_37";
 							};
 							id=181;
@@ -2938,7 +2809,7 @@ class Mission
 							flags=7;
 							class Attributes
 							{
-								init="[this, ""RND""] call cvo_common_fnc_executeUnit;";
+								init="[this, ""RND""] call mum_common_fnc_executeUnit;";
 								name="tgt_38";
 							};
 							id=183;
@@ -2999,7 +2870,7 @@ class Mission
 							flags=7;
 							class Attributes
 							{
-								init="[this, ""RND""] call cvo_common_fnc_executeUnit;";
+								init="[this, ""RND""] call mum_common_fnc_executeUnit;";
 								name="tgt_39";
 							};
 							id=185;
@@ -3044,7 +2915,7 @@ class Mission
 			};
 			id=204;
 		};
-		class Item13
+		class Item5
 		{
 			dataType="Object";
 			class PositionInfo
@@ -3060,7 +2931,7 @@ class Mission
 			id=212;
 			type="Land_HelipadCircle_F";
 		};
-		class Item14
+		class Item6
 		{
 			dataType="Object";
 			class PositionInfo
@@ -3071,12 +2942,12 @@ class Mission
 			flags=5;
 			class Attributes
 			{
-				init=" [this, 30, ""ACE_wirecutter""] call cvo_common_fnc_makeRemovable;";
+				init=" [this, 30, ""ACE_wirecutter""] call mum_common_fnc_makeRemovable;";
 			};
 			id=306;
 			type="Land_Barricade_01_4m_F";
 		};
-		class Item15
+		class Item7
 		{
 			dataType="Object";
 			class PositionInfo
@@ -3091,7 +2962,7 @@ class Mission
 			id=308;
 			type="Land_TableDesk_F";
 		};
-		class Item16
+		class Item8
 		{
 			dataType="Object";
 			class PositionInfo
@@ -3106,7 +2977,7 @@ class Mission
 			id=312;
 			type="Land_TableDesk_F";
 		};
-		class Item17
+		class Item9
 		{
 			dataType="Object";
 			class PositionInfo
@@ -3122,7 +2993,7 @@ class Mission
 			id=315;
 			type="Land_Laptop_unfolded_F";
 		};
-		class Item18
+		class Item10
 		{
 			dataType="Object";
 			class PositionInfo
@@ -3139,7 +3010,7 @@ class Mission
 			id=316;
 			type="Land_Laptop_unfolded_F";
 		};
-		class Item19
+		class Item11
 		{
 			dataType="Object";
 			class PositionInfo
@@ -3156,7 +3027,7 @@ class Mission
 			type="Land_Laptop_unfolded_F";
 			atlOffset=0.81987667;
 		};
-		class Item20
+		class Item12
 		{
 			dataType="Object";
 			class PositionInfo
@@ -3172,7 +3043,7 @@ class Mission
 			id=318;
 			type="Land_Laptop_unfolded_F";
 		};
-		class Item21
+		class Item13
 		{
 			dataType="Object";
 			class PositionInfo
@@ -3189,7 +3060,7 @@ class Mission
 			id=319;
 			type="Land_Laptop_unfolded_F";
 		};
-		class Item22
+		class Item14
 		{
 			dataType="Object";
 			class PositionInfo
