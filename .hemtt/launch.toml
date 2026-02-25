@@ -39,3 +39,11 @@ mission = "arsenal.VR"
 [csc]
 extends = "default"
 mission = "CSC.Altis"
+
+[intel]
+extends = "default"
+mission = "intel.VR"
+
+[ula]
+extends = "default"
+mission = "ULA-Dedicated-MP-Test.stratis"
