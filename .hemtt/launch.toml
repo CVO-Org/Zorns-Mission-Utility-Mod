@@ -27,11 +27,15 @@ workshop = [
 dlc = []
 
 
-[Test]
+[test]
 extends = "default"
 mission = "test.VR"
 
 
-[Arsenal]
+[arsenal]
 extends = "default"
 mission = "arsenal.VR"
+
+[csc]
+extends = "default"
+mission = "CSC.Altis"
