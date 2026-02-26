@@ -15,10 +15,10 @@ Example mission folder can be found [here](https://github.com/CVO-Org/Zorns-Miss
 
 ### How to Implement
    1. Load Zorns Mission Utility Mod
-   2. Create `mum_arsenal.hpp` and include the mission's `description.ext`
-   3. Define Arsenal Objects, either via editor layer name or objectVariable or both
+   2. Create `mum_arsenal.hpp` and include in the mission's `description.ext`
+   3. Define Arsenal Objects, either via editor layer name or objectVariable or both in `mum_arsenal.hpp`
    4. Define Units Roles.
-   5. Define kits via config in `mum_arsenal.hpp` file.
+   5. Define kits in `mum_arsenal.hpp`.
 
 ## Roles
 
