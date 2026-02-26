@@ -2,11 +2,11 @@
 
 This is an config-based Arsenal Framework for the ACE Arsenal.
 
-This allows mission makers to easily create "kits" and make these kits available via an designated arsenal.
+This is primarily made for reusability across multiple missions - so campaigns or missions with a repeating player loadouts or "Zeus Templates".
+This allows mission makers to create "kits" (basically a list of classnames with optional conditions) and add these kits to designated arsenal objects.
+These Kits can be conditional, meaning they can be assigned to certain roles or player ID's or else.
 
 Example mission folder can be found [here](https://github.com/CVO-Org/Zorns-Mission-Utility-Mod/blob/main/.hemtt/missions/arsenal.VR).
-
-This is primarily made for campaigns or missions with a repeating player loadouts.
 
 ## Summary
 - Supports Kits limited for certain "Roles"
@@ -19,7 +19,7 @@ Optional requirements can be attached to a kit. For example: Roles, Addon depend
 These requirements will be evaluated every time a player opens the MUM Arsenal.
 
 ### Roles
-Roles are defined by the mission makers.
+Roles are defined by the mission makers via funciton call.
 
 Some roles will be automatically assigned, based on a units trait.
 - ACE Medic / ACE Doctor
@@ -33,8 +33,9 @@ Some roles will be automatically assigned, based on a units trait.
 ## How to Implement
    1. Load Zorns Mission Utility Mod
    2. Create `mum_arsenal.hpp` and include the mission's `description.ext`
-   3. Define kits via config in `mum_arsenal.hpp` file.
-   4. Define Units Roles with `mum_arsenal_fnc_addUnitRoles`, ether via 3den Editor or script.
+   3. Define Arsenal Objects, ether via editor layer name or objectVariable or both
+   4. Define kits via config in `mum_arsenal.hpp` file.
+   5. Define Units Roles with `mum_arsenal_fnc_addUnitRoles`, ether via 3den Editor or script.
         - Examples for the units init field:
           - `[ this, "someRole" ] call mum_arsenal_fnc_addUnitRoles;`
           - `[ this, ["someRole"] ] call mum_arsenal_fnc_addUnitRoles;`
@@ -46,10 +47,9 @@ Some roles will be automatically assigned, based on a units trait.
 
 ### Example Kit Configurations
 
-
 The following kits can be referenced as examples on how to format a kit.
 
-Further, those kits are hardcoded through the mod itself. They can be disabled through CBA Settings when needed.
+Further, the following kits are **hardcoded** through the mod itself. They can be disabled through [CBA Settings](#disable-default-kits). 
 
 - [Base Kits - Available vor Everyone](kits_base.hpp)
 - [Role Kits - Available for certain Roles](kits_role.hpp)
