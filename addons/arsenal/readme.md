@@ -8,6 +8,13 @@ These Kits can be conditional, meaning they can be assigned to certain roles or 
 
 Example mission folder can be found [here](https://github.com/CVO-Org/Zorns-Mission-Utility-Mod/blob/main/.hemtt/missions/arsenal.VR).
 
+## 
+> [!IMPORTANT]  
+> There are no modules and no "easy way" to set things up. Understanding basic config and SQF is a essential to have good time with this.
+> These Addons are made by me for me to make my life easier and reduce repeated effort.
+> I am happy to help with details, but basic sqf and config knowledge is expected.
+##
+
 ## Summary
 - Supports Kits limited for certain "Roles"
 - Auto Assigns "Roles" based on Traits
