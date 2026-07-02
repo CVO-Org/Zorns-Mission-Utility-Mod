@@ -8,7 +8,7 @@ class baseKit_Medical: baseKit {
         class ACE_splint {};
 
         class ACE_painkillers {};
-        
+
         class ACE_epinephrine {};
 
         class ACE_salineIV {};
@@ -58,7 +58,7 @@ class baseKit_Orientation: baseKit {
 
 // Base Kit - Setting Based
 class ACE_Hearing_Enabled: baseKit {
-    condition = "missionNamespace getVariable ['ace_hearing_enableCombatdeafness', true]"; // Find right Setting Variable
+    condition = "missionNamespace getVariable ['ace_hearing_enableCombatdeafness', true]";
     class items {
         class ACE_EarPlugs {};
     };
@@ -83,7 +83,7 @@ class ACE_FieldRations_Enabled: baseKit {
 
 
 // Base Kit - Mod Dependent
-class ImmersionCigs_Loaded: baseKit {
+class baseKit_ImmersionCigs_Loaded: baseKit {
     addon_dependency = "cigs_core"; // Find right Addon to be checked
     class items {
         class cigs_lighter {};
@@ -92,7 +92,7 @@ class ImmersionCigs_Loaded: baseKit {
     };
 };
 
-class GreenMag_Loaded: baseKit {
+class baseKit_GreenMag_Loaded: baseKit {
     addon_dependency = "greenmag_main"; // Find right Addon to be checked
     class items {
         class greenmag_item_speedloader {};
