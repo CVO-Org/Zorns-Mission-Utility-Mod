@@ -1,6 +1,6 @@
 /*
 *   MUM Arsenal Define File
-*   Example File:  https://github.com/CVO-Org/Zorns-Mission-Utility-Mod/blob/main/.hemtt/missions/test.VR/exampleArsenalConfig.hpp
+*   Example File:  https://github.com/CVO-Org/Zorns-Mission-Utility-Mod/blob/main/.hemtt/missions/arsenal.VR/mum_arsenal.hpp (this file)
 *   Documentation: https://github.com/CVO-Org/Zorns-Mission-Utility-Mod/blob/main/addons/arsenal/readme.md
 */
 
