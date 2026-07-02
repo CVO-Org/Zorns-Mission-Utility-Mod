@@ -8,8 +8,8 @@ These Kits can be conditional, meaning they can be assigned to certain roles or 
 
 Example mission folder can be found [here](https://github.com/CVO-Org/Zorns-Mission-Utility-Mod/blob/main/.hemtt/missions/arsenal.VR).
 
-## 
-> [!IMPORTANT]  
+##
+> [!IMPORTANT]
 > There are no modules and no "easy way" to set things up. Understanding basic config and SQF is a essential to have good time with this.
 > These Addons are made by me for me to make my life easier and reduce repeated effort.
 > I am happy to help with details, but basic sqf and config knowledge is expected.
@@ -51,7 +51,7 @@ Examples for the units init field:
 
 More Infos [here](functions/roles/fn_addUnitRoles.sqf)
 
- 
+
 
 ## Kits
 
@@ -64,7 +64,7 @@ These requirements will be evaluated every time a player opens the MUM Arsenal.
 
 The following kits can be referenced as examples on how to format a kit.
 
-Further, the following kits are **hardcoded** through the mod itself. They can be disabled through [CBA Settings](#disable-default-kits). 
+Further, the following kits are **hardcoded** through the mod itself. They can be disabled through [CBA Settings](#disable-default-kits).
 
 - [Base Kits - Available for Everyone](kits_base.hpp)
 - [Role Kits - Available for certain Roles](kits_role.hpp)
@@ -93,4 +93,15 @@ Further, the following kits are **hardcoded** through the mod itself. They can b
 
 
 ### Disable Default Kits
+
+The default "baseKits" that come with the mod can be disabled via two ways
+
+#### 1. Individually via CBA Settings
 ![Image showcasing the cba settings](https://github.com/CVO-Org/Zorns-Mission-Utility-Mod/blob/main/docs/img/arsenal_disable_defaultKits.png)
+
+#### 2. All at once via description.ext
+```cpp
+// Inside description.ext
+mum_arsenal_ignoreBaseKits = 1;
+mum_arsenal_ignoreBaseRoleKits = 1;
+```
