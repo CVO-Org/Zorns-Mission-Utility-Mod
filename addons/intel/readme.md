@@ -1,6 +1,12 @@
 # MUM Intel
 An Intel Framework
 
+Highly inspired by the Intel Module from Zeus Enhanced, but made to be used in the  3den Editor.
+
+This will turn any object into an ace interactable Intel Item. Once found, the players will recieve a hint that the intel has been found and the intel will be visible on the map screen.
+
+Revealed intel will visible after JIP or rejoin.
+
 
 ```sqf
 
