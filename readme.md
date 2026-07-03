@@ -1,8 +1,5 @@
 # Zorn Mission Utility Mod
-[![Steam Subscriptions](https://img.shields.io/steam/subscriptions/3673020691?style=for-the-badge&logo=steam&label=MUM%20on%20Steam%20Workshop&color=%23690000&link=https%3A%2F%2Fsteamcommunity.com%2Fsharedfiles%2Ffiledetails%2F%3Fid%3D3673020691)](https://steamcommunity.com/sharedfiles/filedetails/?id=3673020691)
-
-# Discord
-[![Discord Invite](https://img.shields.io/discord/1422294842897203200?label=Discord&logo=discord&logoColor=white&style=for-the-badge&color=darkgreen "Join Andx & Zorns Mods Discord")](https://discord.gg/ag4v6kxYAa)
+[![Steam Subscriptions](https://img.shields.io/steam/subscriptions/3673020691?style=for-the-badge&logo=steam&label=MUM%20on%20Steam%20Workshop&color=%23690000&link=https%3A%2F%2Fsteamcommunity.com%2Fsharedfiles%2Ffiledetails%2F%3Fid%3D3673020691)](https://steamcommunity.com/sharedfiles/filedetails/?id=3673020691)[![Discord Invite](https://img.shields.io/discord/1422294842897203200?label=Discord&logo=discord&logoColor=white&style=for-the-badge&color=darkgreen "Join Andx & Zorns Mods Discord")](https://discord.gg/ag4v6kxYAa)
 
 ## Links
 - [Github Repository: Zorns Mission Utility Mod](https://github.com/CVO-Org/Zorns-Mission-Utility-Mod)
