@@ -22,14 +22,14 @@ This mod contains several frameworks, tools and utilities that I have created in
 
 
 ## Features
-- [Role and SteamID based Arsenal Framework](addons\arsenal\readme.md)
-- [Custom Supply Crate Framework (WIP)](addon\csc\readme.md)
-- [Ambient Audio Framework](addon\ambient\readme.md)
-- [Diary System](addon\diary\readme.md)
-- [Intel System](addon\intel\readme.md)
-- [Unhide-Layer-Action](addon\ula\readme.md)
-- [Fonts](addon\fonts\readme.md)
-- [Commonly used Functions](addons\common\readme.md)
+- [Role and SteamID based Arsenal Framework](addons/arsenal/readme.md)
+- [Custom Supply Crate Framework (WIP)](addon/csc/readme.md)
+- [Ambient Audio Framework](addon/ambient/readme.md)
+- [Diary System](addon/diary/readme.md)
+- [Intel System](addon/intel/readme.md)
+- [Unhide-Layer-Action](addon/ula/readme.md)
+- [Fonts](addon/fonts/readme.md)
+- [Commonly used Functions](addons/common/readme.md)
 
 
 ## Dependencies
