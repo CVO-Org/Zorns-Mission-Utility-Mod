@@ -117,7 +117,18 @@ class mum_arsenal_kits
         };
     };
 
+
     // Others
+
+    // Sidebased condition: GreenFor Exclusive
+    class FIA: baseKit {
+        condition = "side ace_player == resistance";
+        class items {
+            class IEDLandSmall_Remote_Mag {};
+        };
+    };
+
+    // Based on CBA Setting
     class ACE_Rations: baseKit {
         condition = "missionNamespace getVariable ['ace_field_rations_enabled', true]";
         class items {
