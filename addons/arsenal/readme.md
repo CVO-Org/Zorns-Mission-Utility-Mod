@@ -1,24 +1,19 @@
-# MUM Arsenal - Framework for ACE Arsenal
+# Arsenal - Framework for ACE Arsenal
 
-This is an config-based Arsenal Framework for the ACE Arsenal.
+The Arsenal Framework for ACE Arsenal provides dedicated kits based on the players role and other conditions.
 
-This is primarily made for reusability across multiple missions - so campaigns or missions with a repeating player loadouts or "Zeus Templates".
-This allows mission makers to create "kits" (basically a list of classnames with optional conditions) and add these kits to designated arsenal objects.
-These Kits can be conditional, meaning they can be assigned to certain roles or player ID's or else.
+This is primarily made for reusability across multiple missions - so campaigns or missions with a repeating modset and player loadouts, as well as "Zeus Templates".
+
+It allows mission makers to create "kits" (basically a list of individual items) and make them available via an whitelisted ACE Arsenal.
+These Kits can be made conditional, meaning they can be assigned to certain roles or player ID's or other code conditions.
 
 Example mission folder can be found [here](https://github.com/CVO-Org/Zorns-Mission-Utility-Mod/blob/main/.hemtt/missions/arsenal.VR).
 
-##
-> [!IMPORTANT]
-> There are no modules and no "easy way" to set things up. Understanding basic config and SQF is a essential to have good time with this.
-> These Addons are made by me for me to make my life easier and reduce repeated effort.
-> I am happy to help with details, but basic sqf and config knowledge is expected.
-##
-
 ## Summary
 - Supports Kits limited for certain "Roles"
+- Supports Kits based on players Steam64 IDs
 - Auto Assigns "Roles" based on Traits
-- Supports Kits based based on a players Steam64 IDs
+- Auto Assigns "Traits" based on Roles
 
 ### How to Implement
    1. Load Zorns Mission Utility Mod
