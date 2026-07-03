@@ -48,9 +48,20 @@ Functions to provide Map Diary Entries, see: [addons\diary\functions\api](addons
 
 
 ## Enemy Forces
+see Allied Forces
 
 ## Personalities (VIPs, HVTs, etc.)
 
+![alt text](../../docs/img/diary_personality.png)
+```sqf
+[
+    "Mc Dude",
+    "", // default Image
+    "Head of Kitchen</br>Chief of Dishes",
+    "His cooking alright fam...",
+    "\A3\Data_F\Flags\Flag_AAF_CO.paa"  // icon
+] call mum_diary_fnc_setPersonality;
+```
 
 
 
