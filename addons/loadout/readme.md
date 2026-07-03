@@ -6,3 +6,7 @@ Saves a player loadout upon mission start and arsenal exit and applies it upon r
 
 ### Misc
 - Creates ACE Arsenal Category for [GreenMag](https://steamcommunity.com/sharedfiles/filedetails/?id=2352603233) items when mod is loaded.
+
+
+## Future Plans
+- Framework to equip players starting loadout based on config and roles
