@@ -14,19 +14,18 @@
 ///////////////
 
 
-
 [
 	"Additional"		// Subject Display Name
 	,"CommsPlan"		// Record Display Name
 	,""				 // Image inside the Entry. Example: getMissionPath "\data\personalities.paa"
 	,""				 // Subtitles
 	,"
-<br/> 343 Squad Radios
+<br/>343 Squad Radios
 <br/> Block 1 Channel 1: 1-1 - Infantry
 <br/> Block 1 Channel 2: 1-2 - Infantry
 <br/> Block 1 Channel 6: 1-6 - Platoon Element
 <br/>
-<br/> 152 Radios
+<br/>152 Radios
 <br/> Channel 1: Platoon Net
 <br/> Channel 2: AIR Net
 "					   // Text Body
@@ -34,3 +33,14 @@
 	// ,_newName
 	// ,_target
 ] call mum_diary_fnc_setEntry;
+
+
+///////////////
+
+[
+	"Mc Dude",
+	"", // default Image
+	"Head of Kitchen<br/>Chief of Dishes",
+	"His cooking alright fam...",
+	"\A3\Data_F\Flags\Flag_AAF_CO.paa"  // icon
+] call mum_diary_fnc_setPersonality;
