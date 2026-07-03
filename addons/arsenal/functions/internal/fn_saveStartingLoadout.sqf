@@ -21,13 +21,13 @@ if !(hasInterface) exitWith {};
 
 private _code = {
 
-    if !(SET(save_missionStart)) exitWith {};
+    if (SET(save_missionStart) isEqualTo -1) exitWith {};
 
     private _saveLoadout = {
         player setVariable [QGVAR(Loadout), [player] call CBA_fnc_getLoadout];
     };
 
-    private _delay = SET(save_missionStart_delay);
+    private _delay = SET(save_missionStart);
     if (_delay == 0) then _saveLoadout else { [ _saveLoadout , [], _delay] call CBA_fnc_waitAndExecute;    };
 
 };

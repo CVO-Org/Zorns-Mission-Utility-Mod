@@ -17,6 +17,7 @@
 
 if !(hasInterface) exitWith {};
 
+if !( isNil QGVAR(init_configKits) ) exitWith {};
 
 private _configKit_mod = Q(configName _x isNotEqualTo QQ(baseKit)) configClasses (configFile >> QGVAR(kits));
 private _configKit_mis = Q(configName _x isNotEqualTo QQ(baseKit)) configClasses (missionConfigFile >> QGVAR(kits));
@@ -40,3 +41,5 @@ _configs append _configKit_mis;
         configName _x
     ] call FUNC(addKit);
 } forEach _configs;
+
+GVAR(init_configKits) = true;

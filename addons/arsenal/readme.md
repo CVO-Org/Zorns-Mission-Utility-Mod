@@ -30,18 +30,28 @@ Example mission folder can be found [here](https://github.com/CVO-Org/Zorns-Miss
 ## Roles
 
 ### What is a role?
-Roles are simple "flags/tags" defined by the mission makers via a function call on the unit.
+Roles are simple "tags" defined by the mission makers via a function call on the unit.
 
-Some roles will be automatically assigned, based on a units trait.
-- ACE Medic / ACE Doctor
-- ACE Engineer / ACE Advanced Engineer
-- Explosives Specialist*
-- UAVHacker / EWSpecialist*
+Roles are case-insensitive and will be converted to lowercase ANSI characters.
 
-\* will apply trait if unit has role defined but not the trait.
+
+### Automatic Role Assignment
+
+Some roles will be automatically assigned, based on a unit's ace or vanilla traits.
+
+| Condition                             | Mum Arsenal Role (String) | Further                                             |
+| ------------------------------------- | ------------------------- | --------------------------------------------------- |
+| ACE Medical Trait = 1                 | `"Medic"`                 |                                                     |
+| ACE Medical Trait = 2                 | `"Doctor"`                |                                                     |
+| ACE Engineer Trait = 1                | `"Engineer"`              |                                                     |
+| ACE Engineer Trait = 2                | `"AdvEngineer"`           |                                                     |
+| Vanilla Trait `"medic"`               | `"Medic"`                 |                                                     |
+| Vanilla Trait `"engineer"`            | `"Engineer"`              |                                                     |
+| Vanilla Trait `"explosiveSpecialist"` | `"explosiveSpecialist"`   | Unit with role will also be given the vanilla trait |
+| Vanilla Trait `"UAVHacker"`           | `"EWSpecialist"`          | Unit with role will also be given the vanilla trait |
+
 
 ### Example Role Designation
-
 Roles are designated on a unit via `mum_arsenal_fnc_addUnitRoles`. This can be done either via a units Init Field in the 3den Editor or other script application.
 
 Examples for the units init field:
@@ -81,15 +91,16 @@ Further, the following kits are **hardcoded** through the mod itself. They can b
 
  #### Kit Attributes:
 
-| Attribute Name   | DataType                | Description                                                     | Default              |
-| :--------------- | ----------------------- | --------------------------------------------------------------- | -------------------- |
-| addon_dependency | <STRING>                | Name of an Addon - Will Check if the Addon is currently loaded. | `""` Skip check.     |
-| roles            | <STRING>                | Name/Identifier of the Role. case-insensitive.                  | `""` Applied to all. |
-| id64             | <STRING>                | steamID64 (getPlayerUID)                                        | `""` Applied to all. |
-| condition        | <STRING>                | Code as String - needs to return boolean.                       | `""` Skip check.     |
-| code             | <STRING>                | Code as String - needs to return array of classnames.           | `""` Skipped.        |
-| items            | <CLASS with SUBCLASSES> | subclasses will get added as item classnames.                   |  |
+| Attribute Name   | DataType                | Description                                           | Default              |
+| :--------------- | ----------------------- | ----------------------------------------------------- | -------------------- |
+| addon_dependency | <STRING>                | Name of an Addon - Check if  loaded.                  | `""` Skip check.     |
+| roles            | <STRING>                | Name/Identifier of the Role. case-insensitive. ANSI only.       | `""` Applied to all. |
+| id64             | <STRING>                | steamID64 (getPlayerUID)                              | `""` Applied to all. |
+| condition        | <STRING>                | Code as String - needs to return boolean.             | `""` Skip check.     |
+| code             | <STRING>                | Code as String - needs to return array of classnames. | `""` Skipped.        |
+| items            | <CLASS with SUBCLASSES> | subclasses will get added as item classnames.         |                      |
 
+Note: parameters for the condition and code are `params ["_unit", "_items"];`.
 
 
 ### Disable Default Kits
