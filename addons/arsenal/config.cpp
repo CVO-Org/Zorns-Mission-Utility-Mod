@@ -35,6 +35,8 @@ class CfgPatches {
 #include "CfgFunctions.hpp"
 #include "XEH\CfgXEH.hpp"
 
+#include "Cfg3DEN.hpp"
+
 #include "mum_arsenal_autoRoles.hpp"
 
 class GVAR(kits) {

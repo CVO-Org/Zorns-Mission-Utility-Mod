@@ -14,23 +14,23 @@ Each entry is an array: `[type, arguments...]`.
 
 ```sqf
 [
-	["JIP", true],
+    ["JIP", true],
     ["QUIET", 6],
-	["DELAY", 2],
-	["MUTE"],
-	["START", 6], // Fade to black for 6 seconds
-	["MUSIC_BOOST"],
-	["DELAY", 2],
-	["MUSIC", "EventTrack01_F_EPA"],
-	["DELAY", 2],
-	["TEXT", "In 1974, the colonial government of Bocano collapsed with the fall of the Estado Novo."],
+    ["DELAY", 2],
+    ["MUTE"],
+    ["START", 6], // Fade to black for 6 seconds
+    ["MUSIC_BOOST"],
+    ["DELAY", 2],
+    ["MUSIC", "EventTrack01_F_EPA"],
+    ["DELAY", 2],
+    ["TEXT", "In 1974, the colonial government of Bocano collapsed with the fall of the Estado Novo."],
     ["CODE", { systemChat format ["Player did JIP: %1", _isJIP]; } ],
-	["TEXT", "Good Luck....."],
-	["DELAY", 2],
-	["RAVEN", 6], // Show Raven image for 6 seconds
-	["DELAY", 2],
-	["UNMUTE", 10],
-	["END", 6] // Fade from black for 6 seconds
+    ["TEXT", "Good Luck....."],
+    ["DELAY", 2],
+    ["RAVEN", 6], // Show Raven image for 6 seconds
+    ["DELAY", 2],
+    ["UNMUTE", 10],
+    ["END", 6] // Fade from black for 6 seconds
 ] call mum_common_fnc_cutscene;
 ```
 

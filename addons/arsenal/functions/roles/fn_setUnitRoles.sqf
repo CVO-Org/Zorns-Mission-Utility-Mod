@@ -28,6 +28,6 @@ if ( _roles isEqualType "" ) then { _roles = [_roles]; };
 
 _roles = _roles apply { toLowerANSI _x };
 
-_unit setVariable [QGVAR(roles), _roles];
+_unit setVariable [QGVAR(roles), _roles, true];
 
 true
