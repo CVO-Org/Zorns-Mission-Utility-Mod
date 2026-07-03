@@ -34,16 +34,16 @@ Roles are case-insensitive and will be converted to lowercase ANSI characters.
 
 Certain roles will be automatically assigned, based on ace or vanilla traits.
 
-| Condition                             | Mum Arsenal Role (String) | Further                                             |
-| ------------------------------------- | ------------------------- | --------------------------------------------------- |
-| ACE Medical Trait = 1                 | `"Medic"`                 |                                                     |
-| ACE Medical Trait = 2                 | `"Doctor"`                |                                                     |
-| ACE Engineer Trait = 1                | `"Engineer"`              |                                                     |
-| ACE Engineer Trait = 2                | `"AdvEngineer"`           |                                                     |
-| Vanilla Trait `"medic"`               | `"Medic"`                 |                                                     |
-| Vanilla Trait `"engineer"`            | `"Engineer"`              |                                                     |
-| Vanilla Trait `"explosiveSpecialist"` | `"explosiveSpecialist"`   | Unit with role will also be given the vanilla trait |
-| Vanilla Trait `"UAVHacker"`           | `"EWSpecialist"`          | Unit with role will also be given the vanilla trait |
+| Condition                             | Mum Arsenal Role (String) |
+| ------------------------------------- | ------------------------- |
+| ACE Medical Trait = 1                 | `"Medic"`                 |
+| ACE Medical Trait = 2                 | `"Doctor"`                |
+| ACE Engineer Trait = 1                | `"Engineer"`              |
+| ACE Engineer Trait = 2                | `"AdvEngineer"`           |
+| Vanilla Trait `"medic"`               | `"Medic"`                 |
+| Vanilla Trait `"engineer"`            | `"Engineer"`              |
+| Vanilla Trait `"explosiveSpecialist"` | `"explosiveSpecialist"`   |
+| Vanilla Trait `"UAVHacker"`           | `"EWSpecialist"`          |
 
 ### Auto Traits - Automatic Trait Assignement
 Certain Traits will be automatically assigned, based on the Arsenal Roles.
