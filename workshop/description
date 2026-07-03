@@ -1,0 +1,32 @@
+[h1]Support the Project[/h1]
+[img]https://i.imgur.com/3Qd4tiO.gif[/img]
+
+[h1]Zorn Mission Utility Mod[/h1]
+
+A collection of frameworks, tools and utilities for mission makers - originally built for our unit, cleaned up for public use.
+
+[b]⚠️ Important:[/b] There are no modules and no "easy setup." Basic knowledge of Arma 3 config and SQF is required to get the most out of this mod. These addons were made to solve my own problems — happy to help with details, but basic SQF/config understanding is expected.
+
+[h2]Feature Highlights[/h2]
+[list]
+[*] Role & SteamID based Arsenal Framework
+[*] Custom Supply Crate Framework (WIP)
+[*] Intel System
+[*] and more!
+[/list]
+
+[h2]Dependencies[/h2]
+[list]
+[*] CBA
+[*] ACE3
+[/list]
+
+[b]Server Admins:[/b] This mod must be loaded on both server and client.
+
+[h2]Documentation & Updates[/h2]
+Full documentation, feature breakdowns and updates: [url=https://github.com/CVO-Org/Zorns-Mission-Utility-Mod]GitHub Repository[/url]
+
+Support/Discussion: [url=https://discord.gg/ag4v6kxYAa]Discord[/url]
+
+[i]License: APL-ND - You are not allowed to reupload this mod.[/i]
+[i]Credits: OverlordZorn[/i]
