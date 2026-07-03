@@ -35,6 +35,8 @@ class CfgPatches {
 #include "CfgFunctions.hpp"
 #include "XEH\CfgXEH.hpp"
 
+#include "mum_arsenal_autoRoles.hpp"
+
 class GVAR(kits) {
 
     class baseKit {
@@ -46,8 +48,7 @@ class GVAR(kits) {
         code = ""; // needs to return array
     };
 
-    #include "kits_base.hpp"
-    #include "kits_role.hpp"
-    #include "kits_personal.hpp"
-
+    #include "mum_arsenal_kits_base.hpp"
+    #include "mum_arsenal_kits_role.hpp"
+    #include "mum_arsenal_kits_personal.hpp"
 };

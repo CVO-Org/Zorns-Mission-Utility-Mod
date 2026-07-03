@@ -7,7 +7,7 @@
 ### Currently supported values for the Hashmap
 keys and default values
 ```sqf
-createHashmapFromArray [
+createHashMapFromArray [
     ["ace_medical_facility", false],
     ["ace_medical_vehicle", false],
 

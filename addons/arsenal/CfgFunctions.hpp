@@ -28,6 +28,7 @@ class CfgFunctions
             file = PATH_TO_FUNC_SUB(config);
             class getKitFromCfg {};
             class handleConfigKits {};
+            class handleConfigAutoRoles {};
             class mission_init { postInit = 1; };
         };
 

@@ -1,4 +1,7 @@
 #include "../script_component.hpp"
 
-#include "initSettings_common.inc.sqf"
-#include "initSettings_kits.inc.sqf"
+#include "initSettings_loadouts.inc.sqf"
+#include "initSettings_defaultKits.inc.sqf"
+
+#include "initSettings_autoRoles.inc.sqf"
+#include "initSettings_autoTraits.inc.sqf"
