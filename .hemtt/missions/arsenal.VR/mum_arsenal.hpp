@@ -44,7 +44,7 @@ class mum_arsenal_kits
 
     class Base_Backpacks: baseKit {
         class items {
- 			class ace_gunbag_Tan {};
+             class ace_gunbag_Tan {};
 
             class B_RadioBag_01_eaf_F {};
             class B_Carryall_eaf_F {};
@@ -121,14 +121,14 @@ class mum_arsenal_kits
     class ACE_Rations: baseKit {
         condition = "missionNamespace getVariable ['ace_field_rations_enabled', true]";
         class items {
-	        class ACE_MRE_BeefStew {};
-	        class ACE_MRE_ChickenTikkaMasala {};
-	        class ACE_MRE_ChickenHerbDumplings {};
-	        class ACE_MRE_CreamChickenSoup {};
-	        class ACE_MRE_CreamTomatoSoup {};
-	        class ACE_MRE_LambCurry {};
-	        class ACE_MRE_MeatballsPasta {};
-	        class ACE_MRE_SteakVegetables {};
+            class ACE_MRE_BeefStew {};
+            class ACE_MRE_ChickenTikkaMasala {};
+            class ACE_MRE_ChickenHerbDumplings {};
+            class ACE_MRE_CreamChickenSoup {};
+            class ACE_MRE_CreamTomatoSoup {};
+            class ACE_MRE_LambCurry {};
+            class ACE_MRE_MeatballsPasta {};
+            class ACE_MRE_SteakVegetables {};
         };
     };
 
