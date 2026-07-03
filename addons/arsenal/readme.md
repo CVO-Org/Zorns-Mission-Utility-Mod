@@ -62,7 +62,7 @@ Certain Traits will be automatically assigned, based on the Arsenal Roles.
 
 #### 1. 3den Editor Attribute
 
-![alt text](docs\img\arsenal_3den_roles.png)
+![alt text](https://github.com/CVO-Org/Zorns-Mission-Utility-Mod/blob/main/docs/img/arsenal_3den_roles.png)
 
 One or more Roles can be assigned like this.
 Example: `Marksman` or `firstRole, secondRole`.
