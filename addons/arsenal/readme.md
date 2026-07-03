@@ -35,9 +35,9 @@ Roles are simple "tags" defined by the mission makers via a function call on the
 Roles are case-insensitive and will be converted to lowercase ANSI characters.
 
 
-### Automatic Role Assignment
+### Auto Roles - Automatic Role Assignement
 
-Some roles will be automatically assigned, based on a unit's ace or vanilla traits.
+Certain roles will be automatically assigned, based on ace or vanilla traits.
 
 | Condition                             | Mum Arsenal Role (String) | Further                                             |
 | ------------------------------------- | ------------------------- | --------------------------------------------------- |
@@ -50,9 +50,26 @@ Some roles will be automatically assigned, based on a unit's ace or vanilla trai
 | Vanilla Trait `"explosiveSpecialist"` | `"explosiveSpecialist"`   | Unit with role will also be given the vanilla trait |
 | Vanilla Trait `"UAVHacker"`           | `"EWSpecialist"`          | Unit with role will also be given the vanilla trait |
 
+### Auto Traits - Automatic Trait Assignement
+Certain Traits will be automatically assigned, based on the Arsenal Roles.
 
-### Example Role Designation
-Roles are designated on a unit via `mum_arsenal_fnc_addUnitRoles`. This can be done either via a units Init Field in the 3den Editor or other script application.
+| Condition                                | Vanilla Trait           |
+| ---------------------------------------- | ----------------------- |
+| Mum Arsenal Role `"explosiveSpecialist"` | `"explosiveSpecialist"` |
+| Mum Arsenal Role `"EWSpecialist"`        | `"EWSpecialist"`        |
+
+### How to Assign an Arsenal Role
+
+#### 1. 3den Editor Attribute
+
+![alt text](docs\img\arsenal_3den_roles.png)
+
+One or more Roles can be assigned like this.
+Example: `Marksman` or `firstRole, secondRole`.
+
+#### 2. Script
+Roles are added to a unit with `mum_arsenal_fnc_addUnitRoles`.
+This can be done either via a units Init Field in the 3den Editor or other script application.
 
 Examples for the units init field:
 - `[ this, "someRole" ] call mum_arsenal_fnc_addUnitRoles;`
@@ -60,7 +77,6 @@ Examples for the units init field:
 - `[ this, ["someRole", "anotherRole"] ] call mum_arsenal_fnc_addUnitRoles;`
 
 More Infos [here](functions/roles/fn_addUnitRoles.sqf)
-
 
 
 ## Kits
