@@ -6,37 +6,16 @@
                 <English>MUM - Arsenal</English>
             </Key>
             <Key ID="STR_mum_arsenal_set_autoRoles_subcat_title">
-                <English>3. Auto Roles</English>
+                <English>2. Auto Roles</English>
             </Key>
             <Key ID="STR_mum_arsenal_set_autoTraits_subcat_title">
-                <English>4. Auto Traits</English>
+                <English>3. Auto Traits</English>
             </Key>
             <Key ID="STR_mum_arsenal_set_defaultKits_subcat_title">
-                <English>2. Default Kits</English>
+                <English>1. Default Kits</English>
             </Key>
             <Key ID="STR_mum_arsenal_set_disable_desc">
                 <English>To disable, uncheck the box :smort:</English>
-            </Key>
-            <Key ID="STR_mum_arsenal_set_loadout_apply_onRespawn">
-                <English>Apply on Respawn</English>
-            </Key>
-            <Key ID="STR_mum_arsenal_set_loadout_apply_onRespawn_desc">
-                <English>Will restore the previously saved loadout on player respawn.</English>
-            </Key>
-            <Key ID="STR_mum_arsenal_set_loadout_save_arsenalClosed">
-                <English>Save on ACE Arsenal closed</English>
-            </Key>
-            <Key ID="STR_mum_arsenal_set_loadout_save_arsenalClosed_desc">
-                <English>Save Player Loadout when the ACE Arsenal is being closed</English>
-            </Key>
-            <Key ID="STR_mum_arsenal_set_loadout_save_missionStart">
-                <English>Save on Mission Start</English>
-            </Key>
-            <Key ID="STR_mum_arsenal_set_loadout_save_missionStart_desc">
-                <English>Save Player Loadout on Missionstart with delay.\n0&lt;: Delay in Seconds\n0: On Mission Init\n-1: Disabled.</English>
-            </Key>
-            <Key ID="STR_mum_arsenal_set_loadout_subcat_title">
-                <English>1. Save and Restore Loadouts</English>
             </Key>
         </Container>
     </Package>

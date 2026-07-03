@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="mission-utility-mod">
+    <Package name="Loadout">
+        <Container name="CBA Settings">
+            <Key ID="STR_mum_loadout_cat_title">
+                <English>MUM - Loadout</English>
+            </Key>
+            <Key ID="STR_mum_loadout_set_saveRestore_apply_onRespawn">
+                <English>Apply on Respawn</English>
+            </Key>
+            <Key ID="STR_mum_loadout_set_saveRestore_apply_onRespawn_desc">
+                <English>Will restore the previously saved loadout on player respawn.</English>
+            </Key>
+            <Key ID="STR_mum_loadout_set_saveRestore_save_arsenalClosed">
+                <English>Save on ACE Arsenal closed</English>
+            </Key>
+            <Key ID="STR_mum_loadout_set_saveRestore_save_arsenalClosed_desc">
+                <English>Save Player Loadout when the ACE Arsenal is being closed</English>
+            </Key>
+            <Key ID="STR_mum_loadout_set_saveRestore_save_missionStart">
+                <English>Save on Mission Start</English>
+            </Key>
+            <Key ID="STR_mum_loadout_set_saveRestore_save_missionStart_desc">
+                <English>Save Player Loadout on Missionstart with delay.\n0&lt;: Delay in Seconds\n0: On Mission Init\n-1: Disabled.</English>
+            </Key>
+            <Key ID="STR_mum_loadout_set_saveRestore_subcat_title">
+                <English>1. Save and Restore Loadouts</English>
+            </Key>
+        </Container>
+    </Package>
+</Project>

@@ -12,7 +12,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=4;
+		nextID=5;
 	};
 	class Camera
 	{
@@ -126,6 +126,19 @@ class Mission
 					{
 						class Attribute0
 						{
+							property="mum_arsenal_3den_roles";
+							expression="_this setVariable ['mum_arsenal_3den_roles',_value, true];";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="anti-tank";
+								};
+							};
+						};
+						class Attribute1
+						{
 							property="speaker";
 							expression="_this setspeaker _value;";
 							class Value
@@ -137,7 +150,7 @@ class Mission
 								};
 							};
 						};
-						class Attribute1
+						class Attribute2
 						{
 							property="pitch";
 							expression="_this setpitch _value;";
@@ -150,7 +163,7 @@ class Mission
 								};
 							};
 						};
-						nAttributes=2;
+						nAttributes=3;
 					};
 				};
 			};
