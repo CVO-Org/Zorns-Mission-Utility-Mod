@@ -2,7 +2,7 @@
 
 /*
 * Author: Zorn
-* Function to Define 
+* Function to Define
 *
 * Arguments:
 *
@@ -21,7 +21,7 @@ params [
     [ "_subTitle",      "", [""]    ],
     [ "_photo",         "", [""]    ],
     [ "_flag",          "", [""]    ]
-    
+
 ];
 
 if (_factionName isEqualTo "") exitWith {};
