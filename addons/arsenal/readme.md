@@ -102,14 +102,14 @@ Further, the following kits are **hardcoded** through the mod itself. They can b
 
  #### Kit Attributes:
 
-| Attribute Name   | DataType                | Description                                           | Default              |
-| :--------------- | ----------------------- | ----------------------------------------------------- | -------------------- |
-| addon_dependency | <STRING>                | Name of an Addon - Check if  loaded.                  | `""` Skip check.     |
-| roles            | <STRING>                | Name/Identifier of the Role. case-insensitive. ANSI only.       | `""` Applied to all. |
-| id64             | <STRING>                | steamID64 (getPlayerUID)                              | `""` Applied to all. |
-| condition        | <STRING>                | Code as String - needs to return boolean.             | `""` Skip check.     |
-| code             | <STRING>                | Code as String - needs to return array of classnames. | `""` Skipped.        |
-| items            | <CLASS with SUBCLASSES> | subclasses will get added as item classnames.         |                      |
+| Attribute Name   | DataType                | Description                                               | Default              |
+| :--------------- | ----------------------- | --------------------------------------------------------- | -------------------- |
+| addon_dependency | <STRING>                | Name of an Addon - Check if  loaded.                      | `""` Skip check.     |
+| roles            | <STRING>                | Name/Identifier of the Role. case-insensitive. ANSI only. | `""` Applied to all. |
+| id64             | <STRING>                | steamID64 (getPlayerUID or https://steamid.io/)           | `""` Applied to all. |
+| condition        | <STRING>                | Code as String - needs to return boolean.                 | `""` Skip check.     |
+| code             | <STRING>                | Code as String - needs to return array of classnames.     | `""` Skipped.        |
+| items            | <CLASS with SUBCLASSES> | subclasses will get added as item classnames.             |                      |
 
 Note: parameters for the condition and code are `params ["_unit", "_items"];`.
 
