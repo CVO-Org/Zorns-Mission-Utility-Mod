@@ -5,10 +5,10 @@ class CfgPatches {
 
         // Meta information for editor
         name = ADDON_NAME;
-        author = "$STR_mod_Author";
+        author = ECSTRING(main,author);
         authors[] = {"OverlordZorn [CVO]"};
 
-        url = "$STR_mod_URL";
+        url = ECSTRING(main,url);
 
         VERSION_CONFIG;
 
@@ -24,7 +24,7 @@ class CfgPatches {
         skipWhenMissingDependencies = 1;
 
         // List of objects (CfgVehicles classes) contained in the addon. Important also for Zeus content (units and groups)
-        units[] = {};
+        units[] = {QGVAR(accessPoint)};
 
         // List of weapons (CfgWeapons classes) contained in the addon.
         weapons[] = {};
@@ -35,7 +35,10 @@ class CfgPatches {
 #include "CfgFunctions.hpp"
 #include "XEH\CfgXEH.hpp"
 
+#include "CfgVehicles.hpp"
+
 #include "Cfg3DEN.hpp"
+#include "CfgEditorSubcategories.hpp"
 
 #include "mum_arsenal_autoRoles.hpp"
 

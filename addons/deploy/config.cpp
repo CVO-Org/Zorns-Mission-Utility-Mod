@@ -5,10 +5,10 @@ class CfgPatches {
 
         // Meta information for editor
         name = ADDON_NAME;
-        author = "$STR_MUM_Author";
+        author = ECSTRING(main,author);
         authors[] = {"OverlordZorn [CVO]"};
 
-        url = "$STR_MUM_URL";
+        url = ECSTRING(main,url);
 
         VERSION_CONFIG;
 
