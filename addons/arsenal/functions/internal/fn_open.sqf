@@ -4,8 +4,8 @@
 Script Runs when the players open the arsenal.
 1.
 If the player opens the arsenal for the first time,
-it creates the cvo_arsenal_local_box box and updates the content of said arsenal.
-If the player opened it before and the cvo_arsenal_local_box exists already, it will
+it creates the MUM_arsenal_local_box box and updates the content of said arsenal.
+If the player opened it before and the MUM_arsenal_local_box exists already, it will
 */
 
 if (isNull GVAR(local_box)) then { GVAR(local_box) = nil;};

@@ -47,3 +47,8 @@ mission = "intel.VR"
 [ula]
 extends = "default"
 mission = "ULA-Dedicated-MP-Test.stratis"
+
+[deploy]
+extends = "default"
+mission = "Deploy.Altis"
+
