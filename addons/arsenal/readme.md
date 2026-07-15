@@ -127,3 +127,10 @@ The default "baseKits" that come with the mod can be disabled via two ways
 mum_arsenal_ignoreBaseKits = 1;
 mum_arsenal_ignoreBaseRoleKits = 1;
 ```
+
+### Arsenal Access Point
+
+For Missionmakers who would like to do a more decorative setup who seek to be able to have an "offset" arsenal interaction node, an invisible object has been created which will open the arsenal menu.
+
+![alt text](../../docs/img/arsenal_accessPoint1.png)
+![alt text](../../docs/img/arsenal_accessPoint2.png)

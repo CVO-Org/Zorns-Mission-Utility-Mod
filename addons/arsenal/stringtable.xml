@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="mission-utility-mod">
     <Package name="Arsenal">
+        <Container name="3den Category">
+            <Key ID="STR_mum_arsenal_name">
+                <English>Arsenal</English>
+            </Key>
+        </Container>
         <Container name="CBA Settings">
             <Key ID="STR_mum_arsenal_cat_title">
                 <English>MUM - Arsenal</English>
@@ -16,6 +21,11 @@
             </Key>
             <Key ID="STR_mum_arsenal_set_disable_desc">
                 <English>To disable, uncheck the box :smort:</English>
+            </Key>
+        </Container>
+        <Container name="CfgVehicles">
+            <Key ID="STR_mum_arsenal_accessPoint">
+                <English>Arsenal AccessPoint</English>
             </Key>
         </Container>
     </Package>

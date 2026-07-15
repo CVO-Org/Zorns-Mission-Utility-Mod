@@ -8,18 +8,18 @@ class EditorData
 	toggles=517;
 	class ItemIDProvider
 	{
-		nextID=191;
+		nextID=192;
 	};
 	class LayerIndexProvider
 	{
-		nextID=5;
+		nextID=10;
 	};
 	class Camera
 	{
-		pos[]={-4.726418,17.604523,-18.438658};
-		dir[]={0.20810503,-0.73651689,0.6436708};
-		up[]={0.22658284,0.67639208,0.70082289};
-		aside[]={0.95153469,5.5893906e-08,-0.30764136};
+		pos[]={-9.4654274,30,-35.105679};
+		dir[]={0.21887527,-0.70584619,0.67370349};
+		up[]={0.21809657,0.70836473,0.67130679};
+		aside[]={0.95106727,1.371518e-08,-0.30898604};
 	};
 };
 binarizationWanted=0;
@@ -29,13 +29,14 @@ addons[]=
 	"A3_Characters_F",
 	"A3_Structures_F_Civ_Market",
 	"A3_Props_F_Exp_Infrastructure_Railways",
-	"A3_Supplies_F_Heli_CargoNets"
+	"A3_Supplies_F_Heli_CargoNets",
+	"mum_arsenal"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=4;
+		items=5;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -64,6 +65,13 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item4
+		{
+			className="mum_arsenal";
+			name="Zorn's Mission Utilty Mod - Arsenal Framework";
+			author="Zorn";
+			url="https://github.com/CVO-Org/Zorns-Mission-Utility-Mod";
+		};
 	};
 };
 dlcs[]=
@@ -75,6 +83,9 @@ randomSeed=4540948;
 class ScenarioData
 {
 	author="Overlord Zorn";
+};
+class CustomAttributes
+{
 };
 class Mission
 {
@@ -99,7 +110,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=4;
+		items=5;
 		class Item0
 		{
 			dataType="Group";
@@ -112,7 +123,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={0,5.0014391,-7.9499998};
+						position[]={4,5.0014391,-11.95};
 					};
 					side="West";
 					flags=7;
@@ -246,6 +257,53 @@ class Mission
 			};
 			id=190;
 			type="CargoNet_01_box_F";
+		};
+		class Item4
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4,6,-10};
+			};
+			side="Empty";
+			class Attributes
+			{
+				name="test";
+				disableSimulation=1;
+			};
+			id=191;
+			type="mum_arsenal_accessPoint";
+			atlOffset=1;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=2;
+			};
 		};
 	};
 };
