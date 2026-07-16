@@ -2,7 +2,7 @@
 
 /*
 * Author: Zorn
-* Function to create or return the  Network / Catalog hashmap, based on the Network Name
+* Function to create or return the Network / Catalog hashmap, based on the Network Name
 *
 * Arguments:
 *
@@ -16,12 +16,12 @@
 */
 
 params [
-    ["_networkName", "Default", ["acceptedDataTypes"] ]
+    ["_networkName", "Default", [""] ]
 ];
 
-private _network = missionNamespace getVariable [[QADDON,_networkName] joinString "_", "404"];
+private _network = missionNamespace getVariable [[QADDON,_networkName] joinString "_", nil];
 
-if (_network isEqualTo "404") then {
+if (isNil "_network") then {
     _network = createHashMapFromArray [
         ["departure", []],
         ["destinations", []],

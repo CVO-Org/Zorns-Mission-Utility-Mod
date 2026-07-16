@@ -4,7 +4,7 @@ class CfgFunctions
     {
         class internal {
             file = PATH_TO_FUNC_SUB(internal);
-            
+
             // class function { /* preInit = 1; */ };
             class network {};
 
@@ -17,7 +17,7 @@ class CfgFunctions
 
         class public {
             file = PATH_TO_FUNC_SUB(public);
-            
+
             class departure {};
             class destination {};
             class destination_remove {};
@@ -25,7 +25,7 @@ class CfgFunctions
 
         class ui {
             file = PATH_TO_FUNC_SUB(ui);
-            
+
             class openDialog {};
 
             class ui_update {};
@@ -37,5 +37,13 @@ class CfgFunctions
 
 
         };
+
+        class module {
+            file = PATH_TO_FUNC_SUB(module);
+
+            class module_departure {};
+            class module_destination {};
+        };
+
     };
 };

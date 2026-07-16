@@ -26,8 +26,8 @@ if (_object isEqualTo objNull) exitWith {};
 
 // Get Cat Name
 if (isNil "_networkName") then {
-    _networkName = _object getVariable [QGVAR(NetworkName),false];
-    if (_networkName isEqualTo false) exitWith {};
+    _networkName = _object getVariable QGVAR(NetworkName);
+    if (isNil "_networkName") exitWith {};
 };
 
 private _network = [_networkName] call FUNC(network);

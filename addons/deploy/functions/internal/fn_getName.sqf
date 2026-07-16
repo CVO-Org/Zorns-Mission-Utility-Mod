@@ -48,11 +48,10 @@ _distance = switch (true) do {
 
 private _cdir = ["N", "NNE","NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW", "N"];
 private _direction = _cdir select floor ( (position _loc getDir _target) / (360 / count _cdir));
-private _rel = format ["%1 %2 from %3", _distance, _direction, className _loc]; 
-
-
+private _rel = format ["%1 %2 from %3", _distance, _direction, className _loc];
 
 private _return = switch (_type) do {
+    case "UNIT": { format ["%1 %2 - %3", _grid, _rel, name _target]};
     case "VIC": { format ["%1 %2 - %3", _grid, _rel, _vehicleInfo ] };
     case "POS";
     case "STATIC";

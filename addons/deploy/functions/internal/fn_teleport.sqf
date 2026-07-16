@@ -21,9 +21,11 @@ _actionParams params ["_destination"];
 if ( _player isEqualTo objNull || { _destination isEqualTo false } ) exitWith {};
 
 private _target = _destination get "target";
-private _min =    _destination get "min";
-private _max =    _destination get "max";
+private _min    = _destination get "min";
+private _max    = _destination get "max";
 
+// Position array with 2 Values: ATL
+// Position array with 3 Values: ASL
 private _code = switch (true) do {
     case (_target isEqualType [] ): { { if (count (_this#1) == 2) then { _this#0 setPos _this#1 } else { _this#0 setPosASL _this#1 } } };
     case (_target emptyPositions  "" > 0) : { { _this#0 moveInAny _this#1 } };
