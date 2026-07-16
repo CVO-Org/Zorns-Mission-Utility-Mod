@@ -7,11 +7,11 @@ Functions to provide Map Diary Entries, see: [addons\diary\functions\api](addons
 
 ```sqf
 [
-	"Additional"		// Subject Display Name
-	,"CommsPlan"		// Record Display Name
-	,""				 // Image inside the Entry. Example: getMissionPath "\data\personalities.paa"
-	,""				 // Subtitles
-	,"
+    "Additional"        // Subject Display Name
+    ,"CommsPlan"        // Record Display Name
+    ,""                 // Image inside the Entry. Example: getMissionPath "\data\personalities.paa"
+    ,""                 // Subtitles
+    ,"
 <br/> 343 Squad Radios
 <br/> Block 1 Channel 1: 1-1 - Infantry
 <br/> Block 1 Channel 2: 1-2 - Infantry
@@ -20,10 +20,10 @@ Functions to provide Map Diary Entries, see: [addons\diary\functions\api](addons
 <br/> 152 Radios
 <br/> Channel 1: Platoon Net
 <br/> Channel 2: AIR Net
-"					   // Text Body
-	// ,_icon		   // Image next to the entry Title (small flags for example)
-	// ,_newName
-	// ,_target
+"                       // Text Body
+    // ,_icon           // Image next to the entry Title (small flags for example)
+    // ,_newName
+    // ,_target
 ] call mum_diary_fnc_setEntry;
 ```
 
