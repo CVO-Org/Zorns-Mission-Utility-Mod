@@ -43,9 +43,6 @@ private _action = [
 ] call ace_interact_menu_fnc_createAction;
 
 {
-
-    systemChat "Adding Arsenal"; // TODO
-
     [
         _x,
         0,
