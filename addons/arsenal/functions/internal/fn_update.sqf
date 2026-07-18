@@ -32,6 +32,9 @@ private _roles = [_unit] call FUNC(getUnitRoles);
 _roles = [_unit, _roles] call FUNC(rolesByTrait);
 systemChat format ['[%1][%2] Player Roles: %3', PREFIX,COMPONENT,_roles];
 
+// ## get side
+private _side = str side _unit;
+
 // ## get PlayerUID
 private _id64 = getPlayerUID _unit;
 
@@ -40,6 +43,6 @@ private _kits = ["arsenal_kits"] call EFUNC(catalog,getCatalog);
 
 // Start Recursive Function
 ZRN_LOG_MSG(Updating the Arsenal Kits...);
-[_box, _unit, _roles, _id64, _kits] call FUNC(addItemsFromKit_recursive);
+[_box, _unit, _side, _roles, _id64, _kits] call FUNC(addItemsFromKit_recursive);
 
 nil
