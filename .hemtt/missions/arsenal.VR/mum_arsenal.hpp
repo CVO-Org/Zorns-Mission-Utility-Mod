@@ -18,6 +18,9 @@ class mum_arsenal_kits
 
     // Wearables / Gear
     class Base_Uniforms: baseKit {
+
+        sides = "WEST";
+
         class items {
             class U_I_E_ParadeUniform_01_LDF_F {};
             class U_I_E_ParadeUniform_01_LDF_decorated_F {};
@@ -32,6 +35,9 @@ class mum_arsenal_kits
     };
 
     class Base_Vests: baseKit {
+
+        sides[] = {"WEST", "EAST"};
+
         class items {
             class V_CarrierRigKBT_01_heavy_EAF_F {};
             class V_CarrierRigKBT_01_heavy_Olive_F {};
