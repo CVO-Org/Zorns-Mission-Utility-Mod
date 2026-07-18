@@ -29,7 +29,6 @@ class CfgFunctions
             file = PATH_TO_FUNC_SUB(kit);
             class addKit {};
             class createKit {};
-            class getItemsFromKits {};
         };
 
 

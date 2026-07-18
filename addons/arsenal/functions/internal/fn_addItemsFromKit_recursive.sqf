@@ -18,12 +18,14 @@
 params [
     [ "_box",   objNull,                 [objNull]       ],
     [ "_unit",  ACE_player,              [objNull]       ],
+    [ "_side",  "CIV",                   [""]            ],
     [ "_roles", [],                      [[]]            ],
     [ "_id64",  getPlayerUID player,     [""]            ],
     [ "_kits",  createHashMap,           [createHashMap] ],
-    [ "_total", -1,                      [0]             ],
+    [ "_total", nil,                      [0]             ],
     [ "_keys",  nil,                     [[]]            ],
-    [ "_added", 0,                       [0]             ]
+    [ "_added", 0,                       [0]             ],
+    "_nextIteration"
 ];
 
 if (isNull _box) exitWith {};
@@ -34,11 +36,10 @@ if (isNil "_keys") then {
 };
 
 private _count = count _keys;
+if (isNil "_total") then { _total = _count; };
 
-if (_total == -1) then {
-    _total = _count;
-};
 
+// when Done, Final SystemChat Message
 if (_count == 0) exitWith {
     systemChat " "; systemChat " "; systemChat " "; systemChat " ";
     systemChat format ['(Done) %1 out of %2 Kits added', _added, _total];
@@ -46,8 +47,8 @@ if (_count == 0) exitWith {
     diag_log format ['(Done) %1 out of %2 Kits added', _added, _total];
 };
 
-private _nextIteration = {
-    [FUNC(addItemsFromKit_recursive), [_box, _unit, _roles, _id64, _kits, _total, _keys, _added]] call CBA_fnc_execNextFrame;
+if (isNil "_nextIteration") then {
+    _nextIteration = { [FUNC(addItemsFromKit_recursive), [_box, _unit, _side, _roles, _id64, _kits, _total, _keys, _added, _nextIteration]] call CBA_fnc_execNextFrame; };
 };
 
 private _returnArray = [];
@@ -62,6 +63,11 @@ systemChat format ['(Processing)[%1/%2] %3',1 + _total - _count, _total, _kitNam
 private _settingName = [QADDON, _kitName] joinString "_";
 if (!isNil _settingName && { !(missionNamespace getVariable _settingName) } ) exitWith _nextIteration;
 
+
+// #### Check Side-Condition
+// Ignore when empty, otherwise unit side needs tobe inside _sides array.
+private _sides = _kit get "sides";
+if ( _sides isNotEqualTo [] && { !(_side in _sides) } ) exitWith _nextIteration;
 
 
 // #### Check Roles ####

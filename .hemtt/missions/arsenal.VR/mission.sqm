@@ -12,7 +12,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=10;
+		nextID=11;
 	};
 	class Camera
 	{
@@ -69,7 +69,7 @@ class AddonsMetaData
 		{
 			className="mum_arsenal";
 			name="Zorn's Mission Utilty Mod - Arsenal Framework";
-			author="Zorn";
+			author="""OverlordZorn [CVO]""";
 			url="https://github.com/CVO-Org/Zorns-Mission-Utility-Mod";
 		};
 	};
@@ -83,9 +83,6 @@ randomSeed=4540948;
 class ScenarioData
 {
 	author="Overlord Zorn";
-};
-class CustomAttributes
-{
 };
 class Mission
 {
