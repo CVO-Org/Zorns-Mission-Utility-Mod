@@ -8,18 +8,18 @@ class EditorData
 	toggles=517;
 	class ItemIDProvider
 	{
-		nextID=195;
+		nextID=192;
 	};
 	class LayerIndexProvider
 	{
-		nextID=16;
+		nextID=11;
 	};
 	class Camera
 	{
-		pos[]={-1.111726,21.870319,-26.678862};
-		dir[]={0.21887517,-0.70584559,0.67370296};
-		up[]={0.21809649,0.70836574,0.67130613};
-		aside[]={0.95106661,-1.4901161e-08,-0.30898613};
+		pos[]={-9.4654274,30,-35.105679};
+		dir[]={0.21887527,-0.70584619,0.67370349};
+		up[]={0.21809657,0.70836473,0.67130679};
+		aside[]={0.95106727,1.371518e-08,-0.30898604};
 	};
 };
 binarizationWanted=0;
@@ -265,7 +265,8 @@ class Mission
 			side="Empty";
 			class Attributes
 			{
-				name="accessPoint";
+				name="test";
+				disableSimulation=1;
 			};
 			id=191;
 			type="mum_arsenal_accessPoint";
@@ -281,7 +282,7 @@ class Mission
 						class data
 						{
 							singleType="BOOL";
-							value=1;
+							value=0;
 						};
 					};
 				};
@@ -294,7 +295,7 @@ class Mission
 						class data
 						{
 							singleType="BOOL";
-							value=0;
+							value=1;
 						};
 					};
 				};

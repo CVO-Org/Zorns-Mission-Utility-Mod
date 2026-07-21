@@ -1,7 +1,5 @@
-class CfgFunctions
-{
-    class ADDON
-    {
+class CfgFunctions {
+    class ADDON {
         class internal {
             file = PATH_TO_FUNC_SUB(internal);
 

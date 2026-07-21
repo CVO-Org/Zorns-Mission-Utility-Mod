@@ -17,6 +17,7 @@
 params [
     ["_items", [], [[]] ],
     ["_cond",  {}, [{}] ],
+    ["_sides", [], [[]] ],
     ["_role",  "", [""] ],
     ["_id64",  "", [""] ],
     ["_addon", "", [""] ],
@@ -27,8 +28,12 @@ params [
 // Check Addon Dependency
 if ( _addon isNotEqualTo "" && {! isClass ( configFile >> "CfgPatches" >> _addon ) } ) exitWith { false };
 
+// Santize Sides
+_sides = _sides  apply { toUpperANSI _x } select { _x in ["WEST", "EAST", "GUER", "CIV"] };
+
 private _entry = createHashMapFromArray [
     [ "items",     _items ],
+    [ "sides",     _sides ],
     [ "role",      toLowerANSI _role ],
     [ "id64",      _id64 ],
     [ "condition", _cond ],

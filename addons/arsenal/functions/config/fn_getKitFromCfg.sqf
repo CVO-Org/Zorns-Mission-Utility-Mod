@@ -34,12 +34,16 @@ private _codeCode = getText (_cfg >> "code") call CBA_fnc_convertStringCode;
 private _items = "true" configClasses (_cfg >> "items") apply { configName _x };
 _items = _items select { _x call CBA_fnc_getItemConfig isNotEqualTo configNull }; // rm entries that does not exist
 
+//// Retrieve and sanitize Sides
+private _sides = (_cfg >> "sides" ) call BIS_fnc_getCfgDataArray;
+_sides = _sides  apply { toUpperANSI _x } select { _x in ["WEST", "EAST", "GUER", "CIV"] };
 
 // Create entry-hashmap to be returned
 createHashMapFromArray [
-    ["id64",  getText (_cfg >> "id64")],
-    ["role",  toLowerANSI getText (_cfg >> "role")],
-    ["items", _items],
-    ["condition", _conditionCode],
-    ["code", _codeCode]
+    [ "id64",       getText (_cfg >> "id64" ) ],
+    [ "sides",      _sides ],
+    [ "role",       toLowerANSI getText (_cfg >> "role") ],
+    [ "items",      _items ],
+    [ "condition",  _conditionCode ],
+    [ "code",       _codeCode ]
 ]

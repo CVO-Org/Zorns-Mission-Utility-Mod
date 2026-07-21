@@ -7,8 +7,7 @@
 
 
 
-class mum_arsenal_kits
-{
+class mum_arsenal_kits {
     // Defines the Objects which shall be used as an MUM Arsenal
     editor_layer_name = "mum_arsenal";                      // All objects inside this editor layer will be turned into an arsenal
     object_variable_names[] = {"arsenal_1", "arsenal_2"};   // all objects with these variableNames will be turned into an arsenal
@@ -18,6 +17,9 @@ class mum_arsenal_kits
 
     // Wearables / Gear
     class Base_Uniforms: baseKit {
+
+        sides = "WEST";
+
         class items {
             class U_I_E_ParadeUniform_01_LDF_F {};
             class U_I_E_ParadeUniform_01_LDF_decorated_F {};
@@ -32,6 +34,9 @@ class mum_arsenal_kits
     };
 
     class Base_Vests: baseKit {
+
+        sides[] = {"WEST", "EAST"};
+
         class items {
             class V_CarrierRigKBT_01_heavy_EAF_F {};
             class V_CarrierRigKBT_01_heavy_Olive_F {};

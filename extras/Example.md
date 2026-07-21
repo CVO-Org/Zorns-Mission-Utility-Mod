@@ -10,7 +10,7 @@ forcedDifficulty = "myUnitsDifficultyProfile1";
 //Mods config.cpp
 
 class CfgAILevelPresets {
-	class PREFIX_AISkill_Default {
+    class PREFIX_AISkill_Default {
         displayName = "Unit Preset 1";
         precisionAI = 0.4;
         skillAI = 1.0;
@@ -19,14 +19,14 @@ class CfgAILevelPresets {
 
 
 class CfgDifficultyPresets {
-	class myUnitsDifficultyProfile1: Custom {
-		description = "Unit Difficulty 1";
-		displayName = "Unit Difficulty 1";
-		levelAI = "PREFIX_AISkill_Default";
-		optionDescription = "Unit Difficulty 1";
+    class myUnitsDifficultyProfile1: Custom {
+        description = "Unit Difficulty 1";
+        displayName = "Unit Difficulty 1";
+        levelAI = "PREFIX_AISkill_Default";
+        optionDescription = "Unit Difficulty 1";
         optionPicture = "\A3\Ui_f\data\Logos\arma3_white_ca.paa";
-		class Options {
-			autoReport = 0;
+        class Options {
+            autoReport = 0;
             cameraShake = 1;
             commands = 0;
             deathMessages = 0;
@@ -51,8 +51,8 @@ class CfgDifficultyPresets {
             waypoints = 0;
             weaponCrosshair = 0;
             weaponInfo = 2;
-		};
-	};
+        };
+    };
 };
 
 ```

@@ -45,6 +45,7 @@ class CfgPatches {
 class GVAR(kits) {
 
     class baseKit {
+        sides[] = {};
         role = "";
         id64 = "";
         condition = "true";

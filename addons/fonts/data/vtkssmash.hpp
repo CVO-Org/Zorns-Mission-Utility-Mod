@@ -1,7 +1,5 @@
-class VTKSSMASH
-{
-    fonts[] =
-    {
+class VTKSSMASH {
+    fonts[] = {
         "zrn\mum\addons\fonts\data\VTKSSMASH\VTKSSMASH10",
         "zrn\mum\addons\fonts\data\VTKSSMASH\VTKSSMASH11",
         "zrn\mum\addons\fonts\data\VTKSSMASH\VTKSSMASH12",
