@@ -1,9 +1,7 @@
-class CfgFunctions
-{
-    class ADDON            // Tag
-    {
-        class internal    // Category
-        {
+class CfgFunctions {
+    class ADDON {            // Tag
+        class internal {    // Category
+
             file = PATH_TO_FUNC_SUB(internal);
             class postInit { postInit = 1; };
             class preInit { preInit = 1; };
@@ -15,8 +13,7 @@ class CfgFunctions
             class addItemsFromKit_recursive {};
         };
 
-        class config
-        {
+        class config {
             file = PATH_TO_FUNC_SUB(config);
             class getKitFromCfg {};
             class handleConfigKits {};
@@ -24,16 +21,14 @@ class CfgFunctions
             class mission_init { postInit = 1; };
         };
 
-        class kit
-        {
+        class kit {
             file = PATH_TO_FUNC_SUB(kit);
             class addKit {};
             class createKit {};
         };
 
 
-        class roles
-        {
+        class roles {
             file = PATH_TO_FUNC_SUB(roles);
             class addUnitRoles {};
             class setUnitRoles {};

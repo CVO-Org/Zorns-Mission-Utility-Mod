@@ -1,5 +1,4 @@
-class CfgFontFamilies
-{
+class CfgFontFamilies {
     #include "data\shaffilastri.hpp"
     #include "data\vtkssmash.hpp"
     #include "data\eraser.hpp"

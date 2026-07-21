@@ -1,9 +1,7 @@
-class CfgVehicles
-{
+class CfgVehicles {
     class Logic;
     class Module_F : Logic {
-        class AttributesBase
-        {
+        class AttributesBase {
             class Default;
             class Edit;                    // Default edit box (i.e. text input field)
             class Combo;                // Default combo box (i.e. drop-down menu)
@@ -14,8 +12,7 @@ class CfgVehicles
         };
 
         // Description base classes (for more information see below):
-        class ModuleDescription
-        {
+        class ModuleDescription {
             class AnyBrain;
         };
     };
@@ -42,11 +39,9 @@ class CfgVehicles
         canSetAreaHeight = 0;                // Allows for setting height or Z value in Attributes menu in 3DEN
 
         // Module attributes (uses https://community.bistudio.com/wiki/Eden_Editor:_Configuring_Attributes#Entity_Specific):
-        class Attributes : AttributesBase
-        {
+        class Attributes : AttributesBase {
             // Module-specific arguments:
-            class GVAR(network) : Edit
-            {
+            class GVAR(network) : Edit {
                 displayName = "Network Name";
                 tooltip = "Destination Points with the same Network Name can be teleported to from this Departure Point";
                 property = QGVAR(network);
@@ -87,11 +82,9 @@ class CfgVehicles
         canSetAreaHeight = 0;                // Allows for setting height or Z value in Attributes menu in 3DEN
 
         // Module attributes (uses https://community.bistudio.com/wiki/Eden_Editor:_Configuring_Attributes#Entity_Specific):
-        class Attributes : AttributesBase
-        {
+        class Attributes : AttributesBase {
             // Module-specific arguments:
-            class GVAR(network) : Edit
-            {
+            class GVAR(network) : Edit {
                 displayName = "Network Name";
                 tooltip = "Destination Points with the same Network Name can be teleported to from this Departure Point";
                 property = QGVAR(network);

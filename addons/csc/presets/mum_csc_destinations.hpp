@@ -1,5 +1,4 @@
-class GVAR(destinations)
-{
+class GVAR(destinations) {
     #include "mum_csc_destinations_base.hpp"
 
     class base_fixed_debug: baseDestination {

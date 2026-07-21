@@ -1,12 +1,9 @@
-class CfgFunctions
-{
-    class ADDON          // Tag
-    {
-        class COMPONENT           // Category
-        {
+class CfgFunctions {
+    class ADDON {
+        class COMPONENT {
             file = PATH_TO_FUNC;
             class init_cba_eh { preInit = 1; };
-            
+
             class register {};
             class init_layer {};
 
@@ -21,5 +18,5 @@ class CfgFunctions
             class register_cleanup {};
             class delete_layer {};
         };
-    }; 
+    };
 };
