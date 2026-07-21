@@ -5,7 +5,7 @@ class CfgFunctions {
             class greenmag { postInit = 1; };
         };
 
-        class common    // Category {
+        class common {
             file = PATH_TO_FUNC_SUB(common);
             class postInit { postInit = 1; };
 
