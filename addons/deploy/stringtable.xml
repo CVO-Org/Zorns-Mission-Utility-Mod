@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="mum-deploy">
+    <Package name="factionclass">
+        <Key ID="STR_mum_deploy_factionClass">
+            <English>MUM - Deploy Modules</English>
+        </Key>
+    </Package>
+    <Package name="modules">
+        <Key ID="STR_mum_deploy_departure_displayName">
+            <English>Make Departure Point</English>
+        </Key>
+        <Key ID="STR_mum_deploy_destination_displayName">
+            <English>Make Destination Point</English>
+        </Key>
+    </Package>
+</Project>

@@ -35,5 +35,13 @@ class CfgFunctions {
 
 
         };
+
+        class module {
+            file = PATH_TO_FUNC_SUB(module);
+
+            class module_departure {};
+            class module_destination {};
+        };
+
     };
 };

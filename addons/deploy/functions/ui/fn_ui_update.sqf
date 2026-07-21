@@ -57,24 +57,34 @@ private _queue = []; // [Task, destination, destinationID, listIndex]
         case "ADD": {
             _listIndex = _listControl lbAdd ([_destination] call FUNC(getName));
             _listControl lbSetData [_listIndex, _destinationID];
+
+            // Add distance from player to target so list can be sortedByValue
+            private _distance = _destination get "target" distance ace_player;
+            _listControl lbSetValue [_listIndex, _distance];
         };
         case "REMOVE": {
             _listControl lbDelete _listIndex;
         };
         case "UPDATE": {
             _listControl lbSetText [_listIndex, ([_destination] call FUNC(getName))];
+
+            // Add distance from player to target so list can be sortedByValue
+            private _distance = _destination get "target" distance ace_player;
+            _listControl lbSetValue [_listIndex, _distance];
         };
         default {};
     };
 } forEach _queue;
 
+// Sort Array
+lbSortByValue _listControl;
 
 // UPDATE: OKButton and Status Text
 // Get the currently selected Index and store
 private _curSelIndex = lbCurSel _listControl;
 _display setVariable [QGVAR(curSel_index), _curSelIndex];
 
-// Handle Specific Cases 
+// Handle Specific Cases
 // Later: Handle "busy" destination check here
 private _state = switch (true) do {
     case (_curSelIndex == -1): { "NONE" };

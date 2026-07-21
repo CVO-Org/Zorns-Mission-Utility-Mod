@@ -28,6 +28,7 @@ private _network = [_networkName] call FUNC(network);
 
 private _type = switch (true) do {
     case (_target isEqualType []):           { "POS" };
+    case ( _target isKindOf "CAManBase" ):   { "UNIT" };
     case ( _target isKindOf "AllVehicles" ): { "VIC" };
     case ( _target isKindOf "Static" ):      { "STATIC" };
     default { false };

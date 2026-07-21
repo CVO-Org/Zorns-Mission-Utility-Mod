@@ -27,18 +27,18 @@ params ["_display", "_mapCTRL"];
 #define ICON_SIZE_PASSIVE 24
 
 // Add Departure Marker
-private _departure = _display getVariable QGVAR(departure);
-_departure = switch (true) do {
-    case (_departure isEqualType []): { _departure };
-    case (_departure isEqualType objNull): { getPos _departure };
+private _departurePos = _display getVariable QGVAR(departure);
+_departurePos = switch (true) do {
+    case (_departurePos isEqualType []): { _departurePos };
+    case (_departurePos isEqualType objNull): { getPos _departurePos };
     default { getPos ACE_player };
 };
 
 private _queue = [];
-_queue pushBack ["\A3\ui_f\data\map\markers\military\start_CA.paa", COLOR_ACTIVE, _departure, ICON_SIZE_ACTIVE, ICON_SIZE_ACTIVE, 0, "Departure"];
+_queue pushBack ["\A3\ui_f\data\map\markers\military\start_CA.paa", COLOR_ACTIVE, _departurePos, ICON_SIZE_ACTIVE, ICON_SIZE_ACTIVE, 0, "Departure"];
 
 private _mapPosArray = [];
-_mapPosArray pushBack _departure;
+_mapPosArray pushBack _departurePos;
 
 // handle remaining destination markers
 private _curSel_index = _display getVariable [QGVAR(curSel_index), -1];
@@ -64,15 +64,24 @@ switch (_curSel_index) do {
         } forEach _destinations;
     };
     default {
+
         private _listControl = _display displayCtrl 1500;
         private _destinationID  = _listControl lbData _curSel_index;
 
         private _destinationIndex = _destinations findIf { _x#0 isEqualTo _destinationID };
         private _selDestination = _destinations deleteAt _destinationIndex;
 
-        _mapPosArray pushBack _selDestination#1;        
-        
-        _queue pushBack ["\A3\ui_f\data\map\markers\military\end_CA.paa", COLOR_ACTIVE, _selDestination#1, ICON_SIZE_ACTIVE, ICON_SIZE_ACTIVE, 0, "Destination"];
+        _mapPosArray pushBack _selDestination#1;
+
+        // ## Rotate Icons towards each other
+        private _destinationRotation = _mapPosArray#1 getDir _mapPosArray#0;
+        private _departureRotation = _mapPosArray#0 getDir _mapPosArray#1;
+
+        // set Departure Rotation
+        _queue select 0 set [5, _departureRotation];
+
+        // Handle Destination
+        _queue pushBack ["\A3\ui_f\data\map\markers\military\end_CA.paa", COLOR_ACTIVE, _selDestination#1, ICON_SIZE_ACTIVE, ICON_SIZE_ACTIVE, _destinationRotation, "Destination"];
 
         { _queue pushBack ["\A3\ui_f\data\map\markers\military\end_CA.paa", COLOR_PASSIVE, _x#1, ICON_SIZE_PASSIVE, ICON_SIZE_PASSIVE, 0, "Destination"]; } forEach _destinations;
     };
@@ -81,7 +90,16 @@ switch (_curSel_index) do {
 
 // Handle the Map Frame
 [_mapPosArray, true] call EFUNC(common,getMedianPosASL) params ["_medianPos", "", "_maxRadius"];
-private _scale = linearConversion [500, 0.4 * worldSize * sqrt 2, _maxRadius*2, 0.03, 1, true];
+
+private _scale = linearConversion [
+    500,
+    0.4 * worldSize * sqrt 2,
+    _maxRadius * 2,
+    0.03,
+    1,
+    true
+];
+
 _mapCTRL ctrlMapAnimAdd [0.5, _scale, _medianPos];
 ctrlMapAnimCommit _mapCTRL;
 
