@@ -27,19 +27,13 @@ if !(isNil "_drawIcon_handle") then { _drawIcon_handle call CBA_fnc_removePerFra
 
 // Handle Teleportation
 if (_exitCode isEqualTo 1) then {
-    // private _index = _display getVariable [QGVAR(curSel_index), -1];
-
+    private _index = _display getVariable [QGVAR(curSel_index), -1];
     private _network = _display getVariable QGVAR(network);
 
     if (isNil "_network") exitWith {};
-
-    private _destinationID = _display getVariable [QGVAR(curSel_destinationID), nil];
+    
     private _destinations = _network get "destinations";
-    private _destinationIndex = _destinations findIf { _x get "destinationID" isEqualTo _destinationID };
-
-    if (_destinationIndex isEqualTo -1) exitWith {};
-
-    private _destination = _destinations select _destinationIndex;
+    private _destination = _destinations select _index;
 
     [nil, ACE_player, [_destination]] call FUNC(teleport);
 };

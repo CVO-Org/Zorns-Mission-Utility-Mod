@@ -35,10 +35,8 @@ private _code = switch (true) do {
     };
 };
 
-
 GVAR(isTeleporting) = true;
 [ { GVAR(isTeleporting) = nil; } ,nil, 3] call CBA_fnc_waitAndExecute;
-
 
 [QGVAR(holdAction_TP_blackening), true, 2.85 ] call BIS_fnc_blackOut;
 [ _code , [_player, _target], 3] call CBA_fnc_waitAndExecute;
