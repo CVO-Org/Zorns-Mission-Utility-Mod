@@ -99,7 +99,7 @@ class GVAR(dialog) {
         };
 
 
-        class Map_Destinations : RscMapControl {
+        class Map_Destinations: RscMapControl {
             idc = 1600;
 
             type = CT_MAP;

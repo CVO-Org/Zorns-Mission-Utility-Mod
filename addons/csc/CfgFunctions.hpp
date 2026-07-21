@@ -1,17 +1,15 @@
-class CfgFunctions
-{
-    class ADDON            // Tag
-    {
+class CfgFunctions {
+    class ADDON {
         class init {
             file = PATH_TO_FUNC_SUB(init);
-            
+
             class cbaEvents { preInit = 1; };
             class missionInit { preInit = 1; };
         };
 
         class accessPoint {
             file = PATH_TO_FUNC_SUB(accessPoint);
-            
+
             class createAction {};
 
             class createAccessPoint {};
@@ -19,20 +17,20 @@ class CfgFunctions
 
             class createAccessPointPlayer {};
         };
-        
+
 
         class delivery {
             file = PATH_TO_FUNC_SUB(delivery);
-            
+
             class base_spawn {};
             class base_drone {};
             class base_airdrop {};
             class base_airdrop_desc {};
         };
-        
+
         class destination {
             file = PATH_TO_FUNC_SUB(destination);
-            
+
             class base_mapClick {};
             class base_fixedPos {};
             class base_relativeTo {};
@@ -43,7 +41,7 @@ class CfgFunctions
 
             class handle_destination {};
             class handle_delivery {};
-            
+
             class getDefaultPresets {};
             class createCrate {};
 
@@ -52,15 +50,15 @@ class CfgFunctions
 
         };
 
-        
+
        class ui {
            file = PATH_TO_FUNC_SUB(ui);
-           
+
             class openDialog {};
-           
+
             class ui_onLoad {};
             class ui_onUnload {};
-            
+
             class ui_crates_init {};
 
             class ui_crates_update {};
@@ -75,9 +73,9 @@ class CfgFunctions
 
         class misc {
             file = PATH_TO_FUNC_SUB(misc);
-            
+
             class parachuteCrate {};
         };
-        
+
     };
 };

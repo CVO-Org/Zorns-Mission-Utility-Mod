@@ -24,8 +24,7 @@ overviewFootnote = "overviewFootnote";
 
 
 // Color used for DLC stripes and backgrounds (RGBA)
-dlcColor[] =
-{
+dlcColor[] = {
     0.4117647058823529,
     0.0,
     0.0,

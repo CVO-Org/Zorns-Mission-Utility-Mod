@@ -1,7 +1,5 @@
-class shaffilastri
-{
-    fonts[] =
-    {
+class shaffilastri {
+    fonts[] = {
         "zrn\mum\addons\fonts\data\shaffilastri\shaffilastri10",
         "zrn\mum\addons\fonts\data\shaffilastri\shaffilastri11",
         "zrn\mum\addons\fonts\data\shaffilastri\shaffilastri12",

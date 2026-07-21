@@ -7,8 +7,7 @@
 
 
 
-class mum_arsenal_kits
-{
+class mum_arsenal_kits {
     // Defines the Objects which shall be used as an MUM Arsenal
     editor_layer_name = "mum_arsenal";                      // All objects inside this editor layer will be turned into an arsenal
     object_variable_names[] = {"arsenal_1", "arsenal_2"};   // all objects with these variableNames will be turned into an arsenal

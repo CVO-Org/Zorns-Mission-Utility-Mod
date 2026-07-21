@@ -1,9 +1,7 @@
-class CfgFunctions
-{
-    class ADDON            // Tag
-    {
-        class COMPONENT           // Category
-        {
+class CfgFunctions {
+    class ADDON {           // Tag
+
+        class COMPONENT {           // Category
             file = PATH_TO_FUNC;
 
             class preInit { preInit = 1; };
@@ -11,10 +9,10 @@ class CfgFunctions
 
         class autoInit {
             file = PATH_TO_FUNC_SUB(autoInit);
-            
+
             class antiFlubber { postInit = 1; }; // Auto Inits the Anti Flubber Script - descrition.ext: "enableAntiFlubber = 1;"
         };
-        
+
         class code {
             file = PATH_TO_FUNC_SUB(code);
 
@@ -22,7 +20,7 @@ class CfgFunctions
             class getBoundingBoxRealOf {};
 
             class pointAt {};
-            
+
             class getMedianPosASL {};
             class getMedianPosFromUnits {};
 
@@ -31,7 +29,7 @@ class CfgFunctions
 
         class cutscene {
             file = PATH_TO_FUNC_SUB(cutscene);
-            
+
             class cutscene {};
             class processTimelineEntry {};
         };
@@ -49,11 +47,11 @@ class CfgFunctions
 
             class airlift_cargo {};
             class slingload_cargoOwner {};
-            
+
             class speedLimiter {};
 
             class landOnRails {};
-            
+
         };
 
         class layers {
@@ -94,7 +92,7 @@ class CfgFunctions
 
         class vehicles {
             file = PATH_TO_FUNC_SUB(vehicles);
-            
+
             class moveUnitsIntoVehicles {};
             class secureVehicle {};
 
