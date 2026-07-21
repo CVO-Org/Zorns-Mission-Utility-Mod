@@ -82,6 +82,9 @@ lbSortByValue _listControl;
 // UPDATE: OKButton and Status Text
 // Get the currently selected Index and store
 private _curSelIndex = lbCurSel _listControl;
+private _curSelData = _listControl lbData _curSelIndex;
+
+_display setVariable [QGVAR(curSel_destinationID), _curSelData];
 _display setVariable [QGVAR(curSel_index), _curSelIndex];
 
 // Handle Specific Cases
