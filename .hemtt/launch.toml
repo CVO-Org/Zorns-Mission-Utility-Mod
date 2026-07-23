@@ -52,3 +52,9 @@ mission = "ULA-Dedicated-MP-Test.stratis"
 extends = "default"
 mission = "Deploy.Altis"
 
+[arsenaltabs]
+extends = "arsenal"
+workshop = [
+    "2352603233", # Greenmag
+    "751965892", # acre
+]
