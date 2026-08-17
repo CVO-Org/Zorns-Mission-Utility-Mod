@@ -12,7 +12,7 @@
 # 3. Add STEAM_USERNAME as github repo secret
 # 4. Add STEAM_PASSWORD as github repo secret
 
-name: Release
+name: "Release: Publish to Steam"
 
 env:
   FOLDER: '@zrn_mum'

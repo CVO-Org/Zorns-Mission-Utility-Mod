@@ -1,4 +1,4 @@
-name: Validate HEMTT
+name: "Validate: HEMTT"
 
 on:
   push:

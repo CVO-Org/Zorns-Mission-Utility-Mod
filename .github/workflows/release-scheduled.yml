@@ -1,4 +1,4 @@
-name: Scheduled Release Publish
+name: "Release: Scheduler"
 
 on:
   schedule:

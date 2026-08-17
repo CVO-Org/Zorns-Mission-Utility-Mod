@@ -1,4 +1,4 @@
-name: Stringtable.xml
+name: "Github: Translation Issue"
 
 on:
   workflow_dispatch:
