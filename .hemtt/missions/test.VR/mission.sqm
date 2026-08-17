@@ -5,34 +5,50 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=517;
+	toggles=526;
 	class ItemIDProvider
 	{
-		nextID=186;
+		nextID=189;
 	};
 	class Camera
 	{
-		pos[]={-15.789324,95.997505,-80.663864};
-		dir[]={0.031283207,-0.75997806,0.64924896};
-		up[]={0.036577139,0.64992648,0.75911689};
-		aside[]={0.99886912,1.7450247e-07,-0.04813011};
+		pos[]={3.3953645,8.4467936,-19.713905};
+		dir[]={0.38436583,-0.27911547,0.87997586};
+		up[]={0.11172257,0.96025747,0.25578019};
+		aside[]={0.91639555,7.4505806e-09,-0.40027368};
 	};
 };
 binarizationWanted=0;
 sourceName="test";
 addons[]=
 {
-	"A3_Characters_F"
+	"A3_Characters_F",
+	"A3_Weapons_F_Enoch",
+	"ace_realisticnames",
+	"A3_Air_F_Beta_Heli_Attack_01"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=1;
 		class Item0
 		{
 			className="A3_Characters_F";
 			name="Arma 3 Alpha - Characters and Clothing";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item1
+		{
+			className="A3_Weapons_F_Enoch";
+			name="Arma 3 Contact Platform - Weapons and Accessories";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item2
+		{
+			className="A3_Air_F_Beta";
+			name="Arma 3 Beta - Aircraft";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
@@ -66,7 +82,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=1;
+		items=4;
 		class Item0
 		{
 			dataType="Group";
@@ -125,6 +141,104 @@ class Mission
 			{
 			};
 			id=0;
+		};
+		class Item1
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={3.471,5,-4.605};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=186;
+			type="Weapon_arifle_AK12U_arid_f";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="mum_common_3den_makeCosmetic";
+					expression="if ( !is3DEN && {_value} ) then { _this call mum_common_fnc_makeCosmetic }";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item2
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20,5.921936,-5.9995961};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=187;
+			type="B_Heli_Attack_01_dynamicLoadout_F";
+			atlOffset=-1;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="mum_common_3den_makeCosmetic";
+					expression="if ( !is3DEN && {_value} ) then { _this call mum_common_fnc_makeCosmetic }";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item3
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5.0110002,5,-10.348};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="gun";
+			};
+			id=188;
+			type="Weapon_arifle_AK12U_arid_f";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="mum_common_3den_makeCosmetic";
+					expression="if ( !is3DEN && {_value} ) then { _this call mum_common_fnc_makeCosmetic }";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 	};
 };

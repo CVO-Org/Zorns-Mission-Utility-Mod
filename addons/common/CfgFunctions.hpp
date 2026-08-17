@@ -79,7 +79,6 @@ class CfgFunctions {
             class executeUnit {};
             class fullHeal {};
             class holdaction_tp {};
-            class makeCosmetic {};
 
             class subtitles {};
             class makeRemovable {};
@@ -97,6 +96,12 @@ class CfgFunctions {
             class secureVehicle {};
 
             class orderlyDismount {};
+        };
+
+        class cosmetic {
+            file = PATH_TO_FUNC_SUB(cosmetic);
+
+            class makeCosmetic {};
         };
     };
 };
