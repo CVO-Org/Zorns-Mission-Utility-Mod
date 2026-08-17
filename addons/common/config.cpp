@@ -36,3 +36,6 @@ class CfgPatches {
 
 #include "CfgFunctions.hpp"
 #include "CfgSounds.hpp"
+
+#include "Cfg3DEN.hpp"
+#include "CfgEditorSubcategories.hpp"
