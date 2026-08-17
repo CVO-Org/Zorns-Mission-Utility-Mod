@@ -1,0 +1,31 @@
+name: Scheduled Release Publish
+
+on:
+  schedule:
+    - cron: '0 4 * * 2'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  publish-if-draft:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Find and publish latest draft release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -e
+          DRAFT_JSON=$(gh release list --repo "${{ github.repository }}" \
+            --limit 20 --json tagName,isDraft \
+            -q '[.[] | select(.isDraft==true)][0]')
+
+          if [ -z "$DRAFT_JSON" ] || [ "$DRAFT_JSON" == "null" ]; then
+            echo "Kein Draft vorhanden — nichts Neues seit letztem Release."
+            exit 0
+          fi
+
+          TAG=$(echo "$DRAFT_JSON" | jq -r '.tagName')
+          echo "Publishe Draft $TAG"
+          gh release edit "$TAG" --draft=false --repo "${{ github.repository }}"
