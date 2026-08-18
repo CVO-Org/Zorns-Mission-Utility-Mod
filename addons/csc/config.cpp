@@ -35,6 +35,7 @@ class CfgPatches {
 
 #include "CfgFunctions.hpp"
 
+// CSC Stuff
 #include "presets\mum_csc_crates.hpp"
 #include "presets\mum_csc_delivery_modes.hpp"
 #include "presets\mum_csc_destinations.hpp"
@@ -44,3 +45,7 @@ class CfgPatches {
 #include "ui\CommonDefines.hpp"
 #include "ui\BaseControls.hpp"
 #include "ui\mum_csc_request.hpp"
+
+// Module Stuff
+#include "CfgVehicles.hpp"
+#include "CfgFactionClasses.hpp"

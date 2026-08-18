@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="mission-utility-mod">
+    <Package name="csc">
+        <Container name="3den_Modules">
+            <Key ID="STR_mum_csc_FactionClass">
+                <English>MUM - Custom Supply Crates</English>
+
+            </Key>
+        </Container>
+    </Package>
+</Project>

@@ -77,5 +77,12 @@ class CfgFunctions {
             class parachuteCrate {};
         };
 
+        class modules {
+            file = PATH_TO_FUNC_SUB(modules);
+
+            // class function { /* preInit = 1; */ };
+
+            class module_defineCrate {};
+        };
     };
 };
