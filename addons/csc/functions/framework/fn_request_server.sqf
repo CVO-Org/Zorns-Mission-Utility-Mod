@@ -35,8 +35,6 @@ ZRN_LOG_MSG_1(Request Recieved on Server,_request);
 private _crates = _request get "crates" apply {
     [QGVAR(crates), _x] call EFUNC(catalog,getEntry)
 } apply {
-    _x call cba_fnc_getCfgDataHashmap
-} apply {
     [_x] call FUNC(createCrate)
 };
 

@@ -28,7 +28,7 @@ private _array = [];
 {
     _array pushBack [
         [
-            getText ([QGVAR(crates), _x, configNull] call EFUNC(catalog,getEntry) >> "displayName"),
+            [QGVAR(crates), _x, createHashMap] call EFUNC(catalog,getEntry) get "displayName",
             "0"
         ],  // Text
         [

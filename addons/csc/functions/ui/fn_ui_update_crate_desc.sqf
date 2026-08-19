@@ -32,22 +32,22 @@ if (_index isEqualTo -1) exitWith {
 };
 
 // Get CFG of the selected row
-private _cfg = [
+private _map = [
     QGVAR(crates),
     _display getVariable QGVAR(crates) select _index, // Get classname from display based on currently selected
-    configNull
+    createHashMap
 ] call EFUNC(catalog,getEntry);
 
-private _items = getArray (_cfg >> "items") apply { [_x#0 call cba_fnc_getItemConfig, _x#1] } select { _x#0 isNotEqualTo configNull };
+private _items = (_map get "items") apply { [_x#0 call cba_fnc_getItemConfig, _x#1] } select { _x#0 isNotEqualTo configNull };
 
 private _desc ="Content:\n";
 
 {
-    _x params ["_cfg", "_quantity"];
+    _x params ["_map", "_quantity"];
     private _line = format [
         "%1x %2\n",
         [_quantity, 5] call EFUNC(common,stringPadding),
-        getText (_cfg >> "displayName")
+        _map get "displayName"
     ];
     _desc = _desc + _line;
 } forEach _items;

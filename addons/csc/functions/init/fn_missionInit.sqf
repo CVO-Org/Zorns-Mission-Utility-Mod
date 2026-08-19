@@ -24,7 +24,11 @@ _configs = [];
 _configs append (Q(configName _x isnotEqualto QQ(baseCrate)) configClasses (configFile >> _type));
 _configs append (Q(configName _x isnotEqualto QQ(baseCrate)) configClasses (missionConfigFile >> _type));
 {
-    [_type, toLower configName _x, _x] call EFUNC(catalog,setEntry);
+    [
+        _type,
+        toLower configName _x,
+        _x call cba_fnc_getCfgDataHashmap
+    ] call EFUNC(catalog,setEntry);
 } forEach _configs;
 
 // Delivery
