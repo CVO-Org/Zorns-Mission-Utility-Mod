@@ -37,15 +37,14 @@ if (_target isEqualTo "") exitWith {false};
 
  private _code = {
 
-    params ["_target", "_player", "_parameter"];
-    private _dur = _parameter # 0;
-    private _egg = _parameter # 1;
+    params ["_target", "_player", "_params"];
+    _params params ["_durr", "_egg"];
 
     if (round random 100 < _egg) then {
-        playSound3D ["zrn\mum\addons\common\data\medical_healsound.ogg", _target];
+        playSound3D [QPATHTOF(data\medical_healsound.ogg), _target];
     };
     [
-        _dur,                                  // Total Time (in game "time" seconds) <NUMBER>
+        _durr,                                  // Total Time (in game "time" seconds) <NUMBER>
         [],                                     // Arguments, passed to condition, fail and finish <ARRAY>
         {
             systemChat "Finish Start";

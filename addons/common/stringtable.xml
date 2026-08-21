@@ -12,4 +12,14 @@
             </Key>
         </Container>
     </Package>
+    <Package name="factionclass">
+        <Key ID="STR_mum_Common_factionClass">
+            <English>MUM - Common Modules</English>
+        </Key>
+    </Package>
+    <Package name="modules">
+        <Key ID="STR_mum_common_healStation_displayName">
+            <English>Make Heal Station</English>
+        </Key>
+    </Package>
 </Project>

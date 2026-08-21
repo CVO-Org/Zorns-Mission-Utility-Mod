@@ -37,5 +37,10 @@ class CfgPatches {
 #include "CfgFunctions.hpp"
 #include "CfgSounds.hpp"
 
+// 3den Attributes
 #include "Cfg3DEN.hpp"
 #include "CfgEditorSubcategories.hpp"
+
+// 3den Modules
+#include "CfgVehicles.hpp"
+#include "CfgFactionClasses.hpp"
