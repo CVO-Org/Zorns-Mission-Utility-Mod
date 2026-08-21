@@ -20,9 +20,10 @@
 #define LOCK_INVENTORY [_this, true] remoteExec ["lockInventory", 0, true]
 #define LOCK_VEHICLE _this lock true
 #define DISABLE_SIM _this enableSimulationGlobal false
-#define REM_ACTIONS removeAllActions _this
+#define REM_ACTIONS [_this] remoteExec ["removeAllActions", 0, true]
 #define ACE_CLAIM [_this, _this] call ace_common_fnc_claim
 #define DESTROY _this setDamage 1
+#define CLEARCARGO clearItemCargo _this
 
 params [
     ["_obj",        objNull,    [objNull]   ],
@@ -44,7 +45,7 @@ if (isNil "_code") then {
         case (_obj isKindOf "AllVehicles"): {
             _instant = true;
             {
-                // DESTROY;
+                CLEARCARGO;
                 LOCK_VEHICLE;
                 LOCK_INVENTORY;
                 DISABLE_SIM;
@@ -62,15 +63,32 @@ if (isNil "_code") then {
                 REM_ACTIONS;
             }
         };
+        case (obj isKindOf "ReammoBox_F"): {
+            {
+                LOCK_INVENTORY;
+                DISABLE_SIM;
+                ACE_CLAIM;
+                REM_ACTIONS;
+                CLEARCARGO;
+            }
+        };
+        case (obj isKindOf "Building"): {
+            {
+                LOCK_INVENTORY;
+                DISABLE_SIM;
+                ACE_CLAIM;
+                REM_ACTIONS;
+            }
+        };
 
 
         default {
             {
                 LOCK_INVENTORY;
-                DESTROY;
                 DISABLE_SIM;
                 ACE_CLAIM;
                 REM_ACTIONS;
+                CLEARCARGO;
             }
         };
     };
