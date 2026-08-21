@@ -43,8 +43,9 @@ if (isNil QGVAR(local_box)) then {
 } else {
 
     // Removes current content
-    [GVAR(local_box), false, false] call ace_arsenal_fnc_initBox;
-
+    private _localBox = GVAR(local_box);
+    [_localBox, true, false] call ace_arsenal_fnc_removeVirtualItems;
+    [_localBox, false, false] call ace_arsenal_fnc_initBox;
 };
 
 
