@@ -103,5 +103,11 @@ class CfgFunctions {
 
             class makeCosmetic {};
         };
+
+        class modules {
+            file = PATH_TO_FUNC_SUB(modules);
+
+            class module_healStation {};
+        };
     };
 };

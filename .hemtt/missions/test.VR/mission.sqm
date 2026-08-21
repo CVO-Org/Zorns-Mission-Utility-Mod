@@ -8,14 +8,14 @@ class EditorData
 	toggles=526;
 	class ItemIDProvider
 	{
-		nextID=189;
+		nextID=191;
 	};
 	class Camera
 	{
-		pos[]={3.3953645,8.4467936,-19.713905};
-		dir[]={0.07228297,-0.20931858,0.97517455};
-		up[]={0.015473086,0.97784591,0.20874642};
-		aside[]={0.99726552,-4.3393811e-08,-0.07392098};
+		pos[]={6.6133027,20.210304,-27.209021};
+		dir[]={-1.2363449e-07,-0.70710683,0.70710683};
+		up[]={-1.2363449e-07,0.70710671,0.70710683};
+		aside[]={1,0,1.7484557e-07};
 	};
 };
 binarizationWanted=0;
@@ -25,13 +25,15 @@ addons[]=
 	"A3_Characters_F",
 	"A3_Weapons_F_Enoch",
 	"ace_realisticnames",
-	"A3_Air_F_Beta_Heli_Attack_01"
+	"A3_Air_F_Beta_Heli_Attack_01",
+	"A3_Air_F_Orange_UAV_06",
+	"mum_common"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=3;
+		items=5;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -53,7 +55,25 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item3
+		{
+			className="A3_Air_F_Orange";
+			name="Arma 3 Orange - Aircraft";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item4
+		{
+			className="mum_common";
+			name="Zorn's Mission Utilty Mod - Common";
+			author="""OverlordZorn [CVO]""";
+			url="https://github.com/CVO-Org/Zorns-Mission-Utility-Mod";
+		};
 	};
+};
+dlcs[]=
+{
+	"Orange"
 };
 randomSeed=4540948;
 class ScenarioData
@@ -83,7 +103,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=4;
+		items=6;
 		class Item0
 		{
 			dataType="Group";
@@ -239,6 +259,52 @@ class Mission
 					};
 				};
 				nAttributes=1;
+			};
+		};
+		class Item4
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={6.593823,5.1003466,-12.463362};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=189;
+			type="Box_I_UAV_06_medical_F";
+		};
+		class Item5
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={7.333457,5,-12.583529};
+			};
+			id=190;
+			type="mum_common_module_healStation";
+		};
+	};
+	class Connections
+	{
+		class LinkIDProvider
+		{
+			nextID=1;
+		};
+		class Links
+		{
+			items=1;
+			class Item0
+			{
+				linkID=0;
+				item0=190;
+				item1=189;
+				class CustomData
+				{
+					type="Sync";
+				};
 			};
 		};
 	};
