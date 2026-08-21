@@ -27,9 +27,6 @@ private _delivery_modes = _accessPoint getOrDefault [QGVAR(delivery_modes), []];
 private _isZeus = _accessPoint getOrDefault ["isZeus", false];
 
 
-
-
-
 private _display = createDialog [QGVAR(request), true];
 
 _display setVariable ["requester", _player];

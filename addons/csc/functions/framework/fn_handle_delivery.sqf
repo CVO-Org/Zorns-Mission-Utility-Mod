@@ -29,13 +29,11 @@ params ["_request"];
 
 private _className = _request get "delivery_mode";
 
-private _cfg = [ QGVAR(delivery_modes), _className ] call EFUNC(catalog,getEntry);
+private _deliveryMap = [ QGVAR(delivery_modes), _className ] call EFUNC(catalog,getEntry);
 
-private _stringCode = getText (_cfg >> "code");
+private _code = _deliveryMap get "code" call CBA_fnc_convertStringCode;
 
-private _code = _stringCode call CBA_fnc_convertStringCode;
-
-private _parameters = (_cfg >> "parameters") call cba_fnc_getCfgDataHashmap;
+private _parameters = _deliveryMap get "parameters";
 
 ZRN_LOG_MSG_1(Request Recieved - Init Delivery,_className);
 

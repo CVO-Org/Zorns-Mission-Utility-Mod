@@ -18,17 +18,9 @@
 
 params ["_request"];
 
-private _cfg = [QGVAR(destinations), _request get "destination", configNull] call EFUNC(catalog,getEntry);
+private _destinationMap = [QGVAR(destinations), _request get "destination", configNull] call EFUNC(catalog,getEntry);
 
-ZRN_LOG_1(_cfg);
-
-private _codeString = getText (_cfg >> "code");
-
-ZRN_LOG_1(_codeString);
-
-private _code = _codeString call CBA_fnc_convertStringCode;
-
-private _return = [_request, (_cfg >> "parameters") call cba_fnc_getCfgDataHashmap] call _code;
+private _return = (_destinationMap get "parameters") call (_destinationMap get "code" call CBA_fnc_convertStringCode);
 
 // handle return
 switch (true) do {

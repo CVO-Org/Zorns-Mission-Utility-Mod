@@ -20,17 +20,17 @@ params ["_control", "_index"];
 // Common
 private _display = findDisplay MUM_IDD_CSC_REQUEST;
 
-private _cfg = [
+private _deliveryMap = [
     QGVAR(delivery_modes),
     _display getVariable QGVAR(delivery_modes) select _index, // Get classname from display based on currently selected
-    configNull
+    createHashMap
 ] call EFUNC(catalog,getEntry);
 
 // Store currently selected Mode
-_display setVariable [QGVAR(delivery_mode), toLower configName _cfg];
+_display setVariable [QGVAR(delivery_mode), _deliveryMap get "id"];
 
 //// Update Max Crates
-private _maxCrates = getNumber (_cfg >> "maxCrates");
+private _maxCrates = _map get "maxCrates";
 _display setVariable [QGVAR(maxCrates), _maxCrates];
 
 // Request crate amount check
@@ -38,9 +38,9 @@ _display setVariable [QGVAR(maxCrates), _maxCrates];
 
 
 //// Update Description
-private _code_desc = getText (_cfg >> "code_description") call CBA_fnc_convertStringCode;
+private _code_desc = _deliveryMap get "code_description" call CBA_fnc_convertStringCode;
 
-private _desc = _cfg call _code_desc;
+private _desc = _deliveryMap call _code_desc;
 _desc = format ["Up to %1 crates%2", _maxCrates, _desc];
 
 ctrlSetText [

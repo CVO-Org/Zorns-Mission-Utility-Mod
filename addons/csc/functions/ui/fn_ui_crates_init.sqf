@@ -49,7 +49,7 @@ call FUNC(ui_update_crate_desc);
 {
     lbAdd [
         MUM_IDC_CSC_Destination_ListBox,
-        getText ([QGVAR(destinations), _x, configNull] call EFUNC(catalog,getEntry) >> "displayName")
+        [QGVAR(destinations), _x, configNull] call EFUNC(catalog,getEntry) get "displayName"
     ];
 } forEach (_display getVariable QGVAR(destinations));   // array of Configs
 lbSetCurSel [MUM_IDC_CSC_Destination_ListBox, 0];
@@ -59,7 +59,7 @@ lbSetCurSel [MUM_IDC_CSC_Destination_ListBox, 0];
 {
     lbAdd [
         MUM_IDC_CSC_Delivery_ListBox,
-        getText ([QGVAR(delivery_modes), _x, configNull] call EFUNC(catalog,getEntry) >> "displayName")
+        [QGVAR(delivery_modes), _x, configNull] call EFUNC(catalog,getEntry) get "displayName"
     ];
 } forEach (_display getVariable QGVAR(delivery_modes));   // array of Configs
 lbSetCurSel [MUM_IDC_CSC_Delivery_ListBox, 0];

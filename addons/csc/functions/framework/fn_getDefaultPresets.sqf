@@ -34,12 +34,12 @@ private _desiredType = switch (_type) do {
     default { false };
 };
 
-if (_desiredType isEqualTo false) exitWith {  };
+if (_desiredType isEqualTo false) exitWith {};
 
 private _return = [];
 {
     // compare crate scope with desired scope
-    if ( getNumber ((_desiredType get _x) >> "scope") >= _desiredScope ) then { _return pushBack _x; };
+    if ( (_desiredType get _x get "scope") >= _desiredScope ) then { _return pushBack _x; };
 } forEach (keys _desiredType);
 
 _return

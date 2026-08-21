@@ -24,8 +24,7 @@ params ["_display"];
     {
         // QGVAR(destinations), QGVAR(delivery_modes)
 
-        [_this] call FUNC(ui_crates_init);
-
-    }, 
+        _this call FUNC(ui_crates_init);
+    },
     _display
 ] call CBA_fnc_waitUntilAndExecute;

@@ -25,6 +25,8 @@ class CfgFunctions {
             class getMedianPosFromUnits {};
 
             class allUnits_code {};
+
+            class getCfgDataHashmap {};
         };
 
         class cutscene {

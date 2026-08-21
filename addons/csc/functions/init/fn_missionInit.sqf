@@ -24,11 +24,10 @@ _configs = [];
 _configs append (Q(configName _x isnotEqualto QQ(baseCrate)) configClasses (configFile >> _type));
 _configs append (Q(configName _x isnotEqualto QQ(baseCrate)) configClasses (missionConfigFile >> _type));
 {
-    [
-        _type,
-        toLower configName _x,
-        _x call cba_fnc_getCfgDataHashmap
-    ] call EFUNC(catalog,setEntry);
+    private _map = _x call EFUNC(common,getCfgDataHashmap);
+    private _id = toLower configName _x;
+    _map set ["id", _id];
+    [ _type, _id, _map ] call EFUNC(catalog,setEntry);
 } forEach _configs;
 
 // Delivery
@@ -36,15 +35,24 @@ _type = QGVAR(delivery_modes);
 _configs = [];
 _configs append (Q(configName _x isnotEqualto QQ(baseDelivery)) configClasses (configFile >> _type));
 _configs append (Q(configName _x isnotEqualto QQ(baseDelivery)) configClasses (missionConfigFile >> _type));
+
 {
-    [_type, toLower configName _x, _x] call EFUNC(catalog,setEntry);
+    private _map = _x call EFUNC(common,getCfgDataHashmap);
+    private _id = toLower configName _x;
+    _map set ["id", _id];
+    [ _type, _id, _map ] call EFUNC(catalog,setEntry);
 } forEach _configs;
+
 
 // Destination
 _type = QGVAR(destinations);
 _configs = [];
 _configs append (Q(configName _x isnotEqualto QQ(baseDestination)) configClasses (configFile >> _type));
 _configs append (Q(configName _x isnotEqualto QQ(baseDestination)) configClasses (missionConfigFile >> _type));
+
 {
-    [_type, toLower configName _x, _x] call EFUNC(catalog,setEntry);
+    private _map = _x call EFUNC(common,getCfgDataHashmap);
+    private _id = toLower configName _x;
+    _map set ["id", _id];
+    [ _type, _id, _map ] call EFUNC(catalog,setEntry);
 } forEach _configs;

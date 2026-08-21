@@ -38,16 +38,17 @@ private _map = [
     createHashMap
 ] call EFUNC(catalog,getEntry);
 
+// Nested Array of Items: [item config, amount]
 private _items = (_map get "items") apply { [_x#0 call cba_fnc_getItemConfig, _x#1] } select { _x#0 isNotEqualTo configNull };
 
+// Create list of items
 private _desc ="Content:\n";
-
 {
-    _x params ["_map", "_quantity"];
+    _x params ["_cfg", "_quantity"];
     private _line = format [
         "%1x %2\n",
         [_quantity, 5] call EFUNC(common,stringPadding),
-        _map get "displayName"
+        getText (_cfg >> "displayName")
     ];
     _desc = _desc + _line;
 } forEach _items;
