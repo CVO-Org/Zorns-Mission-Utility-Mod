@@ -21,5 +21,8 @@
         <Key ID="STR_mum_common_healStation_displayName">
             <English>Make Heal Station</English>
         </Key>
+        <Key ID="STR_mum_common_makeRemovable_displayName">
+            <English>Make Object Removable</English>
+        </Key>
     </Package>
 </Project>

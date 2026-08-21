@@ -108,6 +108,9 @@ class CfgFunctions {
             file = PATH_TO_FUNC_SUB(modules);
 
             class module_healStation {};
+            class module_makeRemovable {};
+
+            class temp_hasWirecutter {};
         };
     };
 };

@@ -18,16 +18,17 @@
 params [
     ["_object",         objNull,        [objNull]   ],
     ["_duration",       30,             [0]         ],
-    ["_requiredItems",  "",             ["", []]    ],
+    ["_requireWirecutters", true,       [true]      ],
+    ["_requiredItems",  [],             ["", []]    ],
     ["_additionalReq",  {true},         [{}]        ]
 ];
 
 if (_requiredItems isEqualType "") then { _requiredItems = [_requiredItems] };
 
-private _params = [_duration, _requiredItems, _additionalReq];
+private _params = [_duration, _requiredItems, _requireWirecutters, _additionalReq];
 private _state = {
     params ["_target", "_player", "_actionParams"];
-    _actionParams params ["_duration", "_requiredItems", "_additionalReq"];
+    _actionParams params ["_duration", "_requiredItems", "_requireWirecutters", "_additionalReq"];
     [
         [_duration, 1] select is3DENPreview                       // * 0: Total Time (in game "time" seconds) <NUMBER>
         ,[_target]                     // * 1: Arguments, passed to condition, fail and finish <ARRAY>
@@ -48,8 +49,9 @@ private _state = {
 };
 private _cond = {
     params ["_target", "_player", "_actionParams"];
-    _actionParams params ["_duration", "_requiredItems", "_additionalReq"];
+    _actionParams params ["_duration", "_requiredItems", "_requireWirecutters", "_additionalReq"];
 
+    if ( _requireWirecutters && { !( _player call FUNC(temp_hasWirecutter) ) } ) exitWith { false };
     if ( _requiredItems findIf { !([_player, _x] call ace_common_fnc_hasItem) } > -1 ) exitWith { false };
     call _additionalReq
 };
