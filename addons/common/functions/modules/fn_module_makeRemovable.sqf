@@ -25,8 +25,6 @@ params [
 
 if ( _units isEqualTo []) exitWith {};
 
-diag_log format ['[CVO](debug)(fn_module_makeRemovable) "": %1 - "": %2', "" , ""];
-
 private _duration = parseNumber (_logic getVariable [QGVAR(duration), "30"]);
 private _requireWirecutters = _logic getVariable [QGVAR(requireWirecutter), true];
 

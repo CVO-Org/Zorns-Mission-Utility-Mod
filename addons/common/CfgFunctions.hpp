@@ -99,7 +99,8 @@ class CfgFunctions {
         class cosmetic {
             file = PATH_TO_FUNC_SUB(cosmetic);
 
-            class makeCosmetic {};
+            class makeCosmeticServer {};
+            class makeCosmeticApply {};
         };
 
         class modules {
