@@ -25,7 +25,7 @@ params [
 
 if ( _units isEqualTo []) exitWith {};
 
-private _duration = parseNumber (_logic getVariable [QGVAR(duration), "30"]);
+private _duration = _logic getVariable [QGVAR(duration), 30];
 private _requireWirecutters = _logic getVariable [QGVAR(requireWirecutter), true];
 
 [ QGVAR(EH_makeRemovable), [_units, _duration, _requireWirecutters ] ] call CBA_fnc_globalEventJIP;
