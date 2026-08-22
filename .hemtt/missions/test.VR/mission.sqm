@@ -501,7 +501,20 @@ class Mission
 						};
 					};
 				};
-				nAttributes=1;
+				class Attribute1
+				{
+					property="mum_common_duration";
+					expression="_this setVariable ['mum_common_duration',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="SCALAR";
+							value=30;
+						};
+					};
+				};
+				nAttributes=2;
 			};
 		};
 	};

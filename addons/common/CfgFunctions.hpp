@@ -77,11 +77,9 @@ class CfgFunctions {
             file = PATH_TO_FUNC_SUB(missionmaker);
 
             class executeUnit {};
-            class fullHeal {};
             class holdaction_tp {};
 
             class subtitles {};
-            class makeRemovable {};
 
             class removeNavitems {};
             class skipTimeTo {};
@@ -107,7 +105,10 @@ class CfgFunctions {
         class modules {
             file = PATH_TO_FUNC_SUB(modules);
 
+            class makeHealstation {};
             class module_healStation {};
+
+            class makeRemovable {};
             class module_makeRemovable {};
 
             class temp_hasWirecutter {};
