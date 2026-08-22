@@ -25,8 +25,8 @@ params [
 
 if ( _units isEqualTo []) exitWith {};
 
-private _duration = parseNumber (_logic getVariable [QGVAR(duration), "30"]);
-private _chance = parseNumber (_logic getVariable [QGVAR(chance), "1"]);
+private _duration = _logic getVariable [QGVAR(duration), 30];
+private _chance = _logic getVariable [QGVAR(chance), 1];
 _chance = _chance max 0 min 100;
 
 [ QGVAR(EH_makeHealstation), [_units, _duration, _chance ] ] call CBA_fnc_globalEventJIP;

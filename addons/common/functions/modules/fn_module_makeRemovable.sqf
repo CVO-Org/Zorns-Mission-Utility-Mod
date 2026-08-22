@@ -25,9 +25,7 @@ params [
 
 if ( _units isEqualTo []) exitWith {};
 
-diag_log format ['[CVO](debug)(fn_module_makeRemovable) "": %1 - "": %2', "" , ""];
-
-private _duration = parseNumber (_logic getVariable [QGVAR(duration), "30"]);
+private _duration = _logic getVariable [QGVAR(duration), 30];
 private _requireWirecutters = _logic getVariable [QGVAR(requireWirecutter), true];
 
 [ QGVAR(EH_makeRemovable), [_units, _duration, _requireWirecutters ] ] call CBA_fnc_globalEventJIP;
