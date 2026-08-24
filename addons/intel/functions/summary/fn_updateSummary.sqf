@@ -15,11 +15,8 @@
 * Public: No
 */
 
-privateAll;
 
-if (SET(disableIntelSummary)) exitWith {
-    if (player diarySubjectExists QGVAR(intel_summary)) then { player removeDiarySubject QGVAR(intel_summary); };
-};
+if (SET(disableIntelSummary)) exitWith { if (player diarySubjectExists QGVAR(intel_summary)) then { player removeDiarySubject QGVAR(intel_summary); }; };
 
 private _groups = [] call FUNC(getGroups);
 if (_groups isEqualTo []) exitWith {};

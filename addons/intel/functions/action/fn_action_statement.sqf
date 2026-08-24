@@ -47,8 +47,6 @@ if (_actionSounds isNotEqualTo []) then { _object setVariable [QGVAR(nextTimeFor
         params ["_args", "", "", ""];
         _args params ["_object", "_player", "_id"];
 
-        diag_log format ['[MUM](debug)(fn_action_statement) _args: %1', _args];
-
         // Tell Server its been found
         [QGVAR(EH_intelFound), [_id, _player]] call CBA_fnc_serverEvent;
 

@@ -1,25 +1,25 @@
 version=54;
 class EditorData
 {
-	moveGridStep=0.25;
+	moveGridStep=1;
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=5;
+	toggles=37;
 	class ItemIDProvider
 	{
-		nextID=321;
+		nextID=377;
 	};
 	class LayerIndexProvider
 	{
-		nextID=19;
+		nextID=47;
 	};
 	class Camera
 	{
-		pos[]={51.917377,9.9376574,-25.083736};
-		dir[]={0.028391078,-0.4569836,-0.88902187};
-		up[]={0.014586419,0.88947511,-0.45675072};
-		aside[]={-0.99949044,0,-0.031918913};
+		pos[]={53.657143,7.2519312,-47.280003};
+		dir[]={0.65335667,-0.5445931,0.52587599};
+		up[]={0.42424387,0.83869988,0.3414669};
+		aside[]={0.62701237,1.8277206e-08,-0.77901024};
 	};
 };
 binarizationWanted=0;
@@ -43,15 +43,17 @@ addons[]=
 	"A3_Soft_F_Quadbike_01",
 	"A3_Structures_F_Kart_Mil_Flags",
 	"A3_Structures_F_Mil_Helipads",
-	"A3_Structures_F_Argo_Military_Fortifications",
 	"A3_Structures_F_Furniture",
-	"A3_Structures_F_Items_Electronics"
+	"A3_Structures_F_Items_Electronics",
+	"A3_Props_F_Enoch_Military_Camps",
+	"A3_Structures_F_Items_Documents",
+	"mum_intel"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=16;
+		items=17;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -152,17 +154,24 @@ class AddonsMetaData
 		};
 		class Item14
 		{
-			className="A3_Structures_F_Argo";
-			name="Arma 3 Malden - Buildings and Structures";
+			className="A3_Structures_F";
+			name="Arma 3 - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
 		class Item15
 		{
-			className="A3_Structures_F";
-			name="Arma 3 - Buildings and Structures";
+			className="A3_Props_F_Enoch";
+			name="Arma 3 Contact Platform - Decorative and Mission Objects";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
+		};
+		class Item16
+		{
+			className="mum_intel";
+			name="Zorn's Mission Utilty Mod - Intel";
+			author="""OverlordZorn [CVO]""";
+			url="https://github.com/CVO-Org/Zorns-Mission-Utility-Mod";
 		};
 	};
 };
@@ -170,7 +179,7 @@ dlcs[]=
 {
 	"Mark",
 	"Kart",
-	"Argo"
+	"Contact"
 };
 randomSeed=4540948;
 class ScenarioData
@@ -200,7 +209,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=15;
+		items=22;
 		class Item0
 		{
 			dataType="Group";
@@ -213,7 +222,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={52,5.0014391,-37.950001};
+						position[]={54,5.0014391,-41.950001};
+						angles[]={0,1.5707963,0};
 					};
 					side="West";
 					flags=7;
@@ -2936,45 +2946,48 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={63.379002,5,-32.778999};
+				position[]={56,5.4070597,-38};
+				angles[]={0,4.6650214,0};
 			};
 			side="Empty";
-			flags=5;
+			flags=4;
 			class Attributes
 			{
-				init=" [this, 30, ""ACE_wirecutter""] call mum_common_fnc_makeRemovable;";
 			};
-			id=306;
-			type="Land_Barricade_01_4m_F";
+			id=332;
+			type="Land_TableDesk_F";
 		};
 		class Item7
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={52,5.4070597,-32};
+				position[]={55.956169,5.9760685,-37.515533};
+				angles[]={6.2828403,4.6650205,0.0069139795};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
 			};
-			id=308;
-			type="Land_TableDesk_F";
+			id=335;
+			type="Land_Laptop_unfolded_F";
+			atlOffset=0.00026464462;
 		};
 		class Item8
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={54.75,5.4070597,-32.25};
+				position[]={56,5.4070597,-40};
+				angles[]={0,4.6650214,0};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
 			};
-			id=312;
+			id=345;
 			type="Land_TableDesk_F";
 		};
 		class Item9
@@ -2982,100 +2995,1118 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={51.5,5.9788117,-32};
+				position[]={55.956169,5.9760685,-39.515533};
+				angles[]={6.2828403,4.6650205,0.0069139795};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
-				name="laptop";
 			};
-			id=315;
+			id=346;
 			type="Land_Laptop_unfolded_F";
+			atlOffset=0.00026464462;
 		};
 		class Item10
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={52.001026,5.9786682,-31.998919};
-				angles[]={0.0069225952,0,6.2766256};
+				position[]={56,5.4070597,-42};
+				angles[]={0,4.6650214,0};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
-				name="laptop_1";
 			};
-			id=316;
-			type="Land_Laptop_unfolded_F";
+			id=348;
+			type="Land_TableDesk_F";
 		};
 		class Item11
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={52.5,5.975945,-32};
-				angles[]={0.0069225952,0,0};
+				position[]={55.956169,5.9760685,-41.515533};
+				angles[]={6.2828403,4.6650205,0.0069139795};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
-				name="laptop_2";
 			};
-			id=317;
+			id=349;
 			type="Land_Laptop_unfolded_F";
-			atlOffset=0.81987667;
+			atlOffset=0.00026464462;
 		};
 		class Item12
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={54.25,5.9788117,-32.25};
+				position[]={54,5.4179478,-34};
+				angles[]={0,0.78539819,0};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
-				name="laptop_3";
+				init="this spawn { sleep 5; _this call mum_intel_fnc_createFontPreview; };";
 			};
-			id=318;
-			type="Land_Laptop_unfolded_F";
+			id=354;
+			type="Land_PortableCabinet_01_bookcase_black_F";
 		};
 		class Item13
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={54.751026,5.9786682,-32.24892};
-				angles[]={0.0069225952,0,6.2766256};
+				position[]={56,5.4070597,-46};
+				angles[]={0,4.6650214,0};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
-				name="laptop_4";
 			};
-			id=319;
-			type="Land_Laptop_unfolded_F";
+			id=360;
+			type="Land_TableDesk_F";
 		};
 		class Item14
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={55.25,5.975945,-32.25};
-				angles[]={0.0069225952,0,0};
+				position[]={55.954994,5.8239059,-45.558998};
+				angles[]={0,1.3089969,0};
 			};
 			side="Empty";
 			class Attributes
 			{
-				name="laptop_5";
+				name="photo";
 			};
-			id=320;
+			id=361;
+			type="Land_Photos_V3_F";
+			atlOffset=0.0032973289;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ObjectTextureCustom0";
+					expression="_this setObjectTextureGlobal [0,_value]";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item15
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={55.985001,5.823,-38.229};
+			};
+			id=364;
+			type="mum_intel_module_IntelItem_basic";
+			atlOffset=0.00026035309;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="mum_intel_actionSound";
+					expression="_this setVariable ['mum_intel_actionSound',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="AUTO";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="mum_intel_intel_desc";
+					expression="_this setVariable ['mum_intel_intel_desc',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="You found some intel...";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="mum_intel_actionDuration";
+					expression="_this setVariable ['mum_intel_actionDuration',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="SCALAR";
+							value=15;
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="mum_intel_intelGroup";
+					expression="_this setVariable ['mum_intel_intelGroup',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="Gathered Intel";
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="mum_intel_shareWith";
+					expression="_this setVariable ['mum_intel_shareWith',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="DEFAULT";
+						};
+					};
+				};
+				class Attribute5
+				{
+					property="mum_intel_actionTitle";
+					expression="_this setVariable ['mum_intel_actionTitle',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="Gathering Intel...";
+						};
+					};
+				};
+				class Attribute6
+				{
+					property="mum_intel_intelTitle";
+					expression="_this setVariable ['mum_intel_intelTitle',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="Intel Title";
+						};
+					};
+				};
+				class Attribute7
+				{
+					property="mum_intel_removeObject";
+					expression="_this setVariable ['mum_intel_removeObject',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				class Attribute8
+				{
+					property="mum_intel_intelContent";
+					expression="_this setVariable ['mum_intel_intelContent',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="Intel Content";
+						};
+					};
+				};
+				nAttributes=9;
+			};
+		};
+		class Item16
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={55.985001,5.823,-40.229};
+			};
+			id=366;
+			type="mum_intel_module_IntelItem_handwrittenNote";
+			atlOffset=0.00026035309;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="mum_intel_actionSound";
+					expression="_this setVariable ['mum_intel_actionSound',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="AUTO";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="mum_intel_intel_handwritten";
+					expression="_this setVariable ['mum_intel_intel_handwritten',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="Meet us in the destroyed village.<br/>Be careful, they are watching!";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="mum_intel_intel_desc";
+					expression="_this setVariable ['mum_intel_intel_desc',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="The note seems hastily written and is hard to read...";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="mum_intel_actionDuration";
+					expression="_this setVariable ['mum_intel_actionDuration',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="SCALAR";
+							value=15;
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="mum_intel_intelGroup";
+					expression="_this setVariable ['mum_intel_intelGroup',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="Gathered Intel";
+						};
+					};
+				};
+				class Attribute5
+				{
+					property="mum_intel_shareWith";
+					expression="_this setVariable ['mum_intel_shareWith',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="DEFAULT";
+						};
+					};
+				};
+				class Attribute6
+				{
+					property="mum_intel_actionTitle";
+					expression="_this setVariable ['mum_intel_actionTitle',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="Gathering Intel...";
+						};
+					};
+				};
+				class Attribute7
+				{
+					property="mum_intel_intelTitle";
+					expression="_this setVariable ['mum_intel_intelTitle',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="Bombmakers Note";
+						};
+					};
+				};
+				class Attribute8
+				{
+					property="mum_intel_removeObject";
+					expression="_this setVariable ['mum_intel_removeObject',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=9;
+			};
+		};
+		class Item17
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={55.985001,5.823,-42.229};
+			};
+			id=368;
+			type="mum_intel_module_IntelItem_messages";
+			atlOffset=0.00026035309;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="mum_intel_actionSound";
+					expression="_this setVariable ['mum_intel_actionSound',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="AUTO";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="mum_intel_message_4_type";
+					expression="_this setVariable ['mum_intel_message_4_type',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="RECIPIENT";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="mum_intel_shareWith";
+					expression="_this setVariable ['mum_intel_shareWith',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="DEFAULT";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="mum_intel_message_1_text";
+					expression="_this setVariable ['mum_intel_message_1_text',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="Knock Knock";
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="mum_intel_intelGroup";
+					expression="_this setVariable ['mum_intel_intelGroup',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="General";
+						};
+					};
+				};
+				class Attribute5
+				{
+					property="mum_intel_message_6_text";
+					expression="_this setVariable ['mum_intel_message_6_text',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="";
+						};
+					};
+				};
+				class Attribute6
+				{
+					property="mum_intel_message_3_type";
+					expression="_this setVariable ['mum_intel_message_3_type',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="SENDER";
+						};
+					};
+				};
+				class Attribute7
+				{
+					property="mum_intel_removeObject";
+					expression="_this setVariable ['mum_intel_removeObject',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				class Attribute8
+				{
+					property="mum_intel_message_5_text";
+					expression="_this setVariable ['mum_intel_message_5_text',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="";
+						};
+					};
+				};
+				class Attribute9
+				{
+					property="mum_intel_message_2_type";
+					expression="_this setVariable ['mum_intel_message_2_type',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="RECIPIENT";
+						};
+					};
+				};
+				class Attribute10
+				{
+					property="mum_intel_intelTitle";
+					expression="_this setVariable ['mum_intel_intelTitle',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="Phone Messages";
+						};
+					};
+				};
+				class Attribute11
+				{
+					property="mum_intel_actionDuration";
+					expression="_this setVariable ['mum_intel_actionDuration',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="SCALAR";
+							value=15;
+						};
+					};
+				};
+				class Attribute12
+				{
+					property="mum_intel_message_4_text";
+					expression="_this setVariable ['mum_intel_message_4_text',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="Dude wtf...";
+						};
+					};
+				};
+				class Attribute13
+				{
+					property="mum_intel_message_1_type";
+					expression="_this setVariable ['mum_intel_message_1_type',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="SENDER";
+						};
+					};
+				};
+				class Attribute14
+				{
+					property="mum_intel_actionTitle";
+					expression="_this setVariable ['mum_intel_actionTitle',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="Check for messages...";
+						};
+					};
+				};
+				class Attribute15
+				{
+					property="mum_intel_message_6_type";
+					expression="_this setVariable ['mum_intel_message_6_type',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="NONE";
+						};
+					};
+				};
+				class Attribute16
+				{
+					property="mum_intel_message_3_text";
+					expression="_this setVariable ['mum_intel_message_3_text',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="A. Joke";
+						};
+					};
+				};
+				class Attribute17
+				{
+					property="mum_intel_intel_desc";
+					expression="_this setVariable ['mum_intel_intel_desc',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="Most of the messages seem irrelevant but this conversation cought your attention...";
+						};
+					};
+				};
+				class Attribute18
+				{
+					property="mum_intel_senderName";
+					expression="_this setVariable ['mum_intel_senderName',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="M. Muster";
+						};
+					};
+				};
+				class Attribute19
+				{
+					property="mum_intel_message_5_type";
+					expression="_this setVariable ['mum_intel_message_5_type',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="NONE";
+						};
+					};
+				};
+				class Attribute20
+				{
+					property="mum_intel_senderMeta";
+					expression="_this setVariable ['mum_intel_senderMeta',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="Last seen: Yesterday";
+						};
+					};
+				};
+				class Attribute21
+				{
+					property="mum_intel_message_2_text";
+					expression="_this setVariable ['mum_intel_message_2_text',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="Who is there?";
+						};
+					};
+				};
+				nAttributes=22;
+			};
+		};
+		class Item18
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={56,5.4070597,-44};
+				angles[]={0,4.6650214,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=372;
+			type="Land_TableDesk_F";
+		};
+		class Item19
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={55.956169,5.9760685,-43.515533};
+				angles[]={6.2828403,4.6650205,0.0069139795};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=373;
 			type="Land_Laptop_unfolded_F";
-			atlOffset=0.81987667;
+			atlOffset=0.00026464462;
+		};
+		class Item20
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={55.985001,5.823,-44.229};
+			};
+			id=375;
+			type="mum_intel_module_IntelItem_email";
+			atlOffset=0.00026035309;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="mum_intel_actionSound";
+					expression="_this setVariable ['mum_intel_actionSound',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="AUTO";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="mum_intel_intel_desc";
+					expression="_this setVariable ['mum_intel_intel_desc',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="Most of the messages seem irrelevant but this conversation cought your attention...";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="mum_intel_emailDate";
+					expression="_this setVariable ['mum_intel_emailDate',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="2035-07-07 13:37:69";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="mum_intel_emailRecipient";
+					expression="_this setVariable ['mum_intel_emailRecipient',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="ThomasAdams@aol.com";
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="mum_intel_actionDuration";
+					expression="_this setVariable ['mum_intel_actionDuration',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="SCALAR";
+							value=15;
+						};
+					};
+				};
+				class Attribute5
+				{
+					property="mum_intel_emailSender";
+					expression="_this setVariable ['mum_intel_emailSender',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="noreply@nhs.co.uk";
+						};
+					};
+				};
+				class Attribute6
+				{
+					property="mum_intel_emailText";
+					expression="_this setVariable ['mum_intel_emailText',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="We have been trying to reach you regarding your lifes extended warrenty!";
+						};
+					};
+				};
+				class Attribute7
+				{
+					property="mum_intel_intelGroup";
+					expression="_this setVariable ['mum_intel_intelGroup',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="General";
+						};
+					};
+				};
+				class Attribute8
+				{
+					property="mum_intel_shareWith";
+					expression="_this setVariable ['mum_intel_shareWith',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="DEFAULT";
+						};
+					};
+				};
+				class Attribute9
+				{
+					property="mum_intel_actionTitle";
+					expression="_this setVariable ['mum_intel_actionTitle',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="Check for messages...";
+						};
+					};
+				};
+				class Attribute10
+				{
+					property="mum_intel_intelTitle";
+					expression="_this setVariable ['mum_intel_intelTitle',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="Phone Messages";
+						};
+					};
+				};
+				class Attribute11
+				{
+					property="mum_intel_emailSubject";
+					expression="_this setVariable ['mum_intel_emailSubject',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="Re: Life Insurance";
+						};
+					};
+				};
+				class Attribute12
+				{
+					property="mum_intel_removeObject";
+					expression="_this setVariable ['mum_intel_removeObject',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=13;
+			};
+		};
+		class Item21
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={55.944,5.8239999,-46.209999};
+			};
+			id=376;
+			type="mum_intel_module_IntelItem_photo";
+			atlOffset=0.0012602806;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="mum_intel_actionSound";
+					expression="_this setVariable ['mum_intel_actionSound',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="AUTO";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="mum_intel_intel_desc";
+					expression="_this setVariable ['mum_intel_intel_desc',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="You found this photograph - it has something written on the back";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="mum_intel_intel_backside";
+					expression="_this setVariable ['mum_intel_intel_backside',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="1993";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="mum_intel_actionDuration";
+					expression="_this setVariable ['mum_intel_actionDuration',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="SCALAR";
+							value=15;
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="mum_intel_intel_photoCustom";
+					expression="_this setVariable ['mum_intel_intel_photoCustom',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="loadscreen.paa";
+						};
+					};
+				};
+				class Attribute5
+				{
+					property="mum_intel_intelGroup";
+					expression="_this setVariable ['mum_intel_intelGroup',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="Gathered Intel";
+						};
+					};
+				};
+				class Attribute6
+				{
+					property="mum_intel_intel_photoSelector";
+					expression="_this setVariable ['mum_intel_intel_photoSelector',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="CUSTOM_MISSION";
+						};
+					};
+				};
+				class Attribute7
+				{
+					property="mum_intel_actionTitle";
+					expression="_this setVariable ['mum_intel_actionTitle',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="Investigate the photograph...";
+						};
+					};
+				};
+				class Attribute8
+				{
+					property="mum_intel_intelTitle";
+					expression="_this setVariable ['mum_intel_intelTitle',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="Photograph";
+						};
+					};
+				};
+				class Attribute9
+				{
+					property="mum_intel_removeObject";
+					expression="_this setVariable ['mum_intel_removeObject',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				class Attribute10
+				{
+					property="mum_intel_shareWith";
+					expression="_this setVariable ['mum_intel_shareWith',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="DEFAULT";
+						};
+					};
+				};
+				nAttributes=11;
+			};
+		};
+	};
+	class Connections
+	{
+		class LinkIDProvider
+		{
+			nextID=5;
+		};
+		class Links
+		{
+			items=5;
+			class Item0
+			{
+				linkID=0;
+				item0=364;
+				item1=335;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item1
+			{
+				linkID=1;
+				item0=366;
+				item1=346;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item2
+			{
+				linkID=2;
+				item0=368;
+				item1=349;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item3
+			{
+				linkID=3;
+				item0=375;
+				item1=373;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item4
+			{
+				linkID=4;
+				item0=376;
+				item1=361;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
 		};
 	};
 };

@@ -63,8 +63,9 @@ params [
 ];
 
 
-if (_object isEqualTo objNull) exitWith { false };
+if (isNull _object) exitWith { false };
 
+_actionDuration = _actionDuration max 1;
 
 // Store Intel in
 private _intelCatalog = [QGVAR(catalog)] call EFUNC(catalog,getCatalog);
@@ -91,10 +92,7 @@ if (_actionSound isEqualTo "AUTO") then {
 };
 
 // Debug Mode
-if ( is3DENPreview ) then {
-    _str = format ["intel entry created: %1 - %2", _id, _object]; diag_log _str; systemChat _str;
-    _actionDuration = 1;
-};
+if ( is3DENPreview ) then { _str = format ["intel entry created: %1 - %2", _id, _object]; systemChat _str; _actionDuration = 1; };
 
 // Create CBA Namespace for shared & jip compatible data.
 private _namespace = true call CBA_fnc_createNamespace;
