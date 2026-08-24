@@ -40,8 +40,10 @@ class CfgFunctions {
             file = PATH_TO_FUNC_SUB(debug);
 
             class markAllLocations {};
-            class stringPadding {};
             class ui_lnb_output {};
+
+            class stringPadding {};
+            class multilineStringPadding {};
         };
 
         class helicopters {
@@ -79,11 +81,9 @@ class CfgFunctions {
             file = PATH_TO_FUNC_SUB(missionmaker);
 
             class executeUnit {};
-            class fullHeal {};
             class holdaction_tp {};
 
             class subtitles {};
-            class makeRemovable {};
 
             class removeNavitems {};
             class skipTimeTo {};
@@ -103,7 +103,20 @@ class CfgFunctions {
         class cosmetic {
             file = PATH_TO_FUNC_SUB(cosmetic);
 
-            class makeCosmetic {};
+            class makeCosmeticServer {};
+            class makeCosmeticApply {};
+        };
+
+        class modules {
+            file = PATH_TO_FUNC_SUB(modules);
+
+            class makeHealstation {};
+            class module_healStation {};
+
+            class makeRemovable {};
+            class module_makeRemovable {};
+
+            class temp_hasWirecutter {};
         };
     };
 };

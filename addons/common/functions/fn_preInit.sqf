@@ -94,3 +94,8 @@
         [_statement, _this] call CBA_fnc_execNextFrame;
     }
 ] call CBA_fnc_addEventHandler;
+
+// Module Events
+[QGVAR(EH_makeRemovable), FUNC(makeRemovable)] call CBA_fnc_addEventHandler;
+[QGVAR(EH_makeHealstation), FUNC(makeHealstation)] call CBA_fnc_addEventHandler;
+[QGVAR(EH_makeCosmeticApply), FUNC(makeCosmeticApply)] call CBA_fnc_addEventHandler;

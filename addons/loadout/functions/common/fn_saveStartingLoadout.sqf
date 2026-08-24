@@ -27,8 +27,12 @@ private _code = {
         player setVariable [QGVAR(Loadout), [player] call CBA_fnc_getLoadout];
     };
 
+    // Run initial Loadout saving
+    call _saveLoadout;
+
+    // run additional Loadout saving with delay
     private _delay = SET(save_missionStart);
-    if (_delay == 0) then _saveLoadout else { [ _saveLoadout , [], _delay] call CBA_fnc_waitAndExecute;    };
+    if (_delay isNotEqualTo 0) then { [ _saveLoadout , [], _delay] call CBA_fnc_waitAndExecute; };
 
 };
 

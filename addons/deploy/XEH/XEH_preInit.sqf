@@ -1,6 +1,6 @@
 #include "../script_component.hpp"
+
 /*    here, you put in your CBA Settings so they are available in the editor!
-*/
 [
     QSET(mode),                    //    _setting     - Unique setting name. Matches resulting variable name <STRING>
     "LIST",                                //    _settingType - Type of setting. Can be "CHECKBOX", "EDITBOX", "LIST", "SLIDER" or "COLOR" <STRING>
@@ -12,3 +12,4 @@
     {},                                        //    _script      - Script to execute when setting is changed. (optional) <CODE>
     true                                    //    _needRestart - Setting will be marked as needing mission restart after being changed. (optional, default false) <BOOL>
 ] call CBA_fnc_addSetting;
+*/

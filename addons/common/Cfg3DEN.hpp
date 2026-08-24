@@ -20,7 +20,7 @@ class Cfg3DEN {
                             // Entity is passed as _this, value is passed as _value
                             // %s is replaced by attribute config name
                             // In MP scenario, the expression is called only on server.
-                        expression = Q(if ( !is3DEN && {_value} ) then { _this call FUNC(makeCosmetic) });
+                        expression = Q(if ( !is3DEN && {_value} ) then { _this call FUNC(makeCosmeticServer) });
 
                             // Expression called when custom property is undefined yet (i.e., when setting the attribute for the first time)
                             // Entity (unit, group, marker, comment etc.) is passed as _this

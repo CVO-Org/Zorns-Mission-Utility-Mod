@@ -16,26 +16,28 @@
 */
 
 params [
-    ["_object",         objNull,        [objNull]   ],
-    ["_duration",       30,             [0]         ],
-    ["_requiredItems",  "",             ["", []]    ],
-    ["_additionalReq",  {true},         [{}]        ]
+    ["_objects", objNull, [[],objNull] ],
+    ["_duration", 30, [0] ],
+    ["_requireWirecutters", true, [true] ],
+    ["_requiredItems", [], ["", []] ],
+    ["_additionalReq", {true}, [{}] ]
 ];
+
+if (_objects isEqualType objNull) then { _objects = [_objects] };
 
 if (_requiredItems isEqualType "") then { _requiredItems = [_requiredItems] };
 
-private _params = [_duration, _requiredItems, _additionalReq];
+private _params = [_duration, _requiredItems, _requireWirecutters, _additionalReq];
 private _state = {
     params ["_target", "_player", "_actionParams"];
-    _actionParams params ["_duration", "_requiredItems", "_additionalReq"];
+    _actionParams params ["_duration", "_requiredItems", "_requireWirecutters", "_additionalReq"];
     [
         [_duration, 1] select is3DENPreview                       // * 0: Total Time (in game "time" seconds) <NUMBER>
         ,[_target]                     // * 1: Arguments, passed to condition, fail and finish <ARRAY>
         // * 2: On Finish: Code called or STRING raised as event. <CODE, STRING>
         ,{
-            params ["_args", "_elapsedTime", "_totalTime", "_errorCode"];
-            _args params ["_target"];
-            deleteVehicle _target;
+            //params ["_args", "_elapsedTime", "_totalTime", "_errorCode"];
+            deleteVehicle (_this#0);
         }
         // * 3: On Failure: Code called or STRING raised as event. <CODE, STRING>
         ,{}
@@ -48,8 +50,9 @@ private _state = {
 };
 private _cond = {
     params ["_target", "_player", "_actionParams"];
-    _actionParams params ["_duration", "_requiredItems", "_additionalReq"];
+    _actionParams params ["_duration", "_requiredItems", "_requireWirecutters", "_additionalReq"];
 
+    if ( _requireWirecutters && { !( _player call FUNC(temp_hasWirecutter) ) } ) exitWith { false };
     if ( _requiredItems findIf { !([_player, _x] call ace_common_fnc_hasItem) } > -1 ) exitWith { false };
     call _additionalReq
 };
@@ -69,10 +72,12 @@ private _aceAction = [
 ] call ace_interact_menu_fnc_createAction;
 
 
+{
+    [
+        _x                             // * 0: Object the action should be assigned to <OBJECT>
+        ,0                                     // * 1: Type of action, 0 for actions, 1 for self-actions <NUMBER>
+        ,["ACE_MainActions"]                 // * 2: Parent path of the new action <ARRAY> (Example: ["ACE_SelfActions", "ACE_Equipment"])
+        ,_aceAction                             // * 3: Action <ARRAY>
+    ] call ace_interact_menu_fnc_addActionToObject;
+} forEach _objects;
 
-[
-    _object                             // * 0: Object the action should be assigned to <OBJECT>
-    ,0                                     // * 1: Type of action, 0 for actions, 1 for self-actions <NUMBER>
-    ,["ACE_MainActions"]                 // * 2: Parent path of the new action <ARRAY> (Example: ["ACE_SelfActions", "ACE_Equipment"])
-    ,_aceAction                             // * 3: Action <ARRAY>
-] call ace_interact_menu_fnc_addActionToObject;

@@ -18,7 +18,8 @@ class CfgPatches {
 
         // Required addons, used for setting load order.
         // When any of the addons is missing, pop-up warning will appear when launching the game.
-        requiredAddons[] = {"mum_main", "cba_common","ace_marker_flags"};
+        // Dependency on cba_help - hope is that the intel record will be made after cba's diary entries.
+        requiredAddons[] = {"mum_main", "cba_common", "cba_help"};
 
         // List of objects (CfgVehicles classes) contained in the addon. Important also for Zeus content (units and groups)
         units[] = {};
@@ -31,3 +32,6 @@ class CfgPatches {
 
 #include "CfgFunctions.hpp"
 #include "XEH/CfgXEH.hpp"
+
+#include "CfgFactionClasses.hpp"
+#include "CfgVehicles.hpp"
