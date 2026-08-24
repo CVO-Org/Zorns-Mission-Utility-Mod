@@ -25,16 +25,15 @@ if (_units isEqualTo []) exitWith {};
 
 
 
-// Content Data
-
-private _senderName = _logic getVariable [QGVAR(senderName), ""];
-private _senderMeta = _logic getVariable [QGVAR(senderMeta), ""];
+// Get Content
+private _senderName = _logic getVariable QGVAR(senderName);
+private _senderMeta = _logic getVariable QGVAR(senderMeta);
 
 if (_senderName isEqualTo "") then { _senderName = "Unkown"; };
 if (_senderMeta isEqualTo "") then { _senderMeta = "Last Activity: Unkown"; };
 
+// Get Content as Array
 private _messages = [];
-
 for "_i" from 1 to 6 do {
     _messages pushBack [
         _logic getVariable [ [ QADDON, "message", _i, "type" ] joinString "_", ""],
@@ -43,21 +42,21 @@ for "_i" from 1 to 6 do {
 
 };
 
-// Compose Intel Body
-#define MAX_LENGTH 30
-
+#define MAX_LENGTH 40
 #define COLOR_RECIPIENT color=QQ(#429ed3)
 #define COLOR_SENDER color=QQ(#42d3a3)
-#define COLOR_META color=QQ(#b8b9b9)
 
-private _intelContent = "<br/>";
+// Compose Intel Body
+private _intelContent  = "<br/>";
+private _intelDesc = _logic getVariable QGVAR(intel_desc);
+if (_intelDesc isNotEqualTo "") then { _intelContent = _intelContent + format [Q(<font color=COLOR_GREY face='RobotoCondensedLight'>%1</font><br/><br/>), _intelDesc]; };
 
-_intelContent = _intelContent + format [Q(<font face='EtelkaMonospaceProBold'COLOR_META size='12'>Messages with </font><font face='EtelkaMonospaceProBold' COLOR_SENDER size='15'>%1</font><br/>), _senderName];
-_intelContent = _intelContent + format [Q(<font face='EtelkaMonospacePro' COLOR_META size='10'>%1</font><br/><br/>), _senderMeta];
+_intelContent = _intelContent + format [Q(<font face='EtelkaMonospaceProBold'COLOR_GREY size='12'>Sender: </font><font face='EtelkaMonospaceProBold' COLOR_SENDER size='15'>%1</font><br/>), _senderName];
+_intelContent = _intelContent + format [Q(<font face='EtelkaMonospacePro' COLOR_GREY size='10'>%1</font><br/><br/>), _senderMeta];
 
+// Process Content Array
 {
     _x params ["_type", "_message"];
-
     private _messagePart = switch (_type) do {
         case "SENDER":    {
             private _lines = ([_message, MAX_LENGTH, nil, "LEFT"] call EFUNC(common,multilineStringPadding));
@@ -71,26 +70,22 @@ _intelContent = _intelContent + format [Q(<font face='EtelkaMonospacePro' COLOR_
         };
         default { "" };
     };
-
-    if (_messagePart isNotEqualTo "") then {
-        _intelContent = _intelContent + _messagePart;
-    };
-
-
+    if (_messagePart isNotEqualTo "") then { _intelContent = _intelContent + _messagePart; };
 } forEach _messages;
 
-// Get Data
-private _intelGroup =     _logic getVariable [QGVAR(intelGroup), ""];
-private _intelTitle =     _logic getVariable [QGVAR(intelTitle), ""];
-
-// Intel Meta
-private _removeObject =   _logic getVariable [QGVAR(removeObject), true];
-private _actionTitle =    _logic getVariable [QGVAR(actionTitle), ""];
-private _actionDuration = _logic getVariable [QGVAR(actionDuration), 15];
-private _actionSound =    _logic getVariable [QGVAR(actionSound), ""];
-private _shareWith =      _logic getVariable [QGVAR(shareWith), ""];
-
-// Handle Intel
-{ [_x, _intelTitle, _intelContent, _intelGroup, _removeObject, _actionTitle, _actionDuration, _actionSound, _shareWith] call FUNC(createIntel) } forEach _units;
+// Apply Intel
+{
+    [
+        _x,
+        _logic getVariable QGVAR(intelTitle),
+        _intelContent,
+        _logic getVariable QGVAR(intelGroup),
+        _logic getVariable QGVAR(removeObject),
+        _logic getVariable QGVAR(actionTitle),
+        _logic getVariable QGVAR(actionDuration),
+        _logic getVariable QGVAR(actionSound),
+        _logic getVariable QGVAR(shareWith)
+    ] call FUNC(createIntel)
+} forEach _units;
 
 nil

@@ -114,18 +114,10 @@ class GVAR(module_IntelItem_messages): Module_F {
     // Module attributes (uses https://community.bistudio.com/wiki/Eden_Editor:_Configuring_Attributes#Entity_Specific):
     class Attributes: AttributesBase {
         // Module-specific arguments:
-        class GVAR(intelGroup): Edit {
-            displayName = "Intel Group";
-            tooltip = "Used for the Intel Summary Feature. Ideally grouped by Location.\nExamples: ""First Objective"", ""Bomb Makers Hideout""";
-            property = QGVAR(intelGroup);
-            defaultValue = DEFAULT_INTEL_GROUP; // Because this is an expression, one must have a string within a string to return a string
-        };
-        class GVAR(intelTitle): Edit {
-            displayName = "Intel Title";
-            tooltip = "Short, Descriptive Title for the Intel Item";
-            property = QGVAR(intelTitle);
-            defaultValue = """Cellphone Messages"""; // Because this is an expression, one must have a string within a string to return a string
-        };
+
+        INTEL_GROUP;
+        INTEL_TITLE(Recovered Messages);
+        INTEL_DESC(Most of the messages seem irrelevant but this conversation cought your attention...);
 
         class GVAR(senderName): Edit {
             displayName = "Message Sender";

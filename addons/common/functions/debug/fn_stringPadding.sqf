@@ -22,8 +22,6 @@ params [
     [ "_padding",   " ",        [""] ]
 ];
 
-diag_log format ['[CVO](debug)(fn_stringPadding) _this: %1', _this];
-
 if !(_str isEqualType "") then { _str = str _str };
 
 private _countStr = count _str;
@@ -47,7 +45,5 @@ for "_i" from 1 to _reqPadding do {
         };
     };
 };
-
-diag_log format ['[CVO](debug)(fn_stringPadding) return: _str: %1', _str];
 
 _str

@@ -23,24 +23,30 @@ params [
 
 if (_units isEqualTo []) exitWith {};
 
-private _intelGroup =           _logic getVariable [QGVAR(intelGroup), "General"];
-private _intelTitle =           _logic getVariable [QGVAR(intelTitle), "A piece of Intel"];
+// Get Content
+private _intel_handwritten = _logic getVariable QGVAR(intel_handwritten);
 
-private _intelContent_header =    _logic getVariable [QGVAR(intelContent_header), "body"];
-private _intelContent_body =    _logic getVariable [QGVAR(intelContent_body), "body"];
+// Compose Intel Body
+private _intelContent  = "<br/>";
+private _intelDesc = _logic getVariable QGVAR(intel_desc);
+if (_intelDesc isNotEqualTo "") then { _intelContent = _intelContent + format [Q(<font color=COLOR_GREY face='RobotoCondensedLight'>%1</font><br/><br/>), _intelDesc]; };
 
-private _removeObject =     _logic getVariable [QGVAR(removeObject), true];
+_intelContent = _intelContent + format [ "<br/><font face='Caveat' size='25'>%1</font>", _intel_handwritten ];
 
-private _actionTitle =      _logic getVariable [QGVAR(actionTitle), "Gathering Intel..."];
-private _actionDuration =   _logic getVariable [QGVAR(actionDuration), 15];
-private _actionSound =      _logic getVariable [QGVAR(actionSound), "AUTO"];
 
-private _shareWith =        _logic getVariable [QGVAR(shareWith), "DEFAULT"];
-
-private _intelContent = "<br/>";
-_intelContent = _intelContent + format ["<font face='RobotoCondensedLight'>%1</font><br/>", _intelContent_header ];
-_intelContent = _intelContent + format [ "<br/><font face='Caveat' size='25'>%1</font>",    _intelContent_body   ];
-
-{ [_x, _intelTitle, _intelContent, _intelGroup, _removeObject, _actionTitle, _actionDuration, _actionSound, _shareWith] call FUNC(createIntel) } forEach _units;
+// Apply Intel
+{
+    [
+        _x,
+        _logic getVariable QGVAR(intelTitle),
+        _intelContent,
+        _logic getVariable QGVAR(intelGroup),
+        _logic getVariable QGVAR(removeObject),
+        _logic getVariable QGVAR(actionTitle),
+        _logic getVariable QGVAR(actionDuration),
+        _logic getVariable QGVAR(actionSound),
+        _logic getVariable QGVAR(shareWith)
+    ] call FUNC(createIntel)
+} forEach _units;
 
 nil

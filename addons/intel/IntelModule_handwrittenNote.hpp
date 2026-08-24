@@ -23,33 +23,16 @@ class GVAR(module_IntelItem_handwrittenNote): Module_F {
 
     // Module attributes (uses https://community.bistudio.com/wiki/Eden_Editor:_Configuring_Attributes#Entity_Specific):
     class Attributes: AttributesBase {
-        // Module-specific arguments:
-        class GVAR(intelGroup): Edit {
-            displayName = "Intel Group";
-            tooltip = "Used for the Intel Summary Feature.\nExamples: ""First Objective"", ""Bomb Makers Hideout""";
-            property = QGVAR(intelGroup);
-            defaultValue = DEFAULT_INTEL_GROUP; // Because this is an expression, one must have a string within a string to return a string
-        };
-        class GVAR(intelTitle): Edit {
-            displayName = "Intel Title";
-            tooltip = "Short, Descriptive Title for the Intel Item";
-            property = QGVAR(intelTitle);
-            defaultValue = """Handwritten Note"""; // Because this is an expression, one must have a string within a string to return a string
-        };
 
-        class GVAR(intelContent_header): Edit {
-            control = "EditMulti5";
-            displayName = "Intel Header";
-            tooltip = "Header of the Intel Content.\nUsed for rough description.\n Use <br/> for linebreaks.";
-            property = QGVAR(intelContent_header);
-            defaultValue = "'The note seems hastily written and is hard to deciver'"; // Because this is an expression, one must have a string within a string to return a string
-        };
+        INTEL_GROUP;
+        INTEL_TITLE(Handwritten Note);
+        INTEL_DESC(The note seems hastily written and is hard to read...);
 
-        class GVAR(intelContent_body): Edit {
+        class GVAR(intel_handwritten): Edit {
             control = "EditMulti5";
-            displayName = "Intel Body";
+            displayName = "Handrwitten Note";
             tooltip = "Body of the Intel Content.\nUsed for the actual, handwritten text.\n Use <br/> for linebreaks.";
-            property = QGVAR(intelContent_body);
+            property = QGVAR(intel_handwritten);
             defaultValue = "'Meet us in the destroyed village.<br/>Be careful, they are watching!'"; // Because this is an expression, one must have a string within a string to return a string
         };
 

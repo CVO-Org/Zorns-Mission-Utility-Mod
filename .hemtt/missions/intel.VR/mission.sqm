@@ -8,18 +8,18 @@ class EditorData
 	toggles=37;
 	class ItemIDProvider
 	{
-		nextID=360;
+		nextID=377;
 	};
 	class LayerIndexProvider
 	{
-		nextID=39;
+		nextID=46;
 	};
 	class Camera
 	{
-		pos[]={51.52813,8.2096748,-45.108688};
-		dir[]={0.62423009,-0.35755596,0.69461548};
-		up[]={0.23899685,0.93389171,0.26594505};
-		aside[]={0.74378586,-1.4901161e-08,-0.66841805};
+		pos[]={53.657143,7.2519312,-47.280003};
+		dir[]={0.70190954,-0.59648925,0.38926035};
+		up[]={0.5216428,0.80262101,0.28928921};
+		aside[]={0.48498642,0,-0.87452173};
 	};
 };
 binarizationWanted=0;
@@ -45,8 +45,9 @@ addons[]=
 	"A3_Structures_F_Mil_Helipads",
 	"A3_Structures_F_Furniture",
 	"A3_Structures_F_Items_Electronics",
-	"mum_intel",
-	"A3_Props_F_Enoch_Military_Camps"
+	"A3_Props_F_Enoch_Military_Camps",
+	"A3_Structures_F_Items_Documents",
+	"mum_intel"
 };
 class AddonsMetaData
 {
@@ -160,17 +161,17 @@ class AddonsMetaData
 		};
 		class Item15
 		{
-			className="mum_intel";
-			name="Zorn's Mission Utilty Mod - Intel";
-			author="""OverlordZorn [CVO]""";
-			url="https://github.com/CVO-Org/Zorns-Mission-Utility-Mod";
-		};
-		class Item16
-		{
 			className="A3_Props_F_Enoch";
 			name="Arma 3 Contact Platform - Decorative and Mission Objects";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
+		};
+		class Item16
+		{
+			className="mum_intel";
+			name="Zorn's Mission Utilty Mod - Intel";
+			author="""OverlordZorn [CVO]""";
+			url="https://github.com/CVO-Org/Zorns-Mission-Utility-Mod";
 		};
 	};
 };
@@ -208,7 +209,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=16;
+		items=22;
 		class Item0
 		{
 			dataType="Group";
@@ -2975,12 +2976,145 @@ class Mission
 		};
 		class Item8
 		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={56,5.4070597,-40};
+				angles[]={0,4.6650214,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=345;
+			type="Land_TableDesk_F";
+		};
+		class Item9
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={55.956169,5.9760685,-39.515533};
+				angles[]={6.2828403,4.6650205,0.0069139795};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=346;
+			type="Land_Laptop_unfolded_F";
+			atlOffset=0.00026464462;
+		};
+		class Item10
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={56,5.4070597,-42};
+				angles[]={0,4.6650214,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=348;
+			type="Land_TableDesk_F";
+		};
+		class Item11
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={55.956169,5.9760685,-41.515533};
+				angles[]={6.2828403,4.6650205,0.0069139795};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=349;
+			type="Land_Laptop_unfolded_F";
+			atlOffset=0.00026464462;
+		};
+		class Item12
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={54,5.4179478,-34};
+				angles[]={0,0.78539819,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="this spawn { sleep 5; _this call mum_intel_fnc_createFontPreview; };";
+			};
+			id=354;
+			type="Land_PortableCabinet_01_bookcase_black_F";
+		};
+		class Item13
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={56,5.4070597,-46};
+				angles[]={0,4.6650214,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=360;
+			type="Land_TableDesk_F";
+		};
+		class Item14
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={55.954994,5.8239059,-45.558998};
+				angles[]={0,1.3089969,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+				name="photo";
+			};
+			id=361;
+			type="Land_Photos_V3_F";
+			atlOffset=0.0032973289;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ObjectTextureCustom0";
+					expression="_this setObjectTextureGlobal [0,_value]";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item15
+		{
 			dataType="Logic";
 			class PositionInfo
 			{
 				position[]={55.985001,5.823,-38.229};
 			};
-			id=338;
+			id=364;
 			type="mum_intel_module_IntelItem_basic";
 			atlOffset=0.00026035309;
 			class CustomAttributes
@@ -3000,6 +3134,19 @@ class Mission
 				};
 				class Attribute1
 				{
+					property="mum_intel_intel_desc";
+					expression="_this setVariable ['mum_intel_intel_desc',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="You found some intel...";
+						};
+					};
+				};
+				class Attribute2
+				{
 					property="mum_intel_actionDuration";
 					expression="_this setVariable ['mum_intel_actionDuration',_value,true];";
 					class Value
@@ -3011,7 +3158,7 @@ class Mission
 						};
 					};
 				};
-				class Attribute2
+				class Attribute3
 				{
 					property="mum_intel_intelGroup";
 					expression="_this setVariable ['mum_intel_intelGroup',_value,true];";
@@ -3024,7 +3171,7 @@ class Mission
 						};
 					};
 				};
-				class Attribute3
+				class Attribute4
 				{
 					property="mum_intel_shareWith";
 					expression="_this setVariable ['mum_intel_shareWith',_value,true];";
@@ -3037,7 +3184,7 @@ class Mission
 						};
 					};
 				};
-				class Attribute4
+				class Attribute5
 				{
 					property="mum_intel_actionTitle";
 					expression="_this setVariable ['mum_intel_actionTitle',_value,true];";
@@ -3050,7 +3197,7 @@ class Mission
 						};
 					};
 				};
-				class Attribute5
+				class Attribute6
 				{
 					property="mum_intel_intelTitle";
 					expression="_this setVariable ['mum_intel_intelTitle',_value,true];";
@@ -3063,7 +3210,7 @@ class Mission
 						};
 					};
 				};
-				class Attribute6
+				class Attribute7
 				{
 					property="mum_intel_removeObject";
 					expression="_this setVariable ['mum_intel_removeObject',_value,true];";
@@ -3076,7 +3223,7 @@ class Mission
 						};
 					};
 				};
-				class Attribute7
+				class Attribute8
 				{
 					property="mum_intel_intelContent";
 					expression="_this setVariable ['mum_intel_intelContent',_value,true];";
@@ -3089,100 +3236,17 @@ class Mission
 						};
 					};
 				};
-				nAttributes=8;
+				nAttributes=9;
 			};
 		};
-		class Item9
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={56,5.4070597,-40};
-				angles[]={0,4.6650214,0};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-			};
-			id=345;
-			type="Land_TableDesk_F";
-		};
-		class Item10
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={55.956169,5.9760685,-39.515533};
-				angles[]={6.2828403,4.6650205,0.0069139795};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-			};
-			id=346;
-			type="Land_Laptop_unfolded_F";
-			atlOffset=0.00026464462;
-		};
-		class Item11
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={56,5.4070597,-42};
-				angles[]={0,4.6650214,0};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-			};
-			id=348;
-			type="Land_TableDesk_F";
-		};
-		class Item12
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={55.956169,5.9760685,-41.515533};
-				angles[]={6.2828403,4.6650205,0.0069139795};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-			};
-			id=349;
-			type="Land_Laptop_unfolded_F";
-			atlOffset=0.00026464462;
-		};
-		class Item13
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={54,5.4179478,-34};
-				angles[]={0,0.78539819,0};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-				init="this call mum_intel_fnc_createFontPreview;";
-			};
-			id=354;
-			type="Land_PortableCabinet_01_bookcase_black_F";
-		};
-		class Item14
+		class Item16
 		{
 			dataType="Logic";
 			class PositionInfo
 			{
 				position[]={55.985001,5.823,-40.229};
 			};
-			id=355;
+			id=366;
 			type="mum_intel_module_IntelItem_handwrittenNote";
 			atlOffset=0.00026035309;
 			class CustomAttributes
@@ -3202,6 +3266,32 @@ class Mission
 				};
 				class Attribute1
 				{
+					property="mum_intel_intel_handwritten";
+					expression="_this setVariable ['mum_intel_intel_handwritten',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="Meet us in the destroyed village.<br/>Be careful, they are watching!";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="mum_intel_intel_desc";
+					expression="_this setVariable ['mum_intel_intel_desc',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="The note seems hastily written and is hard to read...";
+						};
+					};
+				};
+				class Attribute3
+				{
 					property="mum_intel_actionDuration";
 					expression="_this setVariable ['mum_intel_actionDuration',_value,true];";
 					class Value
@@ -3210,32 +3300,6 @@ class Mission
 						{
 							singleType="SCALAR";
 							value=15;
-						};
-					};
-				};
-				class Attribute2
-				{
-					property="mum_intel_intelContent_body";
-					expression="_this setVariable ['mum_intel_intelContent_body',_value,true];";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="Meet us in the destroyed village";
-						};
-					};
-				};
-				class Attribute3
-				{
-					property="mum_intel_intelContent_header";
-					expression="_this setVariable ['mum_intel_intelContent_header',_value,true];";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="The note seems hastily written, you can bearly read it";
 						};
 					};
 				};
@@ -3307,14 +3371,14 @@ class Mission
 				nAttributes=9;
 			};
 		};
-		class Item15
+		class Item17
 		{
 			dataType="Logic";
 			class PositionInfo
 			{
 				position[]={55.985001,5.823,-42.229};
 			};
-			id=359;
+			id=368;
 			type="mum_intel_module_IntelItem_messages";
 			atlOffset=0.00026035309;
 			class CustomAttributes
@@ -3484,7 +3548,7 @@ class Mission
 						class data
 						{
 							singleType="STRING";
-							value="Dude wtf is wrong with you, you mentally degenerated sewerdweller";
+							value="Dude wtf...";
 						};
 					};
 				};
@@ -3542,6 +3606,19 @@ class Mission
 				};
 				class Attribute17
 				{
+					property="mum_intel_intel_desc";
+					expression="_this setVariable ['mum_intel_intel_desc',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="Most of the messages seem irrelevant but this conversation cought your attention...";
+						};
+					};
+				};
+				class Attribute18
+				{
 					property="mum_intel_senderName";
 					expression="_this setVariable ['mum_intel_senderName',_value,true];";
 					class Value
@@ -3553,7 +3630,7 @@ class Mission
 						};
 					};
 				};
-				class Attribute18
+				class Attribute19
 				{
 					property="mum_intel_message_5_type";
 					expression="_this setVariable ['mum_intel_message_5_type',_value,true];";
@@ -3566,7 +3643,7 @@ class Mission
 						};
 					};
 				};
-				class Attribute19
+				class Attribute20
 				{
 					property="mum_intel_senderMeta";
 					expression="_this setVariable ['mum_intel_senderMeta',_value,true];";
@@ -3579,7 +3656,7 @@ class Mission
 						};
 					};
 				};
-				class Attribute20
+				class Attribute21
 				{
 					property="mum_intel_message_2_text";
 					expression="_this setVariable ['mum_intel_message_2_text',_value,true];";
@@ -3592,7 +3669,382 @@ class Mission
 						};
 					};
 				};
-				nAttributes=21;
+				nAttributes=22;
+			};
+		};
+		class Item18
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={56,5.4070597,-44};
+				angles[]={0,4.6650214,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=372;
+			type="Land_TableDesk_F";
+		};
+		class Item19
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={55.956169,5.9760685,-43.515533};
+				angles[]={6.2828403,4.6650205,0.0069139795};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=373;
+			type="Land_Laptop_unfolded_F";
+			atlOffset=0.00026464462;
+		};
+		class Item20
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={55.985001,5.823,-44.229};
+			};
+			id=375;
+			type="mum_intel_module_IntelItem_email";
+			atlOffset=0.00026035309;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="mum_intel_actionSound";
+					expression="_this setVariable ['mum_intel_actionSound',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="AUTO";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="mum_intel_intel_desc";
+					expression="_this setVariable ['mum_intel_intel_desc',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="Most of the messages seem irrelevant but this conversation cought your attention...";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="mum_intel_emailDate";
+					expression="_this setVariable ['mum_intel_emailDate',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="2035-07-07 13:37:69";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="mum_intel_emailRecipient";
+					expression="_this setVariable ['mum_intel_emailRecipient',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="ThomasAdams@aol.com";
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="mum_intel_actionDuration";
+					expression="_this setVariable ['mum_intel_actionDuration',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="SCALAR";
+							value=15;
+						};
+					};
+				};
+				class Attribute5
+				{
+					property="mum_intel_emailSender";
+					expression="_this setVariable ['mum_intel_emailSender',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="noreply@nhs.co.uk";
+						};
+					};
+				};
+				class Attribute6
+				{
+					property="mum_intel_emailText";
+					expression="_this setVariable ['mum_intel_emailText',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="We have been trying to reach you regarding your lifes extended warrenty!";
+						};
+					};
+				};
+				class Attribute7
+				{
+					property="mum_intel_intelGroup";
+					expression="_this setVariable ['mum_intel_intelGroup',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="General";
+						};
+					};
+				};
+				class Attribute8
+				{
+					property="mum_intel_shareWith";
+					expression="_this setVariable ['mum_intel_shareWith',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="DEFAULT";
+						};
+					};
+				};
+				class Attribute9
+				{
+					property="mum_intel_actionTitle";
+					expression="_this setVariable ['mum_intel_actionTitle',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="Check for messages...";
+						};
+					};
+				};
+				class Attribute10
+				{
+					property="mum_intel_intelTitle";
+					expression="_this setVariable ['mum_intel_intelTitle',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="Phone Messages";
+						};
+					};
+				};
+				class Attribute11
+				{
+					property="mum_intel_emailSubject";
+					expression="_this setVariable ['mum_intel_emailSubject',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="Re: Life Insurance";
+						};
+					};
+				};
+				class Attribute12
+				{
+					property="mum_intel_removeObject";
+					expression="_this setVariable ['mum_intel_removeObject',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=13;
+			};
+		};
+		class Item21
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={55.944,5.8239999,-46.209999};
+			};
+			id=376;
+			type="mum_intel_module_IntelItem_photo";
+			atlOffset=0.0012602806;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="mum_intel_actionSound";
+					expression="_this setVariable ['mum_intel_actionSound',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="AUTO";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="mum_intel_intel_desc";
+					expression="_this setVariable ['mum_intel_intel_desc',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="You found this photograph - it has something written on the back";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="mum_intel_intel_backside";
+					expression="_this setVariable ['mum_intel_intel_backside',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="1993";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="mum_intel_actionDuration";
+					expression="_this setVariable ['mum_intel_actionDuration',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="SCALAR";
+							value=15;
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="mum_intel_intel_photoCustom";
+					expression="_this setVariable ['mum_intel_intel_photoCustom',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="loadscreen.paa";
+						};
+					};
+				};
+				class Attribute5
+				{
+					property="mum_intel_intelGroup";
+					expression="_this setVariable ['mum_intel_intelGroup',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="Gathered Intel";
+						};
+					};
+				};
+				class Attribute6
+				{
+					property="mum_intel_intel_photoSelector";
+					expression="_this setVariable ['mum_intel_intel_photoSelector',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="CUSTOM_MISSION";
+						};
+					};
+				};
+				class Attribute7
+				{
+					property="mum_intel_actionTitle";
+					expression="_this setVariable ['mum_intel_actionTitle',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="Investigate the photograph...";
+						};
+					};
+				};
+				class Attribute8
+				{
+					property="mum_intel_intelTitle";
+					expression="_this setVariable ['mum_intel_intelTitle',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="Photograph";
+						};
+					};
+				};
+				class Attribute9
+				{
+					property="mum_intel_removeObject";
+					expression="_this setVariable ['mum_intel_removeObject',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				class Attribute10
+				{
+					property="mum_intel_shareWith";
+					expression="_this setVariable ['mum_intel_shareWith',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="DEFAULT";
+						};
+					};
+				};
+				nAttributes=11;
 			};
 		};
 	};
@@ -3600,15 +4052,15 @@ class Mission
 	{
 		class LinkIDProvider
 		{
-			nextID=3;
+			nextID=5;
 		};
 		class Links
 		{
-			items=3;
+			items=5;
 			class Item0
 			{
 				linkID=0;
-				item0=338;
+				item0=364;
 				item1=335;
 				class CustomData
 				{
@@ -3618,7 +4070,7 @@ class Mission
 			class Item1
 			{
 				linkID=1;
-				item0=355;
+				item0=366;
 				item1=346;
 				class CustomData
 				{
@@ -3628,8 +4080,28 @@ class Mission
 			class Item2
 			{
 				linkID=2;
-				item0=359;
+				item0=368;
 				item1=349;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item3
+			{
+				linkID=3;
+				item0=375;
+				item1=373;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item4
+			{
+				linkID=4;
+				item0=376;
+				item1=361;
 				class CustomData
 				{
 					type="Sync";

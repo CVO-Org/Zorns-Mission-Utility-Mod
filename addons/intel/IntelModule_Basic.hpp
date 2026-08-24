@@ -22,14 +22,11 @@ class GVAR(module_IntelItem_basic): Module_F {
     // Module attributes (uses https://community.bistudio.com/wiki/Eden_Editor:_Configuring_Attributes#Entity_Specific):
     class Attributes: AttributesBase {
         // Module-specific arguments:
-        INTEL_GROUP;
 
-        class GVAR(intelTitle): Edit {
-            displayName = "Intel Title";
-            tooltip = "Short, descriptive title for the Intel item.";
-            property = QGVAR(intelTitle);
-            defaultValue = """Intel Title"""; // Because this is an expression, one must have a string within a string to return a string
-        };
+        INTEL_GROUP;
+        INTEL_TITLE(Intel Item);
+        INTEL_DESC(You found some intel...);
+
         class GVAR(intelContent): Edit {
             control = "EditMulti5";
             displayName = "Intel Content";

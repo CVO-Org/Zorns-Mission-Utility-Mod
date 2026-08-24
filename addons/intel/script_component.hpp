@@ -6,6 +6,7 @@
 #include "\zrn\MUM\addons\main\script_macros.hpp"
 
 
+#define COLOR_GREY color=QQ(#b8b9b9)
 
 #define INTEL_GROUP\
 class GVAR(intelGroup): Edit {\
@@ -15,7 +16,22 @@ class GVAR(intelGroup): Edit {\
     defaultValue = "'Gathered Intel'";\
 }
 
+#define INTEL_TITLE(TITLE)\
+class GVAR(intelTitle): Edit {\
+    displayName = "Intel Title";\
+    tooltip = "Used for the Intel Summary Feature.\nExamples: ""First Objective"", ""Bomb Makers Hideout""";\
+    property = QGVAR(intelTitle);\
+    defaultValue = QQ(Q(TITLE));\
+}
 
+#define INTEL_DESC(DESC)\
+class GVAR(intel_desc): Edit {\
+    control = "EditMulti3";\
+    displayName = "Intel Description";\
+    tooltip = "Above of the intel content.\nUsed for rough description.\n Use <br/> for linebreaks.";\
+    property = QGVAR(intel_desc);\
+    defaultValue = QQ(Q(DESC));\
+}
 
 
 #define MODULE_ATTRIBUTES_META(ACTION_TITLE)\

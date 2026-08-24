@@ -41,6 +41,9 @@
             <Key ID="STR_MUM_Intel_module_IntelItem_messages_displayName">
                 <English>Intel Item - Messages</English>
             </Key>
+            <Key ID="STR_MUM_Intel_module_IntelItem_photo_displayName">
+                <English>Intel Item - Photo</English>
+            </Key>
         </Container>
         <Container name="Intel Object">
             <Key ID="STR_MUM_Intel_PlayerFoundIntel">

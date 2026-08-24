@@ -21,4 +21,5 @@ class CfgVehicles {
     #include "IntelModule_handwrittenNote.hpp"
     #include "IntelModule_eMail.hpp"
     #include "IntelModule_messages.hpp"
+    #include "IntelModule_photo.hpp"
 };

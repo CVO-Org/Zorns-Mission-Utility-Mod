@@ -39,9 +39,10 @@ class CfgFunctions {
             file = PATH_TO_FUNC_SUB(modules);
 
             class module_intelItem_basic {};
-            class module_intelItem_email {};
             class module_intelItem_handwrittenNote {};
+            class module_intelItem_email {};
             class module_intelItem_messages {};
+            class module_intelItem_photo {};
         };
 
         class dev {
