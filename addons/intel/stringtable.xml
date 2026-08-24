@@ -25,6 +25,23 @@
                 <English>General</English>
             </Key>
         </Container>
+        <Container name="Intel Modules">
+            <Key ID="STR_MUM_Intel_factionClass">
+                <English>MUM - Intel Modules</English>
+            </Key>
+            <Key ID="STR_MUM_Intel_module_IntelItem_basic_displayName">
+                <English>Intel Item - Basic</English>
+            </Key>
+            <Key ID="STR_MUM_Intel_module_IntelItem_eMail_displayName">
+                <English>Intel Item - eMail</English>
+            </Key>
+            <Key ID="STR_MUM_Intel_module_IntelItem_handwrittenNote_displayName">
+                <English>Intel Item - Handwritten Note</English>
+            </Key>
+            <Key ID="STR_MUM_Intel_module_IntelItem_messages_displayName">
+                <English>Intel Item - Messages</English>
+            </Key>
+        </Container>
         <Container name="Intel Object">
             <Key ID="STR_MUM_Intel_PlayerFoundIntel">
                 <English>%1 found intel: "%2"</English>

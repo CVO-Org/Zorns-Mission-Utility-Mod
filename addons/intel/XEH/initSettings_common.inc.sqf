@@ -1,3 +1,4 @@
+/*
 [
     QSET(disableIntelSummary),                                    //    _setting     - Unique setting name. Matches resulting variable name <STRING>
     "CHECKBOX",                                                    //    _settingType - Type of setting. Can be "CHECKBOX", "EDITBOX", "LIST", "SLIDER" or "COLOR" <STRING>
@@ -9,6 +10,7 @@
     FUNC(updateSummary),                                        //    _script      - Script to execute when setting is changed. (optional) <CODE>
     true                                                        //    _needRestart - Setting will be marked as needing mission restart after being changed. (optional, default false) <BOOL>
 ] call CBA_fnc_addSetting;
+*/
 
 [
     QSET(default_shareWith),                                                                //    _setting     - Unique setting name. Matches resulting variable name <STRING>

@@ -46,14 +46,17 @@ class CfgVehicles {
                 tooltip = "Duration of the progressbar before the action is completed";
                 property = QGVAR(duration);
                 // Default text for the input box:
-                defaultValue = "30"; // Because this is an expression, one must have a string within a string to return a string
+                typeName = "NUMBER";							// Value type, can be "NUMBER", "STRING" or "BOOL"
+                validate = "number";
+                defaultValue = 30; // Because this is an expression, one must have a string within a string to return a string
             };
             class GVAR(chance): Edit {
                 displayName = "Chance";
                 tooltip = "Chance of easteregg to be happening. 0 - 100";
                 property = QGVAR(chance);
-                // Default text for the input box:
-                defaultValue = "30"; // Because this is an expression, one must have a string within a string to return a string
+                typeName = "NUMBER";							// Value type, can be "NUMBER", "STRING" or "BOOL"
+                validate = "number";
+                defaultValue = 1; // Because this is an expression, one must have a string within a string to return a string
             };
 
             class ModuleDescription: ModuleDescription {}; // Module description should be shown last
@@ -96,7 +99,8 @@ class CfgVehicles {
                 tooltip = "Duration of the progressbar before the action is completed";
                 property = QGVAR(duration);
                 // Default text for the input box:
-                defaultValue = "30"; // Because this is an expression, one must have a string within a string to return a string
+                typeName = "NUMBER";							// Value type, can be "NUMBER", "STRING" or "BOOL"
+                defaultValue = 30; // Because this is an expression, one must have a string within a string to return a string
             };
             class GVAR(requireWirecutter): Checkbox {
                 displayName = "Require ACE Wirecutters";

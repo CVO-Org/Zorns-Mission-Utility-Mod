@@ -29,7 +29,7 @@ private _index = _allRecords findIf { _x select 1 isEqualTo _intelTitle };
 
 if (_index == -1) then {
     // Create New
-    player createDiaryRecord [QGVAR(intel), [_intelTitle, _intelContent]];
+    player createDiaryRecord [QGVAR(intel), [_intelTitle, _intelContent], taskNull, "", false];
 
 } else {
     // Attach to existing
@@ -41,4 +41,3 @@ if (_index == -1) then {
     player setDiaryRecordText [[QGVAR(intel), _existingRecord], [_intelTitle, _newIntelContent]];
 
 };
-
