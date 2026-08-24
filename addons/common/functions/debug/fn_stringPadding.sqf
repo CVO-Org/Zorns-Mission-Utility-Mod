@@ -10,7 +10,7 @@
 * None
 *
 * Example:
-* [_str, _targetWidth] call mum_common_fnc_stringPadding
+* [" NEW INTEL ", 40, "CENTER", "#"] call mum_common_fnc_stringPadding
 *
 * Public: No
 */

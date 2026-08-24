@@ -2,7 +2,7 @@
 
 /*
 * Author: Zorn
-* 
+*
 *
 * Arguments:
 *
@@ -15,4 +15,4 @@
 * Public: No
 */
 
-if !(player diarySubjectExists QGVAR(intel)) then { player createDiarySubject [QGVAR(intel), "Intel"]; };
+if !(player diarySubjectExists QGVAR(subject)) then { player createDiarySubject [QGVAR(subject), "Intel"]; };

@@ -39,7 +39,7 @@ private _emailText =        _logic getVariable [QGVAR(emailText), "Dear sir or m
 // Construct Content
 private _intelContent  = "<br/>";
 private _intelDesc = _logic getVariable QGVAR(intel_desc);
-if (_intelDesc isNotEqualTo "") then { _intelContent = _intelContent + format [Q(<font color=COLOR_GREY face='RobotoCondensedLight'>%1</font><br/><br/>), _intelDesc]; };
+if (_intelDesc isNotEqualTo "") then { _intelContent = _intelContent + format [Q(<font COLOR_GREY face='RobotoCondensedLight'>%1</font><br/><br/>), _intelDesc]; };
 
 if (_emailDate      isNotEqualTo "") then {_intelContent = _intelContent + format [Q(<font face='EtelkaMonospacePro' COLOR_EMAIL_HEADER_TITLE size='10'>DATE: </font><font face='EtelkaMonospacePro' COLOR_EMAIL_HEADER_CONTENT size='10'>%1</font><br/>), _emailDate]; };
 if (_emailSender    isNotEqualTo "") then {_intelContent = _intelContent + format [Q(<font face='EtelkaMonospacePro' COLOR_EMAIL_HEADER_TITLE size='10'>FROM: </font><font face='EtelkaMonospacePro' COLOR_EMAIL_HEADER_CONTENT size='10'>%1</font><br/>), _emailSender]; };

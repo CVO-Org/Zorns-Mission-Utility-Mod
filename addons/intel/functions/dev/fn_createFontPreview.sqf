@@ -24,14 +24,27 @@ private _currPos = getPos _object vectorAdd [1,1,1];
 private _fonts = "true" configClasses (configFile >> "CfgFontFamilies") apply { configName _x };
 _fonts sort true;
 
+private _delay = 0;
 
 {
-    private _fontName = _x;
-    private _texture = format ["#(rgb,512,512,3)text(1,1,""%1"",0.1,""#FFFFFF"",""#000000"",""%1\n\nHallo\nWelt"")", _fontName];
-
-    private _obj = createVehicle [OBJ_CLASSNAME, _currPos];
-    _obj setDir DIR;
+    _delay = _delay + 2;
     _currPos = _currPos vectorAdd [1.5,0,0];
 
-    _obj setObjectTexture [0, _texture];
+    [
+        {
+            params ["_pos", "_texture"];
+
+            private _obj = createVehicle [OBJ_CLASSNAME, _pos];
+            _obj setDir DIR;
+            _obj setObjectTexture [0, _texture];
+
+        },
+        [
+            + _currPos,
+            format ["#(rgb,512,512,3)text(1,1,""%1"",0.1,""#FFFFFF"",""#000000"",""%1\n\nHallo\nWelt"")", _x]
+        ],
+        _delay
+    ] call CBA_fnc_waitAndExecute;
+
+
 } forEach _fonts;

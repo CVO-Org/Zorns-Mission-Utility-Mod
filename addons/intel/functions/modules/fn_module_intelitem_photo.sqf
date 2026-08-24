@@ -38,7 +38,7 @@ if (_units isEqualTo []) exitWith {};
     // Compose Intel Body
     private _intelContent  = "<br/>";
     private _intelDesc = _logic getVariable QGVAR(intel_desc);
-    if (_intelDesc isNotEqualTo "") then { _intelContent = _intelContent + format [Q(<font color=COLOR_GREY face='RobotoCondensedLight'>%1</font><br/><br/>), _intelDesc]; };
+    if (_intelDesc isNotEqualTo "") then { _intelContent = _intelContent + format [Q(<font COLOR_GREY face='RobotoCondensedLight'>%1</font><br/><br/>), _intelDesc]; };
 
     private _texPath = switch (_logic getVariable QGVAR(intel_photoSelector)) do {
         case "CUSTOM": { _logic getVariable QGVAR(intel_photoCustom) };

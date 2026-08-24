@@ -49,7 +49,7 @@ for "_i" from 1 to 6 do {
 // Compose Intel Body
 private _intelContent  = "<br/>";
 private _intelDesc = _logic getVariable QGVAR(intel_desc);
-if (_intelDesc isNotEqualTo "") then { _intelContent = _intelContent + format [Q(<font color=COLOR_GREY face='RobotoCondensedLight'>%1</font><br/><br/>), _intelDesc]; };
+if (_intelDesc isNotEqualTo "") then { _intelContent = _intelContent + format [Q(<font COLOR_GREY face='RobotoCondensedLight'>%1</font><br/><br/>), _intelDesc]; };
 
 _intelContent = _intelContent + format [Q(<font face='EtelkaMonospaceProBold'COLOR_GREY size='12'>Sender: </font><font face='EtelkaMonospaceProBold' COLOR_SENDER size='15'>%1</font><br/>), _senderName];
 _intelContent = _intelContent + format [Q(<font face='EtelkaMonospacePro' COLOR_GREY size='10'>%1</font><br/><br/>), _senderMeta];
