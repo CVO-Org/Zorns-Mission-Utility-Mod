@@ -16,43 +16,47 @@
 * Public: No
 */
 
-// Establish
+// // Crates
+
+// Cache Base Classes in dedicated GVAR
+GVAR(base_crate)        = (configFile >> QADDON >> "base_crate")        call EFUNC(common,getCfgDataHashmap);
+GVAR(base_deliveryMode) = (configFile >> QADDON >> "base_deliveryMode") call EFUNC(common,getCfgDataHashmap);
+GVAR(base_destination)  = (configFile >> QADDON >> "base_destination")  call EFUNC(common,getCfgDataHashmap);
+
 
 // crates
-private _type = QGVAR(crates);
 _configs = [];
-_configs append (Q(configName _x isnotEqualto QQ(baseCrate)) configClasses (configFile >> _type));
-_configs append (Q(configName _x isnotEqualto QQ(baseCrate)) configClasses (missionConfigFile >> _type));
+_configs append ( "_x isNotEqualTo 'base'" configClasses (configFile >> QADDON >> "crates"));
+_configs append ( "_x isNotEqualTo 'base'" configClasses (missionConfigFile >> QADDON >> "crates"));
+
 {
     private _map = _x call EFUNC(common,getCfgDataHashmap);
     private _id = toLower configName _x;
     _map set ["id", _id];
-    [ _type, _id, _map ] call EFUNC(catalog,setEntry);
+    [ QGVAR(crates), _id, _map ] call EFUNC(catalog,setEntry);
 } forEach _configs;
 
 // Delivery
-_type = QGVAR(delivery_modes);
 _configs = [];
-_configs append (Q(configName _x isnotEqualto QQ(baseDelivery)) configClasses (configFile >> _type));
-_configs append (Q(configName _x isnotEqualto QQ(baseDelivery)) configClasses (missionConfigFile >> _type));
+_configs append ( "_x isNotEqualTo 'base'" configClasses (configFile >> QADDON >> "delivery_modes"));
+_configs append ( "_x isNotEqualTo 'base'" configClasses (missionConfigFile >> QADDON >> "delivery_modes"));
 
 {
     private _map = _x call EFUNC(common,getCfgDataHashmap);
     private _id = toLower configName _x;
     _map set ["id", _id];
-    [ _type, _id, _map ] call EFUNC(catalog,setEntry);
+    [ QGVAR(delivery_modes), _id, _map ] call EFUNC(catalog,setEntry);
 } forEach _configs;
 
 
 // Destination
-_type = QGVAR(destinations);
 _configs = [];
-_configs append (Q(configName _x isnotEqualto QQ(baseDestination)) configClasses (configFile >> _type));
-_configs append (Q(configName _x isnotEqualto QQ(baseDestination)) configClasses (missionConfigFile >> _type));
+_configs append ( "_x isNotEqualTo 'base'" configClasses (configFile >> QADDON >> "destinations"));
+_configs append ( "_x isNotEqualTo 'base'" configClasses (missionConfigFile >> QADDON >> "destinations"));
 
 {
     private _map = _x call EFUNC(common,getCfgDataHashmap);
     private _id = toLower configName _x;
     _map set ["id", _id];
-    [ _type, _id, _map ] call EFUNC(catalog,setEntry);
+    [ QGVAR(destinations), _id, _map ] call EFUNC(catalog,setEntry);
 } forEach _configs;

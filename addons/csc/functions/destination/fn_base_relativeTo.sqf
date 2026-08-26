@@ -15,43 +15,46 @@
 * Public: No
 */
 
-params [ "_requestHashmap", "_paramsHashmap" ];
+params ["_request", "_parameters"];
 
-private _reference = _paramsHashmap getOrDefault ["reference", objNull];
+diag_log format ['[CVO](debug)(fn_base_relativeTo) _request: %1', _request];
+diag_log format ['[CVO](debug)(fn_base_relativeTo) _parameters: %1', _parameters];
+
+private _reference = _parameters getOrDefault ["reference", objNull];
 
 _reference = switch (true) do {
-    case (_reference isEqualTo "PLAYER"): { _requestHashmap getOrDefault ["requester", ACE_Player] };
-    case (_reference isEqualTo "TARGET"): { _requestHashmap getOrDefault ["target", objNull] };
+    case (_reference isEqualTo "PLAYER"): { _request getOrDefault ["requester", ACE_Player] };
+    case (_reference isEqualTo "TARGET"): { _request getOrDefault ["target", objNull] };
     case (!isNil _reference): { missionNamespace getVariable _reference };
     default { objNull };
 };
 
 if (isNull _reference) exitWith { [0,0,0] };
 
-private _mode = _paramsHashmap getOrDefault ["mode", "FRONT"];
+private _mode = _parameters getOrDefault ["mode", "FRONT"];
 
 
 
 private _return = switch (_mode) do {
     case "FRONT": {
-        private _maxSize = selectMax (_requestHashmap get "crates" apply { ( [QGVAR(crates), _x] call EFUNC(catalog,getEntry) get "box_class" ) call EFUNC(common,getSizeOf) });
+        private _maxSize = selectMax (_request get "crates" apply { ( [QGVAR(crates), _x] call EFUNC(catalog,getEntry) get "box_class" ) call EFUNC(common,getSizeOf) });
         _reference getRelPos [ (_reference call BIS_fnc_boundingBoxDimensions select 0) / 2 + 3 + _maxSize, 0 ];
     };
 
     case "BEHIND": {
-        private _maxSize = selectMax (_requestHashmap get "crates" apply { ( [QGVAR(crates), _x] call EFUNC(catalog,getEntry) get "box_class" ) call EFUNC(common,getSizeOf) });
+        private _maxSize = selectMax (_request get "crates" apply { ( [QGVAR(crates), _x] call EFUNC(catalog,getEntry) get "box_class" ) call EFUNC(common,getSizeOf) });
         _reference getRelPos [ (_reference call BIS_fnc_boundingBoxDimensions select 0) / 2 + 3 + _maxSize, 180 ];
     };
 
     case "OFFSET": {
-        private _offset = _paramsHashmap getOrDefault ["offset", [0,0,2]];
+        private _offset = _parameters getOrDefault ["offset", [0,0,2]];
         getPosASL _reference vectorAdd _offset
     };
 
     default { [0,0,0] };
 };
 
-private _randomOffset = _paramsHashmap getOrDefault ["randomOffset", 0];
+private _randomOffset = _parameters getOrDefault ["randomOffset", 0];
 
 if (_randomOffset isNotEqualTo 0) then {
     _return = _return vectorAdd [

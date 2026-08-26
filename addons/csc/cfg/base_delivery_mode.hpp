@@ -1,4 +1,4 @@
-class baseDelivery {
+class base_delivery_mode {
 
     displayName = "";
     code_description = "";
@@ -7,7 +7,7 @@ class baseDelivery {
 
     code = "";
 
-    scope = 2;
+
 
     class parameters {
     };

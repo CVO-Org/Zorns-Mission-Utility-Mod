@@ -1,8 +1,6 @@
-class GVAR(delivery_modes) {
+class template_delivery_modes {
 
-    #include "mum_csc_delivery_modes_base.hpp"
-
-    class base_spawn: baseDelivery {
+    class template_spawn: base_delivery_mode {
 
         displayName = "Spawn";
         code_description = """ will be made available at the provided position."""; // tripple Quotes for simply return the string
@@ -11,10 +9,10 @@ class GVAR(delivery_modes) {
 
         maxCrates = 1;
 
-        scope = 1;
+
     };
 
-    class base_airdrop: baseDelivery {
+    class template_airdrop: base_delivery_mode {
 
         displayName = "Airdrop: Base Helicopter";
         code_description = QFUNC(base_airdrop_desc);
@@ -23,7 +21,7 @@ class GVAR(delivery_modes) {
 
         maxCrates = 2;
 
-        scope = 1;
+
 
         class parameters {
             airframe_side = "CIV";                  // String version: "WEST" "EAST" "GUER" "CIV"
@@ -50,7 +48,7 @@ class GVAR(delivery_modes) {
         };
     };
 
-    class base_airdrop_plane: base_airdrop {
+    class template_airdrop_plane: template_airdrop {
         displayName = "Airdrop: Base Plane";
 
         maxCrates = 5;
@@ -69,7 +67,7 @@ class GVAR(delivery_modes) {
             airdrop_alt_forced = "true";
             airdrop_speedLimit = "LIMITED";
 
-            airdrop_flyInHeightASL[] = { 35, 35, 35 };
+            airdrop_flyInHeightASL[] = { 50, 50, 50 };
 
 
             parachute_class = "B_Parachute_02_F";
@@ -81,7 +79,7 @@ class GVAR(delivery_modes) {
         };
     };
 
-    class base_drone: baseDelivery {
+    class template_drone: base_delivery_mode {
         displayName = "Drone Delivery";
 
         code_description = """ will be delivered via a drone."""; // tripple Quotes for simply return the string
@@ -90,7 +88,7 @@ class GVAR(delivery_modes) {
 
         code = QFUNC(base_drone);
 
-        scope = 2;
+
 
         class parameters {
 

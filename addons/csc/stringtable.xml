@@ -4,7 +4,9 @@
         <Container name="3den_Modules">
             <Key ID="STR_mum_csc_FactionClass">
                 <English>MUM - Custom Supply Crates</English>
-
+            </Key>
+            <Key ID="str_mum_csc_module_registercrate">
+                <English>CSC - Register Crate</English>
             </Key>
         </Container>
     </Package>

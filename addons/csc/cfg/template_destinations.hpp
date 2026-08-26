@@ -1,34 +1,33 @@
-class GVAR(destinations) {
-    #include "mum_csc_destinations_base.hpp"
+class template_destinations {
 
-    class base_fixed_debug: baseDestination {
+    class template_fixed_debug: base_destination_fixed {
 
         displayName = "Debug Corner";
         description = "Predefined, fixed prosition - in this case, the debug corner.";
 
         code = QFUNC(base_fixedPos); // Function name or stringCode
 
-        scope = 0;
+
 
         class parameters {
             position[] = { 0, 0, 0 };
         };
     };
 
-    class base_mapClick: baseDestination {
+    class template_mapClick: base_destination_mapClick {
         displayName = "via Mapclick";
         description = "Manually define the desired destination via map-click.";
-        scope = 1;
+
 
         code = QFUNC(base_mapClick);
 
         class parameters {};
     };
 
-    class base_infrontPlayer: baseDestination {
+    class templte_infrontPlayer: base_destination_relative {
         displayName = "Infront of Player";   // Just as an example
         description = "In front of the player";
-        scope = 1;
+
 
         code = QFUNC(base_relativeTo);
 

@@ -16,6 +16,9 @@
 
 params [ "_request", "_params" ];
 
+diag_log format ['[CVO](debug)(fn_base_spawn) _request: %1', _request];
+diag_log format ['[CVO](debug)(fn_base_spawn) _params: %1', _params];
+
 private _list = _request get "crates";
 
 _list =  [_list, [], { typeOf _x call EFUNC(common,getSizeOf) }, "DESCEND"] call BIS_fnc_sortBy;
@@ -26,7 +29,7 @@ private _recursive = {
     params ["_list", "_destination", "_recursive", ["_collectiveOffset", 0]];
 
     private _crate = _list deleteAt 0;
-    
+
     private _height = _crate call BIS_fnc_objectHeight;
     _collectiveOffset = _collectiveOffset + _height;
 
@@ -34,7 +37,7 @@ private _recursive = {
         case (_destination#2 > 0): { _crate setPosASL (_destination vectorAdd [0,0, _collectiveOffset + 0.5]); }; // Asume ASL
         default { _crate setPos (_destination vectorAdd [0,0, _collectiveOffset + _height/2]); };
     };
-    
+
     if (_list isEqualTo []) exitWith {};
     [_recursive, [_list, _destination, _recursive, _collectiveOffset], 1] call CBA_fnc_waitAndExecute;
 };

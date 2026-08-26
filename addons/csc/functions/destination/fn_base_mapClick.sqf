@@ -17,6 +17,9 @@
 
 params ["_request", "_parameters"];
 
+diag_log format ['[CVO](debug)(fn_base_relativeTo) _request: %1', _request];
+diag_log format ['[CVO](debug)(fn_base_relativeTo) _parameters: %1', _parameters];
+
 #define MSG_designate ["<t color='#0000ff' size='1'>supplyDrop<br/>Left Click to designate dropzone<br/>Alt + Left Click to abort</t>", -1, 0, 60, 1] spawn BIS_fnc_dynamicText
 #define MSG_success   ["<t color='#00ff00' size='1'>supplyDrop<br/>successful</t>", -1, 0, 5, 1] spawn BIS_fnc_dynamicText
 #define MSG_aborted   ["<t color='#ff0000' size='1'>supplyDrop<br/>aborted</t>", -1, 0, 5, 1] spawn BIS_fnc_dynamicText
@@ -36,7 +39,7 @@ private _id_mapClick = addMissionEventHandler [
     {
         params ["_units", "_pos", "_alt", "_shift"];
         missionNamespace setVariable [QGVAR(mapClicked), true];
-        
+
         if (_alt) exitWith { MSG_aborted; missionNamespace setVariable [QGVAR(waitForMapclick), false]; };
 
         ZRN_LOG_MSG_1(Position Defined,_pos);
@@ -72,11 +75,11 @@ private _id_mapClick = addMissionEventHandler [
         missionNamespace setVariable [QGVAR(waitForMapclick), false];
 
         if (missionNamespace getVariable [QGVAR(curatorWasOpen), false]) then {openCuratorInterface};
-        
+
         MSG_aborted
     }
 ] call CBA_fnc_waitUntilAndExecute;
 
 // return varname as string
-QGVAR(waitForMapclick)  
- 
+QGVAR(waitForMapclick)
+

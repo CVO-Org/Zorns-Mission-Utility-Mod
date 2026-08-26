@@ -5,15 +5,13 @@
 
 // "DefaultEntry" is a special case and will define the "Defaults" for all the implemented
 
-class GVAR(crates) {
+class template_crates {
 
-    #include "mum_csc_crates_base.hpp"
-
-    class base_medicalCrate: baseCrate {
+    class template_medicalCrate: base_crate {
 
         displayName = "Medical Supply Crate";
 
-        scope = 2;
+
 
         box_class = "ACE_medicalSupplyCrate_advanced";
         box_empty = "true";
@@ -21,17 +19,23 @@ class GVAR(crates) {
         ace_medical_facility = "true";
 
         items[] = {
-            // { "ACE_suture", 100 },
             { "ACE_surgicalKit", 1 },
-            { "ACE_painkillers", 5 },
-            { "ACE_bodyBag", 25 },
+            // { "ACE_suture", 100 },
+
             { "ACE_personalAidKit", 15 },
+
             { "ACE_salineIV", 10 },
             { "ACE_salineIV_500", 20 },
+
             { "ACE_fieldDressing",  40 },
             { "ACE_packingBandage", 40 },
             { "ACE_elasticBandage", 50 },
+
             { "ACE_Morphine", 5 },
+
+            { "ACE_bodyBag", 25 },
+
+            { "ACE_painkillers", 5 },
             { "ACE_Epinephrine", 10 }
         };
     };

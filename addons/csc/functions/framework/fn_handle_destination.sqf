@@ -18,9 +18,9 @@
 
 params ["_request"];
 
-private _destinationMap = [QGVAR(destinations), _request get "destination", configNull] call EFUNC(catalog,getEntry);
+private _destinationData = [QGVAR(destinations), _request get "destination", configNull] call EFUNC(catalog,getEntry);
 
-private _return = (_destinationMap get "parameters") call (_destinationMap get "code" call CBA_fnc_convertStringCode);
+private _return = [_request, (_destinationData get "parameters")] call (_destinationData get "code" call CBA_fnc_convertStringCode);
 
 // handle return
 switch (true) do {

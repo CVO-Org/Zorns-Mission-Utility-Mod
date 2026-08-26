@@ -36,9 +36,7 @@ class CfgPatches {
 #include "CfgFunctions.hpp"
 
 // CSC Stuff
-#include "presets\mum_csc_crates.hpp"
-#include "presets\mum_csc_delivery_modes.hpp"
-#include "presets\mum_csc_destinations.hpp"
+#include "cfg\MUM_CSC.hpp"
 
 // UI
 // UI Stuff

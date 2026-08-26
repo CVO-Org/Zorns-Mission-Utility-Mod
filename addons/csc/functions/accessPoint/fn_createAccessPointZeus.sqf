@@ -15,9 +15,11 @@
 * Public: No
 */
 
-private _crates = ["ZEUS", "CRATES"] call FUNC(getDefaultPresets);
-private _delivery_modes = ["ZEUS", "DELIVERY_MODES"] call FUNC(getDefaultPresets);
-private _destinations = ["ZEUS", "DESTINATIONS"] call FUNC(getDefaultPresets);
+private _crates =         ["ALL", "CRATES"]         call FUNC(getIDsFromNetwork);
+private _delivery_modes = ["ALL", "DELIVERY_MODES"] call FUNC(getIDsFromNetwork);
+private _destinations =   ["ALL", "DESTINATIONS"]   call FUNC(getIDsFromNetwork);
+
+if ( [_crates, _delivery_modes, _destinations] findIf { _x isEqualTo false} == -1) exitWith {};
 
 private _accessPoint = createHashMapFromArray [
     [QGVAR(crates),         _crates        ],

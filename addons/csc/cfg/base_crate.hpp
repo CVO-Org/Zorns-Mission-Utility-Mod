@@ -1,12 +1,12 @@
 // This is the Base Class for CSC Crates
 
-class baseCrate {
+class base_crate {
 
     displayName = "Base Crate";
 
-    description = "Base Description - You shouldnt see this tbh.";
+    // description = "Base Description - You shouldnt see this tbh.";
 
-    scope = 2;
+
 
     items[] = {};
     backpacks[] = {};
@@ -38,7 +38,7 @@ class baseCrate {
     ace_carry_ignoreWeight = "false";
 
     ace_cargo_setSpace = 0;
-    ace_cargo_setSize = "DEFAULT";
+    ace_cargo_setSize = -1;
 
     ace_cargo_add_spareWheels = 0;
     ace_cargo_add_jerrycans = 0;

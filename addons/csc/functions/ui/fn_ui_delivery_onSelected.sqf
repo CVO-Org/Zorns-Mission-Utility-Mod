@@ -30,7 +30,7 @@ private _deliveryMap = [
 _display setVariable [QGVAR(delivery_mode), _deliveryMap get "id"];
 
 //// Update Max Crates
-private _maxCrates = _map get "maxCrates";
+private _maxCrates = _deliveryMap get "maxCrates";
 _display setVariable [QGVAR(maxCrates), _maxCrates];
 
 // Request crate amount check

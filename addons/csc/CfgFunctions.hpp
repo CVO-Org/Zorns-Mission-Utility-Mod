@@ -10,12 +10,11 @@ class CfgFunctions {
         class accessPoint {
             file = PATH_TO_FUNC_SUB(accessPoint);
 
-            class createAction {};
-
-            class createAccessPoint {};
             class createAccessPointZeus { postInit = 1; };
 
-            class createAccessPointPlayer {};
+            class createAction {};
+
+            // class createAccessPointPlayer {};
         };
 
 
@@ -42,7 +41,7 @@ class CfgFunctions {
             class handle_destination {};
             class handle_delivery {};
 
-            class getDefaultPresets {};
+            class getIDsFromNetwork {};
             class createCrate {};
 
             class request_client {};
@@ -82,7 +81,7 @@ class CfgFunctions {
 
             // class function { /* preInit = 1; */ };
 
-            class module_defineCrate {};
+            class module_registerCrate {};
         };
     };
 };
