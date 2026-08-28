@@ -82,6 +82,8 @@ class CfgFunctions {
             // class function { /* preInit = 1; */ };
 
             class module_registerCrate {};
+
+            class module_registerCrate_init {};
         };
     };
 };

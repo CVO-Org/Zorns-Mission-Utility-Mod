@@ -41,8 +41,8 @@ private _backpacks = _entry getOrDefault ["backpacks", []];
 if (count _items > 0) then {
     {    _box addItemCargoGlobal [_x # 0, _x # 1] } forEach _items;
 };
-// Fills the Box with with backpacks
 
+// Fills the Box with with backpacks
 if (count _backpacks > 0) then {
     { _box addBackpackCargoGlobal [_x # 0, _x # 1] } forEach _backpacks;
 };

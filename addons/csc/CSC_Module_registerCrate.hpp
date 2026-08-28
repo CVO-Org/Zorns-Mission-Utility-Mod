@@ -6,13 +6,13 @@ class GVAR(module_registerCrate): Module_F {
     icon = "zrn\mum\addons\main\data\Raven_Voron_white_64.paa";    // Map icon. Delete this entry to use the default icon.
     category = QGVAR(factionClass);
 
-    function = QFUNC(module_registerCrate);       // Name of function triggered once conditions are met
-    functionPriority = 10;                        // Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
-    isGlobal = 0;                                 // 0 for server only execution, 1 for global execution, 2 for persistent global execution
-    isTriggerActivated = 0;                       // 1 for module waiting until all synced triggers are activated
-    isDisposable = 1;                             // 1 if modules is to be disabled once it is activated (i.e. repeated trigger activation will not work)
-    is3DEN = 0;                                   // 1 to run init function in Eden Editor as well
-    curatorCanAttach = 0;                         // 1 to allow Zeus to attach the module to an entity
+    function = QFUNC(module_registerCrate);          // Name of function triggered once conditions are met
+    functionPriority = 10;                           // Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
+    isGlobal = 0;                                    // 0 for server only execution, 1 for global execution, 2 for persistent global execution
+    isTriggerActivated = 0;                          // 1 for module waiting until all synced triggers are activated
+    isDisposable = 1;                                // 1 if modules is to be disabled once it is activated (i.e. repeated trigger activation will not work)
+    is3DEN = 1;                                      // 1 to run init function in Eden Editor as well
+    curatorCanAttach = 0;                            // 1 to allow Zeus to attach the module to an entity
 
     // 3DEN Attributes Menu Options
     canSetArea = 0;                         // Allows for setting the area values in the Attributes menu in 3DEN
@@ -30,8 +30,8 @@ class GVAR(module_registerCrate): Module_F {
         };
 
         class id: Edit {
-            displayName = "Identifier";
-            tooltip = "Must be a unique identifier. This will be used to reference these crates throughout the framework.";
+            displayName = "Unique Identifier";
+            tooltip = "Must be a unique identifier. This will be used to reference this crate throughout the framework.";
             property = "id";
             typeName = "STRING";
             defaultValue = "''"; // Because this is an expression, one must have a string within a string to return a string
@@ -65,15 +65,17 @@ class GVAR(module_registerCrate): Module_F {
         };
 
         class items: Edit {
+            control = "EditMulti5";
             displayName = "Items";
-            tooltip = "Items added to the crate as [classname, quantity] pairs.";
+            tooltip = "Items added to the crate as [classname, quantity] pairs.\nFormat needs to be a nested array.\nExample: [ [""classname"", 10], [""otherClass"", 5] ]";
             property = "items";
             typeName = "ARRAY";
             defaultValue = "[]";
         };
         class backpacks: Edit {
+            control = "EditMulti5";
             displayName = "Backpacks";
-            tooltip = "Backpacks added to the crate as [classname, quantity] pairs.";
+            tooltip = "Backpacks added to the crate as [classname, quantity] pairs.\nFormat needs to be a nested array.\nExample: [ [""classname"", 10], [""otherClass"", 5] ]";
             property = "backpacks";
             typeName = "ARRAY";
             defaultValue = "[]";
@@ -104,10 +106,10 @@ class GVAR(module_registerCrate): Module_F {
         };
 
 
-        class SubCategory_aceResupply {
+        class SubCategory_aceRepair {
             control = "SubCategory";
-            title = "ACE Resupply";
-            property = Q(SubCategory_aceResupply);
+            title = "ACE Repair";
+            property = Q(SubCategory_aceRepair);
         };
 
         class ace_repair_facility: Checkbox {
@@ -123,6 +125,12 @@ class GVAR(module_registerCrate): Module_F {
             defaultValue = "false";
         };
 
+        class SubCategory_Rearm {
+            control = "SubCategory";
+            title = "ACE Rearm";
+            property = Q(SubCategory_Rearm);
+        };
+
         class ace_rearm_source: Checkbox {
             displayName = "ACE Rearm Source";
             tooltip = "Turns the crate into an ACE Rearm Source";
@@ -136,6 +144,12 @@ class GVAR(module_registerCrate): Module_F {
             property = "ace_rearm_source_value";
             typeName = "NUMBER";
             defaultValue = "50"; // Because this is an expression, one must have a string within a string to return a string
+        };
+
+        class SubCategory_Refuel {
+            control = "SubCategory";
+            title = "ACE Refuel";
+            property = Q(SubCategory_Refuel);
         };
 
         class ace_refuel_source: Checkbox {
@@ -254,7 +268,7 @@ class GVAR(module_registerCrate): Module_F {
         class ace_cargo_setSize: Edit {
             control = "EditShort";
             displayName = "Crate Size";
-            tooltip = "Defines the ACE Cargo size of the crate itself.";
+            tooltip = "Defines the ACE Cargo size of the crate itself.\n-1 to leave leave it at default.";
             property = "ace_cargo_setSize";
             typeName = "NUMBER";
             defaultValue = -1;
@@ -296,7 +310,7 @@ class GVAR(module_registerCrate): Module_F {
 
     // Module description (must inherit from base class, otherwise pre-defined entities won't be available)
     class ModuleDescription: ModuleDescription {
-        description = "Registers the linked crate to the CSC Framework.\nDeletes the linked crate.\nWill only take one/the first linked crate into account and ignores the rest.";
+        description = "Registers the linked crate to the CSC Framework. Deletes the linked crate. Will only take one/the first linked crate into account and ignores the rest.";
         sync[] = {};                // Array of synced entities (can contain base classes)
     };
 };

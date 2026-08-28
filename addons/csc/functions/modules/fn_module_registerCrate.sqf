@@ -2,7 +2,7 @@
 
 /*
 * Author: Zorn
-* 3den Module Function to
+* 3den Function for the Register Crate (Synced) module
 *
 * Arguments:
 *
@@ -15,79 +15,115 @@
 * Public: No
 */
 
-
 params [
-	["_logic", objNull, [objNull]],		// Argument 0 is module logic
-	["_units", [], [[]]],				// Argument 1 is a list of affected units (affected by value selected in the 'class Units' argument))
-	["_activated", true, [true]]		// True when the module was activated, false when it is deactivated (i.e., synced triggers are no longer active)
+	["_mode", "", [""]],
+	["_input", [], [[]]]
 ];
 
-//
-if (_units isEqualTo []) exitWith {
-    ["No synced object"] call BIS_fnc_error;
-    ERROR("No synced object");
+switch _mode do {
+	// Default object init
+	case "init": {
+        _input params [
+			["_logic", objNull, [objNull]],		// Module logic
+			["_isActivated", true, [true]],		// True when the module was activated, false when it is deactivated
+			["_isCuratorPlaced", false, [true]]	// True if the module was placed by Zeus
+		];
+
+        private _units = synchronizedObjects _logic;
+        diag_log format ['[CVO](debug)(fn_module_registerCrate) _units: %1', _units];
+        [_logic, _units, _isActivated] call FUNC(module_registerCrate_Init);
+	};
+
+
+	// When connection to object changes (i.e., new one is added or existing one removed)
+	case "connectionChanged3DEN": {
+
+        if (!is3DEN) exitWith {};
+
+		_input params [ ["_logic", objNull, [objNull]] ];
+
+
+        // [[Type, counterpart]]
+        private _connections = get3DENConnections _logic;
+
+        private _removeConnections = []; // Collect all invalid connections to remove
+        private _errors = ["The following error occoured:"]; // Collect validation error messages
+
+        // VALIDATION 1: Only allow Connections of the type "Sync"
+        private _wrongTypeConnections = _connections select { _x#0 isNotEqualTo "Sync" };
+        if (_wrongTypeConnections isNotEqualTo []) then {
+            _removeConnections append _wrongTypeConnections;
+            _errors pushBack "Only Sync-Connections are valid";
+            _connections = _connections - _wrongTypeConnections;
+        };
+
+        // VALIDATION 2: Connected object must be kindOf "B_supplyCrate_F"
+        private _wrongObjectsConnections = _connections select { !(_x#1 isKindOf "B_supplyCrate_F") };
+        if (_wrongObjectsConnections isNotEqualTo []) then {
+            _removeConnections append _wrongObjectsConnections;
+            _errors pushBack "Synced objects must inherit from B_supplyCrate_F (Dont ask me why :sob:)";
+            _connections = _connections - _wrongObjectsConnections;
+        };
+
+        // VALIDATION 3: Only allow one synced object
+        if (count _connections > 1) then {
+            private _surplusConnections = + _connections;
+            _surplusConnections deleteAt 0;
+            _removeConnections append _surplusConnections;
+            _errors pushBack "Only one object can be synced to the module";
+        };
+
+
+
+        // No Invalid Connections? Exit without action
+        if (_removeConnections isEqualTo []) exitWith {};
+
+        // Remove faulty connections
+        { remove3DENConnection [_x#0, [_logic], _x#1] } forEach _removeConnections;
+
+        // Error Message
+        [
+            _errors joinString "<br />  - ",
+            "Error: Module Connections",
+            true,
+            false
+        ] call BIS_fnc_3DENShowMessage;
+	};
+	case "attributesChanged3DEN": {
+		_input params [ ["_logic", objNull, [objNull]] ];
+
+        {
+            // Get Current Value
+            private _value = _logic get3DENAttribute _x select 0 call {
+                params ["_string"];
+
+                diag_log format ['[CVO](debug)(fn_module_registerCrate) _string: %1', _string];
+
+                private _defaultValue = "[
+    []
+]";
+                if (count _string < 2) exitWith { _defaultValue };
+                if ((_string select [0, 1]) isNotEqualTo "[" || { (_string select [count _string - 1, 1]) isNotEqualTo "]" }) exitWith { _defaultValue };
+
+                // Those linebreaks are part of the string
+                if (_string in ["[]", "[[]]"]) exitWith { _defaultValue };
+                // Those linebreaks are part of the string
+                _string = _string trim  [ "
+    [] ",0];
+                _string = format ["[[%1]]", _string];
+                // Extract Data
+                private _array = parseSimpleArray _string;
+
+                // Beautify String
+                _array call EFUNC(common,nestedArrayAsString)
+
+            };
+
+            _logic set3DENAttribute [ _x, _value ];
+
+
+        } forEach ["items", "backpacks"];
+
+	};
 };
-
-// Create copy of Default Data
-private _crateData = + GVAR(base_crate);
-
-// BatchProcess Module Attributes
-{ _crateData set [_x, _logic getVariable _x]; } forEach [
-    "id",
-    "displayName",
-    "items",
-    "backpacks",
-    "box_class",
-    "box_empty",
-    "ace_medical_facility",
-    "ace_medical_vehicle",
-    "ace_repair_facility",
-    "ace_repair_vehicle",
-    "ace_rearm_source",
-    "ace_rearm_source_value",
-    "ace_refuel_source",
-    "ace_refuel_source_value",
-    "ace_refuel_source_nozzlePos",
-    "ace_drag_canDrag",
-    "ace_drag_relPOS",
-    "ace_drag_dir",
-    "ace_drag_ignoreWeight",
-    "ace_carry_canCarry",
-    "ace_carry_relPOS",
-    "ace_carry_dir",
-    "ace_carry_ignoreWeight",
-    "ace_cargo_setSpace",
-    "ace_cargo_setSize",
-    "ace_cargo_add_spareWheels",
-    "ace_cargo_add_tracks",
-    "ace_cargo_add_jerrycans"
-];
-
-// Merge Extended Data, will Overwrite previous Data
-private _extendedData = _logic getVariable QGVAR(extendedData);
-if ( ! isNil "_extendedData" ) then { _crateData merge [_extendedData, true]; };
-
-
-// Store CrateData
-private _id = toLowerANSI (_crateData getOrDefault ["id", ""]);
-if !(_id isEqualType "") exitWith {
-    ["CRATE ID must be a string"] call BIS_fnc_error;
-    ERROR("CRATE ID must be a string");
-};
-
-_id = toLowerANSI _id;
-if (_id isEqualTo "") exitWith {
-    ["CRATE ID cannot be empty"] call BIS_fnc_error;
-    ERROR("CRATE ID cannot be empty");
-};
-
-_crateData set ["id", _id];
-
-
-
-if ( _id in GVAR(crates) ) then {
-    ["CRATE ID: %1 already registered", _id] call BIS_fnc_error;
-    ERROR_1("CRATE ID: %1 already registered",_id);
-} else {
-    GVAR(crates) set [_id, _crateData];
-};
+true;

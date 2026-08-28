@@ -27,6 +27,11 @@ class CfgFunctions {
             class allUnits_code {};
 
             class getCfgDataHashmap {};
+
+            class countOccurrences {};
+
+            class arrayAsString {};
+            class nestedArrayAsString {};
         };
 
         class cutscene {
