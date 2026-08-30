@@ -23,7 +23,7 @@ _params params [["_accessPoint", createHashMap]];
 //// Input Sanitasation
 private _crates = _accessPoint getOrDefault [QGVAR(crates), []];
 private _destinations = _accessPoint getOrDefault [QGVAR(destinations), []];
-private _delivery_modes = _accessPoint getOrDefault [QGVAR(delivery_modes), []];
+private _delivery_modes = _accessPoint getOrDefault [QGVAR(deliveryModes), []];
 private _isZeus = _accessPoint getOrDefault ["isZeus", false];
 
 
@@ -44,8 +44,8 @@ _display setVariable [
 ];
 
 _display setVariable [
-    QGVAR(delivery_modes),
-    [_delivery_modes, keys (missionNamespace getVariable QGVAR(delivery_modes))] select (_delivery_modes isEqualTo [])
+    QGVAR(deliveryModes),
+    [_delivery_modes, keys (missionNamespace getVariable QGVAR(deliveryModes))] select (_delivery_modes isEqualTo [])
 ];
 
 // Add Tooltips to all 3 Description Text Boxes.

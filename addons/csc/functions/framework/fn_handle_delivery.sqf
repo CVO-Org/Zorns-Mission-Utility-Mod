@@ -29,7 +29,7 @@ params ["_request"];
 
 private _className = _request get "delivery_mode";
 
-private _deliveryMap = [ QGVAR(delivery_modes), _className ] call EFUNC(catalog,getEntry);
+private _deliveryMap = [ QGVAR(deliveryModes), _className ] call EFUNC(catalog,getEntry);
 
 private _code = _deliveryMap get "code" call CBA_fnc_convertStringCode;
 

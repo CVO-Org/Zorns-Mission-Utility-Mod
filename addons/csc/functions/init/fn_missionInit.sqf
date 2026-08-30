@@ -16,9 +16,14 @@
 * Public: No
 */
 
-// // Crates
+// INIT GVARs
+GVAR(networks) = createHashMap;
 
-// Cache Base Classes in dedicated GVAR
+GVAR(crates)        = createHashMap;
+GVAR(deliveryModes) = createHashMap;
+GVAR(destinations)  = createHashMap;
+
+// Cache Base Classes
 GVAR(base_crate)        = (configFile >> QADDON >> "base_crate")        call EFUNC(common,getCfgDataHashmap);
 GVAR(base_deliveryMode) = (configFile >> QADDON >> "base_deliveryMode") call EFUNC(common,getCfgDataHashmap);
 GVAR(base_destination)  = (configFile >> QADDON >> "base_destination")  call EFUNC(common,getCfgDataHashmap);
@@ -31,9 +36,9 @@ _configs append ( "_x isNotEqualTo 'base'" configClasses (missionConfigFile >> Q
 
 {
     private _map = _x call EFUNC(common,getCfgDataHashmap);
-    private _id = toLower configName _x;
+    private _id = toLowerANSI configName _x;
     _map set ["id", _id];
-    [ QGVAR(crates), _id, _map ] call EFUNC(catalog,setEntry);
+    [_map] call FUNC(registerCrate);
 } forEach _configs;
 
 // Delivery
@@ -45,7 +50,7 @@ _configs append ( "_x isNotEqualTo 'base'" configClasses (missionConfigFile >> Q
     private _map = _x call EFUNC(common,getCfgDataHashmap);
     private _id = toLower configName _x;
     _map set ["id", _id];
-    [ QGVAR(delivery_modes), _id, _map ] call EFUNC(catalog,setEntry);
+    [_map] call FUNC(registerDeliveryMode);
 } forEach _configs;
 
 
@@ -58,5 +63,5 @@ _configs append ( "_x isNotEqualTo 'base'" configClasses (missionConfigFile >> Q
     private _map = _x call EFUNC(common,getCfgDataHashmap);
     private _id = toLower configName _x;
     _map set ["id", _id];
-    [ QGVAR(destinations), _id, _map ] call EFUNC(catalog,setEntry);
+    [_map] call FUNC(registerDestination);
 } forEach _configs;

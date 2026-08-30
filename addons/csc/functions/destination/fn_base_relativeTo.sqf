@@ -17,9 +17,6 @@
 
 params ["_request", "_parameters"];
 
-diag_log format ['[CVO](debug)(fn_base_relativeTo) _request: %1', _request];
-diag_log format ['[CVO](debug)(fn_base_relativeTo) _parameters: %1', _parameters];
-
 private _reference = _parameters getOrDefault ["reference", objNull];
 
 _reference = switch (true) do {

@@ -182,35 +182,3 @@ private _wp8 = _heliGRP addWaypoint [_returnPos, 0];
 _wp8 setWaypointSpeed "FULL";
 _wp8 setWaypointStatements ["true", "vehicle this land 'LAND'"];
 _wp8 waypointAttachVehicle _returnPosObj;
-
-
-/////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////
-// adds the action to every client and JIP, but also adds it when it was already removed. E.g., Laptop has already been hacked by a player
-
-
-
-/*
-_cargoObj = cursorObject;
-_helperObj = createVehicle ["Land_CargoBox_V1_F", [0,0,0]];
-_helperObj allowDamage false;
-//_helperObj hideObjectGlobal true;
-_helperObj disableCollisionWith _cargoObj;
-
-_offset = getCenterOfMass _cargoObj;
-
-_helperObj setPos getPos _cargoObj;
-
-_offset = _cargoObj get
-_cargoObj attachTo [_helperObj, _offset];
-*/
-
-
-// config property: "slingLoadMaxCargoMass"
-
-/*
-[heli, cargo, DZ] call mum_common_fnc_airlift_cargo;
-[heli_1, cargo_1, DZ] call mum_common_fnc_airlift_cargo;
-[heli_2, cargo_2, DZ_1] call mum_common_fnc_airlift_cargo;
-*/

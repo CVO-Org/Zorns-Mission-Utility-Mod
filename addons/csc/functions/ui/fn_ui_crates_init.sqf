@@ -28,7 +28,7 @@ private _array = [];
 {
     _array pushBack [
         [
-            [QGVAR(crates), _x, createHashMap] call EFUNC(catalog,getEntry) get "displayName",
+            GVAR(crates) get _x getOrDefault ["displayName", "EMPTY"],
             "0"
         ],  // Text
         [
@@ -49,7 +49,7 @@ call FUNC(ui_update_crate_desc);
 {
     lbAdd [
         MUM_IDC_CSC_Destination_ListBox,
-        [QGVAR(destinations), _x, configNull] call EFUNC(catalog,getEntry) get "displayName"
+        GVAR(destinations) get _x getOrDefault ["displayName", "EMPTY"]
     ];
 } forEach (_display getVariable QGVAR(destinations));   // array of Configs
 lbSetCurSel [MUM_IDC_CSC_Destination_ListBox, 0];
@@ -59,7 +59,7 @@ lbSetCurSel [MUM_IDC_CSC_Destination_ListBox, 0];
 {
     lbAdd [
         MUM_IDC_CSC_Delivery_ListBox,
-        [QGVAR(delivery_modes), _x, configNull] call EFUNC(catalog,getEntry) get "displayName"
+        GVAR(deliveryModes) get _x getOrDefault ["displayName", "EMPTY"]
     ];
-} forEach (_display getVariable QGVAR(delivery_modes));   // array of Configs
+} forEach (_display getVariable QGVAR(deliveryModes));   // array of Configs
 lbSetCurSel [MUM_IDC_CSC_Delivery_ListBox, 0];

@@ -17,6 +17,14 @@ class CfgFunctions {
             // class createAccessPointPlayer {};
         };
 
+        class api {
+            file = PATH_TO_FUNC_SUB(api);
+
+            class registerCrate {};
+            class registerDeliveryMode {};
+            class registerDestination {};
+        };
+
 
         class delivery {
             file = PATH_TO_FUNC_SUB(delivery);
@@ -82,8 +90,10 @@ class CfgFunctions {
             // class function { /* preInit = 1; */ };
 
             class module_registerCrate {};
-
             class module_registerCrate_init {};
+
+            class module_registerDestination_fixed {};
+            class module_registerDestination_relative {};
         };
     };
 };

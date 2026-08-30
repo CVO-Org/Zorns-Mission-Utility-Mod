@@ -21,8 +21,8 @@ params ["_control", "_index"];
 private _display = findDisplay MUM_IDD_CSC_REQUEST;
 
 private _deliveryMap = [
-    QGVAR(delivery_modes),
-    _display getVariable QGVAR(delivery_modes) select _index, // Get classname from display based on currently selected
+    QGVAR(deliveryModes),
+    _display getVariable QGVAR(deliveryModes) select _index, // Get classname from display based on currently selected
     createHashMap
 ] call EFUNC(catalog,getEntry);
 

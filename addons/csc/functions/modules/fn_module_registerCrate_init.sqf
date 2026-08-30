@@ -63,21 +63,7 @@ private _crateData = + GVAR(base_crate);
 { _crateData set [_x, parseSimpleArray (_crateData get _x) select { _x isEqualTypeArray ["",0] } ]; } forEach ["items", "backpacks"];
 
 
-// Merge Extended Data, will Overwrite previous Data
-private _extendedData = _logic getVariable QGVAR(extendedData);
-if ( ! isNil "_extendedData" ) then { _crateData merge [_extendedData, true]; };
-
-
-// Verify ID
-private _id = (_crateData getOrDefault ["id", ""]);
-_id = toLowerANSI _id;
-if !(_id isEqualType "")  exitWith { ["CRATE ID must be a string"]            call BIS_fnc_error; ERROR("CRATE ID must be a string"); };
-if  (_id isEqualTo "")    exitWith { ["CRATE ID cannot be empty"]             call BIS_fnc_error; ERROR("CRATE ID cannot be empty"); };
-if  (_id in GVAR(crates)) exitWith { ["CRATE ID: %1 already registered", _id] call BIS_fnc_error; ERROR_1("CRATE ID: %1 already registered",_id); };
-_crateData set ["id", _id];
-
-
-GVAR(crates) set [_id, _crateData];
+[_crateData] call FUNC(registerCrate);
 
 
 // Handle First Synced Object as reference box
@@ -87,7 +73,8 @@ if  ( isNil "_referenceBox" ) exitWith {}; // When there is no linked objects, w
 // Take Reference Box Class only when box_class is empty
 if ( _crateData get "box_class" isEqualTo "" ) then { _crateData set ["box_class", typeOf _referenceBox] };
 
-// Handle Inventory
+// Handle Inventory of Reference Object
+
 _crateData get "items"     append ( itemCargo     _referenceBox                     call EFUNC(common,countOccurrences) );
 _crateData get "backpacks" append ( everyBackpack _referenceBox apply { typeOf _x } call EFUNC(common,countOccurrences) );
 

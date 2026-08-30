@@ -30,7 +30,6 @@ switch _mode do {
 		];
 
         private _units = synchronizedObjects _logic;
-        diag_log format ['[CVO](debug)(fn_module_registerCrate) _units: %1', _units];
         [_logic, _units, _isActivated] call FUNC(module_registerCrate_Init);
 	};
 
@@ -96,8 +95,6 @@ switch _mode do {
             // Get Current Value
             private _value = _logic get3DENAttribute _x select 0 call {
                 params ["_string"];
-
-                diag_log format ['[CVO](debug)(fn_module_registerCrate) _string: %1', _string];
 
                 private _defaultValue = "[
     []

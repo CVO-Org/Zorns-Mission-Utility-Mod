@@ -19,10 +19,10 @@ params ["_display"];
 
 [
     {
-        !(_this isNil QGVAR(delivery_modes))
+        !(_this isNil QGVAR(deliveryModes))
     },
     {
-        // QGVAR(destinations), QGVAR(delivery_modes)
+        // QGVAR(destinations), QGVAR(deliveryModes)
 
         _this call FUNC(ui_crates_init);
     },

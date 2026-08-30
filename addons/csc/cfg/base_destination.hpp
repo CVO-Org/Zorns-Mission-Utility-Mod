@@ -17,17 +17,15 @@ class base_destination_fixed: base_destination {
 
     code = QFUNC(base_fixedPos); // Function name or stringCode
 
-
-
     class parameters {
         position[] = { 0, 0, 0 };
+        radius = 0;
     };
 };
 
 class base_destination_mapClick: base_destination {
     displayName = "Base Map-Click";
     description = "Define the desired destination via map-click on the map.";
-
 
     code = QFUNC(base_mapClick);
 

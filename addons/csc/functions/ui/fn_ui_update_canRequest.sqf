@@ -21,7 +21,7 @@ private _display = findDisplay MUM_IDD_CSC_REQUEST;
 private _curTotal = _display getVariable [QGVAR(totalCrates), 0];
 private _maxCrates = _display getVariable [QGVAR(maxCrates), 3];
 
-private _curSel_delivery_mode = _display getVariable QGVAR(delivery_modes) select lbCurSel MUM_IDC_CSC_Delivery_ListBox;
+private _curSel_delivery_mode = _display getVariable QGVAR(deliveryModes) select lbCurSel MUM_IDC_CSC_Delivery_ListBox;
 
 private _isBusy = !isNil format ["%1_isBusy", _curSel_delivery_mode];
 

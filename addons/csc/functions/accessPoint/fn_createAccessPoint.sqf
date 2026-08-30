@@ -35,7 +35,7 @@ switch (true) do {
 // Verifying Input
 private _keys_crates         = keys GVAR(crates);
 private _keys_destinations   = keys GVAR(destinations);
-private _keys_delivery_modes = keys GVAR(delivery_modes);
+private _keys_delivery_modes = keys GVAR(deliveryModes);
 _crates         = _crates         select { _x isEqualType "" } apply { toLower _x } select { _x in _keys_crates };
 _destinations   = _destinations   select { _x isEqualType "" } apply { toLower _x } select { _x in _keys_destinations };
 _delivery_modes = _delivery_modes select { _x isEqualType "" } apply { toLower _x } select { _x in _keys_delivery_modes };
@@ -49,7 +49,7 @@ if ( _delivery_modes isEqualTo [] ) exitWith { ERROR("Cannot create AccessPoint 
 private _accessPoint = createHashMapFromArray [
     [QGVAR(crates),         _crates        ],
     [QGVAR(destinations),   _destinations  ],
-    [QGVAR(delivery_modes), _delivery_modes]
+    [QGVAR(deliveryModes), _delivery_modes]
 ];
 
 _accessPoint merge _addParams; // does not overwrite existing entries.

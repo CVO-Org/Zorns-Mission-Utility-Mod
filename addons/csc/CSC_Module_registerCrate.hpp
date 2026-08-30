@@ -72,14 +72,6 @@ class GVAR(module_registerCrate): Module_F {
             typeName = "ARRAY";
             defaultValue = "[]";
         };
-        class backpacks: Edit {
-            control = "EditMulti5";
-            displayName = "Backpacks";
-            tooltip = "Backpacks added to the crate as [classname, quantity] pairs.\nFormat needs to be a nested array.\nExample: [ [""classname"", 10], [""otherClass"", 5] ]";
-            property = "backpacks";
-            typeName = "ARRAY";
-            defaultValue = "[]";
-        };
 
         class box_empty: Checkbox {
             displayName = "Empty Crate";
