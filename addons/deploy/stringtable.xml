@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="mum-deploy">
     <Package name="cbasettings">
-        <Key ID="STR_mum_deploy_category">
+        <Key ID="STR_mum_deploy_cba_category">
             <English>MUM - Deploy</English>
         </Key>
         <Key ID="STR_mum_deploy_set_ui_mode">
