@@ -28,15 +28,16 @@ private _request = createHashMapFromArray [
 params ["_request"];
 
 private _className = _request get "delivery_mode";
-
 private _deliveryMap = [ QGVAR(deliveryModes), _className ] call EFUNC(catalog,getEntry);
 
-private _code = _deliveryMap get "code" call CBA_fnc_convertStringCode;
+// Handle Cooldown
+private _cooldown = (_deliveryMap get "cooldown") max 0;
+if (_cooldown isNotEqualTo 0) then { [_className, _cooldown] call FUNC(setCooldown); };
 
-private _parameters = _deliveryMap get "parameters";
-
+// Execute Delivery
 ZRN_LOG_MSG_1(Request Recieved - Init Delivery,_className);
-
+private _code = _deliveryMap get "code" call CBA_fnc_convertStringCode;
+private _parameters = _deliveryMap get "parameters";
 [_request, _parameters] call _code;
 
 nil

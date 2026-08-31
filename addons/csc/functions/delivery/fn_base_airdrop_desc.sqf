@@ -20,7 +20,7 @@ params ["_deliveryMap"];
 private _airframeDisplayName = getText (configFile >> "CfgVehicles" >> _deliveryMap get "parameters" get "airframe_class" >> "displayName");
 
 format [
-" will be air-dropped by %1 %2 at %3 meters ATL.",
+"Will be air-dropped by %1 %2 at %3 meters ATL.",
 ["a", "an"] select ( toLower (_airframeDisplayName select [0,1]) in ["a", "e", "i", "o", "u", "1", "8"] ),
 _airframeDisplayName,
 _deliveryMap get "parameters" get "airdrop_alt"

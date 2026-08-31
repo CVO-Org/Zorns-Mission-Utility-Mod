@@ -55,6 +55,9 @@ class CfgFunctions {
             class request_client {};
             class request_server {};
 
+            class setCooldown {};
+            class getCooldown {};
+
         };
 
 

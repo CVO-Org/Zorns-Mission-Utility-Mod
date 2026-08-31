@@ -23,14 +23,13 @@ private _maxCrates = _display getVariable [QGVAR(maxCrates), 3];
 
 private _curSel_delivery_mode = _display getVariable QGVAR(deliveryModes) select lbCurSel MUM_IDC_CSC_Delivery_ListBox;
 
-private _isBusy = !isNil format ["%1_isBusy", _curSel_delivery_mode];
-
+private _isCooldown = _curSel_delivery_mode call FUNC(getCooldown) isEqualTo false;
 
 // Disable OK Button if more Crates are selected then maximum possible
 switch (true) do {
-    case ( _isBusy ): {
+    case ( _isCooldown ): {
         ctrlEnable [MUM_IDC_CSC_ButtonOK, false];
-        ctrlSetText [MUM_IDC_CSC_Status, "The selected delivery mode is currently busy."];
+        ctrlSetText [MUM_IDC_CSC_Status, "The selected delivery mode is still on cooldown."];
     };
     case ( _curTotal isEqualTo 0 ): {
         ctrlEnable [MUM_IDC_CSC_ButtonOK, false];
