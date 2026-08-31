@@ -32,6 +32,8 @@ class CfgFunctions {
 
             class arrayAsString {};
             class nestedArrayAsString {};
+
+            class secondsToString {};
         };
 
         class cutscene {
