@@ -41,7 +41,7 @@ class GVAR(module_registerDestination_relative): Module_F {
             tooltip = "Name of the Destination";
             property = "displayname";
             typeName = "STRING";
-            defaultValue = "'Relative DisplayName'"; // Because this is an expression, one must have a string within a string to return a string
+            defaultValue = "''"; // Because this is an expression, one must have a string within a string to return a string
         };
         class description: Edit {
             displayName = "Description";

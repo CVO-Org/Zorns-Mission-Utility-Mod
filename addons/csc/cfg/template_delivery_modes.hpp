@@ -106,6 +106,6 @@ class template_delivery_modes {
             alt_drop = 2; // below 10 will disable objectAvoidance and hardforce the ATL
         };
 
-        registerDefault = 1; 
+        registerDefault = 1;
     };
 };

@@ -41,7 +41,7 @@ class GVAR(module_registerDestination_fixed): Module_F {
             tooltip = "";
             property = "displayName";
             typeName = "STRING";
-            defaultValue = "'Fixed: Debug Corner'"; // Because this is an expression, one must have a string within a string to return a string
+            defaultValue = "''"; // Because this is an expression, one must have a string within a string to return a string
         };
         class description: Edit {
             displayName = "Description";
