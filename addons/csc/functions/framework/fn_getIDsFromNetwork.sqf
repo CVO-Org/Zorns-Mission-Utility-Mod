@@ -17,7 +17,7 @@
 * Public: No
 */
 
-diag_log format ['[CVO](debug)(fn_getIDsFromNetwork) _this: %1', _this];
+
 
 params [
     [ "_network", "#ALL",   [""] ],
@@ -26,7 +26,7 @@ params [
 
 private _networks = missionNamespace getVariable QGVAR(networks);
 
-diag_log format ['[CVO](debug)(fn_getIDsFromNetwork) _networks: %1', _networks];
+
 
 if (isNil "_networks") exitWith { false };
 
@@ -51,6 +51,6 @@ private _return = switch (true) do {
     default { [] };
 };
 
-diag_log format ['[CVO](debug)(fn_getIDsFromNetwork) _return: %1', _return];
+
 
 _return

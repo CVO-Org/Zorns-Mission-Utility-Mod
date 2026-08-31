@@ -83,6 +83,7 @@ class CfgFunctions {
 
             class parachuteCrate {};
             class getPosEdge {};
+            class getVehicleInventory {};
         };
 
         class modules {
@@ -90,7 +91,7 @@ class CfgFunctions {
 
             // class function { /* preInit = 1; */ };
 
-            class module_registerCrate {};
+            class module_registerCrate_3den {};
             class module_registerCrate_init {};
 
             class module_registerDestination_fixed {};

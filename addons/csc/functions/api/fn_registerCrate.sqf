@@ -45,7 +45,12 @@ private _backpacks = [];
     } else {
         _items pushBack _x;
     };
-} forEach ((_data get "items") + (_data get "backpacks"));
+
+} forEach (_data get "items");
+
+// Handle Items from synced crate, as they are already propperly filtered
+if !(_data isNil "synced_items"    ) then { _items     append (_data deleteAt "synced_items"    ) };
+if !(_data isNil "synced_backpacks") then { _backpacks append (_data deleteAt "synced_backpacks") };
 
 _data set ["items", _items];
 _data set ["backpacks", _backpacks];
@@ -54,4 +59,3 @@ _data set ["backpacks", _backpacks];
 GVAR(crates) set [_id, _data];
 
 true
-

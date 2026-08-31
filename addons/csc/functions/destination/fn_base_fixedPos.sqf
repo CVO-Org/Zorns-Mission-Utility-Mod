@@ -17,8 +17,8 @@
 
 params [ "_request", "_parameters" ];
 
-diag_log format ['[CVO](debug)(fn_base_relativeTo) _request: %1', _request];
-diag_log format ['[CVO](debug)(fn_base_relativeTo) _parameters: %1', _parameters];
+
+
 
 private _position = _parameters getOrDefault ["position", [0,0,0]];
 

@@ -88,39 +88,5 @@ switch _mode do {
             false
         ] call BIS_fnc_3DENShowMessage;
 	};
-	case "attributesChanged3DEN": {
-		_input params [ ["_logic", objNull, [objNull]] ];
-
-        {
-            // Get Current Value
-            private _value = _logic get3DENAttribute _x select 0 call {
-                params ["_string"];
-
-                private _defaultValue = "[
-    []
-]";
-                if (count _string < 2) exitWith { _defaultValue };
-                if ((_string select [0, 1]) isNotEqualTo "[" || { (_string select [count _string - 1, 1]) isNotEqualTo "]" }) exitWith { _defaultValue };
-
-                // Those linebreaks are part of the string
-                if (_string in ["[]", "[[]]"]) exitWith { _defaultValue };
-                // Those linebreaks are part of the string
-                _string = _string trim  [ "
-    [] ",0];
-                _string = format ["[[%1]]", _string];
-                // Extract Data
-                private _array = parseSimpleArray _string;
-
-                // Beautify String
-                _array call EFUNC(common,nestedArrayAsString)
-
-            };
-
-            _logic set3DENAttribute [ _x, _value ];
-
-
-        } forEach ["items", "backpacks"];
-
-	};
 };
 true;

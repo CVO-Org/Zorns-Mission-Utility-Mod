@@ -6,7 +6,7 @@ class GVAR(module_registerCrate): Module_F {
     icon = "zrn\mum\addons\main\data\Raven_Voron_white_64.paa";    // Map icon. Delete this entry to use the default icon.
     category = QGVAR(factionClass);
 
-    function = QFUNC(module_registerCrate);          // Name of function triggered once conditions are met
+    function = QFUNC(module_registerCrate_3den);     // Name of function triggered once conditions are met
     functionPriority = 10;                           // Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
     isGlobal = 0;                                    // 0 for server only execution, 1 for global execution, 2 for persistent global execution
     isTriggerActivated = 0;                          // 1 for module waiting until all synced triggers are activated
@@ -67,10 +67,10 @@ class GVAR(module_registerCrate): Module_F {
         class items: Edit {
             control = "EditMulti5";
             displayName = "Items";
-            tooltip = "Items added to the crate as [classname, quantity] pairs.\nFormat needs to be a nested array.\nExample: [ [""classname"", 10], [""otherClass"", 5] ]";
+            tooltip = "Items added to the crate as amount classname pairs.\nInput is being internally converted. No need to use [].\nLinebreak can be used.\nExample:\n 5 ACE_fieldDressing\n50 ACE_elasticBandage";
             property = "items";
-            typeName = "ARRAY";
-            defaultValue = "[]";
+            typeName = "STRING";
+            defaultValue = "";
         };
 
         class box_empty: Checkbox {

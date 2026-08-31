@@ -5,14 +5,14 @@
             <Key ID="STR_mum_csc_FactionClass">
                 <English>MUM - Custom Supply Crates</English>
             </Key>
-            <Key ID="str_mum_csc_module_registercrate">
-                <English>CSC - Register Crate</English>
+            <Key ID="str_mum_csc_module_registerDestination_Relative">
+                <English>CSC - Register Destionation - Relative Position</English>
             </Key>
             <Key ID="str_mum_csc_module_registerDestination_fixed">
                 <English>CSC - Register Destionation - Fixed Position</English>
             </Key>
-            <Key ID="str_mum_csc_module_registerDestination_Relative">
-                <English>CSC - Register Destionation - Relative Position</English>
+            <Key ID="str_mum_csc_module_registercrate">
+                <English>CSC - Register Crate</English>
             </Key>
         </Container>
     </Package>

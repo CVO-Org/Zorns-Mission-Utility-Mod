@@ -23,6 +23,8 @@ params [
 
 if (isNil "_entry") exitWith {};
 
+diag_log text format ['[CVO](debug)(fn_createCrate) _entry: %1', _entry];
+
 private _box = createVehicle [_entry getOrDefault ["box_class", "C_supplyCrate_F"], [0,0,0],[],2,"CAN_COLLIDE"];
 
 _box setVariable ["ace_cargo_customname", _entry getOrDefault ["displayName", "DisplayName"], true];
@@ -80,7 +82,7 @@ if (_entry getOrDefault ["ace_rearm_source", false]) then {
 if (_entry getOrDefault ["ace_refuel_source", false]) then {
     [
         _box,
-        _entry getOrDefault ["ace_refuel_source_value", 50],
+        _entry getOrDefault ["ace_refuel_source_value", 50],                // -1 to disable
         _entry getOrDefault ["ace_refuel_source_nozzlePos", [0,0,0]]
     ] call ace_refuel_fnc_makeSource;
 };

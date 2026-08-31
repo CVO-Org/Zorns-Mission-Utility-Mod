@@ -19,7 +19,7 @@
 // INIT GVARs
 GVAR(networks) = createHashMap;
 
-diag_log format ['[CVO](debug)(fn_missionInit) GVAR(networks): %1', GVAR(networks)];
+
 
 GVAR(crates)        = createHashMap;
 GVAR(deliveryModes) = createHashMap;

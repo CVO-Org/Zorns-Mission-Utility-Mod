@@ -28,11 +28,14 @@ params [
 private _crateData = + GVAR(base_crate);
 
 // BatchProcess Module Attributes
-{ _crateData set [_x, _logic getVariable _x]; } forEach [
+{
+    _crateData set [_x, _logic getVariable _x];
+    diag_log text format ['[CVO](debug)(fn_module_registerCrate_init) %1: %2 (%3)', _x , _logic getVariable _x, typeName (_logic getVariable _x)];
+
+} forEach [
     "id",
     "displayName",
     "items",
-    "backpacks",
     "box_class",
     "box_empty",
     "ace_medical_facility",
@@ -60,23 +63,46 @@ private _crateData = + GVAR(base_crate);
 ];
 
 // Parse and Validate Item Arrays
-{ _crateData set [_x, parseSimpleArray (_crateData get _x) select { _x isEqualTypeArray ["",0] } ]; } forEach ["items", "backpacks"];
+private _items = [];
+private _stringItems = _crateData get "items";
+private _tempItems = _stringItems splitString " [],
+"; // linebreak as seperator
 
 
-[_crateData] call FUNC(registerCrate);
 
 
-// Handle First Synced Object as reference box
+while {_tempItems isNotEqualTo []} do {
+    private _amount = parseNumber (_tempItems deleteAt 0);
+    if (_amount isEqualTo 0) then { continue };
+
+    private _className = _tempItems deleteAt 0;
+    if !(_className isEqualType "") then { continue };
+
+    _items pushBack [_className, _amount];
+};
+
+
+_crateData set ["items", _items];
+
+// Handle Synced Crate
 private _referenceBox = _units select 0;
-if  ( isNil "_referenceBox" ) exitWith {}; // When there is no linked objects, we're done here. // doesnt do anything here, but can be used for other
 
-// Take Reference Box Class only when box_class is empty
+// If there's no synce box, Register Crate now.
+if (isNil "_referenceBox") exitWith { [_crateData] call FUNC(registerCrate); };
+
+// when box_class empty, take classname from synced object
 if ( _crateData get "box_class" isEqualTo "" ) then { _crateData set ["box_class", typeOf _referenceBox] };
 
-// Handle Inventory of Reference Object
 
-_crateData get "items"     append ( itemCargo     _referenceBox                     call EFUNC(common,countOccurrences) );
-_crateData get "backpacks" append ( everyBackpack _referenceBox apply { typeOf _x } call EFUNC(common,countOccurrences) );
+// Handle Reference Inventory
+[_referenceBox, true] call FUNC(getVehicleinventory) params ["_synced_items", "_synced_backpacks"];
+
+// Store content, to be processed by API function
+_crateData set ["synced_items",     _synced_items     ];
+_crateData set ["synced_backpacks", _synced_backpacks ];
+
 
 // Cleanup
 deleteVehicle _referenceBox;
+
+[_crateData] call FUNC(registerCrate);

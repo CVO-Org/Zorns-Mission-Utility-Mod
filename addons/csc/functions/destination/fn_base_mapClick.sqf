@@ -17,8 +17,8 @@
 
 params ["_request", "_parameters"];
 
-diag_log format ['[CVO](debug)(fn_base_relativeTo) _request: %1', _request];
-diag_log format ['[CVO](debug)(fn_base_relativeTo) _parameters: %1', _parameters];
+
+
 
 #define MSG_designate ["<t color='#0000ff' size='1'>supplyDrop<br/>Left Click to designate dropzone<br/>Alt + Left Click to abort</t>", -1, 0, 60, 1] spawn BIS_fnc_dynamicText
 #define MSG_success   ["<t color='#00ff00' size='1'>supplyDrop<br/>successful</t>", -1, 0, 5, 1] spawn BIS_fnc_dynamicText
