@@ -15,7 +15,7 @@
 *
 * Public: Yes
 */
-diag_log "[MUM](debug)(fn_init_layer) init";
+
 
 params [ "_obj", "_layerName", "_distance", "_time"];
 

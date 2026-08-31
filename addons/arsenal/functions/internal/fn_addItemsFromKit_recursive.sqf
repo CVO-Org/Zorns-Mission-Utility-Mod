@@ -44,7 +44,7 @@ if (_count == 0) exitWith {
     systemChat " "; systemChat " "; systemChat " "; systemChat " ";
     systemChat format ['(Done) %1 out of %2 Kits added', _added, _total];
     systemChat format ['(Done) Roles detected: %1', _roles];
-    diag_log format ['(Done) %1 out of %2 Kits added', _added, _total];
+
 };
 
 if (isNil "_nextIteration") then {
@@ -56,7 +56,7 @@ private _returnArray = [];
 private _kitName = _keys deleteAt 0;
 private _kit = _kits get _kitName;
 
-diag_log format ['(Processing)[%1/%2] %3',1 + _total - _count, _total, _kitName];
+
 systemChat format ['(Processing)[%1/%2] %3',1 + _total - _count, _total, _kitName];
 
 // #### Check if Setting for Default Kits
@@ -118,7 +118,7 @@ _codeResult = _codeResult select { _x call CBA_fnc_getItemConfig isNotEqualTo co
 _returnArray append _codeResult;
 
 systemChat format ['(Processing)[%1/%2] %3 - ADDED',1 + _total - _count, _total, _kitName];
-diag_log format ['(Processing)[%1/%2] %3 - ADDED',1 + _total - _count, _total, _kitName];
+
 
 // Add stuff to the Arsenal
 [_box, _returnArray arrayIntersect _returnArray] call ace_arsenal_fnc_addVirtualItems;

@@ -47,7 +47,7 @@ if (isNil "_unit") exitWith { [] };
         _conditionResult = false;
     };
 
-    diag_log format ['(Checking AutoRole) %1 - %2', _autoRoleName, _conditionResult];
+
 
     // Check Condition
     if (!_conditionResult) then { continue };
@@ -74,7 +74,7 @@ if (isNil "_unit") exitWith { [] };
     // Check roles
     private _checkResult = _autoTraitMap get "role" in _roles;
 
-    diag_log format ['(Checking AutoTrait) %1 - %2', _autoTraitName, _checkResult];
+
 
     if !(_checkResult) then { continue };
 
@@ -85,6 +85,6 @@ if (isNil "_unit") exitWith { [] };
 } forEach GVAR(autoTraits);
 
 
-diag_log format ['[CVO](debug)(fn_rolesByTrait) _roles: %1', _roles];
+
 // return
 _roles apply { toLowerANSI _x }

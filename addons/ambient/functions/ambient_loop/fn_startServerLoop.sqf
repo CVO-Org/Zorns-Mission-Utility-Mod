@@ -68,8 +68,8 @@ GVAR(loop_id) = [
 
         private _sounds = GVAR(sounds_curr_pool);
         private _sound = _sounds deleteAt (floor random count _sounds);
-        diag_log format ['[MUM](debug)(fn_startServerLoop) _sound: %1', _sound];
-        diag_log format ['[MUM](debug)(fn_startServerLoop) _selectedTargets: %1', _selectedTargets];
+
+
        [QGVAR(EH_localEffects), [ _sound, 300, ceil random 360 ], _selectedTargets] call CBA_fnc_targetEvent;
 
     },
