@@ -17,12 +17,16 @@
 * Public: No
 */
 
+diag_log format ['[CVO](debug)(fn_getIDsFromNetwork) _this: %1', _this];
+
 params [
     [ "_network", "#ALL",   [""] ],
     [ "_type",    "CRATES", [""] ]
 ];
 
 private _networks = missionNamespace getVariable QGVAR(networks);
+
+diag_log format ['[CVO](debug)(fn_getIDsFromNetwork) _networks: %1', _networks];
 
 if (isNil "_networks") exitWith { false };
 
@@ -36,7 +40,7 @@ private _dataBase = switch (toUpperANSI _type) do {
 private _keys = keys _dataBase;
 
 // return
-switch (true) do {
+private _return = switch (true) do {
     case (_network isEqualTo "#ALL"): { _keys };
     case (_network in _networks): {
         // get Keys from network
@@ -46,3 +50,7 @@ switch (true) do {
     };
     default { [] };
 };
+
+diag_log format ['[CVO](debug)(fn_getIDsFromNetwork) _return: %1', _return];
+
+_return

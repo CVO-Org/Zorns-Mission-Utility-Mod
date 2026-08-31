@@ -18,7 +18,9 @@ class CfgVehicles {
     };
 
     #include "CSC_Module_registerCrate.hpp"
+
     #include "CSC_Module_registerDestination_fixed.hpp"
     #include "CSC_Module_registerDestination_relative.hpp"
 
+    #include "CSC_Module_registerDeliveryMode_airdrop_plane.hpp"
 };

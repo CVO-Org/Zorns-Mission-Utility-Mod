@@ -19,6 +19,8 @@
 // INIT GVARs
 GVAR(networks) = createHashMap;
 
+diag_log format ['[CVO](debug)(fn_missionInit) GVAR(networks): %1', GVAR(networks)];
+
 GVAR(crates)        = createHashMap;
 GVAR(deliveryModes) = createHashMap;
 GVAR(destinations)  = createHashMap;
@@ -29,10 +31,11 @@ GVAR(base_deliveryMode) = (configFile >> QADDON >> "base_deliveryMode") call EFU
 GVAR(base_destination)  = (configFile >> QADDON >> "base_destination")  call EFUNC(common,getCfgDataHashmap);
 
 
-// crates
+// Crates
 _configs = [];
-_configs append ( "_x isNotEqualTo 'base'" configClasses (configFile >> QADDON >> "crates"));
-_configs append ( "_x isNotEqualTo 'base'" configClasses (missionConfigFile >> QADDON >> "crates"));
+_configs append ( "true" configClasses (configFile >> QADDON >> "crates"));
+_configs append ( "true" configClasses (missionConfigFile >> QADDON >> "crates"));
+_configs append ( "getNumber (_x >> ""registerDefault"") isEqualTo 1" configClasses (configFile >> QADDON >> "template_crates"));
 
 {
     private _map = _x call EFUNC(common,getCfgDataHashmap);
@@ -41,10 +44,11 @@ _configs append ( "_x isNotEqualTo 'base'" configClasses (missionConfigFile >> Q
     [_map] call FUNC(registerCrate);
 } forEach _configs;
 
-// Delivery
+// Deliveries
 _configs = [];
-_configs append ( "_x isNotEqualTo 'base'" configClasses (configFile >> QADDON >> "delivery_modes"));
-_configs append ( "_x isNotEqualTo 'base'" configClasses (missionConfigFile >> QADDON >> "delivery_modes"));
+_configs append ( "true" configClasses (configFile >> QADDON >> "delivery_modes"));
+_configs append ( "true" configClasses (missionConfigFile >> QADDON >> "delivery_modes"));
+_configs append ( "getNumber (_x >> ""registerDefault"") isEqualTo 1" configClasses (configFile >> QADDON >> "template_delivery_modes"));
 
 {
     private _map = _x call EFUNC(common,getCfgDataHashmap);
@@ -56,8 +60,9 @@ _configs append ( "_x isNotEqualTo 'base'" configClasses (missionConfigFile >> Q
 
 // Destination
 _configs = [];
-_configs append ( "_x isNotEqualTo 'base'" configClasses (configFile >> QADDON >> "destinations"));
-_configs append ( "_x isNotEqualTo 'base'" configClasses (missionConfigFile >> QADDON >> "destinations"));
+_configs append ( "true" configClasses (configFile >> QADDON >> "destinations"));
+_configs append ( "true" configClasses (missionConfigFile >> QADDON >> "destinations"));
+_configs append ( "getNumber (_x >> ""registerDefault"") isEqualTo 1" configClasses (configFile >> QADDON >> "template_destinations"));
 
 {
     private _map = _x call EFUNC(common,getCfgDataHashmap);

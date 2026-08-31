@@ -15,16 +15,14 @@
 * Public: No
 */
 
-private _crates =         ["#ALL", "CRATES"]         call FUNC(getIDsFromNetwork);
-private _delivery_modes = ["#ALL", "DELIVERY_MODES"] call FUNC(getIDsFromNetwork);
-private _destinations =   ["#ALL", "DESTINATIONS"]   call FUNC(getIDsFromNetwork);
-
-if ( [_crates, _delivery_modes, _destinations] findIf { _x isEqualTo false} == -1) exitWith {};
+private _crates =         ["#ALL", "CRATES"]        call FUNC(getIDsFromNetwork);
+private _deliveryModes = ["#ALL", "DELIVERYMODES"] call FUNC(getIDsFromNetwork);
+private _destinations =   ["#ALL", "DESTINATIONS"]  call FUNC(getIDsFromNetwork);
 
 private _accessPoint = createHashMapFromArray [
-    [QGVAR(crates),         _crates        ],
-    [QGVAR(destinations),   _destinations  ],
-    [QGVAR(deliveryModes), _delivery_modes ],
+    [QGVAR(crates),        _crates         ],
+    [QGVAR(destinations),  _destinations   ],
+    [QGVAR(deliveryModes), _deliveryModes ],
     ["isZeus",              true           ]
 ];
 

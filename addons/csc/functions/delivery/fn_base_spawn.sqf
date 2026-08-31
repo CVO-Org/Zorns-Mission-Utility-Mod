@@ -16,9 +16,6 @@
 
 params [ "_request", "_params" ];
 
-diag_log format ['[CVO](debug)(fn_base_spawn) _request: %1', _request];
-diag_log format ['[CVO](debug)(fn_base_spawn) _params: %1', _params];
-
 private _list = _request get "crates";
 
 _list =  [_list, [], { typeOf _x call EFUNC(common,getSizeOf) }, "DESCEND"] call BIS_fnc_sortBy;

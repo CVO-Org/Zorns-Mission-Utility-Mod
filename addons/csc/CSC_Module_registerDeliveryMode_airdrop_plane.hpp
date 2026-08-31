@@ -1,4 +1,4 @@
-class GVAR(module_registerDestination_fixed): Module_F {
+class GVAR(module_registerDeliveryMode_airdrop_plane): Module_F {
     // Standard object definitions:
     scope = 2;                                                      // Editor visibility; 2 will show it in the menu, 1 will hide it.
     scopeCurator = 1;                                               // Zeus visibility
@@ -56,23 +56,6 @@ class GVAR(module_registerDestination_fixed): Module_F {
             title = "Parameters";
             property = Q(SubCategory_Parameters);
         };
-
-        class fixed_position: Edit {
-            control = "EditXYZ";
-            displayName = "Fixed Position";
-            tooltip = "Fixed Position.\nWhen left as [0,0,0], the modules position will be taken instead.";
-            property = "fixed_position";
-            defaultValue = "[0,0,0]"; // Because this is an expression, one must have a string within a string to return a string
-        };
-
-        class radius: Edit {
-            displayName = "radius";
-            tooltip = "Radius for randomized position.";
-            property = "radius";
-            typeName = "NUMBER";
-            defaultValue = 0; // Because this is an expression, one must have a string within a string to return a string
-        };
-
 
         class ModuleDescription: ModuleDescription {}; // Module description should be shown last
     };

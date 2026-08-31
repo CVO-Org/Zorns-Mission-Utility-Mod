@@ -7,9 +7,11 @@ class template_delivery_modes {
 
         code = QFUNC(base_spawn);
 
-        maxCrates = 1;
+        maxCrates = 3;
 
+        class parameters {};
 
+        registerDefault = 1;
     };
 
     class template_airdrop: base_delivery_mode {
@@ -103,5 +105,7 @@ class template_delivery_modes {
             alt_final = 35; // should be above 20
             alt_drop = 2; // below 10 will disable objectAvoidance and hardforce the ATL
         };
+
+        registerDefault = 1; 
     };
 };

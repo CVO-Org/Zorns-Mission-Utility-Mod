@@ -28,15 +28,12 @@ private _request = createHashMapFromArray [
 
 params ["_request"]; // hashmap
 
-ZRN_LOG_MSG_1(Request Recieved on Server,_request);
+// INFO_1(Request Recieved On Server: %1,_request);
 
 //// Handle Creation of the Crates
-// Array of Classnames -> Array of Configs -> Array of hashmaps -> crate object
-private _crates = _request get "crates" apply {
-    [QGVAR(crates), _x] call EFUNC(catalog,getEntry)
-} apply {
-    [_x] call FUNC(createCrate)
-};
+// Array of Classnames -> Array of hashmaps -> crate objects
+private _crates = _request get "crates" apply { GVAR(crates) get _x } apply { [_x] call FUNC(createCrate) };
+
 
 // Store the crates in the request hashmap
 _request set ["crates", _crates];

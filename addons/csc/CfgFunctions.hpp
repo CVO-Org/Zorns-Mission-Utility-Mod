@@ -82,6 +82,7 @@ class CfgFunctions {
             file = PATH_TO_FUNC_SUB(misc);
 
             class parachuteCrate {};
+            class getPosEdge {};
         };
 
         class modules {

@@ -5,7 +5,7 @@ class mum_csc {
         import base_destination from mum_csc;
 
         class test_tarp: base_destination {
-            displayName = "Tarp.";   // Just as an example
+            displayName = "MissionConfig: Tarp.";   // Just as an example
             description = "On the Tarp";
 
             code = "mum_csc_fnc_base_relativeTo";
@@ -15,7 +15,7 @@ class mum_csc {
             class parameters {
                 mode = "OFFSET"; // "BEHIND", "OFFSET"
                 offset[] = { 0, 0, 1.5 };   // only used by OFFSET
-                reference = "tarp"; // TARGET, PLAYER or missionNamespace variablename
+                reference = "tarp_obj"; // TARGET, PLAYER or missionNamespace variablename
             };
         };
     };
@@ -25,7 +25,7 @@ class mum_csc {
 
         class test_BasicAmmunation: base_crate {
 
-            displayName = "General Ammunation Crate";
+            displayName = "MissionCfg: Crate";
             scope = 2;
 
             box_class = "C_supplyCrate_F";
