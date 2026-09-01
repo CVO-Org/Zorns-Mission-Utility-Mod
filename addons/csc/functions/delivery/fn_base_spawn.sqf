@@ -1,15 +1,18 @@
 #include "../../script_component.hpp"
 /*
 * Author: Zorn
-* DELIVERY Function. Just teleports the crates, one after another at the desired location.
+* Teleport delivery: instantaneously places crates at destination.
+* Sorts crates by size descending, stacks them at destination with height calculations, recursive staggered placement.
 *
 * Arguments:
+* 0: _request - Request hashmap with destination, crates, etc. <HASHMAP>
+* 1: _params - Delivery parameters hashmap (currently unused for spawn). <HASHMAP>
 *
 * Return Value:
-* None
+* nil
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [requestHashMap, paramsHashMap] call mum_csc_fnc_base_spawn
 *
 * Public: No
 */

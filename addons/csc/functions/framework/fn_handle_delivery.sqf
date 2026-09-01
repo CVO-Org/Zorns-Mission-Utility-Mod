@@ -2,15 +2,17 @@
 
 /*
 * Author: Zorn
-* This function will be executed on the server and will handle the delivery of the crates.
+* Executes delivery mode handler on server.
+* Retrieves delivery mode configuration, sets cooldown, executes delivery code with request and parameters.
 *
 * Arguments:
+* 0: _request - Request hashmap containing crates, destination, delivery_mode, isZeus, etc. <HASHMAP>
 *
 * Return Value:
-* None
+* nil
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [requestHashMap] call mum_csc_fnc_handle_delivery
 *
 * Public: No
 */

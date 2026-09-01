@@ -2,15 +2,17 @@
 
 /*
 * Author: Zorn
-* [Description]
+* Server-side request handler.
+* Creates crate objects from classnames, updates request structure, executes delivery handling.
 *
 * Arguments:
+* 0: _request - Request hashmap with delivery_mode, destination, crate IDs, etc. <HASHMAP>
 *
 * Return Value:
-* None
+* nil
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [requestHashMap] call mum_csc_fnc_request_server
 *
 * Public: No
 */

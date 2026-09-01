@@ -28,7 +28,6 @@ private _deliveryModeData = createHashMap;
 
 // Hard Data
 _deliveryModeData set [ "code", QFUNC(base_spawn) ];
-_deliveryModeData set [ "code_description", """ will be made available at the provided position.""" ];
 
 // Parameters
 _deliveryModeData set [

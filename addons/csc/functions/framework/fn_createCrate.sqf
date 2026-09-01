@@ -2,17 +2,19 @@
 
 /*
 * Author: Zorn
-* function that will create the supplybox, fill, modify, etc.
+* Creates a configured supply crate on server.
+* Configures ACE cargo/medical/repair properties, sets up dragging/carrying, populates inventory.
 *
 * Arguments:
+* 0: _entry - Crate configuration hashmap with box_class, displayName, items, backpacks, etc. <HASHMAP>
 *
 * Return Value:
-* _box
+* Created crate object <OBJECT>
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [crateConfigHashMap] call mum_csc_fnc_createCrate
 *
-* Public: No
+* Public: Yes
 */
 
 if !(isServer) exitWith {};

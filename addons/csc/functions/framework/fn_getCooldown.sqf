@@ -2,15 +2,16 @@
 
 /*
 * Author: Zorn
-* Returns remaining time in seconds or false, if there is no cooldown.
+* Retrieves remaining cooldown time for a delivery mode.
 *
 * Arguments:
+* 0: _deliveryClassName - Delivery mode classname/ID <STRING>
 *
 * Return Value:
-* None
+* Remaining cooldown in seconds, or false if no cooldown active <NUMBER or BOOL>
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* ["airdrop_heli"] call mum_csc_fnc_getCooldown
 *
 * Public: No
 */

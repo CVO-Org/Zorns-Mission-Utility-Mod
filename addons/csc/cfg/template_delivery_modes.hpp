@@ -3,7 +3,7 @@ class template_delivery_modes {
     class template_spawn: base_delivery_mode {
 
         displayName = "Spawn";
-        code_description = """Will be made available at the provided position."""; // tripple Quotes for simply return the string
+        description_code = """Will be made available at the provided position."""; // tripple Quotes for simply return the string
 
         code = QFUNC(base_spawn);
 
@@ -14,10 +14,10 @@ class template_delivery_modes {
         registerDefault = 1;
     };
 
-    class template_airdrop: base_delivery_mode {
+    class template_airdrop_heli: base_delivery_mode {
 
         displayName = "Airdrop: Base Helicopter";
-        code_description = QFUNC(base_airdrop_desc);
+        description_code = QFUNC(base_airdrop_desc);
 
         code = QFUNC(base_airdrop);
 
@@ -31,7 +31,8 @@ class template_delivery_modes {
             airframe_class = "C_Heli_Light_01_civil_F";
 
 
-            pos_start[] = { 8400,7400.00,0 };
+            mode = "EDGE_NEAR";
+            pos_start[] = { 0, 0, 0 };
             pos_end = "RETURN";
 
             airdrop_alt = 100;
@@ -41,8 +42,8 @@ class template_delivery_modes {
             airdrop_flyInHeightASL[] = { 35, 35, 35 };
 
 
-            parachute_class = "B_Parachute_02_F";
 
+            parachute_class = "B_Parachute_02_F";
             // CfgVehicles or CfgAmmo
             parachute_class_strobe = "ACE_IR_Strobe_Effect";
             parachute_class_chemlight = "Chemlight_yellow";
@@ -50,7 +51,7 @@ class template_delivery_modes {
         };
     };
 
-    class template_airdrop_plane: template_airdrop {
+    class template_airdrop_plane: template_airdrop_heli {
         displayName = "Airdrop: Base Plane";
 
         maxCrates = 5;
@@ -85,7 +86,7 @@ class template_delivery_modes {
     class template_drone: base_delivery_mode {
         displayName = "Drone Delivery";
 
-        code_description = """Will be delivered via a drone."""; // tripple Quotes for simply return the string
+        description = "Will be delivered via a drone.";
 
         maxCrates = 1;
 
@@ -99,7 +100,8 @@ class template_delivery_modes {
             drone_protected = "true";
             drone_side = "CIV";
 
-            pos_start[] = { 8472.65, 7361.97, 0 };
+            mode = "EDGE_NEAR";
+            pos_start[] = { 0, 0, 0 };
             post_end = "RETURN";
 
             alt_journey = 100;

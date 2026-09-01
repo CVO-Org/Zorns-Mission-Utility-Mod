@@ -52,15 +52,17 @@ if (_cooldown isNotEqualTo false) then {
     _lines pushBack format ["On cooldown for %1.", _cooldown];
 };
 
+// Handle Simple Description
+private _simpleDescription = _deliveryMap get "description";
+if (_simpleDescription isNotEqualTo "") then {
+    _lines pushBack _simpleDescription;
+};
 
-// Handle Description Lines
-private _code_desc = _deliveryMap get "code_description";
-if (_code_desc isEqualTo "") then {
+// Handle Code Description
+private _code_desc = _deliveryMap get "description_code";
+if (_code_desc isNotEqualTo "") then {
     private _basicDescription = _deliveryMap get ["description", ""];
     if (_basicDescription isNotEqualTo "") then { _lines pushBack _basicDescription};
-} else {
-    private _code_return = (_deliveryMap call (_code_desc call CBA_fnc_convertStringCode));
-    if (_code_return isNotEqualTo "") then { _lines pushBack _code_return};
 };
 
 // Update UI Control

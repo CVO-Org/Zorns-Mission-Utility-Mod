@@ -125,7 +125,7 @@ class GVAR(request) {
         class Destination_Subtitle_Text: RscText {
             idc = MUM_IDC_CSC_Destination_Subtitle_Text;
 
-            text = "Destination"; //--- ToDo: Localize;
+            text = CSTRING(ui_destination);
             style = ST_CENTER;
 
             x = Q(21.00 * GUI_GRID_CENTER_W + GUI_GRID_CENTER_X);
@@ -149,7 +149,7 @@ class GVAR(request) {
         class Delivery_Subtitle_Text: RscText {
             idc = MUM_IDC_CSC_Delivery_Subtitle_Text;
 
-            text = "Delivery Mode"; //--- ToDo: Localize;
+            text = CSTRING(ui_deliveryMode);
             style = ST_CENTER;
 
             x = Q(21.00 * GUI_GRID_CENTER_W + GUI_GRID_CENTER_X);
@@ -162,7 +162,7 @@ class GVAR(request) {
         // Bottom Left Status Text Bar
         class Status_Text: RscText {
             idc = MUM_IDC_CSC_Status;
-            text = "Request invalid"; //--- ToDo: Localize;
+            text = CSTRING(ui_requestInvalid);
             x = Q(00.00 * GUI_GRID_CENTER_W + GUI_GRID_CENTER_X);
             y = Q(23.50 * GUI_GRID_CENTER_H + GUI_GRID_CENTER_Y);
             w = Q(19.50 * GUI_GRID_CENTER_W);

@@ -2,17 +2,17 @@
 
 /*
 * Author: Zorn
-* Returns an Array of IDs based upon Network and Type (Crate, Destination or Delivery Mode)
+* Retrieves registered IDs filtered by network and type.
 *
 * Arguments:
-* Network <STRING>
-* TYPE <STRING>
+* 0: _network - Network identifier, use '#ALL' for all networks <STRING> (default: '#ALL')
+* 1: _type - Type filter: 'CRATES', 'DESTINATIONS', or 'DELIVERYMODES' <STRING> (default: 'CRATES')
 *
 * Return Value:
-* Array of data ID's
+* Array of registered ID strings matching filter, or false if none found <ARRAY or BOOL>
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* ['#ALL', 'DESTINATIONS'] call mum_csc_fnc_getIDsFromNetwork
 *
 * Public: No
 */

@@ -2,17 +2,19 @@
 
 /*
 * Author: Zorn
-* Function to register: Crate
+* Registers a crate configuration to the CSC framework.
+* Validates the crate ID, merges with base configuration, separates items and backpacks.
 *
 * Arguments:
+* 0: _inputData - Crate configuration hashmap with id, displayName, description, box_class, items, backpacks, etc. <HASHMAP>
 *
 * Return Value:
-* None
+* Boolean - true on successful registration, false on validation failure <BOOL>
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [crateConfigHashMap] call mum_csc_fnc_registerCrate
 *
-* Public: No
+* Public: Yes
 */
 
 params [ ["_inputData", nil, [createHashMap] ] ];

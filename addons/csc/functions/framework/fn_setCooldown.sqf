@@ -2,15 +2,18 @@
 
 /*
 * Author: Zorn
-* Server Function to handle cooldown of deliveries.
+* Sets cooldown timer for a delivery mode on server.
+* Stores expiration time, starts cleanup PFH if first cooldown, removes expired cooldowns.
 *
 * Arguments:
+* 0: _deliveryClassName - Delivery mode classname/ID <STRING>
+* 1: _duration - Cooldown duration in seconds <NUMBER>
 *
 * Return Value:
-* None
+* nil
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* ["airdrop_heli", 900] call mum_csc_fnc_setCooldown
 *
 * Public: No
 */

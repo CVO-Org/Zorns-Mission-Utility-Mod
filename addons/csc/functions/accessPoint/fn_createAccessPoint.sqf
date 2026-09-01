@@ -2,17 +2,23 @@
 
 /*
 * Author: Zorn
-* Function to create an accesspoint on an Object
+* Creates ACE interact menu action on object for CSC access.
+* Validates crate/destination/delivery mode lists, creates condition code, registers with ACE.
 *
 * Arguments:
+* 0: _targetObject - Object to add interaction to <OBJECT>
+* 1: _crates - Array of crate IDs or single ID <ARRAY or STRING>
+* 2: _delivery_modes - Array of delivery mode IDs <ARRAY>
+* 3: _destinations - Array of destination IDs <ARRAY>
+* 4: _addParams - Optional additional parameters hashmap <HASHMAP> (default: createHashMapFromArray [])
 *
 * Return Value:
-* None
+* nil
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [targetObj, ["crate1", "crate2"], ["airdrop_heli"], ["pos_fixed"]] call mum_csc_fnc_createAccessPoint
 *
-* Public: No
+* Public: Yes
 */
 
 params [

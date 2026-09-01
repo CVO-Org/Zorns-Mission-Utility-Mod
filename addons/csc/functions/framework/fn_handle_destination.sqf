@@ -2,16 +2,18 @@
 
 /*
 * Author: Zorn
-* This function will be executed on the client and will resolve the destination and return a position. This position will then be taken as a reference point on the server to "deliver" the crates.
-* This runs on the clients so player input like like "mapclick" or "input grids" can be handled by the requester.
+* Executes destination resolver on client.
+* Resolves destination and returns position for server delivery reference.
+* Handles client-side player input like mapclick or grid input.
 *
 * Arguments:
+* 0: _request - Request hashmap containing delivery_mode, destination info, etc. <HASHMAP>
 *
 * Return Value:
-* None
+* nil
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [requestHashMap] call mum_csc_fnc_handle_destination
 *
 * Public: No
 */

@@ -2,15 +2,17 @@
 
 /*
 * Author: Zorn
-* Funciton to handle the request the client to be sent to the server.
+* Client-side request handler.
+* Sends delivery request to server via CBA server event after destination resolution.
 *
 * Arguments:
+* 0: _request - Request hashmap containing crates, destination, delivery_mode info. <HASHMAP>
 *
 * Return Value:
-* None
+* nil
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [requestHashMap] call mum_csc_fnc_request_client
 *
 * Public: No
 */

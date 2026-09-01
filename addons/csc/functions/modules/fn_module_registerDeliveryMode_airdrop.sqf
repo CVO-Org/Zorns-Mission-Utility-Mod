@@ -24,18 +24,35 @@ params [
 private _deliveryModeData = createHashMap;
 
 // Common Module Attributes
-{ _deliveryModeData set [_x, _logic getVariable _x]; } forEach [ "id", "displayName", "description", "maxCrates" ];
+{ _deliveryModeData set [_x, _logic getVariable _x]; } forEach [ "id", "displayName", "description", "maxCrates", "cooldown" ];
 
 // Hard Data
-_deliveryModeData set [ "code", QFUNC(base_spawn) ];
-_deliveryModeData set [ "code_description", """ will be made available at the provided position.""" ];
+_deliveryModeData set [ "code",             QFUNC(base_airdrop)      ];
+_deliveryModeData set [ "description_code", QFUNC(base_airdrop_desc) ];
 
 // Parameters
-_deliveryModeData set [
-    "parameters",
-    createHashMapFromArray [
-    ]
+private _parameters = createHashMap;
+{ _parameters set [_x, _logic getVariable _x]; } forEach [
+    "airframe_class",
+    "airframe_protected",
+    "airframe_side",
+    "mode",
+    "pos_start",
+    "pos_end",
+    "airdrop_alt",
+    "airdrop_alt_forced",
+    "airdrop_speedLimit",
+    "airdrop_flyInHeightASL",
+    "parachute_class",
+    "parachute_class_strobe",
+    "parachute_class_chemlight",
+    "parachute_class_smoke"
 ];
+
+// Custom Handling
+if (_parameters get "pos_start" isEqualTo [0,0,0]) then { _parameters set ["pos_start", getPos _logic]; };
+
+_deliveryModeData set [ "parameters", _parameters ];
 
 //Store Data
 [_deliveryModeData] call FUNC(registerDeliveryMode);

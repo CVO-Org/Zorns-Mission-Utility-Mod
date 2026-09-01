@@ -1,7 +1,9 @@
 class base_delivery_mode {
 
     displayName = "";
-    code_description = "";
+
+    description = "";
+    description_code = "";
 
     maxCrates = 1;
 

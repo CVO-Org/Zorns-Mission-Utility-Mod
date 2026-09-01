@@ -2,17 +2,19 @@
 
 /*
 * Author: Zorn
-* Function to register: Delivery Mode
+* Registers a delivery mode to the CSC framework.
+* Validates the delivery mode ID, merges with base configuration, stores in registry.
 *
 * Arguments:
+* 0: _inputData - Delivery mode configuration hashmap with id, displayName, code, maxCrates, cooldown, parameters, etc. <HASHMAP>
 *
 * Return Value:
-* None
+* Boolean - true on successful registration, false on validation failure <BOOL>
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [deliveryModeConfigHashMap] call mum_csc_fnc_registerDeliveryMode
 *
-* Public: No
+* Public: Yes
 */
 
 

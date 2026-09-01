@@ -23,4 +23,6 @@ class CfgVehicles {
     #include "CSC_Module_registerDestination_relative.hpp"
 
     #include "CSC_Module_registerDeliveryMode_drone.hpp"
+    #include "CSC_Module_registerDeliveryMode_airdrop_heli.hpp"
+    #include "CSC_Module_registerDeliveryMode_airDrop_plane.hpp"
 };

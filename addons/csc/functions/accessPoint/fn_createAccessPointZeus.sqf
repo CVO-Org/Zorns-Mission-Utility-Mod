@@ -2,17 +2,19 @@
 
 /*
 * Author: Zorn
-* Function to handle the Zeus Interace Self Action
+* Creates ACE Zeus self-action for CSC access.
+* Retrieves all registered crates/destinations/deliveryModes, registers Zeus action.
 *
 * Arguments:
-*
-* Return Value:
 * None
 *
-* Example:
-* ['something', player] call prefix_component_fnc_functionname
+* Return Value:
+* nil
 *
-* Public: No
+* Example:
+* [] call mum_csc_fnc_createAccessPointZeus
+*
+* Public: Yes
 */
 
 private _crates =         ["#ALL", "CRATES"]        call FUNC(getIDsFromNetwork);

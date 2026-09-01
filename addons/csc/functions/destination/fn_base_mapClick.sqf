@@ -2,15 +2,18 @@
 
 /*
 * Author: Zorn
-* DESTINATION - Function to return a position based of the players mapclick in put.
+* Client destination handler: opens map for player to click destination.
+* Adds MapSingleClick event handler, returns variable name for server to wait on.
 *
 * Arguments:
+* 0: _request - Request hashmap (not directly used). <HASHMAP>
+* 1: _parameters - Destination parameters hashmap (not directly used). <HASHMAP>
 *
 * Return Value:
-* None
+* String - Variable name to wait for position, or false on cancel <STRING or BOOL>
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [requestHashMap, parametersHashMap] call mum_csc_fnc_base_mapClick
 *
 * Public: No
 */

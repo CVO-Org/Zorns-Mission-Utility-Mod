@@ -2,15 +2,18 @@
 
 /*
 * Author: Zorn
-* DELIVERY Function - Will spawn a drone, then fly
+* Executes drone delivery on server.
+* Creates drone, calculates crate stacking offsets, attaches crates, sets waypoints with altitude changes.
 *
 * Arguments:
+* 0: _request - Request hashmap with destination, crates, etc. <HASHMAP>
+* 1: _parameters - Delivery parameters hashmap with drone_class, altitudes, mode, etc. <HASHMAP>
 *
 * Return Value:
-* None
+* nil
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [requestHashMap, parametersHashMap] call mum_csc_fnc_base_drone
 *
 * Public: No
 */
@@ -20,10 +23,10 @@ params [ "_request", "_parameters" ];
 
 ZRN_LOG_1(_this);
 
+// Target Position
 private _targetPos = _request getOrDefault ["destination", [0,0,0]];
 
 // Establish Start Position
-
 private _startPos = _parameters getOrDefault ["pos_start", [0,0,0]];
 private _alt_journey = _parameters getOrDefault ["alt_journey", 50];
 

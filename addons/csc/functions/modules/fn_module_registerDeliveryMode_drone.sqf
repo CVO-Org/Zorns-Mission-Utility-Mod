@@ -28,7 +28,6 @@ private _deliveryModeData = createHashMap;
 
 // Hard Data
 _deliveryModeData set [ "code", QFUNC(base_drone) ];
-_deliveryModeData set [ "code_description", _deliveryModeData get "description" ];
 
 // Parameters
 private _parameters = createHashMap;

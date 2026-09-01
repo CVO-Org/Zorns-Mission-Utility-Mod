@@ -5,20 +5,35 @@
             <Key ID="STR_mum_csc_FactionClass">
                 <English>MUM - Custom Supply Crates</English>
             </Key>
-            <Key ID="str_mum_csc_module_registerDestination_Relative">
-                <English>Register Destionation - Relative Position</English>
+            <Key ID="str_mum_csc_module_registerDeliveryMode_airDropHeli">
+                <English>Register Delivery - Airdrop Helicopter</English>
+            </Key>
+            <Key ID="str_mum_csc_module_registerDeliveryMode_airDropPlane">
+                <English>Register Delivery - Airdrop Plane</English>
             </Key>
             <Key ID="str_mum_csc_module_registerDeliveryMode_drone">
                 <English>Register Delivery - Drone</English>
             </Key>
-            <Key ID="str_mum_csc_module_registerDeliveryMode_airdrop">
-                <English>Register Delivery - Airdrop</English>
+            <Key ID="str_mum_csc_module_registerDestination_Relative">
+                <English>Register Destination - Relative Position</English>
             </Key>
             <Key ID="str_mum_csc_module_registerDestination_fixed">
-                <English>Register Destionation - Fixed Position</English>
+                <English>Register Destination - Fixed Position</English>
             </Key>
             <Key ID="str_mum_csc_module_registercrate">
                 <English>Register Crate</English>
+            </Key>
+            <Key ID="str_mum_csc_ui_cratesTitle">
+                <English>Custom Supply Crates</English>
+            </Key>
+            <Key ID="str_mum_csc_ui_deliveryMode">
+                <English>Delivery Mode</English>
+            </Key>
+            <Key ID="str_mum_csc_ui_destination">
+                <English>Destination</English>
+            </Key>
+            <Key ID="str_mum_csc_ui_requestInvalid">
+                <English>Request invalid</English>
             </Key>
         </Container>
     </Package>

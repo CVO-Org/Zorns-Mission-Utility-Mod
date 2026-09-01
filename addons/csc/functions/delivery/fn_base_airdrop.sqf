@@ -2,15 +2,18 @@
 
 /*
 * Author: Zorn
-* DELIVERY - Function to handle the
+* Executes airdrop delivery on server.
+* Creates aircraft with crew, sets waypoints, protects vehicle, handles crate parachuting via external handler.
 *
 * Arguments:
+* 0: _request - Request hashmap with destination, crates, etc. <HASHMAP>
+* 1: _parameters - Delivery parameters hashmap with airframe config, altitudes, parachute settings. <HASHMAP>
 *
 * Return Value:
-* None
+* nil
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [requestHashMap, parametersHashMap] call mum_csc_fnc_base_airdrop
 *
 * Public: No
 */
@@ -19,12 +22,22 @@ params [ "_request", "_parameters" ];
 
 ZRN_LOG_1(_this);
 
-// Starting Position
-private _startPos = _parameters getOrDefault ["pos_start", [0,0,1000]];
-_startPos set [2, 250 max (ATLToASL _startPos # 2)];
-
 // Target Position
 private _targetPos = _request getOrDefault ["destination", [0,0,0]];
+
+// Establish Start Position
+private _startPos = _parameters getOrDefault ["pos_start", [0,0,0]];
+private _alt_journey = _parameters getOrDefault ["alt_journey", 50];
+
+_startPos = switch (_parameters getOrDefault ["mode", "EDGE_NEAR"] ) do {
+    case "EDGE_NEAR": { [_startPos, false] call FUNC(getPosEdge) };
+    case "EDGE_FAR":  { [_startPos, true]  call FUNC(getPosEdge) };
+    case "STARTPOS";
+    default { _startPos };
+};
+
+_startPos set [2, 250 max _alt_journey];
+
 
 // Create Aircraft
 private _aircraft = createVehicle [(_parameters getOrDefault ["airframe_class", "C_Heli_Light_01_civil_F"]), [0,0,0], [], 0, "FLY"];
@@ -32,6 +45,7 @@ private _aircraft = createVehicle [(_parameters getOrDefault ["airframe_class", 
 _aircraft flyInHeight [_parameters getOrDefault ["airdrop_alt",150], _parameters getOrDefault ["airdrop_alt_forced", true]];
 _aircraft flyInHeightASL (_parameters getOrDefault ["airdrop_flyInHeightASL", [50,50,50]]);
 
+// Yeet airframe so it doesnt fall to the ground, requires next frame as it doesnt seem to be simulated yet in the initial frame.
 [{ _this setVelocityModelSpace [0, 66, 66]; }, _aircraft] call CBA_fnc_execNextFrame;
 
 
@@ -83,8 +97,6 @@ switch (_speedMode) do {
     default { _tgtWP setWaypointSpeed "LIMITED"; };
 };
 
-
-
 // Post-Target Waypoint
 private _postWP = _grp addWaypoint [_targetPos getPos [500, _dir], 25];
 _postWP setWaypointSpeed "FULL";
@@ -95,7 +107,6 @@ private _endWP_Pos = _parameters getOrDefault ["pos_end", [0,0,0]];
 _endWP_Pos = switch true do {
     case (_endWP_Pos isEqualTo "RETURN"):   { _startPos };
     case (_endWP_Pos isEqualTo "CONTINUE"): { _targetPos getPos [10000, _dir] };
-    case (_endWP_Pos isEqualType []):       { _endWP_Pos };
     default { [0,0,0] };
 };
 

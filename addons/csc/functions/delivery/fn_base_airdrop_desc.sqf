@@ -2,15 +2,16 @@
 
 /*
 * Author: Zorn
-* Delivery - Description Function for AirDrops
+* Returns formatted description text for airdrop delivery mode.
 *
 * Arguments:
+* 0: _deliveryMap - Delivery mode configuration hashmap with parameters and airframe info. <HASHMAP>
 *
 * Return Value:
-* None
+* Formatted description string with airframe name and altitude info <STRING>
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [deliveryMapHashMap] call mum_csc_fnc_base_airdrop_desc
 *
 * Public: No
 */
