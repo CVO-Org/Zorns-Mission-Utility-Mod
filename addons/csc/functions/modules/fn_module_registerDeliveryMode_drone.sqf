@@ -24,18 +24,20 @@ params [
 private _deliveryModeData = createHashMap;
 
 // Common Module Attributes
-{ _deliveryModeData set [_x, _logic getVariable _x]; } forEach [ "id", "displayName", "description", "maxcrates" ];
+{ _deliveryModeData set [_x, _logic getVariable _x]; } forEach [ "id", "displayName", "description", "maxCrates", "cooldown" ];
 
 // Hard Data
-_deliveryModeData set [ "code", QFUNC(base_spawn) ];
-_deliveryModeData set [ "code_description", """ will be made available at the provided position.""" ];
+_deliveryModeData set [ "code", QFUNC(base_drone) ];
+_deliveryModeData set [ "code_description", _deliveryModeData get "description" ];
 
 // Parameters
-_deliveryModeData set [
-    "parameters",
-    createHashMapFromArray [
-    ]
-];
+private _parameters = createHashMap;
+{ _parameters set [_x, _logic getVariable _x]; } forEach [ "drone_class", "drone_protected", "drone_side", "mode", "pos_start", "pos_end", "alt_journey", "alt_final", "alt_drop" ];
+
+// Custom Handling
+if (_parameters get "pos_start" isEqualTo [0,0,0]) then { _parameters set ["pos_start", getPos _logic]; };
+
+_deliveryModeData set [ "parameters", _parameters ];
 
 //Store Data
 [_deliveryModeData] call FUNC(registerDeliveryMode);

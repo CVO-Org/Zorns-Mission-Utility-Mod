@@ -15,6 +15,8 @@
 * Public: No
 */
 
+diag_log text format ['[CVO](debug)(fn_getPosEdge) _this: %1', _this];
+
 params [
     [ "_input",       nil,   [objNull,[]], [2,3] ],
     [ "_getFurthest", false, [true]              ]

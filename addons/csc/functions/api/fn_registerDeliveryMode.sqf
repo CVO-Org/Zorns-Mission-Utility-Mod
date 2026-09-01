@@ -34,10 +34,6 @@ _inputData set ["id", _id];
 private _data = + GVAR(base_deliveryMode);
 _data merge [_inputData, true];
 
-// Validate Data
-if (_data get "code_description" isEqualTo "") then { _data set ["code_description", """ will be delivered."""]};
-_data set ["maxcrates", (_data get "maxcrates") max 1];
-
 // Store Data
 GVAR(deliveryModes) set [_id, _data];
 

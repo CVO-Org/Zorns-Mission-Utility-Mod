@@ -34,7 +34,7 @@ class GVAR(module_registerDeliveryMode_drone): Module_F {
             tooltip = "Must be a unique identifier. This will be used to reference this Destination throughout the framework.";
             property = "id";
             typeName = "STRING";
-            defaultValue = "''"; // Because this is an expression, one must have a string within a string to return a string
+            defaultValue = "''";                        // Because this is an expression, one must have a string within a string to return a string
         };
         class displayName: Edit {
             displayName = "Display Name";
@@ -50,13 +50,21 @@ class GVAR(module_registerDeliveryMode_drone): Module_F {
             typeName = "STRING";
             defaultValue = "''";                        // Because this is an expression, one must have a string within a string to return a string
         };
-        class maxcrates: Edit {
+        class maxCrates: Edit {
             control = "EditShort";
             displayName = "Max Crates";
             tooltip = "Maximum Amount of crates for this Delivery Method";
-            property = "maxcrates";
+            property = "maxCrates";
             typeName = "NUMBER";
             defaultValue = 1;                           // Because this is an expression, one must have a string within a string to return a string
+        };
+        class cooldown: Edit {
+            control = "EditShort";
+            displayName = "Cooldown";
+            tooltip = "Cooldown in seconds for this delivery method to be availabe again.\n0 will disable cooldown.";
+            property = "cooldown";
+            typeName = "NUMBER";
+            defaultValue = 900;                         // Because this is an expression, one must have a string within a string to return a string
         };
 
         class SubCategory_Drone {
@@ -117,21 +125,35 @@ class GVAR(module_registerDeliveryMode_drone): Module_F {
 
         class mode: Combo {
             displayName = "Mode";
-            tooltip = "Where should the Drone be spawned?";
+            tooltip = "Where should the Drone be spawned?\nStarting Position: When left empty, Module's Position will be taken.\nEdge: Nearest/Furhtest Edge of the Map relative to the Start/Module Position.";
             property = "mode";
             typeName = "STRING";
-            defaultValue = """DefaultValue""";
+            defaultValue = """EDGE_NEAR""";
             class values {
-
+                class EDGE_NEAR {
+                    default = 1;
+                    name = "Edge - Nearest";
+                    value = "EDGE_NEAR";
+                };
+                class EDGE_FAR  {
+                    default = 0;
+                    name = "Edge - Furthest";
+                    value = "EDGE_FAR";
+                };
+                class STARTPOS {
+                    default = 0;
+                    name = "Start/Module Pos";
+                    value = "STARTPOS";
+                };
             };
         };
 
         class pos_start: Edit {
+            control = "EditXYZ";
             displayName = "Start Position";
             tooltip = "When left at default [0,0,0], the module's position will be taken.";
             property = "pos_start";
-            typeName = "NUMBER";
-            defaultValue = """[0,0,0]""";
+            defaultValue = "[0,0,0]"; // Because this is an expression, one must have a string within a string to return a string
         };
 
         class pos_end: Combo {
@@ -141,7 +163,16 @@ class GVAR(module_registerDeliveryMode_drone): Module_F {
             typeName = "STRING";
             defaultValue = """RETURN""";
             class values {
-
+                class RETURN {
+                    default = 1;
+                    name = "RETURN";
+                    value = "RETURN";
+                };
+                class CONTINUE {
+                    default = 0;
+                    name = "CONTINUE";
+                    value = "CONTINUE";
+                };
             };
         };
 

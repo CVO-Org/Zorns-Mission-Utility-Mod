@@ -7,7 +7,7 @@ class base_delivery_mode {
 
     code = "";
 
-
+    cooldown = 0;
 
     class parameters {
     };

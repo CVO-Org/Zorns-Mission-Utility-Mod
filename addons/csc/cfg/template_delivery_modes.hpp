@@ -3,7 +3,7 @@ class template_delivery_modes {
     class template_spawn: base_delivery_mode {
 
         displayName = "Spawn";
-        code_description = """ will be made available at the provided position."""; // tripple Quotes for simply return the string
+        code_description = """Will be made available at the provided position."""; // tripple Quotes for simply return the string
 
         code = QFUNC(base_spawn);
 
@@ -23,7 +23,7 @@ class template_delivery_modes {
 
         maxCrates = 2;
 
-
+        cooldown = 1800;
 
         class parameters {
             airframe_side = "CIV";                  // String version: "WEST" "EAST" "GUER" "CIV"
@@ -55,6 +55,7 @@ class template_delivery_modes {
 
         maxCrates = 5;
 
+        cooldown = 1800;
 
         class parameters {
             airframe_side = "CIV";                  // String version: "WEST" "EAST" "GUER" "CIV"
@@ -84,13 +85,13 @@ class template_delivery_modes {
     class template_drone: base_delivery_mode {
         displayName = "Drone Delivery";
 
-        code_description = """ will be delivered via a drone."""; // tripple Quotes for simply return the string
+        code_description = """Will be delivered via a drone."""; // tripple Quotes for simply return the string
 
         maxCrates = 1;
 
         code = QFUNC(base_drone);
 
-
+        cooldown = 900;
 
         class parameters {
 

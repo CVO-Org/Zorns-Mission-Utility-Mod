@@ -39,20 +39,32 @@ _display setVariable [QGVAR(maxCrates), _maxCrates];
 [] call FUNC(ui_update_arrows);
 
 
+
 //// Update Description
-private _code_desc = _deliveryMap get "code_description" call CBA_fnc_convertStringCode;
+
+// Default Line: Max Crates
+private _lines = [ format ["Can transport up to %1 crates.", _maxCrates] ];
+
+// Handle Cooldown Line
 private _cooldown = _deliveryClassName call FUNC(getCooldown);
-
-private _desc = format ["Up to %1 crates.", _maxCrates];
-
 if (_cooldown isNotEqualTo false) then {
     _cooldown = _cooldown call EFUNC(common,secondsToString);
-    _desc = format ["%1\nOn cooldown for %2.", _desc, _cooldown];
+    _lines pushBack format ["On cooldown for %1.", _cooldown];
 };
 
-_desc = format ["%1\n%2", _desc, (_deliveryMap call _code_desc)];
 
+// Handle Description Lines
+private _code_desc = _deliveryMap get "code_description";
+if (_code_desc isEqualTo "") then {
+    private _basicDescription = _deliveryMap get ["description", ""];
+    if (_basicDescription isNotEqualTo "") then { _lines pushBack _basicDescription};
+} else {
+    private _code_return = (_deliveryMap call (_code_desc call CBA_fnc_convertStringCode));
+    if (_code_return isNotEqualTo "") then { _lines pushBack _code_return};
+};
+
+// Update UI Control
 ctrlSetText [
     MUM_IDC_CSC_Delivery_Description,
-    _desc
+    _lines joinString "\n"
 ];

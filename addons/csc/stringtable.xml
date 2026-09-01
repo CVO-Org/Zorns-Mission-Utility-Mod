@@ -6,19 +6,19 @@
                 <English>MUM - Custom Supply Crates</English>
             </Key>
             <Key ID="str_mum_csc_module_registerDestination_Relative">
-                <English>CSC - Register Destionation - Relative Position</English>
+                <English>Register Destionation - Relative Position</English>
             </Key>
             <Key ID="str_mum_csc_module_registerDeliveryMode_drone">
-                <English>CSC - Register Delivery - Drone</English>
+                <English>Register Delivery - Drone</English>
             </Key>
             <Key ID="str_mum_csc_module_registerDeliveryMode_airdrop">
-                <English>CSC - Register Delivery - Airdrop</English>
+                <English>Register Delivery - Airdrop</English>
             </Key>
             <Key ID="str_mum_csc_module_registerDestination_fixed">
-                <English>CSC - Register Destionation - Fixed Position</English>
+                <English>Register Destionation - Fixed Position</English>
             </Key>
             <Key ID="str_mum_csc_module_registercrate">
-                <English>CSC - Register Crate</English>
+                <English>Register Crate</English>
             </Key>
         </Container>
     </Package>

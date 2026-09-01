@@ -42,18 +42,19 @@ private _map = [
 private _items = (_map get "items") apply { [_x#0 call cba_fnc_getItemConfig, _x#1] } select { _x#0 isNotEqualTo configNull };
 
 // Create list of items
-private _desc ="Content:\n";
+private _lines = ["Content:"];
+
 {
     _x params ["_cfg", "_quantity"];
     private _line = format [
-        "%1x %2\n",
+        "%1x %2",
         [_quantity, 5] call EFUNC(common,stringPadding),
         getText (_cfg >> "displayName")
     ];
-    _desc = _desc + _line;
+    _lines pushBack _line;
 } forEach _items;
 
 ctrlSetText [
     MUM_IDC_CSC_Crates_ListNBox_Description,
-    _desc
+    _lines joinString "\n"
 ];

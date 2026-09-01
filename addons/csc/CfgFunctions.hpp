@@ -99,6 +99,7 @@ class CfgFunctions {
 
             class module_registerDestination_fixed {};
             class module_registerDestination_relative {};
+            class module_registerDeliveryMode_drone {};
         };
     };
 };

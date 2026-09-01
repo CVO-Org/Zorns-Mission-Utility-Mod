@@ -24,7 +24,7 @@ params [
 private _deliveryModeData = createHashMap;
 
 // Common Module Attributes
-{ _deliveryModeData set [_x, _logic getVariable _x]; } forEach [ "id", "displayName", "description", "maxcrates" ];
+{ _deliveryModeData set [_x, _logic getVariable _x]; } forEach [ "id", "displayName", "description", "maxCrates", "cooldown" ];
 
 // Hard Data
 _deliveryModeData set [ "code", QFUNC(base_spawn) ];

@@ -20,11 +20,9 @@ params [ "_deliveryClassName", "_duration"];
 private _startPFH = false;
 private _map = if (isNil QGVAR(cooldowns)) then { _startPFH = true; createHashMap } else { GVAR(cooldowns) };
 
-private _endTime = CBA_missionTime + _duration;
-_map set [_deliveryClassName, _endTime];
+_map set [_deliveryClassName, CBA_missionTime + _duration];
 
 missionNamespace setVariable [QGVAR(cooldowns), _map, true];
-
 
 // Start PFH to clear coolsdowns once done.
 if (_startPFH) then {
@@ -46,3 +44,5 @@ if (_startPFH) then {
         1
     ] call CBA_fnc_addPerFrameHandler;
 };
+
+nil

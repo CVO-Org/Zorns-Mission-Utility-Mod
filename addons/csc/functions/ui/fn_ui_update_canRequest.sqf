@@ -2,7 +2,7 @@
 
 /*
 * Author: Zorn
-* Function to check the conditions and update the Arrows (Enable/Disable)
+* Function to check the conditions and enables/disables Request Button
 *
 * Arguments:
 *
@@ -23,11 +23,14 @@ private _maxCrates = _display getVariable [QGVAR(maxCrates), 3];
 
 private _curSel_delivery_mode = _display getVariable QGVAR(deliveryModes) select lbCurSel MUM_IDC_CSC_Delivery_ListBox;
 
-private _isCooldown = _curSel_delivery_mode call FUNC(getCooldown) isEqualTo false;
+
+
+private _isZeus = _display getVariable "isZeus";
+private _isCooldown = _curSel_delivery_mode call FUNC(getCooldown) isEqualType 0;
 
 // Disable OK Button if more Crates are selected then maximum possible
 switch (true) do {
-    case ( _isCooldown ): {
+    case ( _isCooldown && !_isZeus ): {
         ctrlEnable [MUM_IDC_CSC_ButtonOK, false];
         ctrlSetText [MUM_IDC_CSC_Status, "The selected delivery mode is still on cooldown."];
     };

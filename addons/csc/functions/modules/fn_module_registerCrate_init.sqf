@@ -28,11 +28,7 @@ params [
 private _crateData = + GVAR(base_crate);
 
 // BatchProcess Module Attributes
-{
-    _crateData set [_x, _logic getVariable _x];
-    diag_log text format ['[CVO](debug)(fn_module_registerCrate_init) %1: %2 (%3)', _x , _logic getVariable _x, typeName (_logic getVariable _x)];
-
-} forEach [
+{ _crateData set [_x, _logic getVariable _x]; } forEach [
     "id",
     "displayName",
     "items",
