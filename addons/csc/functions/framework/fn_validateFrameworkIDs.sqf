@@ -12,23 +12,14 @@
 * Array of registered ID strings matching filter, or false if none found <ARRAY or BOOL>
 *
 * Example:
-* ['#ALL', 'DESTINATIONS'] call mum_csc_fnc_getIDsFromNetwork
-*
-* Public: No
+* ['#ALL', 'DESTINATIONS'] call mum_csc_fnc_validateFrameworkIDs
 */
 
 
-
 params [
-    [ "_network", "#ALL",   [""] ],
-    [ "_type",    "CRATES", [""] ]
+    [ "_entries", "#ALL",   ["", []] ],
+    [ "_type",    "CRATES", [""]     ]
 ];
-
-private _networks = missionNamespace getVariable QGVAR(networks);
-
-
-
-if (isNil "_networks") exitWith { false };
 
 private _dataBase = switch (toUpperANSI _type) do {
     case "CRATES":        { GVAR(crates) };
@@ -39,18 +30,9 @@ private _dataBase = switch (toUpperANSI _type) do {
 
 private _keys = keys _dataBase;
 
-// return
-private _return = switch (true) do {
-    case (_network isEqualTo "#ALL"): { _keys };
-    case (_network in _networks): {
-        // get Keys from network
-        private _ids = _networks get _network get _type;
-        // Validate and return
-        _ids select { _x in _keys }
-    };
-    default { [] };
-};
+if (_entries isEqualTo "#ALL") exitWith { _keys };
+if (_entries isEqualTo ["#ALL"]) exitWith { _keys };
+if (_entries isEqualType "") then { _entries = [_entries]; };
 
 
-
-_return
+_entries apply { toLowerANSI _x } select { _x in _keys } // return validated/existing entries

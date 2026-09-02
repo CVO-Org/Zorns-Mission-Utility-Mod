@@ -26,7 +26,7 @@ params [
 private _data = createHashMap;
 
 // Common Module Attributes
-{ _data set [_x, _logic getVariable _x]; } forEach [ "id", "displayName", "description" ];
+{ _data set [_x, _logic getVariable _x]; } forEach [ "id", "displayName", "description_string" ];
 
 // Hard Data
 _data set [ "code", QFUNC(base_relativeTo) ];
@@ -44,10 +44,10 @@ if (_reference isEqualTo "" && { _units isNotEqualTo [] }) then {
 _data set [
     "parameters",
     createHashMapFromArray [
-        ["reference", _reference                  ],
-        ["mode",      _logic getVariable "mode"   ],
-        ["offset",    _logic getVariable "offset" ],
-        ["random",    _logic getVariable "random" ]
+        ["reference",    _reference                        ],
+        ["mode",         _logic getVariable "mode"         ],
+        ["offset",       _logic getVariable "offset"       ],
+        ["randomOffset", _logic getVariable "randomOffset" ]
     ]
 ];
 

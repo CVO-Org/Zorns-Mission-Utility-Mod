@@ -15,7 +15,7 @@
 * Public: No
 */
 
-params ["_conditionCode", "_accessPoint"];
+params [ "_accessPoint", "_conditionCode" ];
 
 [
     QGVAR(AceAction)                                            // * 0: Action name <STRING>

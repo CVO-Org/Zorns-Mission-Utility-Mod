@@ -2,6 +2,9 @@
 <Project name="mission-utility-mod">
     <Package name="csc">
         <Container name="3den_Modules">
+            <Key ID="STR_mum_csc_module_registerAccessPoint">
+                <English>Register Access Point</English>
+            </Key>
             <Key ID="STR_mum_csc_FactionClass">
                 <English>MUM - Custom Supply Crates</English>
             </Key>

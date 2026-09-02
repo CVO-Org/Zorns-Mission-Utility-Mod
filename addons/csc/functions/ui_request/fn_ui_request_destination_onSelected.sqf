@@ -30,6 +30,6 @@ private _destinationMap = [
 // Store currently selected Mode
 _display setVariable [QGVAR(destination), _destinationMap get "id"];
 
-private _text = _destinationMap get "description";
+private _text = _destinationMap get "description_string";
 
 ctrlSetText [MUM_IDC_CSC_Destination_Description, _text];

@@ -24,6 +24,10 @@ if (isNil "_inputData") exitWith { false };
 // Validate ID
 private _id = (_inputData getOrDefault ["id", ""]);
 _id = toLowerANSI _id;
+
+// Autogenerate ID for crates - It is assumed that most users will use #ALL to make all crates accessible
+if (_id isEqualTo "") then { _id = [QADDON,"crate", count GVAR(crates) ] joinString "_"; };
+
 if !(_id isEqualType "")  exitWith { ["CRATE ID must be a string"]            call BIS_fnc_error; ERROR("CRATE ID must be a string"); };
 if  (_id isEqualTo "")    exitWith { ["CRATE ID cannot be empty"]             call BIS_fnc_error; ERROR("CRATE ID cannot be empty"); };
 if  (_id in GVAR(crates)) exitWith { ["CRATE ID: %1 already registered", _id] call BIS_fnc_error; ERROR_1("CRATE ID: %1 already registered",_id); };

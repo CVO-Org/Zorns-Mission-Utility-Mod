@@ -2,7 +2,7 @@
 
 /*
 * Author: Zorn
-* INIT Module Function to register a DeliveryMode (Spawn).
+* 3den Module Function to Create Accesspoint
 *
 * Arguments:
 *
@@ -21,20 +21,14 @@ params [
 	["_activated", true, [true]]		// True when the module was activated, false when it is deactivated (i.e., synced triggers are no longer active)
 ];
 
-private _deliveryModeData = createHashMap;
+if (_units isEqualTo []) exitWith {};
 
-// Common Module Attributes
-{ _deliveryModeData set [_x, _logic getVariable _x]; } forEach [ "id", "displayName", "description", "maxCrates", "cooldown" ];
+// Get Data
+private _crates =        _logic getVariable "crates"        splitString ", ";
+private _destinations =  _logic getVariable "destinations"  splitString ", ";
+private _deliveryModes = _logic getVariable "deliveryModes" splitString ", ";
 
-// Hard Data
-_deliveryModeData set [ "code", QFUNC(base_spawn) ];
+// Add Action
+{ [_x, _crates, _deliveryModes, _destinations] call FUNC(registerAccessPoint); } forEach _units;
 
-// Parameters
-_deliveryModeData set [
-    "parameters",
-    createHashMapFromArray [
-    ]
-];
-
-//Store Data
-[_deliveryModeData] call FUNC(registerDeliveryMode);
+nil

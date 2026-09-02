@@ -1,7 +1,7 @@
 class base_destination {
 
     displayName = "";
-    description = "";
+    description_string = "";
 
     code = "";
 
@@ -13,7 +13,7 @@ class base_destination {
 class base_destination_fixed: base_destination {
 
     displayName = "Base Fixed Position";
-    description = "Predefined, fixed prosition.";
+    description_string = "Predefined, fixed prosition.";
 
     code = QFUNC(base_fixedPos); // Function name or stringCode
 
@@ -25,7 +25,7 @@ class base_destination_fixed: base_destination {
 
 class base_destination_mapClick: base_destination {
     displayName = "Map-Click";
-    description = "Define the desired destination via map-click on the map.";
+    description_string = "Define the desired destination via map-click on the map.";
 
     code = QFUNC(base_mapClick);
 
@@ -34,7 +34,7 @@ class base_destination_mapClick: base_destination {
 
 class base_destination_gridCoordinates: base_destination {
     displayName = "Grid Coordinates";
-    description = "Define the desired destination via providing Grid Coordinates.";
+    description_string = "Define the desired destination via providing Grid Coordinates.";
 
     code = QFUNC(base_gridCoordinates);
 
@@ -43,7 +43,7 @@ class base_destination_gridCoordinates: base_destination {
 
 class base_destination_relative: base_destination {
     displayName = "Base Relative Position";   // Just as an example
-    description = "Destination relative to an Object";
+    description_string = "Destination relative to an Object";
 
 
     code = QFUNC(base_relativeTo);

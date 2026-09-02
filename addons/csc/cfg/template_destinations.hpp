@@ -2,7 +2,7 @@ class template_destinations {
 
     class template_fixed_debug: base_destination_fixed {
         displayName = "Debug Corner";
-        description = "Predefined, fixed prosition - in this case, the debug corner.";
+        description_string = "Predefined, fixed prosition - in this case, the debug corner.";
 
         code = QFUNC(base_fixedPos); // Function name or stringCode
 
@@ -22,7 +22,7 @@ class template_destinations {
 
     class template_infrontPlayer: base_destination_relative {
         displayName = "Player";   // Just as an example
-        description = "In front of the player";
+        description_string = "In front of the player";
 
         class parameters {
             mode = "FRONT"; // "FRONT", "OFFSET"

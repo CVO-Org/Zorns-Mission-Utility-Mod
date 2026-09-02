@@ -36,10 +36,10 @@ class GVAR(module_registerDestination_relative): Module_F {
             typeName = "STRING";
             defaultValue = "''"; // Because this is an expression, one must have a string within a string to return a string
         };
-        class displayname: Edit {
+        class displayName: Edit {
             displayName = "Display Name";
             tooltip = "Name of the Destination";
-            property = "displayname";
+            property = "displayName";
             typeName = "STRING";
             defaultValue = "''"; // Because this is an expression, one must have a string within a string to return a string
         };

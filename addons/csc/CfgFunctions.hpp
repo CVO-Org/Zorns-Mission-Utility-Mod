@@ -20,6 +20,8 @@ class CfgFunctions {
         class api {
             file = PATH_TO_FUNC_SUB(api);
 
+            class registerAccessPoint {};
+
             class registerCrate {};
             class registerDeliveryMode {};
             class registerDestination {};
@@ -51,7 +53,7 @@ class CfgFunctions {
             class handle_destination {};
             class handle_delivery {};
 
-            class getIDsFromNetwork {};
+            class validateFrameworkIDs {};
             class createCrate {};
 
             class request_client {};
@@ -105,6 +107,8 @@ class CfgFunctions {
             file = PATH_TO_FUNC_SUB(modules);
 
             // class function { /* preInit = 1; */ };
+
+            class module_registerAccessPoint {};
 
             class module_registerCrate_3den {};
             class module_registerCrate_init {};

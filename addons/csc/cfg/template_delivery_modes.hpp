@@ -3,7 +3,7 @@ class template_delivery_modes {
     class template_spawn: base_delivery_mode {
 
         displayName = "Spawn";
-        description_code = """Will be made available at the choosen destination."""; // tripple Quotes for simply return the string
+        description_string = "Will be made available at the choosen destination."; // tripple Quotes for simply return the string
 
         code = QFUNC(base_spawn);
 
@@ -48,6 +48,8 @@ class template_delivery_modes {
             parachute_class_strobe = "ACE_IR_Strobe_Effect";
             parachute_class_chemlight = "Chemlight_yellow";
             parachute_class_smoke = "SmokeShellOrange";
+
+            timeout = 900;
         };
     };
 
@@ -86,7 +88,7 @@ class template_delivery_modes {
     class template_drone: base_delivery_mode {
         displayName = "Drone Delivery";
 
-        description = "Will be delivered via a drone.";
+        description_string = "Will be delivered via a drone.";
 
         maxCrates = 1;
 
@@ -102,7 +104,7 @@ class template_delivery_modes {
 
             mode = "EDGE_NEAR";
             pos_start[] = { 0, 0, 0 };
-            post_end = "RETURN";
+            pos_end = "RETURN";
 
             alt_journey = 100;
             alt_final = 35; // should be above 20

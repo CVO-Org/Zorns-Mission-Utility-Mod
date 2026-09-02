@@ -17,6 +17,8 @@ class CfgVehicles {
         };
     };
 
+    #include "CSC_Module_registerAccessPoint.hpp"
+
     #include "CSC_Module_registerCrate.hpp"
 
     #include "CSC_Module_registerDestination_fixed.hpp"

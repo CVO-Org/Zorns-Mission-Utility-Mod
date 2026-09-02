@@ -24,7 +24,7 @@ params [
 private _destinationData = createHashMap;
 
 // Common Module Attributes
-{ _destinationData set [_x, _logic getVariable _x]; } forEach [ "id", "displayName", "description" ];
+{ _destinationData set [_x, _logic getVariable _x]; } forEach [ "id", "displayName", "description_string" ];
 
 // Hard Data
 _destinationData set [ "code", QFUNC(base_fixedPos) ];
