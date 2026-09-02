@@ -10,7 +10,7 @@ class Delivery_Mode_List: RscListBox {
 
     colorBackground[] = {0,0,0,0.6};
 
-    onLBSelChanged = Q(call FUNC(ui_delivery_onSelected););
+    onLBSelChanged = Q(call FUNC(ui_request_delivery_onSelected););
 };
 
 

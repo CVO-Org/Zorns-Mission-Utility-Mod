@@ -28,11 +28,7 @@ params ["_request", "_parameters"];
 #define MSG_aborted   ["<t color='#ff0000' size='1'>supplyDrop<br/>aborted</t>", -1, 0, 5, 1] spawn BIS_fnc_dynamicText
 
 
-// Closes Zeus Interface and Opens the Map the frame after.
-if ( !isNull (findDisplay 312) ) then {
-    findDisplay 312 closeDisplay 2;
-    missionNamespace setVariable [QGVAR(mapClick_curatorWasOpen), true];
-};
+// Opens the Map next frame (in case zeus was open).
 [{ openMap [true, true]; MSG_designate; }] call CBA_fnc_execNextFrame;
 
 
@@ -63,11 +59,9 @@ private _id_mapClick = addMissionEventHandler [
         openMap [false, false];
         removeMissionEventHandler ["MapSingleClick", _id_mapClick];
         missionNamespace setVariable [QGVAR(mapClicked), nil];
-        if (missionNamespace getVariable [QGVAR(curatorWasOpen), false]) then {openCuratorInterface};
-
     },
     [_id_mapClick],
-    60,
+    CHOOSE_DESTINATION_TIMEOUT,
     {
         // timed out
         params ["_id_mapClick"];
@@ -77,12 +71,11 @@ private _id_mapClick = addMissionEventHandler [
         missionNamespace setVariable [QGVAR(mapClicked), nil];
         missionNamespace setVariable [QGVAR(waitForMapclick), false];
 
-        if (missionNamespace getVariable [QGVAR(curatorWasOpen), false]) then {openCuratorInterface};
-
         MSG_aborted
     }
 ] call CBA_fnc_waitUntilAndExecute;
 
 // return varname as string
 QGVAR(waitForMapclick)
+
 

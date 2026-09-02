@@ -2,8 +2,8 @@ class GVAR(request) {
 
     idd = MUM_IDD_CSC_REQUEST;
 
-    onLoad = Q(call FUNC(ui_onLoad));
-    onUnload = Q(call FUNC(ui_onUnload));
+    onLoad = Q(call FUNC(ui_request_onLoad));
+    onUnload = Q(call FUNC(ui_request_onUnload));
 
     class Controls {
 
@@ -73,7 +73,7 @@ class GVAR(request) {
 
         class Title_Name: RscText {
             idc = 1002;
-            text = "AccessPoint";
+            text = "";
             style = ST_RIGHT;
 
             // onLoad = "_this#0 ctrlSetText name ace_player";

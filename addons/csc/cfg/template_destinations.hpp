@@ -11,26 +11,21 @@ class template_destinations {
         };
     };
 
+
     class template_mapClick: base_destination_mapClick {
-        displayName = "via Mapclick";
-        description = "Manually define the desired destination via map-click.";
+        registerDefault = 1;
+    };
 
-        code = QFUNC(base_mapClick);
-
-        class parameters {};
-
+    class template_gridCoordinates: base_destination_gridCoordinates {
         registerDefault = 1;
     };
 
     class template_infrontPlayer: base_destination_relative {
-        displayName = "Infront of Player";   // Just as an example
+        displayName = "Player";   // Just as an example
         description = "In front of the player";
-
-        code = QFUNC(base_relativeTo);
 
         class parameters {
             mode = "FRONT"; // "FRONT", "OFFSET"
-            offset[] = { 0, 0, 0 };   // only used by OFFSET
             reference = "PLAYER";
         };
 

@@ -36,7 +36,7 @@ private _maxCrates = _deliveryMap get "maxCrates";
 _display setVariable [QGVAR(maxCrates), _maxCrates];
 
 // Request crate amount check
-[] call FUNC(ui_update_arrows);
+[] call FUNC(ui_request_update_arrows);
 
 
 
@@ -52,18 +52,18 @@ if (_cooldown isNotEqualTo false) then {
     _lines pushBack format ["On cooldown for %1.", _cooldown];
 };
 
-// Handle Simple Description
-private _simpleDescription = _deliveryMap get "description";
-if (_simpleDescription isNotEqualTo "") then {
-    _lines pushBack _simpleDescription;
-};
-
 // Handle Code Description
 private _code_desc = _deliveryMap get "description_code";
 if (_code_desc isNotEqualTo "") then {
-    private _basicDescription = _deliveryMap get ["description", ""];
-    if (_basicDescription isNotEqualTo "") then { _lines pushBack _basicDescription};
+    _lines pushBack (_deliveryMap call (_code_desc call cba_fnc_convertStringCode) );
 };
+
+// Handle Simple Description
+private _stringDescription = _deliveryMap get "description_string";
+if (_stringDescription isNotEqualTo "") then {
+    _lines pushBack _stringDescription;
+};
+
 
 // Update UI Control
 ctrlSetText [

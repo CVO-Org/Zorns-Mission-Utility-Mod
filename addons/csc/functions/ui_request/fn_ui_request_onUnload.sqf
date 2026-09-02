@@ -17,10 +17,11 @@
 
 params ["_display", "_exitCode"];
 
-if (_exitCode == 2) exitWith { };
+if (_exitCode == 2) exitWith {}; // 
 
+
+// Get Crates
 private _ctrl_crates = _display displayCtrl MUM_IDC_CSC_Crates_ListNBox;
-
 // Extract
 // [classname, amount]
 private _crate_list = [];
@@ -42,7 +43,7 @@ private _crates = [];
 
 } forEach _crate_list;
 
-
+// Create Request dataset
 private _request = createHashMapFromArray [
     [ "crates",        _crates ],
     [ "requester",     _display getVariable "requester" ],

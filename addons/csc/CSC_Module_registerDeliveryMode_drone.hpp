@@ -43,10 +43,10 @@ class GVAR(module_registerDeliveryMode_drone): Module_F {
             typeName = "STRING";
             defaultValue = "''";                        // Because this is an expression, one must have a string within a string to return a string
         };
-        class description: Edit {
+        class description_string: Edit {
             displayName = "Description";
-            tooltip = "Description of the Destination";
-            property = "description";
+            tooltip = "Description of the Delivery Method";
+            property = "description_string";
             typeName = "STRING";
             defaultValue = "''";                        // Because this is an expression, one must have a string within a string to return a string
         };

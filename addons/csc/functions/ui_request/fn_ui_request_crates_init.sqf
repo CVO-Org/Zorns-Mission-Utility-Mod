@@ -43,7 +43,7 @@ private _array = [];
 // add crate data
 lnbAddArray [ MUM_IDC_CSC_Crates_ListNBox, _array ];
 lbSetCurSel [MUM_IDC_CSC_Crates_ListNBox, 0];
-call FUNC(ui_update_crate_desc);
+call FUNC(ui_request_update_crate_desc);
 
 //// Update Destination ListBox
 {

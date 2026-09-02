@@ -21,7 +21,8 @@
 
 params [ "_request", "_parameters" ];
 
-ZRN_LOG_1(_this);
+diag_log text format ['[CVO](debug)(fn_base_drone) _request: %1', _request];
+diag_log text format ['[CVO](debug)(fn_base_drone) _parameters: %1', _parameters];
 
 // Target Position
 private _targetPos = _request getOrDefault ["destination", [0,0,0]];
@@ -36,6 +37,7 @@ _startPos = switch (_parameters getOrDefault ["mode", "EDGE_NEAR"] ) do {
     case "STARTPOS";
     default { _startPos };
 };
+diag_log text format ['[CVO](debug)(fn_base_drone) _startPos: %1', _startPos];
 
 _startPos set [2, _alt_journey];
 

@@ -28,12 +28,14 @@ private _worldSize = worldSize;
 // Sanitise Input
 switch (true) do {
     case ( isNil "_input" ): { [ random _worldSize, random _worldSize] };
-    case ( _input isEqualTypeArray [0,0] ): { _input };
+    case ( _input isEqualType [] ): { _input };
     case ( _input isEqualType objNull ): { getPos _input };
     default { [ random _worldSize, random _worldSize] };
 } params ["_x", "_y"];
 
-switch (_getFurthest) do {
+diag_log text format ['[CVO](debug)(fn_getPosEdge) %1 - %2', _x , _y];
+
+private _return = switch (_getFurthest) do {
     case false: {
         private _distLeft   = _x;
         private _distRight  = _worldSize - _x;
@@ -49,8 +51,12 @@ switch (_getFurthest) do {
     };
     case true: {
         [
-            [0,_worldSize] select ( _x < _worldSize / 2 ),
-            [0,_worldSize] select ( _y < _worldSize / 2 )
+            [0,_worldSize] select ( _x < (_worldSize / 2) ),
+            [0,_worldSize] select ( _y < (_worldSize / 2) )
         ]
     };
-} // Return
+}; // Return
+
+diag_log text format ['[CVO](debug)(fn_getPosEdge) _return: %1', _return];
+
+_return

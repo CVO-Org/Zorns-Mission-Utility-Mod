@@ -10,7 +10,7 @@
 * None
 *
 * Example:
-* [] call mum_csc_fnc_openDialog;
+* [] call mum_csc_fnc_request_openDialog;
 *
 * Public: No
 */

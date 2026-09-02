@@ -10,7 +10,7 @@
 * None
 *
 * Example:
-* [ 1 ] call FUNC(ui_update_crates);
+* [ 1 ] call FUNC(ui_request_crates_update);
 *
 * Public: No
 */
@@ -34,6 +34,6 @@ private _oldTotal = _display getVariable [QGVAR(totalCrates), 0];
 private _newTotal = [ _oldTotal, _oldTotal + _change ] select (_newValue != _oldValue);
 _display setVariable [QGVAR(totalCrates), _newTotal];
 
-[] call FUNC(ui_update_arrows);
+[] call FUNC(ui_request_update_arrows);
 
 true

@@ -43,10 +43,10 @@ class GVAR(module_registerDeliveryMode_airDropHeli): Module_F {
             typeName = "STRING";
             defaultValue = "''";                        // Because this is an expression, one must have a string within a string to return a string
         };
-        class description: Edit {
+        class description_string: Edit {
             displayName = "Description";
-            tooltip = "Description of the Destination";
-            property = "description";
+            tooltip = "Description of the Delivery Method";
+            property = "description_string";
             typeName = "STRING";
             defaultValue = "''";                        // Because this is an expression, one must have a string within a string to return a string
         };
@@ -188,7 +188,7 @@ class GVAR(module_registerDeliveryMode_airDropHeli): Module_F {
             tooltip = "Flight altitude for the airdrop.";
             property = "airdrop_alt";
             typeName = "NUMBER";
-            defaultValue = 100;
+            defaultValue = 75;
         };
         class airdrop_alt_forced: Checkbox {
             displayName = "Forced Altitude";
@@ -202,7 +202,7 @@ class GVAR(module_registerDeliveryMode_airDropHeli): Module_F {
             tooltip = "Waypoint speed for the target leg.";
             property = "airdrop_speedLimit";
             typeName = "STRING";
-            defaultValue = """LIMITED""";
+            defaultValue = """NORMAL""";
             class values {
                 class FULL {
                     default = 0;
@@ -210,12 +210,12 @@ class GVAR(module_registerDeliveryMode_airDropHeli): Module_F {
                     value = "FULL";
                 };
                 class NORMAL {
-                    default = 0;
+                    default = 1;
                     name = "NORMAL";
                     value = "NORMAL";
                 };
                 class LIMITED {
-                    default = 1;
+                    default = 0;
                     name = "LIMITED";
                     value = "LIMITED";
                 };

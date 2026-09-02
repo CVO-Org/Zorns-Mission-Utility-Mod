@@ -17,14 +17,4 @@
 
 params ["_display"];
 
-[
-    {
-        !(_this isNil QGVAR(deliveryModes))
-    },
-    {
-        // QGVAR(destinations), QGVAR(deliveryModes)
-
-        _this call FUNC(ui_crates_init);
-    },
-    _display
-] call CBA_fnc_waitUntilAndExecute;
+nil

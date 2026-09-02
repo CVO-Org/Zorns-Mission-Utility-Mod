@@ -188,7 +188,7 @@ class GVAR(module_registerDeliveryMode_airDropPlane): Module_F {
             tooltip = "Flight altitude for the airdrop.";
             property = "airdrop_alt";
             typeName = "NUMBER";
-            defaultValue = 100;
+            defaultValue = 200;
         };
         class airdrop_alt_forced: Checkbox {
             displayName = "Forced Altitude";

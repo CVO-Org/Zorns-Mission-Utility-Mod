@@ -24,10 +24,19 @@ class base_destination_fixed: base_destination {
 };
 
 class base_destination_mapClick: base_destination {
-    displayName = "Base Map-Click";
+    displayName = "Map-Click";
     description = "Define the desired destination via map-click on the map.";
 
     code = QFUNC(base_mapClick);
+
+    class parameters {};
+};
+
+class base_destination_gridCoordinates: base_destination {
+    displayName = "Grid Coordinates";
+    description = "Define the desired destination via providing Grid Coordinates.";
+
+    code = QFUNC(base_gridCoordinates);
 
     class parameters {};
 };

@@ -10,6 +10,7 @@
 
 #define MUM_IDD_DEPLOY 69000
 #define MUM_IDD_CSC_REQUEST 69100
+#define MUM_IDD_CSC_GRIDCORD 69200
 
 
 // CVO CSC IDCs
@@ -42,6 +43,10 @@
 #define MUM_IDC_CSC_ButtonOK 1
 #define MUM_IDC_CSC_ButtonCancel 2
 
+// GRID
+
+#define MUM_IDC_CSC_GRID_X 1800
+#define MUM_IDC_CSC_GRID_Y 1801
 
 
 // CVO COLORS

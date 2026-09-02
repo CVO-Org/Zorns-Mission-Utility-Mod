@@ -3,6 +3,7 @@ class RscPicture;
 class RscButton;
 class RscListBox;
 class RscListNBox;
+class RscEdit;
 // class RscXListBox;
 // class RscTree;
 // class RscSlider;

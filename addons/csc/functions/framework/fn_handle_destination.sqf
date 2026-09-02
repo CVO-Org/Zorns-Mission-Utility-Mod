@@ -40,6 +40,14 @@ switch (true) do {
 
     // return is string: handle as gvar name and wait for it to become expected return
     case (_return isEqualType ""): {
+
+        // Closes Zeus Interface and Stores that state
+        if ( !isNull (findDisplay 312) ) then {
+            findDisplay 312 closeDisplay 2;
+            missionNamespace setVariable [QGVAR(curatorWasOpen), true];
+        };
+
+
         // Run CBA WUAE
         [
             {   // wait until
@@ -48,7 +56,13 @@ switch (true) do {
             },
             {   // and execute
                 params ["_varName", "_request"];
+
+                diag_log text format ['[CVO](debug)(fn_handle_destination) Return Detected: _varName: %1 - _request: %2', _varName , _request];
+
                 private _return = + (missionNamespace getVariable _varName);
+                diag_log text format ['[CVO](debug)(fn_handle_destination) _return: %1', _return];
+                systemChat format ['[CVO](debug)(fn_handle_destination) _return: %1', _return];
+
                 // Check if Return is valid or fail
                 switch (true) do {
                     case (_return isEqualTypeArray [0,0,0]): {
@@ -64,12 +78,18 @@ switch (true) do {
                     };
                 };
                 missionNamespace setVariable [_varName, nil]; // Cleanup
+
+                // Re-Open Curator when needed
+                if (missionNamespace getVariable [QGVAR(curatorWasOpen), false]) then { GVAR(curatorWasOpen) = nil; openCuratorInterface};
             },
             [_return, _request],
-            180,
+            CHOOSE_DESTINATION_TIMEOUT + 1,
             {
-                params ["_varName"];
+                params ["_varName", "_request"];
                 ZRN_LOG_MSG_1(WUAE Timeout,_varName);
+
+                // Re-Open Curator when needed
+                if (missionNamespace getVariable [QGVAR(curatorWasOpen), false]) then { GVAR(curatorWasOpen) = nil; openCuratorInterface};
             }
         ] call CBA_fnc_waitUntilAndExecute;
     };

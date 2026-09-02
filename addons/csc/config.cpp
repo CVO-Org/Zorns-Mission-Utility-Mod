@@ -44,6 +44,8 @@ class CfgPatches {
 #include "ui\BaseControls.hpp"
 #include "ui\mum_csc_request.hpp"
 
+#include "ui\mum_csc_gridCoordinates.hpp"
+
 // Module Stuff
 #include "CfgVehicles.hpp"
 #include "CfgFactionClasses.hpp"

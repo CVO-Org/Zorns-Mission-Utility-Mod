@@ -43,4 +43,4 @@ switch (true) do {
 
 ctrlSetText [MUM_IDC_CSC_Crates_Subtitle_Text, format ["Custom Supply Crates [ %1 / %2 ]", _curTotal, _maxCrates ]];
 
-call FUNC(ui_update_canRequest);
+call FUNC(ui_request_update_canRequest);
