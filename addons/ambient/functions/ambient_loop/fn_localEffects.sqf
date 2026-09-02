@@ -15,7 +15,7 @@
 * Public: No
 */
 
-diag_log format ['[MUM](debug)(fn_localEffects) _this: %1', _this];
+
 
 if !(hasInterface) exitWith {};
 
@@ -34,11 +34,11 @@ private _helper = createVehicleLocal [
     _unit getPos [_distance, _direction] vectorAdd [0,0, 2 + ceil random 8]
 ];
 
-diag_log format ['[MUM](debug)(fn_localEffects) _helper: %1 - _sound: %2 - _distance: %3', _helper , _sound ,_distance];
+
 
 private _soundsource = _helper say3D [ _sound, _distance * 2.5, 1 + random 0.5 ];
 
-diag_log format ['[MUM](debug)(fn_localEffects) _soundSource: %1', _soundSource];
+
 
 [
     { isNull (_this#0) },

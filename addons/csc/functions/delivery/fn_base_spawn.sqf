@@ -1,15 +1,18 @@
 #include "../../script_component.hpp"
 /*
 * Author: Zorn
-* DELIVERY Function. Just teleports the crates, one after another at the desired location.
+* Teleport delivery: instantaneously places crates at destination.
+* Sorts crates by size descending, stacks them at destination with height calculations, recursive staggered placement.
 *
 * Arguments:
+* 0: _request - Request hashmap with destination, crates, etc. <HASHMAP>
+* 1: _params - Delivery parameters hashmap (currently unused for spawn). <HASHMAP>
 *
 * Return Value:
-* None
+* nil
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [requestHashMap, paramsHashMap] call mum_csc_fnc_base_spawn
 *
 * Public: No
 */
@@ -26,7 +29,7 @@ private _recursive = {
     params ["_list", "_destination", "_recursive", ["_collectiveOffset", 0]];
 
     private _crate = _list deleteAt 0;
-    
+
     private _height = _crate call BIS_fnc_objectHeight;
     _collectiveOffset = _collectiveOffset + _height;
 
@@ -34,7 +37,7 @@ private _recursive = {
         case (_destination#2 > 0): { _crate setPosASL (_destination vectorAdd [0,0, _collectiveOffset + 0.5]); }; // Asume ASL
         default { _crate setPos (_destination vectorAdd [0,0, _collectiveOffset + _height/2]); };
     };
-    
+
     if (_list isEqualTo []) exitWith {};
     [_recursive, [_list, _destination, _recursive, _collectiveOffset], 1] call CBA_fnc_waitAndExecute;
 };

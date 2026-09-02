@@ -37,7 +37,7 @@ params [
     ["_blockInput", false,          [true]          ]
 ];
 
-diag_log "[MUM](debug)(fn_register) Init";
+
 
 if (_obj isEqualTo objNull) exitWith {false};
 if (_layers isEqualTo []) exitWith {false};
@@ -64,5 +64,5 @@ if (     isMultiplayer
 private _attachedLayers = _obj getVariable [QGVAR(layers), []];
 _attachedLayers append _layers;
 
-diag_log "[MUM](debug)(fn_register) Done";
+
 true

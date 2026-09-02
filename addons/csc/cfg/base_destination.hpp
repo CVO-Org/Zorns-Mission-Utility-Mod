@@ -1,0 +1,56 @@
+class base_destination {
+
+    displayName = "";
+    description_string = "";
+
+    code = "";
+
+
+
+    class parameters {};
+};
+
+class base_destination_fixed: base_destination {
+
+    displayName = "Base Fixed Position";
+    description_string = "Predefined, fixed prosition.";
+
+    code = QFUNC(base_fixedPos); // Function name or stringCode
+
+    class parameters {
+        position[] = { 0, 0, 0 };
+        radius = 0;
+    };
+};
+
+class base_destination_mapClick: base_destination {
+    displayName = "Map-Click";
+    description_string = "Define the desired destination via map-click on the map.";
+
+    code = QFUNC(base_mapClick);
+
+    class parameters {};
+};
+
+class base_destination_gridCoordinates: base_destination {
+    displayName = "Grid Coordinates";
+    description_string = "Define the desired destination via providing Grid Coordinates.";
+
+    code = QFUNC(base_gridCoordinates);
+
+    class parameters {};
+};
+
+class base_destination_relative: base_destination {
+    displayName = "Base Relative Position";   // Just as an example
+    description_string = "Destination relative to an Object";
+
+
+    code = QFUNC(base_relativeTo);
+
+    class parameters {
+        mode = "FRONT"; // "FRONT", "OFFSET"
+        offset[] = { 0, 0, 0 };   // only used by OFFSET
+        reference = "PLAYER";
+    };
+};

@@ -2,15 +2,17 @@
 
 /*
 * Author: Zorn
-* Funciton to handle the request the client to be sent to the server.
+* Client-side request handler.
+* Sends delivery request to server via CBA server event after destination resolution.
 *
 * Arguments:
+* 0: _request - Request hashmap containing crates, destination, delivery_mode info. <HASHMAP>
 *
 * Return Value:
-* None
+* nil
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [requestHashMap] call mum_csc_fnc_request_client
 *
 * Public: No
 */
@@ -18,8 +20,10 @@
 
 params [ ["_request", nil, [createHashMap]] ];
 
+diag_log text format ['[CVO](debug)(fn_request_client) _request: %1', _request];
+
 if (isNil "_request") exitWith { ZRN_LOG_MSG(something is fucky!); };
 
-ZRN_LOG_MSG_1(Request Recieved - Sending to Server,_request);
+// INFO_1(CLIENT - Request Recieved - Sending to Server: %1,_request);
 
 [QGVAR(EH_request), [_request]] call CBA_fnc_serverEvent;

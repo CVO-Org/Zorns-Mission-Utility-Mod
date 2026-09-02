@@ -10,7 +10,7 @@ class Destination_List: RscListBox {
 
     colorBackground[] = {0,0,0,0.6};
 
-    onLBSelChanged = Q(call FUNC(ui_destination_onSelected););
+    onLBSelChanged = Q(call FUNC(ui_request_destination_onSelected););
 };
 
 class Destination_Mode_Desc: RscText {

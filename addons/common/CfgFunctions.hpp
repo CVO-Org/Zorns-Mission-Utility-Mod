@@ -25,6 +25,15 @@ class CfgFunctions {
             class getMedianPosFromUnits {};
 
             class allUnits_code {};
+
+            class getCfgDataHashmap {};
+
+            class countOccurrences {};
+
+            class arrayAsString {};
+            class nestedArrayAsString {};
+
+            class secondsToString {};
         };
 
         class cutscene {

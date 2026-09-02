@@ -2,16 +2,20 @@
 
 /*
 * Author: Zorn
-* Function to take a Crate, put it to a certain position and parachute it.
-* Most of it is from ACE Cargo Parachuting a Crate
+* Deploys crate via parachute from aircraft.
+* Positions crate behind aircraft, attaches parachute, optionally adds chemlight/strobe, creates smoke on landing.
+* Based on ACE cargo parachuting functionality.
 *
 * Arguments:
+* 0: _object - Crate object to parachute <OBJECT>
+* 1: _vehicle - Aircraft object (used for positioning) <OBJECT>
+* 2: _parameters - Delivery parameters hashmap with parachute_class, strobe, chemlight, smoke config <HASHMAP>
 *
 * Return Value:
-* None
+* nil
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [crateObj, aircraftObj, parametersHashMap] call mum_csc_fnc_parachuteCrate
 *
 * Public: No
 */
@@ -93,7 +97,7 @@ if (! isClass (configFile >> "CfgVehicles" >> _class_smoke) && { ! isClass (conf
 
         if (getPos _object select 2 < 1) exitWith {
             _pfhID call CBA_fnc_removePerFrameHandler;
-            
+
             if (_class_smoke isNotEqualTo "") then {
                 private _smoke = createVehicle [_class_smoke, [0, 0, 0]];
                 _smoke attachTo [_object, [0, 0, 0]];

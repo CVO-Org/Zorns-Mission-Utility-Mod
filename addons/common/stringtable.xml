@@ -6,11 +6,6 @@
                 <English>Common</English>
             </Key>
         </Container>
-        <Container name="CBA Settings">
-            <Key ID="STR_mum_common_cat_title">
-                <English>MUM - Common</English>
-            </Key>
-        </Container>
     </Package>
     <Package name="factionclass">
         <Key ID="STR_mum_Common_factionClass">

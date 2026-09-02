@@ -2,33 +2,35 @@
 
 /*
 * Author: Zorn
-* Function to handle the Zeus Interace Self Action
+* PostInit - Creates ACE Zeus self-action for CSC access.
+* Retrieves all registered crates/destinations/deliveryModes, registers Zeus action.
 *
 * Arguments:
-*
-* Return Value:
 * None
 *
-* Example:
-* ['something', player] call prefix_component_fnc_functionname
+* Return Value:
+* nil
 *
-* Public: No
+* Example:
+* [] call mum_csc_fnc_createAccessPointZeus
+*
+* Public: Yes
 */
 
-private _crates = ["ZEUS", "CRATES"] call FUNC(getDefaultPresets);
-private _delivery_modes = ["ZEUS", "DELIVERY_MODES"] call FUNC(getDefaultPresets);
-private _destinations = ["ZEUS", "DESTINATIONS"] call FUNC(getDefaultPresets);
+private _crates =        ["#ALL", "CRATES"]        call FUNC(validateFrameworkIDs);
+private _deliveryModes = ["#ALL", "DELIVERYMODES"] call FUNC(validateFrameworkIDs);
+private _destinations =  ["#ALL", "DESTINATIONS"]  call FUNC(validateFrameworkIDs);
 
 private _accessPoint = createHashMapFromArray [
-    [QGVAR(crates),         _crates        ],
-    [QGVAR(destinations),   _destinations  ],
-    [QGVAR(delivery_modes), _delivery_modes],
-    ["isZeus",              true           ]
+    [ QGVAR(crates),        _crates        ],
+    [ QGVAR(destinations),  _destinations  ],
+    [ QGVAR(deliveryModes), _deliveryModes ],
+    [ "isZeus",              true          ]
 ];
 
 private _conditionCode = { true };
 
-private _aceAction = [_conditionCode, _accessPoint] call FUNC(createAction);
+private _aceAction = [_accessPoint, _conditionCode] call FUNC(createAction);
 
 [
     ["ACE_ZeusActions"]                      // * 0: Parent path of the new action (e.g. ["ACE_ZeusActions"]) <ARRAY>

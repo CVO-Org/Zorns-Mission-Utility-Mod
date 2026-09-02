@@ -27,7 +27,7 @@ private _objects = switch (typeName _this) do {
 
 _objects = flatten _objects select { _x isEqualType objNull }  select { !isNull _x };
 
-if (_objects isEqualTo []) exitWith { ZRN_LOG_MSG(Failed: No Objects Provided); };
+if (_objects isEqualTo []) exitWith {};
 
 private _action = [
     QGVAR(open)                        // ActionName

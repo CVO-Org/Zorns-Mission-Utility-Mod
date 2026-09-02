@@ -2,31 +2,31 @@
 
 /*
 * Author: Zorn
-* Function to return a fixed position from the cfg parameters
+* Returns fixed position from destination configuration.
+* Supports optional random radius offset around base position.
 *
 * Arguments:
+* 0: _request - Request hashmap (not used in this function). <HASHMAP>
+* 1: _parameters - Destination parameters hashmap with pos and optional radius. <HASHMAP>
 *
 * Return Value:
-* None
+* Array [x, y, z] position <ARRAY>
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [requestHashMap, parametersHashMap] call mum_csc_fnc_base_fixedPos
 *
 * Public: No
 */
 
-params [ "_requestHashmap", "_paramsHashmap" ];
+params [ "_request", "_parameters" ];
 
-private _return = _paramsHashmap getOrDefault ["position", [0,0,0]];
 
-private _randomOffset = _paramsHashmap getOrDefault ["randomOffset", 0];
 
-if (_randomOffset isNotEqualTo 0) then {
-    _return = _return vectorAdd [
-        selectRandom [-1, 0, 1] * _randomOffset,
-        selectRandom [-1, 0, 1] * _randomOffset,
-        0
-    ];
-};
 
-_return
+private _position = _parameters getOrDefault ["position", [0,0,0]];
+
+private _radius = _parameters getOrDefault ["radius", 0];
+
+if (_radius isNotEqualTo 0) then { _position = _position getPos [ random _radius, random 360 ]; };
+
+_position

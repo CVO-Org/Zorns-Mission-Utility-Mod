@@ -2,29 +2,47 @@
 
 /*
 * Author: Zorn
-* DELIVERY - Function to handle the
+* Executes airdrop delivery on server.
+* Creates aircraft with crew, sets waypoints, protects vehicle, handles crate parachuting via external handler.
 *
 * Arguments:
+* 0: _request - Request hashmap with destination, crates, etc. <HASHMAP>
+* 1: _parameters - Delivery parameters hashmap with airframe config, altitudes, parachute settings. <HASHMAP>
 *
 * Return Value:
-* None
+* nil
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [requestHashMap, parametersHashMap] call mum_csc_fnc_base_airdrop
 *
 * Public: No
 */
 
 params [ "_request", "_parameters" ];
 
-ZRN_LOG_1(_this);
+{ _x allowDamage false } forEach (_request get "crates");
 
-// Starting Position
-private _startPos = _parameters getOrDefault ["pos_start", [0,0,1000]];
-_startPos set [2, 250 max (ATLToASL _startPos # 2)];
+// Establish Start Position
+private _startPos = _parameters getOrDefault ["pos_start", [0,0,0]];
+private _airdrop_alt = _parameters getOrDefault ["airdrop_alt", 50];
 
 // Target Position
 private _targetPos = _request getOrDefault ["destination", [0,0,0]];
+_targetPos set [2, _airdrop_alt];
+
+
+diag_log text format ['[CVO](debug)(fn_base_airdrop) _startPos: %1', _startPos];
+
+_startPos = switch (_parameters getOrDefault ["mode", "EDGE_NEAR"] ) do {
+    case "EDGE_NEAR": { [_startPos, false] call FUNC(getPosEdge) };
+    case "EDGE_FAR":  { [_startPos, true]  call FUNC(getPosEdge) };
+    case "STARTPOS";
+    default { _startPos };
+};
+diag_log text format ['[CVO](debug)(fn_base_airdrop) _startPos: %1', _startPos];
+
+_startPos set [2, 250 max _airdrop_alt];
+diag_log text format ['[CVO](debug)(fn_base_airdrop) _startPos: %1', _startPos];
 
 // Create Aircraft
 private _aircraft = createVehicle [(_parameters getOrDefault ["airframe_class", "C_Heli_Light_01_civil_F"]), [0,0,0], [], 0, "FLY"];
@@ -32,6 +50,7 @@ private _aircraft = createVehicle [(_parameters getOrDefault ["airframe_class", 
 _aircraft flyInHeight [_parameters getOrDefault ["airdrop_alt",150], _parameters getOrDefault ["airdrop_alt_forced", true]];
 _aircraft flyInHeightASL (_parameters getOrDefault ["airdrop_flyInHeightASL", [50,50,50]]);
 
+// Yeet airframe so it doesnt fall to the ground, requires next frame as it doesnt seem to be simulated yet in the initial frame.
 [{ _this setVelocityModelSpace [0, 66, 66]; }, _aircraft] call CBA_fnc_execNextFrame;
 
 
@@ -69,13 +88,15 @@ if (_parameters getOrDefault ["airframe_protected", true]) then {
 // Provide Waypoints
 
 // Pre-Target Waypoint
-private _preWP = _grp addWaypoint [vectorLinearConversion [0, 1, 0.66, _startPos, _targetPos, true], 25];
+private _preWP = _grp addWaypoint [vectorLinearConversion [0, 1, 0.80, _startPos, _targetPos, true], 25];
 
+// ATLToASL _targetPos vectorAdd [0,0,_]
 
 // Target Waypoint
 private _tgtWP = _grp addWaypoint [_targetPos, 25];
 
-private _speedMode = _request getOrDefault ["airdrop_speedLimit", "LIMITED"];
+
+private _speedMode = _parameters getOrDefault ["airdrop_speedLimit", "LIMITED"];
 switch (_speedMode) do {
     case "FULL":    { _tgtWP setWaypointSpeed "FULL"; };
     case "NORMAL":  { _tgtWP setWaypointSpeed "NORMAL"; };
@@ -83,11 +104,8 @@ switch (_speedMode) do {
     default { _tgtWP setWaypointSpeed "LIMITED"; };
 };
 
-
-
 // Post-Target Waypoint
-private _postWP = _grp addWaypoint [_targetPos getPos [500, _dir], 25];
-_postWP setWaypointSpeed "FULL";
+private _postWP = _grp addWaypoint [_targetPos getPos [1000, _dir], 25];
 
 
 // Return Waypoint
@@ -95,11 +113,11 @@ private _endWP_Pos = _parameters getOrDefault ["pos_end", [0,0,0]];
 _endWP_Pos = switch true do {
     case (_endWP_Pos isEqualTo "RETURN"):   { _startPos };
     case (_endWP_Pos isEqualTo "CONTINUE"): { _targetPos getPos [10000, _dir] };
-    case (_endWP_Pos isEqualType []):       { _endWP_Pos };
     default { [0,0,0] };
 };
 
 private _endWP = _grp addWaypoint [_endWP_Pos, 100];
+_endWP setWaypointSpeed "FULL";
 _endWP setWaypointStatements ["true", "{deleteVehicle _x} forEach ([vehicle this] + thisList)"];
 
 [
@@ -116,6 +134,8 @@ _endWP setWaypointStatements ["true", "{deleteVehicle _x} forEach ([vehicle this
 
             private _crate = _crates deleteAt 0;
             [_crate, _aircraft, _parameters] call FUNC(parachuteCrate);
+
+            [{ _this allowDamage true }, _crate] call CBA_fnc_execNextFrame;
 
             if (_crates isEqualTo []) exitWith {};
             [ _recursive, [_crates, _aircraft, _parameters, _recursive], 1.0 ] call CBA_fnc_waitAndExecute;
@@ -137,18 +157,3 @@ _endWP setWaypointStatements ["true", "{deleteVehicle _x} forEach ([vehicle this
     }
 ] call CBA_fnc_waitUntilAndExecute;
 
-
-
-// Declare the mode as isBusy if not requested by Zeus
-if !(_request getOrDefault ["isZeus", false]) exitWith {};
-private _isBusyVarName = format ["%1_isBusy", _request get "delivery_mode"];
-
-missionNamespace setVariable [_isBusyVarName, true, true];
-
-// Revert isBusy once the aircraft is deleted
-_aircraft setVariable [QGVAR(isBusyVarName), _isBusyVarName, true];
-_aircraft addEventHandler ["Deleted", {
-    params ["_aircraft"];
-    private _isBusyVarName = _aircraft getVariable QGVAR(isBusyVarName);
-    missionNamespace setVariable [_isBusyVarName, nil, true];
-}];

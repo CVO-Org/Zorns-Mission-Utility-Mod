@@ -2,8 +2,8 @@
 
 /*
 * Author: Zorn
-* This Mission Init Function will create 3 GVAR Hashmaps which stores the individual presets from both configFile and missionConfigFile with the configName as a key and the configpath as the value.
-* MissionConfigFile entries will overwrite configFile entries, overwriting them.
+* This Mission init Function will create 3 GVAR Hashmaps which stores the individual presets from both configFile and missionConfigFile with the configName as a key and the configpath as the value.
+* missionConfigFile entries will overwrite configFile entries, overwriting them.
 *
 * Arguments:
 *
@@ -16,27 +16,57 @@
 * Public: No
 */
 
-//// Establish 
+// INIT GVARs
+GVAR(networks) = createHashMap;
 
-private ["_type", "_configs"];
 
-// crates
-_type = QGVAR(crates);
+
+GVAR(crates)        = createHashMap;
+GVAR(deliveryModes) = createHashMap;
+GVAR(destinations)  = createHashMap;
+
+// Cache Base Classes
+GVAR(base_crate)        = (configFile >> QADDON >> "base_crate")        call EFUNC(common,getCfgDataHashmap);
+GVAR(base_deliveryMode) = (configFile >> QADDON >> "base_deliveryMode") call EFUNC(common,getCfgDataHashmap);
+GVAR(base_destination)  = (configFile >> QADDON >> "base_destination")  call EFUNC(common,getCfgDataHashmap);
+
+
+// Crates
 _configs = [];
-_configs append ( Q(configName _x isNotEqualTo QQ(baseCrate)) configClasses (       configFile >> _type) );
-_configs append ( Q(configName _x isNotEqualTo QQ(baseCrate)) configClasses (missionConfigFile >> _type) );
-{ [_type, toLower configName _x, _x] call EFUNC(catalog,setEntry); } forEach _configs;
+_configs append ( "true" configClasses (configFile >> QADDON >> "crates"));
+_configs append ( "true" configClasses (missionConfigFile >> QADDON >> "crates"));
+_configs append ( "getNumber (_x >> ""registerDefault"") isEqualTo 1" configClasses (configFile >> QADDON >> "template_crates"));
 
-// Delivery
-_type = QGVAR(delivery_modes);
+{
+    private _map = _x call EFUNC(common,getCfgDataHashmap);
+    private _id = toLowerANSI configName _x;
+    _map set ["id", _id];
+    [_map] call FUNC(registerCrate);
+} forEach _configs;
+
+// Deliveries
 _configs = [];
-_configs append ( Q(configName _x isNotEqualTo QQ(baseDelivery)) configClasses (       configFile >> _type) );
-_configs append ( Q(configName _x isNotEqualTo QQ(baseDelivery)) configClasses (missionConfigFile >> _type) );
-{ [_type, toLower configName _x, _x] call EFUNC(catalog,setEntry); } forEach _configs;
+_configs append ( "true" configClasses (configFile >> QADDON >> "delivery_modes"));
+_configs append ( "true" configClasses (missionConfigFile >> QADDON >> "delivery_modes"));
+_configs append ( "getNumber (_x >> ""registerDefault"") isEqualTo 1" configClasses (configFile >> QADDON >> "template_delivery_modes"));
+
+{
+    private _map = _x call EFUNC(common,getCfgDataHashmap);
+    private _id = toLower configName _x;
+    _map set ["id", _id];
+    [_map] call FUNC(registerDeliveryMode);
+} forEach _configs;
+
 
 // Destination
-_type = QGVAR(destinations);
 _configs = [];
-_configs append ( Q(configName _x isNotEqualTo QQ(baseDestination)) configClasses (       configFile >> _type) );
-_configs append ( Q(configName _x isNotEqualTo QQ(baseDestination)) configClasses (missionConfigFile >> _type) );
-{ [_type, toLower configName _x, _x] call EFUNC(catalog,setEntry); } forEach _configs;
+_configs append ( "true" configClasses (configFile >> QADDON >> "destinations"));
+_configs append ( "true" configClasses (missionConfigFile >> QADDON >> "destinations"));
+_configs append ( "getNumber (_x >> ""registerDefault"") isEqualTo 1" configClasses (configFile >> QADDON >> "template_destinations"));
+
+{
+    private _map = _x call EFUNC(common,getCfgDataHashmap);
+    private _id = toLower configName _x;
+    _map set ["id", _id];
+    [_map] call FUNC(registerDestination);
+} forEach _configs;

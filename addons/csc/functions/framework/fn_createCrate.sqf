@@ -2,17 +2,19 @@
 
 /*
 * Author: Zorn
-* function that will create the supplybox, fill, modify, etc.
+* Creates a configured supply crate on server.
+* Configures ACE cargo/medical/repair properties, sets up dragging/carrying, populates inventory.
 *
 * Arguments:
+* 0: _entry - Crate configuration hashmap with box_class, displayName, items, backpacks, etc. <HASHMAP>
 *
 * Return Value:
-* _box
+* Created crate object <OBJECT>
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [crateConfigHashMap] call mum_csc_fnc_createCrate
 *
-* Public: No
+* Public: Yes
 */
 
 if !(isServer) exitWith {};
@@ -38,14 +40,9 @@ if (_entry getOrDefault ["box_empty", true]) then {
 private _items =     _entry getOrDefault ["items", []];
 private _backpacks = _entry getOrDefault ["backpacks", []];
 
-if (count _items > 0) then {
-    {    _box addItemCargoGlobal [_x # 0, _x # 1] } forEach _items;
-};
-// Fills the Box with with backpacks
+if ( _items isNotEqualTo []) then { { _box addItemCargoGlobal [_x # 0, _x # 1] } forEach _items; };
 
-if (count _backpacks > 0) then {
-    { _box addBackpackCargoGlobal [_x # 0, _x # 1] } forEach _backpacks;
-};
+if (_backpacks isNotEqualTo []) then { { _box addBackpackCargoGlobal [_x # 0, _x # 1] } forEach _backpacks; };
 
 //////////////////////////////////////////////////
 ///////////// ACE Rearm Repair Refuel ////////////
@@ -54,23 +51,23 @@ if (count _backpacks > 0) then {
 // // Optional Parameters for Additional ACE Funcitonality (RRR)
 
 // ACE Medical Facility
-if (_entry getOrDefault ["ace_medical_facility", false]) then { 
-    _box setVariable ["ace_medical_isMedicalFacility", true, true];  
+if (_entry getOrDefault ["ace_medical_facility", false]) then {
+    _box setVariable ["ace_medical_isMedicalFacility", true, true];
 };
 
 // ACE Medical vehicle
 if (_entry getOrDefault ["ace_medical_vehicle", false]) then {
-    _box setVariable ["ace_medical_isMedicalVehicle", true, true];  
+    _box setVariable ["ace_medical_isMedicalVehicle", true, true];
 };
 
 // ACE Repair Facility
 if (_entry getOrDefault ["ace_repair_facility", false]) then {
-    _box setVariable ["ace_isRepairFacility", true, true];  
+    _box setVariable ["ace_isRepairFacility", true, true];
 };
 
 // ACE Repair Vehicle
 if (_entry getOrDefault ["ace_repair_vehicle", false]) then {
-    _box setVariable ["ace_repair_canRepair", true, true];  
+    _box setVariable ["ace_repair_canRepair", true, true];
 };
 
 // ACE Rearm Source
@@ -85,7 +82,7 @@ if (_entry getOrDefault ["ace_rearm_source", false]) then {
 if (_entry getOrDefault ["ace_refuel_source", false]) then {
     [
         _box,
-        _entry getOrDefault ["ace_refuel_source_value", 50],
+        _entry getOrDefault ["ace_refuel_source_value", 50],                // -1 to disable
         _entry getOrDefault ["ace_refuel_source_nozzlePos", [0,0,0]]
     ] call ace_refuel_fnc_makeSource;
 };
@@ -132,22 +129,21 @@ if (_entry getOrDefault ["ace_refuel_source", false]) then {
 //////////////////////////////////////////////////
 
 // ACE Cargo SetSize (how big is the crate itself)
-if (_entry getOrDefault ["ace_cargo_setSize", "DEFAULT"] isEqualType 0) then {
-    [_box, _entry get "ace_cargo_setSize"] call ace_cargo_fnc_setSize;
-};
+private _size = _entry getOrDefault ["ace_cargo_setSize", -1];
+if (_size > 0) then { [_box, _size] call ace_cargo_fnc_setSize; };
 
 
+// ACE Cargo SetSpace (how much can you put INSIDE the crate)
 private _space =        _entry getOrDefault ["ace_cargo_setSpace", 0];
 private _addWheels =    _entry getOrDefault ["ace_cargo_add_spareWheels", 0];   // cargoSize = 1
 private _addJerryCans = _entry getOrDefault ["ace_cargo_add_jerrycans", 0];     // cargoSize = 1
 private _addTracks =    _entry getOrDefault ["ace_cargo_add_tracks", 0];        // cargoSize = 2
+_space = _space max 0;
 _space = _space + _addWheels + _addJerryCans + _addTracks * 2;
 
-
-// ACE Cargo SetSpace (how much can you put INSIDE the crate)
 [_box, _space] call ace_cargo_fnc_setSpace;
 
-
+// ACE Logistics Spareparts
 while {_addWheels > 0}    do { ["ACE_Wheel",           _box]  call ace_cargo_fnc_loadItem; _addWheels = _addWheels -1; };
 while {_addJerryCans > 0} do { ["Land_CanisterFuel_F", _box]  call ace_cargo_fnc_loadItem; _addJerryCans = _addJerryCans -1 };
 while {_addTracks > 0}    do { ["ACE_Track",           _box]  call ace_cargo_fnc_loadItem; _addTracks = _addTracks -1};

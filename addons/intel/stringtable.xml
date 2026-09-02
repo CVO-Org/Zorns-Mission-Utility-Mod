@@ -2,14 +2,6 @@
 <Project name="MUM-auxiliary">
     <Package name="Intel">
         <Container name="CBA Settings">
-            <Key ID="STR_MUM_intel_set_disableIntelSummary">
-                <English>Disable Intel Summary</English>
-            </Key>
-            <Key ID="STR_MUM_intel_set_disableIntelSummary_desc">
-                <English>Disables the Intel Summary Display which informs the player about the amount of remaining intel per intelgroup.</English>
-            </Key>
-        </Container>
-        <Container name="CBA Settings">
             <Key ID="STR_MUM_intel_set_default_shareWith">
                 <English>Default ShareWith</English>
             </Key>

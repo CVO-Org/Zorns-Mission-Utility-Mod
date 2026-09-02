@@ -2,27 +2,27 @@
 
 /*
 * Author: Zorn
-* Delivery - Description Function for AirDrops
+* Returns formatted description text for airdrop delivery mode.
 *
 * Arguments:
+* 0: _deliveryMap - Delivery mode configuration hashmap with parameters and airframe info. <HASHMAP>
 *
 * Return Value:
-* None
+* Formatted description string with airframe name and altitude info <STRING>
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [deliveryMapHashMap] call mum_csc_fnc_base_airdrop_desc
 *
 * Public: No
 */
 
-params ["_cfg"];
+params ["_deliveryMap"];
 
-private _airframeDisplayName = getText (configFile >> "CfgVehicles" >> getText (_cfg >> "parameters" >> "airframe_class") >> "displayName");
+private _airframeDisplayName = getText (configFile >> "CfgVehicles" >> _deliveryMap get "parameters" get "airframe_class" >> "displayName");
 
 format [
-" will be air-dropped by %1 %2 at %3 meters ATL.",
-["a", "an"] select ( toLower (_airframeDisplayName select [0,1]) in ["a", "e", "i", "o", "u", "1", "8"] ),
-_airframeDisplayName,
-getNumber (_cfg >> "parameters" >> "airdrop_alt")
+    "Will be air-dropped by %1 %2 at %3 meters ATL.",
+    ["a", "an"] select ( toLower (_airframeDisplayName select [0,1]) in ["a", "e", "i", "o", "u", "1", "8"] ),
+    _airframeDisplayName,
+    _deliveryMap get "parameters" get "airdrop_alt"
 ] // return
-

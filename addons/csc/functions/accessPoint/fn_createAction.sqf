@@ -15,13 +15,13 @@
 * Public: No
 */
 
-params ["_conditionCode", "_accessPoint"];
+params [ "_accessPoint", "_conditionCode" ];
 
 [
     QGVAR(AceAction)                                            // * 0: Action name <STRING>
     ,"Request Custom Supply Crates"                             //  * 1: Name of the action shown in the menu <STRING>
     ,"\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\box_ca.paa"      //  * 2: Icon <STRING> "\A3\ui_f\data\igui\cfg\simpleTasks\types\backpack_ca.paa"
-    ,FUNC(openDialog)                                           //  * 3: Statement <CODE>
+    ,FUNC(request_openDialog)                                   //  * 3: Statement <CODE>
     ,_conditionCode                                             //  * 4: Condition <CODE>
     ,{}                                                         //  * 5: Insert children code <CODE> (Optional)
     ,_accessPoint                                               //  * 6: Action parameters <ANY> (Optional)

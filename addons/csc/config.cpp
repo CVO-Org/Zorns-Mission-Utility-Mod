@@ -35,12 +35,17 @@ class CfgPatches {
 
 #include "CfgFunctions.hpp"
 
-#include "presets\mum_csc_crates.hpp"
-#include "presets\mum_csc_delivery_modes.hpp"
-#include "presets\mum_csc_destinations.hpp"
+// CSC Stuff
+#include "cfg\MUM_CSC.hpp"
 
 // UI
 // UI Stuff
 #include "ui\CommonDefines.hpp"
 #include "ui\BaseControls.hpp"
 #include "ui\mum_csc_request.hpp"
+
+#include "ui\mum_csc_gridCoordinates.hpp"
+
+// Module Stuff
+#include "CfgVehicles.hpp"
+#include "CfgFactionClasses.hpp"

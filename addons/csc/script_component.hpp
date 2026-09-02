@@ -5,3 +5,4 @@
 #include "\zrn\mum\addons\main\script_mod.hpp"
 #include "\zrn\mum\addons\main\script_macros.hpp"
 
+#define CHOOSE_DESTINATION_TIMEOUT 180

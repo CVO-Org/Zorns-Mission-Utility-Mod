@@ -2,15 +2,18 @@
 
 /*
 * Author: Zorn
-* DELIVERY Function - Will spawn a drone, then fly
+* Executes drone delivery on server.
+* Creates drone, calculates crate stacking offsets, attaches crates, sets waypoints with altitude changes.
 *
 * Arguments:
+* 0: _request - Request hashmap with destination, crates, etc. <HASHMAP>
+* 1: _parameters - Delivery parameters hashmap with drone_class, altitudes, mode, etc. <HASHMAP>
 *
 * Return Value:
-* None
+* nil
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [requestHashMap, parametersHashMap] call mum_csc_fnc_base_drone
 *
 * Public: No
 */
@@ -18,20 +21,29 @@
 
 params [ "_request", "_parameters" ];
 
-ZRN_LOG_1(_this);
+diag_log text format ['[CVO](debug)(fn_base_drone) _request: %1', _request];
+diag_log text format ['[CVO](debug)(fn_base_drone) _parameters: %1', _parameters];
 
+// Target Position
 private _targetPos = _request getOrDefault ["destination", [0,0,0]];
-private _startPos = _parameters getOrDefault ["pos_start", [0,0,0]];
 
+// Establish Start Position
+private _startPos = _parameters getOrDefault ["pos_start", [0,0,0]];
+private _alt_journey = _parameters getOrDefault ["alt_journey", 50];
+
+_startPos = switch (_parameters getOrDefault ["mode", "EDGE_NEAR"] ) do {
+    case "EDGE_NEAR": { [_startPos, false] call FUNC(getPosEdge) };
+    case "EDGE_FAR":  { [_startPos, true]  call FUNC(getPosEdge) };
+    case "STARTPOS";
+    default { _startPos };
+};
+diag_log text format ['[CVO](debug)(fn_base_drone) _startPos: %1', _startPos];
+
+_startPos set [2, _alt_journey];
 
 // Create Aircraft
-private _drone = if (_startPos#2 isEqualTo 0) then {
-    createVehicle [(_parameters getOrDefault ["drone_class", "B_UAV_06_F"]), [0,0,0]];
-} else {
-    createVehicle [(_parameters getOrDefault ["drone_class", "B_UAV_06_F"]), [0,0,0], [], 0, "FLY"];
-};
+private _drone = createVehicle [(_parameters getOrDefault ["drone_class", "B_UAV_06_F"]), [0,0,0], [], 0, "FLY"];
 
-private _alt_journey = _parameters getOrDefault ["alt_journey", 50];
 
 _drone flyInHeightASL [2,2,2];
 _drone flyInHeight [_alt_journey, true];
@@ -117,7 +129,6 @@ private _endWP_Pos = _parameters getOrDefault ["pos_end", [0,0,0]];
 _endWP_Pos = switch true do {
     case (_endWP_Pos isEqualTo "RETURN"):   { _startPos };
     case (_endWP_Pos isEqualTo "CONTINUE"): { _targetPos getPos [10000, _dir] };
-    case (_endWP_Pos isEqualType []):       { _endWP_Pos };
     default { [0,0,0] };
 };
 
@@ -154,18 +165,3 @@ _endWP_Pos = switch true do {
     },
     [_drone, _grp, _endWP_Pos, _alt_journey]
 ] call CBA_fnc_waitUntilAndExecute;
-
-
-// Declare the mode as isBusy if not requested by Zeus
-if !(_request getOrDefault ["isZeus", false]) exitWith {};
-private _isBusyVarName = format ["%1_isBusy", _request get "delivery_mode"];
-
-missionNamespace setVariable [_isBusyVarName, true, true];
-
-// Revert isBusy once the aircraft is deleted
-_drone setVariable [QGVAR(isBusyVarName), _isBusyVarName, true];
-_drone addEventHandler ["Deleted", {
-    params ["_drone"];
-    private _isBusyVarName = _drone getVariable QGVAR(isBusyVarName);
-    missionNamespace setVariable [_isBusyVarName, nil, true];
-}];

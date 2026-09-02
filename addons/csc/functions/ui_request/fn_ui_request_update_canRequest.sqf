@@ -1,0 +1,49 @@
+#include "../../script_component.hpp"
+
+/*
+* Author: Zorn
+* Function to check the conditions and enables/disables Request Button
+*
+* Arguments:
+*
+* Return Value:
+* None
+*
+* Example:
+* nil call prefix_component_fnc_functionname
+*
+* Public: No
+*/
+
+
+private _display = findDisplay MUM_IDD_CSC_REQUEST;
+
+private _curTotal = _display getVariable [QGVAR(totalCrates), 0];
+private _maxCrates = _display getVariable [QGVAR(maxCrates), 3];
+
+private _curSel_delivery_mode = _display getVariable QGVAR(deliveryModes) select lbCurSel MUM_IDC_CSC_Delivery_ListBox;
+
+
+
+private _isZeus = _display getVariable "isZeus";
+private _isCooldown = _curSel_delivery_mode call FUNC(getCooldown) isEqualType 0;
+
+// Disable OK Button if more Crates are selected then maximum possible
+switch (true) do {
+    case ( _isCooldown && !_isZeus ): {
+        ctrlEnable [MUM_IDC_CSC_ButtonOK, false];
+        ctrlSetText [MUM_IDC_CSC_Status, "The selected delivery mode is still on cooldown."];
+    };
+    case ( _curTotal isEqualTo 0 ): {
+        ctrlEnable [MUM_IDC_CSC_ButtonOK, false];
+        ctrlSetText [MUM_IDC_CSC_Status, "No crates selected."];
+    };
+    case ( _curTotal >  _maxCrates ): {
+        ctrlEnable [MUM_IDC_CSC_ButtonOK, false];
+        ctrlSetText [MUM_IDC_CSC_Status, "Too many crates selected."];
+    };
+    case ( _curTotal <= _maxCrates ): {
+        ctrlEnable [MUM_IDC_CSC_ButtonOK, true ];
+        ctrlSetText [MUM_IDC_CSC_Status, "Request can be processed."];
+    };
+};

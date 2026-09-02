@@ -22,8 +22,8 @@ params [
     ["_objSource",      objNull,    [objNull]   ]
 ];
 
-diag_log "[MUM](debug)(fn_revealObject) INIT";
-diag_log format ['[MUM](debug)(fn_revealObject) _this: %1', _this];
+
+
 
 if (isNil QGVAR(HM)) exitWith {ZRN_LOG_MSG(Failed: GVAR(HM) not defined);};
 
@@ -54,7 +54,7 @@ if (_playSound) then { [QGVAR(EH_playSound), [_obj, "PLACE"]] call CBA_fnc_globa
 
 missionNamespace setVariable [_layerMap get "pubVarName", _count, true];
 
-diag_log format ['[MUM](debug)(fn_revealObject) Remaining _objects: %1 in  _layerName: %2', _count , _layerName];
+
 
 if (_count > 0 ) exitWith {};
 
