@@ -7,7 +7,7 @@ class template_delivery_modes {
 
         code = QFUNC(base_spawn);
 
-        maxCrates = 3;
+        maxCrates = 5;
 
         class parameters {};
 
