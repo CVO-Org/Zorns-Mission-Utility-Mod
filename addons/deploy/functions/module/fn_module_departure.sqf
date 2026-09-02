@@ -21,9 +21,9 @@ params [
 	["_activated", true, [true]]		// True when the module was activated, false when it is deactivated (i.e., synced triggers are no longer active)
 ];
 
-if (_units isEqualTo []) exitWith { false };
-
 private _network = _logic getVariable [QGVAR(network), "Default"];
+
+if (_units isEqualTo []) exitWith { false };
 
 { [_x, _network] call FUNC(departure); } forEach _units;
 

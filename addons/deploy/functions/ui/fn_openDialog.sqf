@@ -18,6 +18,8 @@
 params ["_target", "_player", "_params"];
 _params params  ["_networkName"];
 
+diag_log format ['[CVO](debug)(fn_openDialog) _this: %1', _this];
+
 private _display = createDialog [QGVAR(dialog), true];
 
 private _network = [_networkName] call FUNC(network);
