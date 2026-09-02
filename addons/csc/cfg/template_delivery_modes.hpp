@@ -3,7 +3,7 @@ class template_delivery_modes {
     class template_spawn: base_delivery_mode {
 
         displayName = "Spawn";
-        description_code = """Will be made available at the provided position."""; // tripple Quotes for simply return the string
+        description_code = """Will be made available at the choosen destination."""; // tripple Quotes for simply return the string
 
         code = QFUNC(base_spawn);
 
