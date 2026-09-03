@@ -10,11 +10,11 @@ class CfgFunctions {
         class accessPoint {
             file = PATH_TO_FUNC_SUB(accessPoint);
 
-            class createAccessPointZeus { postInit = 1; };
-
             class createAction {};
 
-            // class createAccessPointPlayer {};
+            class createAccessPoint {};
+            class createAccessPointZeus { postInit = 1; };
+
         };
 
         class api {

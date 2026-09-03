@@ -39,4 +39,14 @@ _destinations =  [ _destinations,  "DESTINATIONS"  ] call FUNC(validateFramework
 _deliveryModes = [ _deliveryModes, "DELIVERYMODES" ] call FUNC(validateFrameworkIDs);
 
 
-[QGVAR(EH_createAccessPoint), _this, _targetObject] call CBA_fnc_globalEventJIP;
+[
+    QGVAR(EH_createAccessPoint),
+    [
+        _targetObject,
+        _crates,
+        _deliveryModes,
+        _destinations,
+        _addParams
+    ],
+    _targetObject
+] call CBA_fnc_globalEventJIP;

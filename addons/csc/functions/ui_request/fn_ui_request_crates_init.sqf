@@ -23,6 +23,8 @@ params ["_display"];
 _display setVariable [QGVAR(maxCrates), 3];
 _display setVariable [QGVAR(totalCrates), 0];
 
+private _crates = _display getVariable QGVAR(crates);
+
 // get crate data
 private _array = [];
 {
@@ -38,7 +40,7 @@ private _array = [];
             _x
         ]   // Data // Config Name
     ]
-} forEach (_display getVariable QGVAR(crates));   // array of Configs
+} forEach _crates;   // array of Configs
 
 // add crate data
 lnbAddArray [ MUM_IDC_CSC_Crates_ListNBox, _array ];
