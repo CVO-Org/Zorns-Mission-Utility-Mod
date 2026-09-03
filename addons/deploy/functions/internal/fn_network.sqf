@@ -19,15 +19,15 @@ params [
     ["_networkName", "Default", [""] ]
 ];
 
-private _network = missionNamespace getVariable [[QADDON,_networkName] joinString "_", nil];
+private _network = missionNamespace getVariable [[QADDON,"network",_networkName] joinString "_", nil];
 
 if (isNil "_network") then {
     _network = createHashMapFromArray [
-        ["departure", []],
-        ["destinations", []],
-        ["nextDestinationIndex", 0]
+        [ "departure",            [] ],
+        [ "destinations",         [] ],
+        [ "nextDestinationIndex", 0  ]
     ];
-    missionNamespace setVariable [[QADDON,_networkName] joinString "_",_network];
+    missionNamespace setVariable [[QADDON,"network",_networkName] joinString "_",_network];
 };
 
 _network
