@@ -21,6 +21,8 @@
 * Public: Yes
 */
 
+if !(isServer) exitWith {};
+
 params [
     [ "_targetObject",  objNull,       [objNull]       ],
     [ "_crates",        "#ALL",        [[], ""]        ],
@@ -37,30 +39,4 @@ _destinations =  [ _destinations,  "DESTINATIONS"  ] call FUNC(validateFramework
 _deliveryModes = [ _deliveryModes, "DELIVERYMODES" ] call FUNC(validateFrameworkIDs);
 
 
-if ( _crates        isEqualTo [] ) exitWith { ERROR("Cannot create AccessPoint - No Crates defined") };
-if ( _destinations  isEqualTo [] ) exitWith { ERROR("Cannot create AccessPoint - No Destinations defined") };
-if ( _deliveryModes isEqualTo [] ) exitWith { ERROR("Cannot create AccessPoint - No Delivery Modes defined") };
-
-// Create DataPackage
-private _accessPoint = createHashMapFromArray [
-    [ QGVAR(crates),        _crates        ],
-    [ QGVAR(destinations),  _destinations  ],
-    [ QGVAR(deliveryModes), _deliveryModes ]
-];
-
-_accessPoint merge _addParams; // does not overwrite existing entries.
-
-private _conditionCode = switch (_accessPoint getOrDefault ["conditionType", "ALWAYS"]) do {
-    case "CUSTOM": { _accessPoint getOrDefault ["conditionCodeCustom", { true } ] };
-    case "ALWAYS";
-    default { { true } };
-};
-
-private _aceAction = [_accessPoint, _conditionCode] call FUNC(createAction);
-
-[
-    _targetObject                        // * 0: Object the action should be assigned to <OBJECT>
-    ,0                                     // * 1: Type of action, 0 for actions, 1 for self-actions <NUMBER>
-    ,["ACE_MainActions"]                 // * 2: Parent path of the new action <ARRAY> (Example: ["ACE_SelfActions", "ACE_Equipment"])
-    ,_aceAction                             // * 3: Action <ARRAY>
-] call ace_interact_menu_fnc_addActionToObject;
+[QGVAR(EH_createAccessPoint), _this, _targetObject] call CBA_fnc_globalEventJIP;

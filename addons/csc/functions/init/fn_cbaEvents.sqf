@@ -36,3 +36,19 @@
 // CBA Events for the handling of the request
 
 [QGVAR(EH_request), FUNC(request_server)] call CBA_fnc_addEventHandler;
+
+// CBA Events for the registration of Data
+
+[
+    QGVAR(EH_storeData),
+    {
+        params [
+            ["_dataType", nil, [""]            ],
+            ["_id",       nil, [""]            ],
+            ["_data",     nil, [createHashMap] ]
+        ];
+        missionNamespace getVariable _dataType set [_id, _data]
+    }
+] call CBA_fnc_addEventHandler;
+
+[QGVAR(EH_createAccessPoint), FUNC(createAccessPoint)] call CBA_fnc_addEventHandler;

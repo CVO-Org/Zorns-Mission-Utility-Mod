@@ -17,9 +17,9 @@
 * Public: Yes
 */
 
-private _crates =        ["#ALL", "CRATES"]        call FUNC(validateFrameworkIDs);
+private _crates =        ["#ALL", "CRATES"       ] call FUNC(validateFrameworkIDs);
+private _destinations =  ["#ALL", "DESTINATIONS" ] call FUNC(validateFrameworkIDs);
 private _deliveryModes = ["#ALL", "DELIVERYMODES"] call FUNC(validateFrameworkIDs);
-private _destinations =  ["#ALL", "DESTINATIONS"]  call FUNC(validateFrameworkIDs);
 
 private _accessPoint = createHashMapFromArray [
     [ QGVAR(crates),        _crates        ],
