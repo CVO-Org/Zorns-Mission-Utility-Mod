@@ -42,6 +42,10 @@ _data merge [_inputData, true];
 
 // Validate Data
 
+private _displayName = _data get "displayName";
+if !(_displayName isEqualType "") then { _data set ["displayName", str _displayName]; };
+
+
 // Seperate Items and Backpacks
 private _items = [];
 private _backpacks = [];
