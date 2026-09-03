@@ -12,7 +12,7 @@ class CfgFunctions {
 
             class createAction {};
 
-            class createAccessPointPlayer {};
+            class createAccessPoint {};
             class createAccessPointZeus { postInit = 1; };
 
         };
