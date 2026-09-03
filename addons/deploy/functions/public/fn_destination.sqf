@@ -34,7 +34,7 @@ private _type = switch (true) do {
     default { false };
 };
 
-if (_type isEqualTo false) exitWith {};
+if (_type isEqualTo false) exitWith { ERROR_1("Destination: Referenced Object is not compatible: %1",_target) };
 
 if (_network get "destinations" findIf { _x get "target" isEqualTo _target } > -1 ) exitWith {
     ZRN_LOG_MSG_2(Failed: Target already defined as destination in Network,_target,_networkName);
