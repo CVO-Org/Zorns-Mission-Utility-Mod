@@ -21,8 +21,16 @@ private _display = findDisplay MUM_IDD_CSC_REQUEST;
 private _curTotal = _display getVariable [QGVAR(totalCrates), 0];
 private _maxCrates = _display getVariable [QGVAR(maxCrates), 3];
 
-private _curSel_delivery_mode = _display getVariable QGVAR(deliveryModes) select lbCurSel MUM_IDC_CSC_Delivery_ListBox;
+private _curSelIndex = lbCurSel MUM_IDC_CSC_Delivery_ListBox;
 
+private _availableDeliveryModes = _display getVariable QGVAR(deliveryModes);
+
+if (_availableDeliveryModes isEqualTo []) exitWith {
+        ctrlEnable [MUM_IDC_CSC_ButtonOK, false];
+        ctrlSetText [MUM_IDC_CSC_Status, "No delivery mode available."];
+};
+
+private _curSel_delivery_mode = _availableDeliveryModes select _curSelIndex;
 
 
 private _isZeus = _display getVariable "isZeus";

@@ -18,6 +18,8 @@
 */
 
 
+if (!isServer) exitWith {};
+
 params [ ["_inputData", nil, [createHashMap] ] ];
 
 if (isNil "_inputData") exitWith { false };
@@ -38,6 +40,6 @@ _data merge [_inputData, true];
 
 
 // Store Data
-GVAR(destinations) set [_id, _data];
+[QGVAR(EH_storeData), [QGVAR(destinations), _id, _data]] call CBA_fnc_globalEventJIP;
 
 true

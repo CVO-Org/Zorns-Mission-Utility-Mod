@@ -17,6 +17,8 @@
 
 params ["_control", "_index"];
 
+if (_index isEqualTo -1) exitWith { ctrlSetText [ MUM_IDC_CSC_Delivery_Description, "Nothing selected." ]; };
+
 // Common
 private _display = findDisplay MUM_IDD_CSC_REQUEST;
 

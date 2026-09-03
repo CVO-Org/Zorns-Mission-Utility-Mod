@@ -17,6 +17,8 @@
 * Public: Yes
 */
 
+if (!isServer) exitWith {};
+
 params [ ["_inputData", nil, [createHashMap] ] ];
 
 if (isNil "_inputData") exitWith { false };
@@ -62,6 +64,6 @@ _data set ["items", _items];
 _data set ["backpacks", _backpacks];
 
 // Store Data
-GVAR(crates) set [_id, _data];
+[QGVAR(EH_storeData), [QGVAR(crates), _id, _data]] call CBA_fnc_globalEventJIP;
 
 true

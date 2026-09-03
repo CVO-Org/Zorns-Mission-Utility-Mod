@@ -17,6 +17,7 @@
 * Public: Yes
 */
 
+if (!isServer) exitWith {};
 
 params [ ["_inputData", nil, [createHashMap] ] ];
 
@@ -37,6 +38,6 @@ private _data = + GVAR(base_deliveryMode);
 _data merge [_inputData, true];
 
 // Store Data
-GVAR(deliveryModes) set [_id, _data];
+[QGVAR(EH_storeData), [QGVAR(deliveryModes), _id, _data]] call CBA_fnc_globalEventJIP;
 
 true

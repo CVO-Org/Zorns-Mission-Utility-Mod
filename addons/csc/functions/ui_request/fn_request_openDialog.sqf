@@ -33,20 +33,9 @@ _display setVariable ["requester", _player];
 _display setVariable ["target", _target];
 _display setVariable ["isZeus", _isZeus];
 
-_display setVariable [
-    QGVAR(crates),
-    [_crates, keys (missionNamespace getVariable QGVAR(crates))] select (_crates isEqualTo [])
-];
-
-_display setVariable [
-    QGVAR(destinations),
-    [_destinations, keys (missionNamespace getVariable QGVAR(destinations))] select (_destinations isEqualTo [])
-];
-
-_display setVariable [
-    QGVAR(deliveryModes),
-    [_delivery_modes, keys (missionNamespace getVariable QGVAR(deliveryModes))] select (_delivery_modes isEqualTo [])
-];
+_display setVariable [ QGVAR(crates),        _crates         ];
+_display setVariable [ QGVAR(destinations),  _destinations   ];
+_display setVariable [ QGVAR(deliveryModes), _delivery_modes ];
 
 // Add Tooltips to all 3 Description Text Boxes.
 displayCtrl MUM_IDC_CSC_Crates_ListNBox_Description ctrlSetTooltip "Click on textbox and use Arrow Up and Down to scroll.";

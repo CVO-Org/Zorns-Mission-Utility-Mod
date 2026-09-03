@@ -17,6 +17,9 @@
 
 params ["", "_index"];
 
+
+if (_index isEqualTo -1) exitWith { ctrlSetText [ MUM_IDC_CSC_Destination_Description, "Nothing selected." ]; };
+
 private _display = findDisplay MUM_IDD_CSC_REQUEST;
 
 // Get cfg based on index of currently selected.
