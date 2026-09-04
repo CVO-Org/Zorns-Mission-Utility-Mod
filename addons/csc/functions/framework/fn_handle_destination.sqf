@@ -57,7 +57,7 @@ switch (true) do {
             {   // and execute
                 params ["_varName", "_request"];
 
-                private _return = + (missionNamespace getVariable _varName);
+                private _return = missionNamespace getVariable _varName;
 
                 // Check if Return is valid or fail
                 switch (true) do {
