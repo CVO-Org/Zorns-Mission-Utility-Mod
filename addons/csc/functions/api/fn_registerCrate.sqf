@@ -68,6 +68,6 @@ _data set ["items", _items];
 _data set ["backpacks", _backpacks];
 
 // Store Data
-[QGVAR(EH_storeData), [QGVAR(crates), _id, _data]] call CBA_fnc_globalEventJIP;
+[QGVAR(EH_setData), [QGVAR(crates), _id, _data]] call CBA_fnc_globalEventJIP;
 
 true

@@ -42,4 +42,5 @@ _destinationData set [
 ];
 
 //Store Data
-[_destinationData] call FUNC(registerDestination);
+[FUNC(registerDestination), [_destinationData]] call CBA_fnc_execNextFrame;
+

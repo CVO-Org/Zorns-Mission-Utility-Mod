@@ -7,7 +7,7 @@ class GVAR(module_registerAccessPoint): Module_F {
     category = QGVAR(factionClass);
 
     function = QFUNC(module_registerAccessPoint);            // Name of function triggered once conditions are met
-    functionPriority = 11;      // Needs to be executed last // Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
+    functionPriority = 9;      // Needs to be executed last // Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
     isGlobal = 0;                                            // 0 for server only execution, 1 for global execution, 2 for persistent global execution
     isTriggerActivated = 0;                                  // 1 for module waiting until all synced triggers are activated
     isDisposable = 1;                                        // 1 if modules is to be disabled once it is activated (i.e. repeated trigger activation will not work)
@@ -27,6 +27,13 @@ class GVAR(module_registerAccessPoint): Module_F {
             control = "SubCategory";
             title = "Access Point";
             property = Q(SubCategory_AccessPoint);
+        };
+        class id: Edit {
+            displayName = "Unique Identifier";
+            tooltip = "Must be a unique identifier. This will be used to reference this crate throughout the framework.\nWhen left empty, ID will be auto-generated.";
+            property = "id";
+            typeName = "STRING";
+            defaultValue = "''"; // Because this is an expression, one must have a string within a string to return a string
         };
         class crates: Edit {
             displayName = "Crates";

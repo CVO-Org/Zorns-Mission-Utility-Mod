@@ -31,18 +31,14 @@ private _targetPos = _request getOrDefault ["destination", [0,0,0]];
 _targetPos set [2, _airdrop_alt];
 
 
-diag_log text format ['[CVO](debug)(fn_base_airdrop) _startPos: %1', _startPos];
-
 _startPos = switch (_parameters getOrDefault ["mode", "EDGE_NEAR"] ) do {
     case "EDGE_NEAR": { [_startPos, false] call FUNC(getPosEdge) };
     case "EDGE_FAR":  { [_startPos, true]  call FUNC(getPosEdge) };
     case "STARTPOS";
     default { _startPos };
 };
-diag_log text format ['[CVO](debug)(fn_base_airdrop) _startPos: %1', _startPos];
 
 _startPos set [2, 250 max _airdrop_alt];
-diag_log text format ['[CVO](debug)(fn_base_airdrop) _startPos: %1', _startPos];
 
 // Create Aircraft
 private _aircraft = createVehicle [(_parameters getOrDefault ["airframe_class", "C_Heli_Light_01_civil_F"]), [0,0,0], [], 0, "FLY"];

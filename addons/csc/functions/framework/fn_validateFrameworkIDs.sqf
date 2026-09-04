@@ -21,6 +21,7 @@ params [
     [ "_type",    "CRATES", [""]     ]
 ];
 
+
 private _dataBase = switch (toUpperANSI _type) do {
     case "CRATES":        { GVAR(crates) };
     case "DESTINATIONS":  { GVAR(destinations) };
@@ -34,5 +35,7 @@ if (_entries isEqualTo "#ALL") exitWith { _keys };
 if (_entries isEqualTo ["#ALL"]) exitWith { _keys };
 if (_entries isEqualType "") then { _entries = [_entries]; };
 
+// return validated/existing entries
+private _return = _entries apply { toLowerANSI _x } select { _x in _keys };
 
-_entries apply { toLowerANSI _x } select { _x in _keys } // return validated/existing entries
+_return

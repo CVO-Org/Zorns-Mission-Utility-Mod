@@ -25,24 +25,27 @@ if !(isServer) exitWith {};
 
 params [
     [ "_targetObject",  objNull,       [objNull]       ],
+    [ "_accessPointID", "",            [""]            ],
     [ "_crates",        "#ALL",        [[], ""]        ],
     [ "_deliveryModes", [],            [[], ""]        ],
     [ "_destinations",  [],            [[], ""]        ],
     [ "_addParams",     createHashMap, [createHashMap] ]
 ];
 
-
 if (isNull _targetObject) exitWith {};
 
-_crates =        [ _crates,        "CRATES"        ] call FUNC(validateFrameworkIDs);
-_destinations =  [ _destinations,  "DESTINATIONS"  ] call FUNC(validateFrameworkIDs);
-_deliveryModes = [ _deliveryModes, "DELIVERYMODES" ] call FUNC(validateFrameworkIDs);
+if (_accessPointID isEqualTo "") then {
+    _accessPointID = [ QADDON, "accessPoint", "#", GVAR(accessPointCounter) ] joinString "_";
+    GVAR(accessPointCounter) = GVAR(accessPointCounter) + 1;
+};
 
+_targetObject setVariable [QGVAR(accessPointID), _accessPointID, true];
 
 [
     QGVAR(EH_createAccessPoint),
     [
         _targetObject,
+        _accessPointID,
         _crates,
         _deliveryModes,
         _destinations,
@@ -50,3 +53,5 @@ _deliveryModes = [ _deliveryModes, "DELIVERYMODES" ] call FUNC(validateFramework
     ],
     _targetObject
 ] call CBA_fnc_globalEventJIP;
+
+true

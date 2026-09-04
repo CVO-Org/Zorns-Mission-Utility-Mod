@@ -39,4 +39,4 @@ if (_parameters get "pos_start" isEqualTo [0,0,0]) then { _parameters set ["pos_
 _deliveryModeData set [ "parameters", _parameters ];
 
 //Store Data
-[_deliveryModeData] call FUNC(registerDeliveryMode);
+[FUNC(registerDeliveryMode), [_deliveryModeData]] call CBA_fnc_execNextFrame;

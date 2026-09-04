@@ -17,8 +17,17 @@
 */
 
 // INIT GVARs
-GVAR(networks) = createHashMap;
-
+GVAR(accessPointCounter) = 0;
+GVAR(accessPoints) = createHashMapFromArray [
+    [
+        "#ZEUS",
+        createHashMapFromArray [
+            [ "crates",        "#ALL" ],
+            [ "deliveryModes", "#ALL" ],
+            [ "destinations",  "#ALL" ]
+        ]
+    ]
+];
 
 
 GVAR(crates)        = createHashMap;

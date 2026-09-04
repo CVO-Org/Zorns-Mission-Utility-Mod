@@ -70,7 +70,7 @@ class GVAR(module_registerCrate): Module_F {
             tooltip = "Items added to the crate as amount classname pairs.\nInput is being internally converted. No need to use [].\nLinebreak can be used.\nExample:\n 5 ACE_fieldDressing\n50 ACE_elasticBandage";
             property = "items";
             typeName = "STRING";
-            defaultValue = "";
+            defaultValue = "''";
         };
 
         class box_empty: Checkbox {

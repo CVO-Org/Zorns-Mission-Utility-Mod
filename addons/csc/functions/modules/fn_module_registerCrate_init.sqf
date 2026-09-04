@@ -100,4 +100,4 @@ _crateData set ["synced_backpacks", _synced_backpacks ];
 // Cleanup
 deleteVehicle _referenceBox;
 
-[_crateData] call FUNC(registerCrate);
+[FUNC(registerCrate), [_crateData]] call CBA_fnc_execNextFrame;

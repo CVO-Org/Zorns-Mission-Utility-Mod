@@ -24,11 +24,9 @@ params [
 if (_units isEqualTo []) exitWith {};
 
 // Get Data
+private _accessPointID = _logic getVariable ["id", ""];
 private _crates =        _logic getVariable "crates"        splitString ", ";
 private _destinations =  _logic getVariable "destinations"  splitString ", ";
 private _deliveryModes = _logic getVariable "deliveryModes" splitString ", ";
 
-// Add Action
-{ [_x, _crates, _deliveryModes, _destinations] call FUNC(registerAccessPoint); } forEach _units;
-
-nil
+[FUNC(registerAccessPoint), [_units#0, _accessPointID, _crates, _deliveryModes, _destinations]] call CBA_fnc_execNextFrame;

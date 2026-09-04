@@ -40,6 +40,6 @@ _data merge [_inputData, true];
 
 
 // Store Data
-[QGVAR(EH_storeData), [QGVAR(destinations), _id, _data]] call CBA_fnc_globalEventJIP;
+[QGVAR(EH_setData), [QGVAR(destinations), _id, _data]] call CBA_fnc_globalEventJIP;
 
 true

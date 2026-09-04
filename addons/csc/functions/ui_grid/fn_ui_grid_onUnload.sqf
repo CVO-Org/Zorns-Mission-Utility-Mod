@@ -23,8 +23,4 @@ GVAR(waitForGridCoordinates) = switch (_exitCode) do {
     default { false };
 };
 
-diag_log text format ['[CVO](debug)(fn_ui_grid_onUnload) GVAR(waitForGridCoordinates): %1', GVAR(waitForGridCoordinates)];
-systemChat format ['[CVO](debug)(fn_ui_grid_onUnload) GVAR(waitForGridCoordinates): %1', GVAR(waitForGridCoordinates)];
-
-
 nil

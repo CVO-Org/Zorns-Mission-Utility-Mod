@@ -25,31 +25,33 @@ if (!hasInterface) exitWith {};
 
 params [
     [ "_targetObject",  objNull,       [objNull]       ],
+    [ "_accessPointID", "",            [""]            ],
     [ "_crates",        "#ALL",        [[], ""]        ],
     [ "_deliveryModes", [],            [[], ""]        ],
     [ "_destinations",  [],            [[], ""]        ],
     [ "_addParams",     createHashMap, [createHashMap] ]
 ];
 
-
 if (isNull _targetObject) exitWith {};
 
 // Create DataPackage
-private _accessPoint = createHashMapFromArray [
-    [ QGVAR(crates),        _crates        ],
-    [ QGVAR(destinations),  _destinations  ],
-    [ QGVAR(deliveryModes), _deliveryModes ]
+private _accessPointData = createHashMapFromArray [
+    [ "crates",        _crates        ],
+    [ "destinations",  _destinations  ],
+    [ "deliveryModes", _deliveryModes ]
 ];
 
-_accessPoint merge _addParams; // does not overwrite existing entries.
+_accessPointData merge _addParams;
 
-private _conditionCode = switch (_accessPoint getOrDefault ["conditionType", "ALWAYS"]) do {
-    case "CUSTOM": { _accessPoint getOrDefault ["conditionCodeCustom", { true } ] };
+[QGVAR(EH_setData), [QGVAR(accessPoints), _accessPointID, _accessPointData ], _accessPointID] call CBA_fnc_localEvent;
+
+private _conditionCode = switch (_accessPointData getOrDefault ["conditionType", "ALWAYS"]) do {
+    case "CUSTOM": { _accessPointData getOrDefault ["conditionCodeCustom", { true } ] };
     case "ALWAYS";
     default { { true } };
 };
 
-private _aceAction = [_accessPoint, _conditionCode] call FUNC(createAction);
+private _aceAction = [_accessPointID, _conditionCode] call FUNC(createAction);
 
 [
     _targetObject                        // * 0: Object the action should be assigned to <OBJECT>

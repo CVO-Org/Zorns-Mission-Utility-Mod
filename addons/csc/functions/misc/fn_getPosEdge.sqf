@@ -15,8 +15,6 @@
 * Public: No
 */
 
-diag_log text format ['[CVO](debug)(fn_getPosEdge) _this: %1', _this];
-
 params [
     [ "_input",       nil,   [objNull,[]], [2,3] ],
     [ "_getFurthest", false, [true]              ]
@@ -33,7 +31,6 @@ switch (true) do {
     default { [ random _worldSize, random _worldSize] };
 } params ["_x", "_y"];
 
-diag_log text format ['[CVO](debug)(fn_getPosEdge) %1 - %2', _x , _y];
 
 private _return = switch (_getFurthest) do {
     case false: {
@@ -56,7 +53,5 @@ private _return = switch (_getFurthest) do {
         ]
     };
 }; // Return
-
-diag_log text format ['[CVO](debug)(fn_getPosEdge) _return: %1', _return];
 
 _return

@@ -40,14 +40,14 @@
 // CBA Events for the registration of Data
 
 [
-    QGVAR(EH_storeData),
+    QGVAR(EH_setData),
     {
         params [
             ["_dataType", nil, [""]            ],
             ["_id",       nil, [""]            ],
             ["_data",     nil, [createHashMap] ]
         ];
-        missionNamespace getVariable _dataType set [_id, _data]
+        missionNamespace getVariable _dataType set [_id, _data];
     }
 ] call CBA_fnc_addEventHandler;
 

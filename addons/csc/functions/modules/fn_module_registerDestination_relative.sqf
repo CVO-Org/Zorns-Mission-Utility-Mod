@@ -23,13 +23,13 @@ params [
 
 
 
-private _data = createHashMap;
+private _destinationData = createHashMap;
 
 // Common Module Attributes
-{ _data set [_x, _logic getVariable _x]; } forEach [ "id", "displayName", "description_string" ];
+{ _destinationData set [_x, _logic getVariable _x]; } forEach [ "id", "displayName", "description_string" ];
 
 // Hard Data
-_data set [ "code", QFUNC(base_relativeTo) ];
+_destinationData set [ "code", QFUNC(base_relativeTo) ];
 
 
 // Parameters
@@ -41,7 +41,7 @@ if (_reference isEqualTo "" && { _units isNotEqualTo [] }) then {
 };
 
 
-_data set [
+_destinationData set [
     "parameters",
     createHashMapFromArray [
         ["reference",    _reference                        ],
@@ -52,4 +52,4 @@ _data set [
 ];
 
 //Store Data
-[_data] call FUNC(registerDestination);
+[FUNC(registerDestination), [_destinationData]] call CBA_fnc_execNextFrame;

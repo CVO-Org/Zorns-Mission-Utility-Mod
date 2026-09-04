@@ -57,11 +57,7 @@ switch (true) do {
             {   // and execute
                 params ["_varName", "_request"];
 
-                diag_log text format ['[CVO](debug)(fn_handle_destination) Return Detected: _varName: %1 - _request: %2', _varName , _request];
-
                 private _return = + (missionNamespace getVariable _varName);
-                diag_log text format ['[CVO](debug)(fn_handle_destination) _return: %1', _return];
-                systemChat format ['[CVO](debug)(fn_handle_destination) _return: %1', _return];
 
                 // Check if Return is valid or fail
                 switch (true) do {

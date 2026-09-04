@@ -38,6 +38,6 @@ private _data = + GVAR(base_deliveryMode);
 _data merge [_inputData, true];
 
 // Store Data
-[QGVAR(EH_storeData), [QGVAR(deliveryModes), _id, _data]] call CBA_fnc_globalEventJIP;
+[QGVAR(EH_setData), [QGVAR(deliveryModes), _id, _data]] call CBA_fnc_globalEventJIP;
 
 true

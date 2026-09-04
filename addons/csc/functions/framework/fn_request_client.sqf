@@ -20,8 +20,6 @@
 
 params [ ["_request", nil, [createHashMap]] ];
 
-diag_log text format ['[CVO](debug)(fn_request_client) _request: %1', _request];
-
 if (isNil "_request") exitWith { ZRN_LOG_MSG(something is fucky!); };
 
 // INFO_1(CLIENT - Request Recieved - Sending to Server: %1,_request);
