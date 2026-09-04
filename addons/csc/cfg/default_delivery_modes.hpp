@@ -1,6 +1,6 @@
-class template_delivery_modes {
+class default_delivery_modes {
 
-    class template_spawn: base_delivery_mode {
+    class default_spawn: base_delivery_mode {
 
         displayName = "Spawn";
         description_string = "Will be made available at the choosen destination."; // tripple Quotes for simply return the string
@@ -14,9 +14,9 @@ class template_delivery_modes {
         registerDefault = 1;
     };
 
-    class template_airdrop_heli: base_delivery_mode {
+    class default_heli: base_delivery_mode {
 
-        displayName = "Airdrop: Base Helicopter";
+        displayName = "Airdrop: Helicopter";
         description_code = QFUNC(base_airdrop_desc);
 
         code = QFUNC(base_airdrop);
@@ -53,7 +53,7 @@ class template_delivery_modes {
         };
     };
 
-    class template_airdrop_plane: template_airdrop_heli {
+    class default_plane: default_heli {
         displayName = "Airdrop: Base Plane";
 
         maxCrates = 5;
@@ -85,7 +85,7 @@ class template_delivery_modes {
         };
     };
 
-    class template_drone: base_delivery_mode {
+    class default_drone: base_delivery_mode {
         displayName = "Drone Delivery";
 
         description_string = "Will be delivered via a drone.";

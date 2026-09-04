@@ -44,7 +44,7 @@ GVAR(base_destination)  = (configFile >> QADDON >> "base_destination")  call EFU
 _configs = [];
 _configs append ( "true" configClasses (configFile >> QADDON >> "crates"));
 _configs append ( "true" configClasses (missionConfigFile >> QADDON >> "crates"));
-_configs append ( "getNumber (_x >> ""registerDefault"") isEqualTo 1" configClasses (configFile >> QADDON >> "template_crates"));
+_configs append ( "getNumber (_x >> ""registerDefault"") isEqualTo 1" configClasses (configFile >> QADDON >> "default_crates"));
 
 {
     private _map = _x call EFUNC(common,getCfgDataHashmap);
@@ -57,7 +57,7 @@ _configs append ( "getNumber (_x >> ""registerDefault"") isEqualTo 1" configClas
 _configs = [];
 _configs append ( "true" configClasses (configFile >> QADDON >> "delivery_modes"));
 _configs append ( "true" configClasses (missionConfigFile >> QADDON >> "delivery_modes"));
-_configs append ( "getNumber (_x >> ""registerDefault"") isEqualTo 1" configClasses (configFile >> QADDON >> "template_delivery_modes"));
+_configs append ( "getNumber (_x >> ""registerDefault"") isEqualTo 1" configClasses (configFile >> QADDON >> "default_delivery_modes"));
 
 {
     private _map = _x call EFUNC(common,getCfgDataHashmap);
@@ -71,7 +71,7 @@ _configs append ( "getNumber (_x >> ""registerDefault"") isEqualTo 1" configClas
 _configs = [];
 _configs append ( "true" configClasses (configFile >> QADDON >> "destinations"));
 _configs append ( "true" configClasses (missionConfigFile >> QADDON >> "destinations"));
-_configs append ( "getNumber (_x >> ""registerDefault"") isEqualTo 1" configClasses (configFile >> QADDON >> "template_destinations"));
+_configs append ( "getNumber (_x >> ""registerDefault"") isEqualTo 1" configClasses (configFile >> QADDON >> "default_destinations"));
 
 {
     private _map = _x call EFUNC(common,getCfgDataHashmap);

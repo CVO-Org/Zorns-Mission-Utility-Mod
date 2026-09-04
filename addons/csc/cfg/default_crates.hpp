@@ -5,9 +5,9 @@
 
 // "DefaultEntry" is a special case and will define the "Defaults" for all the implemented
 
-class template_crates {
+class default_crates {
 
-    class template_medicalCrate: base_crate {
+    class default_medicalCrate: base_crate {
 
         displayName = "Medical Supply Crate";
 
