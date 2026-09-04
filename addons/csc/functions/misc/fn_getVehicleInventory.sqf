@@ -17,13 +17,14 @@
 */
 
 params [
-    [ "_object",         objNull, [objNull] ],
-    [ "_seperateOutput", false,   [true]    ]
+    [ "_object",            objNull, [objNull] ],
+    [ "_seperateBackpacks", false,   [true]    ]
 ];
 
 if (!alive  _object ) exitWith { [] };
 
 private _items = [];
+private _backpacks = [];
 
 {
     _x params ["_classes", "_amounts"];
@@ -35,9 +36,12 @@ private _items = [];
     getWeaponCargo _object
 ];
 
-private _backpacks = everyBackpack _object apply { typeOf _x } call EFUNC(common,countOccurrences);
+{
+    _x params ["_classes", "_amounts"];
+    { _backpacks pushBack [_x, _amounts#_forEachIndex]; } forEach _classes;
+} forEach [ getBackpackCargo _object ];
 
-switch (_SeperateOutput) do {
+switch (_seperateBackpacks) do {
     case true:  { [_items,  _backpacks] };
     case false: {  _items + _backpacks  };
 } // return
