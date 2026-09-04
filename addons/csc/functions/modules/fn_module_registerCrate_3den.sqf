@@ -56,6 +56,7 @@ switch _mode do {
             _connections = _connections - _wrongTypeConnections;
         };
 
+        /*
         // VALIDATION 2: Connected object must be kindOf "B_supplyCrate_F"
         private _wrongObjectsConnections = _connections select { !(_x#1 isKindOf "B_supplyCrate_F") };
         if (_wrongObjectsConnections isNotEqualTo []) then {
@@ -63,6 +64,7 @@ switch _mode do {
             _errors pushBack "Synced objects must inherit from B_supplyCrate_F (Dont ask me why :sob:)";
             _connections = _connections - _wrongObjectsConnections;
         };
+        */
 
         // VALIDATION 3: Only allow one synced object
         if (count _connections > 1) then {
