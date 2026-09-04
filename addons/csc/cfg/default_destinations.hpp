@@ -1,6 +1,6 @@
-class template_destinations {
+class default_destinations {
 
-    class template_fixed_debug: base_destination_fixed {
+    class default_fixed_debug: base_destination_fixed {
         displayName = "Debug Corner";
         description_string = "Predefined, fixed prosition - in this case, the debug corner.";
 
@@ -12,15 +12,15 @@ class template_destinations {
     };
 
 
-    class template_mapClick: base_destination_mapClick {
+    class default_map: base_destination_mapClick {
         registerDefault = 1;
     };
 
-    class template_gridCoordinates: base_destination_gridCoordinates {
+    class default_grid: base_destination_gridCoordinates {
         registerDefault = 1;
     };
 
-    class template_infrontPlayer: base_destination_relative {
+    class default_player: base_destination_relative {
         displayName = "Player";   // Just as an example
         description_string = "In front of the player";
 
