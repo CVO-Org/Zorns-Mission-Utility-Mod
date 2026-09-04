@@ -33,16 +33,11 @@ if (isNil "_networkName") then {
 private _network = [_networkName] call FUNC(network);
 if (_network isEqualTo false) exitWith {ZRN_LOG_MSG_1(exit:,_network);};
 
-diag_log format ['[CVO](debug)(fn_addAction) "": %1', ""];
-
 switch (SET(mode)) do {
     case "ACE ACTION": { [{}, FUNC(addAction_children) ] };
     case "DIALOG";
     default { [FUNC(openDialog), {} ] };
 } params [ "_statement", "_children" ];
-
-diag_log format ['[CVO](debug)(fn_addAction) _statement: %1', _statement];
-diag_log format ['[CVO](debug)(fn_addAction) _children: %1', _children];
 
 // Ace Interaction
 private _params = [_networkName];
