@@ -45,13 +45,19 @@ _display setVariable [QGVAR(maxCrates), _maxCrates];
 //// Update Description
 
 // Default Line: Max Crates
-private _lines = [ format ["Can transport up to %1 crates.", _maxCrates] ];
+private _lines = [ format ["<t size='0.7'><t color='#B3B3B3'>Can transport up to </t>%1 <t color='#B3B3B3'>crates.</t>", _maxCrates] ];
 
 // Handle Cooldown Line
-private _cooldown = _deliveryClassName call FUNC(getCooldown);
-if (_cooldown isNotEqualTo false) then {
-    _cooldown = _cooldown call EFUNC(common,secondsToString);
-    _lines pushBack format ["On cooldown for %1.", _cooldown];
+private _cooldown = _deliveryMap get "cooldown";
+if (_cooldown isNotEqualTo 0) then {
+    private _currentCooldown = _deliveryClassName call FUNC(getCooldown);
+
+    private _line = if (_currentCooldown isNotEqualTo false) then {
+        format ["<t color='#B3B3B3'>Remaining Cooldown:</t> <t color='#FFA500'>%1</t>.", _currentCooldown call EFUNC(common,secondsToString)]
+    } else {
+        format ["<t color='#B3B3B3'>Cooldown when used:</t> %1.", _cooldown call EFUNC(common,secondsToString)]
+    };
+    _lines pushBack _line;
 };
 
 // Handle Code Description
@@ -68,7 +74,4 @@ if (_stringDescription isNotEqualTo "") then {
 
 
 // Update UI Control
-ctrlSetText [
-    MUM_IDC_CSC_Delivery_Description,
-    _lines joinString "\n"
-];
+findDisplay MUM_IDD_CSC_REQUEST displayCtrl MUM_IDC_CSC_Delivery_Description ctrlSetStructuredText parseText (_lines joinString "<br />") ;

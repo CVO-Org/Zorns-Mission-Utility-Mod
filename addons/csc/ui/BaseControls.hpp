@@ -11,7 +11,7 @@ class RscEdit;
 // class RscActiveText;
 // class RscActivePicture;
 // class RscActivePictureKeepAspect;
-// class RscStructuredText;
+class RscStructuredText;
 // class RscToolbox;
 // class RscControlsGroup;
 // class RscControlsGroupNoScrollbars;
