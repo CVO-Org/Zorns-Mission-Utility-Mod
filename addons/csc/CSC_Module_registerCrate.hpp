@@ -136,6 +136,7 @@ class GVAR(module_registerCrate): Module_F {
             tooltip = "Defines the ACE Rearm Source Value";
             property = "ace_rearm_source_value";
             typeName = "NUMBER";
+            validate = "number";
             defaultValue = "50"; // Because this is an expression, one must have a string within a string to return a string
         };
 
