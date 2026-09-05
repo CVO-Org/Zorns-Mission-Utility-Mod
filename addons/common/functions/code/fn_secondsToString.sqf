@@ -15,7 +15,7 @@
 * Public: No
 */
 
-params ["_duration"];
+params [ ["_duration", 0, [0]] ];
 
 _duration = _duration max 1;
 
