@@ -44,7 +44,7 @@ private _params = [_networkName];
 
 private _aceAction = [
     _networkName splitString " " joinString "_"                                         // * 0: Action name <STRING>
-    ,_network getOrDefault ["displayName", LSTRING(displayName)]                                      //  * 1: Name of the action shown in the menu <STRING>
+    ,_network getOrDefault ["displayName", LLSTRING(displayName)]                                      //  * 1: Name of the action shown in the menu <STRING>
     ,_network getOrDefault ["icon", QPATHTOEF(main,data\Raven_Voron_256.paa)]    //  * 2: Icon <STRING> "\A3\ui_f\data\igui\cfg\simpleTasks\types\backpack_ca.paa"
     ,_statement                             //  * 3: Statement <CODE>
     ,{ isNil QGVAR(isTeleporting) }         //  * 4: Condition <CODE>
