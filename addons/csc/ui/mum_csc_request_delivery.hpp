@@ -26,13 +26,13 @@ class Delivery_Mode_Desc: RscStructuredText {
     SizeEx = Q(GUI_TEXT_SIZE_SMALL);
 
     text = "Delivery Mode Description";
-	class Attributes {
-		font = "EtelkaMonospacePro";
-		color = "#ffffff";
-		colorLink = "#D09B43";
-		align = "left";
-		shadow = 1;
-	};
+    class Attributes {
+        font = "EtelkaMonospacePro";
+        color = "#ffffff";
+        colorLink = "#D09B43";
+        align = "left";
+        shadow = 1;
+    };
 
     x = Q(20.50 * GUI_GRID_CENTER_W + GUI_GRID_CENTER_X);
     y = Q(08.75 * GUI_GRID_CENTER_H + GUI_GRID_CENTER_Y);
