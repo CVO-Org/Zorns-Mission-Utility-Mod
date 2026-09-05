@@ -35,6 +35,7 @@ class GVAR(module_registerDestination_fixed): Module_F {
             property = "id";
             typeName = "STRING";
             defaultValue = "''"; // Because this is an expression, one must have a string within a string to return a string
+            unique = 1; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
         };
         class displayName: Edit {
             displayName = "Display Name";
