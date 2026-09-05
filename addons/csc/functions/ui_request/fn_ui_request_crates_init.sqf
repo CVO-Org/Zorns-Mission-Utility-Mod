@@ -25,6 +25,8 @@ _display setVariable [QGVAR(totalCrates), 0];
 
 private _crates = _display getVariable QGVAR(crates);
 
+_crates sort true;
+
 // get crate data
 private _array = [];
 {
