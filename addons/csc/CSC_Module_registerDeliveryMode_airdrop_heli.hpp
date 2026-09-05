@@ -34,7 +34,8 @@ class GVAR(module_registerDeliveryMode_airDropHeli): Module_F {
             tooltip = "Must be a unique identifier. This will be used to reference this Destination throughout the framework.";
             property = "id";
             typeName = "STRING";
-            defaultValue = "''";                        // Because this is an expression, one must have a string within a string to return a string
+            defaultValue = "''"; // Because this is an expression, one must have a string within a string to return a string
+            unique = 1; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
         };
         class displayName: Edit {
             displayName = "Display Name";
