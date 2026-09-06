@@ -33,12 +33,6 @@ if (isNil "_networkName") then {
 private _network = [_networkName] call FUNC(network);
 if (_network isEqualTo false) exitWith {ZRN_LOG_MSG_1(exit:,_network);};
 
-switch (SET(mode)) do {
-    case "ACE ACTION": { [{}, FUNC(addAction_children) ] };
-    case "DIALOG";
-    default { [FUNC(openDialog), {} ] };
-} params [ "_statement", "_children" ];
-
 // Ace Interaction
 private _params = [_networkName];
 
@@ -46,9 +40,9 @@ private _aceAction = [
     _networkName splitString " " joinString "_"                                         // * 0: Action name <STRING>
     ,_network getOrDefault ["displayName", LLSTRING(displayName)]                                      //  * 1: Name of the action shown in the menu <STRING>
     ,_network getOrDefault ["icon", QPATHTOEF(main,data\Raven_Voron_256.paa)]    //  * 2: Icon <STRING> "\A3\ui_f\data\igui\cfg\simpleTasks\types\backpack_ca.paa"
-    ,_statement                             //  * 3: Statement <CODE>
+    ,FUNC(openDialog)                       //  * 3: Statement <CODE>
     ,{ isNil QGVAR(isTeleporting) }         //  * 4: Condition <CODE>
-    ,_children                              //  * 5: Insert children code <CODE> (Optional)
+    ,FUNC(addAction_children)               //  * 5: Insert children code <CODE> (Optional)
     ,_params                                //  * 6: Action parameters <ANY> (Optional)
 //    ,_offset
 ] call ace_interact_menu_fnc_createAction;
