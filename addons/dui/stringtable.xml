@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="mum-dui">
+    <Package name="aceAction">
+        <Key ID="STR_mum_dui_stepDownTeamleader">
+            <English>Step Down as Teamleader</English>
+        </Key>
+        <Key ID="STR_mum_dui_stepUpTeamleader">
+            <English>Become Teamleader</English>
+        </Key>
+    </Package>
+</Project>

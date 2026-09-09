@@ -25,61 +25,63 @@ diwako_dui_radar_customSort = {
 
 	params["_grp", "_player"];
 
-
     private _group = group _player;
     private _SL = leader group _player;
     private _SLTeam = assignedTeam _SL;
-    private _TLs = _group getVariable [QGVAR(TeamLeaders), []];
+    private _TLs = values (_group getVariable [QGVAR(TeamLeaders), createHashMap]);
+
+    if diwako_dui_radar_sqlFirst then { _grp pushBack _SL };
 
     private _sortingMethod = {
-        params ["_SL", "_TLs"];
+        // _this returns same as _x
+        // parameters are _input0..9
+        [_input0, _input1] params ["_SL", "_TLs"];
         switch (true) do {
-            case (_x isEqualTo _SL): { 100 };
-            case (_x in _TLs): { 10 };
+            case (_x isEqualTo _SL): { 30 };
+            case (_x in _TLs): { 20 };
             default { rankID _x };
-        };
+        } // return
     };
 
-    private _fireTeamRed    = [ _grp, [_SL, _TLs], _sortingMethod, "DESCEND", { assignedTeam _x isEqualTo "RED"    } ] call BIS_fnc_sortBy;
-	private _fireTeamBlue   = [ _grp, [_SL, _TLs], _sortingMethod, "DESCEND", { assignedTeam _x isEqualTo "BLUE"   } ] call BIS_fnc_sortBy;
-	private _fireTeamGreen  = [ _grp, [_SL, _TLs], _sortingMethod, "DESCEND", { assignedTeam _x isEqualTo "GREEN"  } ] call BIS_fnc_sortBy;
-	private _fireTeamYellow = [ _grp, [_SL, _TLs], _sortingMethod, "DESCEND", { assignedTeam _x isEqualTo "YELLOW" } ] call BIS_fnc_sortBy;
-	private _fireTeamWhite  = [ _grp, [_SL, _TLs], _sortingMethod, "DESCEND", { assignedTeam _x isEqualTo "MAIN"   } ] call BIS_fnc_sortBy;
+    private _map = createHashMap;
+
+    // add each unit to map based upon assignedTeam
+    { _map getOrDefault [assignedTeam _x, [], true] pushBack _x; } forEach _grp;
+
+    // Sort Teams based on Sorting Method
+    { _map set [ _x, [_y, [_SL, _TLs], _sortingMethod, "DESCEND"] call BIS_fnc_sortBy ]; } forEach _map;
 
 
     // Add padding per Fireteam Collumn
     private _maxLinesPerCollumn = call FUNC(getLinesPerCollumn);
 
     private _addPadding = {
-        params [ "_fireTeam", "_maxLinesPerCollumn", "_edgeCase" ];
-
-        if (_fireTeam isEqualTo []) exitWith {};
-
+        params [ "_fireTeam", "_maxLinesPerCollumn" ];
         private _fireTeamSize = count _fireTeam;
-        if (_edgeCase) then { _fireTeamSize = _fireTeamSize + 1 }; // when edgeCase, assume Fireteam + 1
-
         private _sizeLastFireTeamCollumn = _fireTeamSize mod _maxLinesPerCollumn;
         private _paddingNeeded = _maxLinesPerCollumn - _sizeLastFireTeamCollumn;
 
-        while {_paddingNeeded isNotEqualTo 0} do { _paddingNeeded = _paddingNeeded - 1; _fireTeam pushBack objNull; diag_log text format ['[CVO](debug)(fn_applyCustomSort) While Loop: FT Size: %1', count _fireTeam];};
+        while {_paddingNeeded isNotEqualTo 0} do { _paddingNeeded = _paddingNeeded - 1; _fireTeam pushBack objNull; };
 
     };
 
+    // Sort Fireteams: Priotize SL Fireteam, handle remaining based upon dui sorting
+    private _fireTeamsSorted = [keys _map, [_SLTeam], { if (_x isEqualTo _input0) then { -1 } else { diwako_dui_radar_sortNamespace getVariable toLowerANSI _x } } ] call BIS_fnc_sortBy;
+    private _finalIndex = count _fireTeamsSorted - 1;
+
+
+    private _return = [];
+
     {
-        private _edgeCase = _sqlFirst && { assignedTeam (_x#0) isEqualTo _SLTeam }; // When _sqlFirst setting is true, Group Leader is removed from list, so we have to handle the edgecase
-        [ _x, _maxLinesPerCollumn, _edgeCase ] call _addPadding;
+        private _team = _map get _x;
+        if (_forEachIndex isNotEqualTo _finalIndex ) then { [_team, _maxLinesPerCollumn] call _addPadding; }; // Dont add padding to last Fireteam
+        _return append _team;
+    } forEach _fireTeamsSorted;
 
-    } forEach [ _fireTeamRed, _fireTeamBlue, _fireTeamYellow, _fireTeamWhite ];
+    if diwako_dui_radar_sqlFirst then { _return = _return - [_SL]; };
 
+    _return
 
-
-    // Sort Fireteams while priotizing SL's Fireteam
-    switch (_SLTeam) do {
-        case "RED":    { _fireTeamRed + _fireTeamBlue + _fireTeamGreen + _fireTeamYellow + _fireTeamWhite };
-        case "BLUE":   { _fireTeamBlue + _fireTeamRed + _fireTeamGreen + _fireTeamYellow + _fireTeamWhite };
-        case "GREEN":  { _fireTeamGreen + _fireTeamRed + _fireTeamBlue + _fireTeamYellow + _fireTeamWhite };
-        case "YELLOW": { _fireTeamYellow + _fireTeamRed + _fireTeamBlue + _fireTeamGreen + _fireTeamWhite };
-        case "MAIN":   { _fireTeamWhite + _fireTeamRed + _fireTeamBlue + _fireTeamGreen + _fireTeamYellow };
-    } // return
 };
 
+nil

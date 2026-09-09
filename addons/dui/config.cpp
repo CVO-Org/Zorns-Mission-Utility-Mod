@@ -34,3 +34,6 @@ class CfgPatches {
 };
 
 #include "CfgFunctions.hpp"
+
+#include "AceActions.hpp"
+#include "diwako_dui_icon_style.hpp"
