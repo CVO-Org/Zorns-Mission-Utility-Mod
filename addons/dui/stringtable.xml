@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="mum-dui">
+    <Package name="cbaSettings">
+        <Key ID="STR_mum_dui_cbaCategory">
+            <English>MUM - DUI Tweaks</English>
+        </Key>
+        <Key ID="STR_mum_dui_set_enabled">
+            <English>Enable DUI Tweaks</English>
+        </Key>
+        <Key ID="STR_mum_dui_set_enabled_desc">
+            <English>Enables DUI Tweaks: Squadleader Icon Style, Teamleader Actions and Custom Sorting</English>
+        </Key>
+    </Package>
     <Package name="aceAction">
         <Key ID="STR_mum_dui_stepDownTeamleader">
             <English>Step Down as Teamleader</English>
