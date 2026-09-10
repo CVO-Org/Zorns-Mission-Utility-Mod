@@ -19,4 +19,12 @@
             <English>Become Teamleader</English>
         </Key>
     </Package>
+    <Package name="hint">
+        <Key ID="STR_mum_dui_TL_steppedUp">
+            <English>You became %1 team leader.</English>
+        </Key>
+        <Key ID="STR_mum_dui_TL_steppedDown">
+            <English>You are no longer %1 team leader.</English>
+        </Key>
+    </Package>
 </Project>
