@@ -60,7 +60,7 @@ private _side = switch (_parameters getOrDefault ["airframe_side", "CIV"]) do {
 
 private _grp = _side createVehicleCrew _aircraft;
 _grp addVehicle _aircraft;
-_grp setCombatBehaviour "CARELESS";
+_grp setBehaviourStrong "CARELESS";
 _grp deleteGroupWhenEmpty true;
 
 // Add vic to curator
