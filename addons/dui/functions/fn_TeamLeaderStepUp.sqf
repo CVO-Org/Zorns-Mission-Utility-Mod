@@ -20,16 +20,9 @@ params [ ["_unit", ACE_Player, [objNull] ] ];
 if (_unit isEqualTo leader _unit) exitWith {};
 
 private _grp = group _unit;
-
 private _assignedTeam = assignedTeam _unit;
-
 private _teamLeaders = _grp getVariable [QGVAR(TeamLeaders), createHashMap];
-
-diag_log text format ['[CVO](debug)(fn_TeamLeaderStepUp) _teamLeaders: %1', _teamLeaders];
-
 private _currentTeamLeader = _teamLeaders getOrDefault [_assignedTeam, objNull];
-
-diag_log text format ['[CVO](debug)(fn_TeamLeaderStepUp) _currentTeamLeader: %1', _currentTeamLeader];
 
 // Demote Current Teamleader
 if !(isNull _currentTeamLeader) then { _currentTeamLeader call FUNC(teamLeaderStepDown); };
