@@ -15,5 +15,7 @@
 * Public: No
 */
 
+GVAR(loaded_greenMag) = isClass (configFile >> "CfgPatches" >> "greenmag_main");
+
 [QGVAR(EH_initBox), FUNC(initBox)] call CBA_fnc_addEventHandler;
 

@@ -8,7 +8,7 @@ it creates the MUM_arsenal_local_box box and updates the content of said arsenal
 If the player opened it before and the MUM_arsenal_local_box exists already, it will
 */
 
-if (isNull GVAR(local_box)) then { GVAR(local_box) = nil;};
+if (isNull GVAR(local_box)) then { GVAR(local_box) = nil; };
 
 if (isNil QGVAR(local_box)) then {
 
@@ -24,19 +24,19 @@ if (isNil QGVAR(local_box)) then {
 
     player setVariable [QGVAR(local_box), _localBox, false];
 
-    [_localBox, false]                 call ace_dragging_fnc_setDraggable;                // Disables Dragging
-    [_localBox, false]                 call ace_dragging_fnc_setCarryable;                // Disables Carrying
-    [_localBox, -1]                     call ace_cargo_fnc_setSize;                    // Disables Ace Cargo Loading
-    _localBox setVariable ["ace_cargo_noRename", true];                                // Disables Ace Cargo Renaming
+    [_localBox, false]  call ace_dragging_fnc_setDraggable;                 // Disables Dragging
+    [_localBox, false]  call ace_dragging_fnc_setCarryable;                 // Disables Carrying
+    [_localBox, -1]     call ace_cargo_fnc_setSize;                         // Disables Ace Cargo Loading
+    _localBox setVariable ["ace_cargo_noRename", true];                     // Disables Ace Cargo Renaming
 
-    hideObject _localBox;                                                            // Hides the Object
+    hideObject _localBox;                                                   // Hides the Object
 
-    clearBackpackCargo _localBox;                                                    // Empties the ArsenalBox
+    clearBackpackCargo _localBox;                                           // Empties the ArsenalBox
     clearMagazineCargo _localBox;
     clearWeaponCargo _localBox;
     clearItemCargo _localBox;
 
-    _localBox enableSimulation false;                                                // Disables Simulation
+    _localBox enableSimulation false;                                       // Disables Simulation
 
     [_localBox, false, false] call ace_arsenal_fnc_initBox;
 

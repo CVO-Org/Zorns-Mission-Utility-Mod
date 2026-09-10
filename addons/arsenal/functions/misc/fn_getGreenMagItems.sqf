@@ -17,31 +17,37 @@
 
 params [ ["_magClass", nil, [""] ] ];
 
-if (isNil "_magClass") exitWith {};
+if (isNil "_magClass") exitWith { [] };
 
 //check if unit has enough ammo of needed type
-private _usedAmmo = if (greenmag_CBAS_simpleGM) then {
+private _usedAmmo = if (missionNamespace getVariable ["greenmag_main_cbas_simpleGM", true]) then {
     getText (configFile >> "CfgMagazines" >> _magClass >> "greenmag_basicammo")
 } else {
     getText (configFile >> "CfgMagazines" >> _magClass >> "greenmag_ammo")
 };
 
-if (_usedAmmo isEqualTo "") exitWith {};
+if (_usedAmmo isEqualTo "") exitWith { [] };
 
-private _map = missionNamespace getVariable [GVAR(greenMagCache), createHashMap];
+// Get CachedData or Create and Publish on first call
+private _mapCBA = missionNamespace getVariable QGVAR(greenMagCache);
+if (isNil "_mapCBA") then {
+    _mapCBA = true call CBA_fnc_createNamespace;
+    missionNamespace setVariable [QGVAR(greenMagCache), _mapCBA, true];
+};
 
-// Get and Return Cached when Available
-if (_usedAmmo in _map) exitWith { _map get _usedAmmo };
+// Check Cache
+if (_usedAmmo in allVariables _mapCBA) exitWith { _mapCBA getVariable _usedAmmo };
 
 // Get Items, Return and Cache
-private _kind = _usedAmmo splitString "_" select 1;
-private _items = switch (_kind) do {
-    case "beltlinked": { [ _usedAmmo + "_50",    _usedAmmo + "_100", _usedAmmo + "_150", _usedAmmo + "_200" ] };
-    case "ammo":       { [ _usedAmmo + "_30Rnd", _usedAmmo + "_60Rnd" ] };
+private _items = switch (_usedAmmo splitString "_" select 1) do {
+    case "beltlinked": { [ _usedAmmo + "_50", _usedAmmo + "_100", _usedAmmo + "_150", _usedAmmo + "_200" ] };
+    case "ammo": {
+        private _usedAmmoString = _usedAmmo trim ["_1Rnd",2];
+        [ _usedAmmoString + "_30Rnd", _usedAmmoString + "_60Rnd" ]
+    };
     default { [] };
 };
 
-_map set [_usedAmmo, _items];
-missionNamespace setVariable [QGVAR(greenMagCache), _map, true];
+_mapCBA setVariable [_usedAmmo, _items, true];
 
 _items
