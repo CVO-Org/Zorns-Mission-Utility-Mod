@@ -58,3 +58,10 @@ workshop = [
     "2352603233", # Greenmag
     "751965892", # acre
 ]
+
+[dui]
+extends = "default"
+mission = "dui.VR"
+workshop = [
+    "1638341685", # DUI
+]
