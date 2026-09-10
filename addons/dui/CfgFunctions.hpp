@@ -12,6 +12,8 @@ class CfgFunctions {
 
             class TeamLeaderStepUp {};
             class TeamLeaderStepDown {};
+
+            class validateTeamLeaders {};
         };
     };
 };

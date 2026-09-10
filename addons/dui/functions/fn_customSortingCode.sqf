@@ -55,6 +55,7 @@ private _map = createHashMap;
 private _maxLinesPerCollumn = call FUNC(getLinesPerCollumn);
 
 private _addPadding = {
+    if ( getArray (configFile >> "CfgPatches" >> "diwako_dui_radar" >> "versionAr") isEqualTo [1,12,11,0] ) exitWith {}; // // ToDo: Remove once DUI updated
     params [ "_fireTeam", "_maxLinesPerCollumn" ];
     private _fireTeamSize = count _fireTeam;
     private _sizeLastFireTeamCollumn = _fireTeamSize mod _maxLinesPerCollumn;

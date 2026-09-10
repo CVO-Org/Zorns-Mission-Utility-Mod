@@ -37,4 +37,10 @@ _grp setVariable [QGVAR(TeamLeaders), _teamLeaders, true];
 [QGVAR(EH_setUnitIcon), [_unit, "NIL"]] call CBA_fnc_serverEvent;
 _unit setVariable [QGVAR(isTeamleader), false, true];
 
+// Display message
+if ( _unit isEqualTo ACE_player ) then {
+    private _message = format [LLSTRING(TL_steppedDown), localize format ["str_team_%1", _assignedTeam] ];
+    [_message] call ace_common_fnc_displayTextStructured;
+};
+
 nil

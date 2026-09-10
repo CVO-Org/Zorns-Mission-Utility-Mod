@@ -19,23 +19,26 @@ params [ ["_grp", grpNull, [grpNull] ] ];
 
 if (isNull _grp) exitWith {};
 
-private _teamLeadersMap = _grp getVariable QGVAR(TeamLeaders);
-_teamLeadersMap toArray params ["_keys", "_values"];
-
 private _units = units _grp;
-private _teamLeadersArray = _units select { _x getVariable [QGVAR(isTeamLeader), false] };
+private _map = _grp getVariable QGVAR(TeamLeaders);
 
-// Validate _teamLeadersArray
+
+private _array = _units select { _x getVariable [QGVAR(isTeamLeader), false] } apply { [assignedTeam _x, _x] };
+
+diag_log text format ['[CVO](debug)(fn_validateTeamLeaders) All Teamleaders: %1', _array];
+
+// Remove validated Teamleaders from the array
 {
-    if (_x in _values) then { continue };
-    _x call FUNC(TeamLeaderStepDown);
-    _teamLeadersArray set [_forEachIndex, objNull];
-} forEach _teamLeadersArray;
+    diag_log text format ['[CVO](debug)(fn_validateTeamLeaders) Validate: %1 - %2', _x , _y];
+    private _index = _array find [_x, _y];
+    diag_log text format ['[CVO](debug)(fn_validateTeamLeaders) _index: %1', _index];
 
-// Validate _teamLeadersMap
-{
-    if (_y in _units) then { continue };
-    _teamLeadersMap deleteAt _x;
-} forEach _teamLeadersMap;
+    // If expected TL not present, remove from TL Data - If present -> Validated -> Remove from array
+    if (_index isEqualTo -1) then { _map deleteAt _x; } else { _array deleteAt _index; };
 
-// ToDo - Actually test this
+} forEach _map;
+
+diag_log text format ['[CVO](debug)(fn_validateTeamLeaders) Not Validated TLs: %1', _array];
+
+// Step Down not validated Teamleaders
+{ _x#1 call FUNC(TeamLeaderStepDown); } forEach _array;
