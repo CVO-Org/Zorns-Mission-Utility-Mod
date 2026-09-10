@@ -119,6 +119,11 @@ _returnArray append _codeResult;
 
 systemChat format ['(Processing)[%1/%2] %3 - ADDED',1 + _total - _count, _total, _kitName];
 
+if (GVAR(loaded_greenMag)) then {
+    // Get all Magazines and get the compatible greenMag items
+    private _gmItems = flatten (_returnArray select { isClass (configFile >> "CfgMagazines" >> _x) } apply { _x call FUNC(getGreenMagItems) } );
+        _returnArray append _gmItems;
+};
 
 // Add stuff to the Arsenal
 [_box, _returnArray arrayIntersect _returnArray] call ace_arsenal_fnc_addVirtualItems;
