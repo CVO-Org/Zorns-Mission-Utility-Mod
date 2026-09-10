@@ -31,7 +31,12 @@
                 // Forces Leader always first off cause its handled through the sorting method
                 ["diwako_dui_radar_sqlFirst", false, 10, "server"] call CBA_settings_fnc_set;
             };
+
+            // private _version = getNumber (configFile >> "CfgPatches" >> "diwako_dui_radar" >> "version"); // ToDo: Remove once
+            // if ( _version > 1.12 ) then { diwako_dui_radar_customSort = FUNC(customSortingCode); };
+
             diwako_dui_radar_customSort = FUNC(customSortingCode);
+
         } else {
             diwako_dui_radar_customSort = nil;
         };
