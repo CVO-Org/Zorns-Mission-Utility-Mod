@@ -36,5 +36,10 @@ class CfgFunctions {
 
             class rolesByTrait {};
         };
+        class misc {
+            file = PATH_TO_FUNC_SUB(misc);
+
+            class getGreenMagItems {};
+        };
     };
 };

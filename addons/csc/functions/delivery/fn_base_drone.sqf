@@ -54,6 +54,9 @@ private _side = switch (_parameters getOrDefault ["drone_side", "CIV"]) do {
 
 // Create Crew
 private _grp = _side createVehicleCrew _drone;
+
+_grp addVehicle _drone;
+_grp setBehaviourStrong "CARELESS";
 _grp deleteGroupWhenEmpty true;
 
 // Add vic to curator
