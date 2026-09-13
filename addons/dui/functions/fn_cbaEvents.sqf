@@ -25,12 +25,12 @@
         if (_setting isNotEqualTo QSET(enabled)) exitWith {};
 
         if _enabled then {
-            if (isServer) then {
-                // Forces Icon Style
-                ["diwako_dui_icon_style", QGVAR(officer), 10, "server"] call CBA_settings_fnc_set;
-                // Forces Leader always first off cause its handled through the sorting method
-                ["diwako_dui_radar_sqlFirst", false, 10, "server"] call CBA_settings_fnc_set;
-            };
+            // Forces Icon Style
+            ["diwako_dui_icon_style", QGVAR(officer), 10, "server"] call CBA_settings_fnc_set;
+            ["diwako_dui_icon_style", QGVAR(officer), 10, "client"] call CBA_settings_fnc_set;
+            // Forces Leader always first off cause its handled through the sorting method
+            ["diwako_dui_radar_sqlFirst", false, 10, "server"] call CBA_settings_fnc_set;
+            ["diwako_dui_radar_sqlFirst", false, 10, "client"] call CBA_settings_fnc_set;
 
             diwako_dui_radar_customSort = FUNC(customSortingCode);
 
