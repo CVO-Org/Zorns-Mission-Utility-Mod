@@ -191,44 +191,6 @@ class GVAR(module_registerDeliveryMode_airDropPlane): Module_F {
             typeName = "NUMBER";
             defaultValue = 200;
         };
-        class airdrop_alt_forced: Checkbox {
-            displayName = "Forced Altitude";
-            tooltip = "Forces the aircraft to hold the altitude above.";
-            property = "airdrop_alt_forced";
-            typeName = "BOOL";
-            defaultValue = "true";
-        };
-        class airdrop_speedLimit: Combo {
-            displayName = "Speed Limit";
-            tooltip = "Waypoint speed for the target leg.";
-            property = "airdrop_speedLimit";
-            typeName = "STRING";
-            defaultValue = """LIMITED""";
-            class values {
-                class FULL {
-                    default = 0;
-                    name = "FULL";
-                    value = "FULL";
-                };
-                class NORMAL {
-                    default = 0;
-                    name = "NORMAL";
-                    value = "NORMAL";
-                };
-                class LIMITED {
-                    default = 1;
-                    name = "LIMITED";
-                    value = "LIMITED";
-                };
-            };
-        };
-        class airdrop_flyInHeightASL: Edit {
-            control = "EditXYZ";
-            displayName = "Fly In Height ASL";
-            tooltip = "ASL altitude values used during the approach.\nx - Standard Altitude (default behaviour)\ny - Combat Altitude (combat behaviour)\nz - Stealth Altitude (stealth behaviour)";
-            property = "airdrop_flyInHeightASL";
-            defaultValue = "[50,50,50]";
-        };
 
         class SubCategory_Parachute {
             control = "SubCategory";

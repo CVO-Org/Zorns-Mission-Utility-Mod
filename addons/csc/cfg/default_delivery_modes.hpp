@@ -36,10 +36,7 @@ class default_delivery_modes {
             pos_end = "RETURN";
 
             airdrop_alt = 100;
-            airdrop_alt_forced = "true";
             airdrop_speedLimit = "LIMITED";
-
-            airdrop_flyInHeightASL[] = { 35, 35, 35 };
 
 
 
@@ -70,10 +67,7 @@ class default_delivery_modes {
             pos_end = "RETURN";
 
             airdrop_alt = 100;
-            airdrop_alt_forced = "true";
             airdrop_speedLimit = "LIMITED";
-
-            airdrop_flyInHeightASL[] = { 50, 50, 50 };
 
 
             parachute_class = "B_Parachute_02_F";
