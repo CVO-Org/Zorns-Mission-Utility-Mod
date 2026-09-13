@@ -22,6 +22,15 @@
             <Key ID="STR_mum_arsenal_set_disable_desc">
                 <English>To disable, uncheck the box :smort:</English>
             </Key>
+            <Key ID="STR_mum_arsenal_set_enableTempLoadout">
+                <English>Save Current Loadout</English>
+            </Key>
+            <Key ID="STR_mum_arsenal_set_enableTempLoadout_desc">
+                <English>When enabled, your current loadout will be saved whenever you close an ACE Arsenal.</English>
+            </Key>
+            <Key ID="STR_mum_arsenal_set_others_subcat_title">
+                <English>4. Other Settings</English>
+            </Key>
         </Container>
         <Container name="CfgVehicles">
             <Key ID="STR_mum_arsenal_accessPoint">

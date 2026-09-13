@@ -4,3 +4,5 @@
 
 #include "initSettings_autoRoles.inc.sqf"
 #include "initSettings_autoTraits.inc.sqf"
+
+#include "initSettings_misc.inc.sqf"
