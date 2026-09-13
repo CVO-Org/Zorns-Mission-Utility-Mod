@@ -15,11 +15,11 @@
 * Public: No
 */
 
-params [ "_value" ];
+params [ "_setting" ];
 
 switch (true) do {
     // Register Event when enabled and not yet registered
-    case ( _value isEqualTo true && { isNil QGVAR(EH_ID_autoSaveLoadout) } ): {
+    case ( _setting isEqualTo true && { isNil QGVAR(EH_ID_autoSaveLoadout) } ): {
         GVAR(EH_ID_autoSaveLoadout) = [
             "ace_arsenal_displayClosed",
             {
@@ -32,7 +32,7 @@ switch (true) do {
         ] call CBA_fnc_addEventHandler;
     };
     // Remove Event when turned off and event is registered.
-    case ( _value isEqualTo false && { ! isNil QGVAR(EH_ID_autoSaveLoadout) } ): {
+    case ( _setting isEqualTo false && { ! isNil QGVAR(EH_ID_autoSaveLoadout) } ): {
         ["ace_arsenal_displayClosed", GVAR(EH_ID_autoSaveLoadout)] call CBA_fnc_removeEventHandler;
         GVAR(EH_ID_autoSaveLoadout) = nil;
     };
