@@ -10,9 +10,6 @@
             <Key ID="STR_mum_arsenal_cat_title">
                 <English>MUM - Arsenal</English>
             </Key>
-            <Key ID="STR_mum_arsenal_set_others_subcat_title">
-                <English>4. Other Settings</English>
-            </Key>
             <Key ID="STR_mum_arsenal_set_autoRoles_subcat_title">
                 <English>2. Auto Roles</English>
             </Key>
@@ -30,6 +27,9 @@
             </Key>
             <Key ID="STR_mum_arsenal_set_enableTempLoadout_desc">
                 <English>When enabled, your current loadout will be saved whenever you close an ACE Arsenal.</English>
+            </Key>
+            <Key ID="STR_mum_arsenal_set_others_subcat_title">
+                <English>4. Other Settings</English>
             </Key>
         </Container>
         <Container name="CfgVehicles">

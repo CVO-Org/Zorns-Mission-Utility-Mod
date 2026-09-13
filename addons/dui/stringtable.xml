@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="mum-dui">
+    <Package name="aceAction">
+        <Key ID="STR_mum_dui_stepDownTeamleader">
+            <English>Step Down as Teamleader</English>
+        </Key>
+        <Key ID="STR_mum_dui_stepUpTeamleader">
+            <English>Become Teamleader</English>
+        </Key>
+    </Package>
     <Package name="cbaSettings">
         <Key ID="STR_mum_dui_cbaCategory">
             <English>MUM - DUI Tweaks</English>
@@ -11,20 +19,12 @@
             <English>Enables DUI Tweaks: Squadleader Icon Style, Teamleader Actions and Custom Sorting</English>
         </Key>
     </Package>
-    <Package name="aceAction">
-        <Key ID="STR_mum_dui_stepDownTeamleader">
-            <English>Step Down as Teamleader</English>
-        </Key>
-        <Key ID="STR_mum_dui_stepUpTeamleader">
-            <English>Become Teamleader</English>
-        </Key>
-    </Package>
     <Package name="hint">
-        <Key ID="STR_mum_dui_TL_steppedUp">
-            <English>You became %1 team leader.</English>
-        </Key>
         <Key ID="STR_mum_dui_TL_steppedDown">
             <English>You are no longer %1 team leader.</English>
+        </Key>
+        <Key ID="STR_mum_dui_TL_steppedUp">
+            <English>You became %1 team leader.</English>
         </Key>
     </Package>
 </Project>
