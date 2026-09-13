@@ -39,9 +39,11 @@ if (isNil "_mapCBA") then {
 if (_usedAmmo in allVariables _mapCBA) exitWith { _mapCBA getVariable _usedAmmo };
 
 // Get Items, Return and Cache
-private _items = switch (_usedAmmo splitString "_" select 1) do {
-    case "beltlinked": { [ _usedAmmo + "_50", _usedAmmo + "_100", _usedAmmo + "_150", _usedAmmo + "_200" ] };
-    case "ammo": {
+private _items = switch (true) do {
+    case ("beltlinked" in _usedAmmo): {
+        [ _usedAmmo + "_50", _usedAmmo + "_100", _usedAmmo + "_150", _usedAmmo + "_200" ]
+    };
+    case ("ammo" in _usedAmmo): {
         private _usedAmmoString = _usedAmmo trim ["_1Rnd",2];
         [ _usedAmmoString + "_30Rnd", _usedAmmoString + "_60Rnd" ]
     };
