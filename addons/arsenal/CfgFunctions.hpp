@@ -40,6 +40,8 @@ class CfgFunctions {
             file = PATH_TO_FUNC_SUB(misc);
 
             class getGreenMagItems {};
+
+            class handleTempLoadout {};
         };
     };
 };
