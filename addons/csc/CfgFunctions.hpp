@@ -64,6 +64,13 @@ class CfgFunctions {
 
         };
 
+        class crateLimit {
+            file = PATH_TO_FUNC_SUB(crateLimit);
+
+
+        };
+
+
         class ui_grid {
             file = PATH_TO_FUNC_SUB(ui_grid);
 
@@ -85,6 +92,7 @@ class CfgFunctions {
 
             class ui_request_crates_init {};
 
+            class ui_request_updateUI {};
             class ui_request_crates_update {};
             class ui_request_update_arrows {};
             class ui_request_update_canRequest {};

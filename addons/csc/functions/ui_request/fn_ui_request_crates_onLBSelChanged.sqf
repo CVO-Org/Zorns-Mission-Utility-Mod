@@ -18,5 +18,9 @@
 params ["_ctrl", "_index"];
 
 call FUNC(ui_request_update_crate_desc);
-
 call FUNC(ui_request_update_arrows);
+
+// Update Crates Limits
+// ToDo: Get selected Crate limits
+// ToDo: Get selected Crates counters
+// setVar on display

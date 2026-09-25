@@ -16,7 +16,8 @@
 * Public: No
 */
 
-// INIT GVARs
+// INIT GVAR
+if (isServer) then { GVAR(counters) = true call CBA_fnc_createNamespace; publicVariable QGVAR(counters); };
 GVAR(accessPointCounter) = 0;
 GVAR(accessPoints) = createHashMapFromArray [
     [

@@ -43,11 +43,11 @@
     QGVAR(EH_setData),
     {
         params [
-            ["_dataType", nil, [""]            ],
-            ["_id",       nil, [""]            ],
-            ["_data",     nil, [createHashMap] ]
+            ["_gvarName", nil, [""]            ],
+            ["_key",      nil, [""]            ],
+            ["_value",    nil, [createHashMap] ]
         ];
-        missionNamespace getVariable _dataType set [_id, _data];
+        missionNamespace getVariable _gvarName set [_key, _value];
     }
 ] call CBA_fnc_addEventHandler;
 

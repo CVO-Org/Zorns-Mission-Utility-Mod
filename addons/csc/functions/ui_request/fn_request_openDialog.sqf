@@ -21,7 +21,7 @@ params [ ["_player", ACE_player], ["_target", objNull], "_accessPointID" ];
 //// Input Sanitasation
 
 if (isNil "_accessPointID" && {_target isNil QGVAR(accessPointID)}) exitWith {};
-if (isNil "_accessPointID" ) exitWith { _accessPointID = _target getVariable QGVAR(accessPointID) };
+if (isNil "_accessPointID" ) then { _accessPointID = _target getVariable QGVAR(accessPointID) };
 
 private _accessPointData = GVAR(accessPoints) getOrDefault [_accessPointID, createHashMap];
 
@@ -34,6 +34,7 @@ private _display = createDialog [QGVAR(request), true];
 _display setVariable ["requester", _player];
 _display setVariable ["target", _target];
 _display setVariable ["isZeus", _accessPointID isEqualTo "#ZEUS"];
+_display setVariable ["accessPointID", _accessPointID];
 
 
 _display setVariable [ QGVAR(crates),        [ _crates,        "CRATES"       ] call FUNC(validateFrameworkIDs) ];

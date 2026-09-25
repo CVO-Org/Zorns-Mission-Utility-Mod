@@ -21,7 +21,6 @@
 private _display = findDisplay MUM_IDD_CSC_REQUEST;
 
 // Get Current Index
-
 private _index = lbCurSel MUM_IDC_CSC_Crates_ListNBox;
 
 if (_index isEqualTo -1) exitWith {

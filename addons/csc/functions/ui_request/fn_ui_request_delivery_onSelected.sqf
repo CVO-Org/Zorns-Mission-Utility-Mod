@@ -15,12 +15,13 @@
 * Public: No
 */
 
-params ["_control", "_index"];
+// Common
+private _display = findDisplay MUM_IDD_CSC_REQUEST;
+
+params ["", [ "_index", lbCurSel MUM_IDC_CSC_Delivery_ListBox] ];
 
 if (_index isEqualTo -1) exitWith { ctrlSetText [ MUM_IDC_CSC_Delivery_Description, "Nothing selected." ]; };
 
-// Common
-private _display = findDisplay MUM_IDD_CSC_REQUEST;
 
 private _deliveryMap = [
     QGVAR(deliveryModes),

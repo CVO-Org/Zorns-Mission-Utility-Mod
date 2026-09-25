@@ -46,6 +46,10 @@ switch (true) do {
         ctrlEnable [MUM_IDC_CSC_ButtonOK, false];
         ctrlSetText [MUM_IDC_CSC_Status, "No crates selected."];
     };
+    case (false): {
+        ctrlEnable [MUM_IDC_CSC_ButtonOK, false];
+        ctrlSetText [MUM_IDC_CSC_Status, "Cratelimit has been reached."];
+    };
     case ( _curTotal >  _maxCrates ): {
         ctrlEnable [MUM_IDC_CSC_ButtonOK, false];
         ctrlSetText [MUM_IDC_CSC_Status, "Too many crates selected."];

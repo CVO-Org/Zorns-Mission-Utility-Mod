@@ -17,23 +17,11 @@
 
 params ["_display", "_exitCode"];
 
-if (_exitCode == 2) exitWith {}; // 
+if (_exitCode == 2) exitWith {}; //
 
 
 // Get Crates
-private _ctrl_crates = _display displayCtrl MUM_IDC_CSC_Crates_ListNBox;
-// Extract
-// [classname, amount]
-private _crate_list = [];
-private _size = (lnbSize _ctrl_crates select 0) - 1;
-
-
-for "_i" from 0 to _size do {
-    _crate_list pushBack [
-        _ctrl_crates lnbData  [_i, 0],
-        _ctrl_crates lnbValue [_i, 0]
-    ];
-};
+private _crate_list = call FUNC(ui_request_crates_getCratesFromControl);
 
 private _crates = [];
 {
@@ -50,10 +38,16 @@ private _request = createHashMapFromArray [
     [ "target",        _display getVariable "target" ],
     [ "destination",   _display getVariable QGVAR(destination) ],
     [ "delivery_mode", _display getVariable QGVAR(delivery_mode) ],
-    [ "isZeus",        _display getVariable "isZeus" ]
+    [ "isZeus",        _display getVariable "isZeus" ],
+    [ "accessPointID", _display getVariable "accessPointID" ]
 ];
 
 ZRN_LOG_MSG_1(REQUEST Established. Handling Destination next,_request);
 
 [_request] call FUNC(handle_destination);
 
+// Remove updateUI EventHandler
+[QGVAR(EH_updateCSCRequestUI), GVAR(EHID_updateCSCRequestUI)] call CBA_fnc_removeEventHandler;
+GVAR(EHID_updateCSCRequestUI) = nil;
+
+nil

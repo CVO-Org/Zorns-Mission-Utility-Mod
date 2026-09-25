@@ -5,8 +5,7 @@ class base_crate {
     displayName = "Base Crate";
 
     // description = "Base Description - You shouldnt see this tbh.";
-
-
+    limit = -1;
 
     items[] = {};
     backpacks[] = {};

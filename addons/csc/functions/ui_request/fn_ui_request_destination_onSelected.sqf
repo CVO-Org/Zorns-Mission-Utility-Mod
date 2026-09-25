@@ -15,7 +15,7 @@
 * Public: No
 */
 
-params ["", "_index"];
+params ["", [ "_index", lbCurSel MUM_IDC_CSC_Destination_ListBox] ];
 
 
 if (_index isEqualTo -1) exitWith { ctrlSetText [ MUM_IDC_CSC_Destination_Description, "Nothing selected." ]; };

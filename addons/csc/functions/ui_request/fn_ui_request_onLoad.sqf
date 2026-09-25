@@ -28,3 +28,8 @@ params ["_display"];
     },
     _display
 ] call CBA_fnc_waitUntilAndExecute;
+
+// Add updateUI EventHandler
+GVAR(EHID_updateCSCRequestUI) = [QGVAR(EH_updateCSCRequestUI), FUNC(ui_request_updateUI)] call CBA_fnc_addEventHandler;
+
+nil
