@@ -38,6 +38,8 @@ class CfgFunctions {
         class modules {
             file = PATH_TO_FUNC_SUB(modules);
 
+            class module_3den {};
+
             class module_intelItem_basic {};
             class module_intelItem_handwrittenNote {};
             class module_intelItem_email {};
@@ -51,5 +53,10 @@ class CfgFunctions {
             class createFontPreview {};
         };
 
+        class misc {
+            file = PATH_TO_FUNC_SUB(misc);
+
+            class isBlacklistedItem {};
+        };
     };
 };
