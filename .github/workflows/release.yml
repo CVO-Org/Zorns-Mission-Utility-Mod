@@ -7,10 +7,12 @@
 #
 # How to use
 #
-# 1. Update the FOLDER Variable and remove the #
-# 2. Update the WORKSHOP ID Variable and remove the #
-# 3. Add STEAM_USERNAME as github repo secret
-# 4. Add STEAM_PASSWORD as github repo secret
+# 1. Update FOLDER, WORKSHOPID and WORKSHOPNAME below
+# 2. Add STEAM_USERNAME as github repo secret
+# 3. Add STEAM_PASSWORD as github repo secret
+# 4. Remove the `if: false` line of the job
+#
+# The STABLE release only runs on full releases and sets _DEV_VERSION_ 0 (see addons/main/debug_mode.hpp)
 
 name: "Release: Publish to Steam"
 
@@ -21,12 +23,13 @@ env:
 
 on:
   release:
-    types: released
+    types: [released]
 
 permissions:
   contents: write
 
 jobs:
+
   release-addon:
     runs-on: ubuntu-latest
     steps:
@@ -34,7 +37,7 @@ jobs:
           run: echo VERSION=${GITHUB_REF:11} >> $GITHUB_ENV
 
         - name: Checkout the source code
-          uses: actions/checkout@v2
+          uses: actions/checkout@v4
 
         - name: Update script_version.hpp from release tag
           shell: pwsh
@@ -42,7 +45,7 @@ jobs:
             & "${{ github.workspace }}/tools/update-version.ps1" `
               -Version "${{ github.event.release.tag_name }}"
 
-        - name: Create meta.cpp for release
+        - name: Create meta.cpp for stable release
           shell: pwsh
           run: |
             & "${{ github.workspace }}/tools/create-meta-cpp.ps1" `
@@ -53,19 +56,20 @@ jobs:
         - name: Setup HEMTT
           uses: arma-actions/hemtt@v1
 
+        - name: Run HEMTT script set_RELEASE_VERSION_STABLE
+          run: hemtt script set_RELEASE_VERSION_STABLE
+
         - name: Run HEMTT build
           run: hemtt release --no-archive
 
         - name: Move release to releases folder
-          run:
-            version="${{ github.event.release.tag_name }}"
-            mv .hemttout/release "${{ env.FOLDER }}-${{ env.VERSION }}"
+          run: mv .hemttout/release "${{ env.FOLDER }}-${{ env.VERSION }}"
 
         - name: Zip release
           run: zip -r "${{ env.FOLDER }}-${{ env.VERSION }}.zip" ./${{ env.FOLDER }}-${{ env.VERSION }}
 
         - name: Update Release with Files
-          uses: softprops/action-gh-release@v1
+          uses: softprops/action-gh-release@v2
           with:
             files: ./${{ env.FOLDER }}-${{ env.VERSION }}.zip
             draft: true
