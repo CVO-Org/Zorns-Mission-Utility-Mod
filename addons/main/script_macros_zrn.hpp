@@ -74,17 +74,6 @@
 #define QPATH_TO_ADDON(var1) QUOTE(\MAINPREFIX\PREFIX\addons\COMPONENT\var1)
 #define QQPATH_TO_ADDON(var1) Q(QUOTE(\MAINPREFIX\PREFIX\addons\COMPONENT\var1))
 
-// Debug
-// Doesnt seem to work currently
-#ifdef _ZRN_DEBUG_
-    #define _DEBUG_POSTINIT_ postInit = 1;
-    #define _DEBUG_PREINIT_ preInit = 1;
-#else
-    #define _DEBUG_POSTINIT_ postInit = 0;
-    #define _DEBUG_PREINIT_ preInit = 0;
-#endif
-
-
 #define DEBUG_HEADER format [QUOTE([PREFIX][COMPONENT](%1)),_fnc_scriptName]
 
 #define ZRN_LOG_MSG(MSG) diag_log text (DEBUG_HEADER + " " + QUOTE(MSG))
@@ -138,7 +127,6 @@
     #define ZRN_LOG_MSG_HMO(MSG,var1)
 #endif
 
-
-// CVO_IDC_CSC_Crates_ListNBox_Description
+// UI IDCs/IDDs - example: IDC(listbox) -> PREFIX_idc_COMPONENT_listbox
 #define IDC(VAR) DOUBLES(TRIPLES(PREFIX,idc,COMPONENT),VAR)
 #define IDD(VAR) DOUBLES(TRIPLES(PREFIX,idd,COMPONENT),VAR)
