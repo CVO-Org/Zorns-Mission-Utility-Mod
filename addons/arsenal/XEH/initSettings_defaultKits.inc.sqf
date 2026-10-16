@@ -16,7 +16,7 @@ QSET(test) -> "ADDON_set_test"
 /*
 [
     QSET(enable),                            //    _setting     - Unique setting name. Matches resulting variable name <STRING>
-    "CHECKBOX",                                //    _settingType - Type of setting. Can be "CHECKBOX", "EDITBOX", "LIST", "SLIDER" or "COLOR" <STRING>
+    "CHECKBOX",                                //    _settingType - Type of setting. Can be "CHECKBOX", "EDITBOX", "LIST", "SLIDER", "COLOR" or "TIME" <STRING>
     SETLSTRING(enable),
                                             //    _title       - Display name or display name + tooltip (optional, default: same as setting name) <STRING, ARRAY>
     [LSTRING(set_cat_main)],                //    _category    - Category for the settings menu + optional sub-category <STRING, ARRAY>
@@ -36,7 +36,7 @@ private _configs = _configs select { getText (_x >> "id64") == ""}; // Remove Ha
 
     [
         [QADDON, _configName] joinString "_",                       //    _setting     - Unique setting name. Matches resulting variable name <STRING>
-        "CHECKBOX",                                                 //    _settingType - Type of setting. Can be "CHECKBOX", "EDITBOX", "LIST", "SLIDER" or "COLOR" <STRING>
+        "CHECKBOX",                                                 //    _settingType - Type of setting. Can be "CHECKBOX", "EDITBOX", "LIST", "SLIDER", "COLOR" or "TIME" <STRING>
         [_configName, LSTRING(set_disable_desc)],                   //    _title       - Display name or display name + tooltip (optional, default: same as setting name) <STRING, ARRAY>
         [LSTRING(cat_title),LSTRING(set_defaultKits_subcat_title)], //    _category    - Category for the settings menu + optional sub-category <STRING, ARRAY>
         true,                                                       //    _valueInfo   - Extra properties of the setting depending of _settingType. See examples below <ANY>

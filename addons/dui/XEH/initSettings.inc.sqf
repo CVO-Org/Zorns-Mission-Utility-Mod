@@ -1,7 +1,7 @@
 
 [
     QSET(enabled),                                      //    _setting     - Unique setting name. Matches resulting variable name <STRING>
-    "CHECKBOX",                                         //    _settingType - Type of setting. Can be "CHECKBOX", "EDITBOX", "LIST", "SLIDER" or "COLOR" <STRING>
+    "CHECKBOX",                                         //    _settingType - Type of setting. Can be "CHECKBOX", "EDITBOX", "LIST", "SLIDER", "COLOR" or "TIME" <STRING>
     SETLSTRING(enabled),
                                                         //    _title       - Display name or display name + tooltip (optional, default: same as setting name) <STRING, ARRAY>
     LSTRING(cba_category),                              //    _category    - Category for the settings menu + optional sub-category <STRING, ARRAY>
