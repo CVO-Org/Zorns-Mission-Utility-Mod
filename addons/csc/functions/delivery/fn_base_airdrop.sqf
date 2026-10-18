@@ -24,7 +24,7 @@ params [ "_request", "_parameters" ];
 { _x allowDamage false } forEach (_request get "crates");
 
 // Get Positions
-private _pos_startPos = _parameters getOrDefault ["pos_start", [0,0,0]];
+private _pos_startPos = + (_parameters getOrDefault ["pos_start", [0,0,0]]); // copy, as it gets modified below
 private _pos_dropZone = _request getOrDefault ["destination", [0,0,0]];
 
 _pos_startPos = switch (_parameters getOrDefault ["mode", "EDGE_NEAR"] ) do {
@@ -85,7 +85,7 @@ _grp deleteGroupWhenEmpty true;
 [[_airFrameObject] + units _grp, true] call ace_headless_fnc_blacklist;
 
 // Place and Rotate Plane
-_airFrameObject setPos _pos_startPos; // ToDo: Turn into setPosASL
+_airFrameObject setPosASL _pos_startPos;
 private _dir = (_pos_startPos getDir _pos_dropZone);
 _airFrameObject setDir _dir;
 
