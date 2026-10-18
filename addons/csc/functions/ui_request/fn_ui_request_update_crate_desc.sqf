@@ -38,8 +38,10 @@ private _map = [
     createHashMap
 ] call EFUNC(catalog,getEntry);
 
-// Nested Array of Items: [item config, amount]
-private _items = (_map get "items") apply { [_x#0 call cba_fnc_getItemConfig, _x#1] } select { _x#0 isNotEqualTo configNull };
+// Nested Array of Items and Backpacks: [config, amount]
+private _items = (_map get "items") apply { [_x#0 call cba_fnc_getItemConfig, _x#1] };
+_items append ((_map getOrDefault ["backpacks", []]) apply { [configFile >> "CfgVehicles" >> _x#0, _x#1] });
+_items = _items select { !isNull (_x#0) };
 
 // Create list of items
 private _lines = ["Content:"];

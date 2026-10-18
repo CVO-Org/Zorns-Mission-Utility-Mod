@@ -5,11 +5,7 @@ class base_crate {
     displayName = "Base Crate";
 
     // description = "Base Description - You shouldnt see this tbh.";
-
-
-
     items[] = {};
-    backpacks[] = {};
 
     box_class = "C_supplyCrate_F";
     box_empty = "true";
