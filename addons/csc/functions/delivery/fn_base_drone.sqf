@@ -25,7 +25,7 @@ params [ "_request", "_parameters" ];
 private _targetPos = _request getOrDefault ["destination", [0,0,0]];
 
 // Establish Start Position
-private _startPos = _parameters getOrDefault ["pos_start", [0,0,0]];
+private _startPos = + (_parameters getOrDefault ["pos_start", [0,0,0]]); // copy, as it gets modified below
 private _alt_journey = _parameters getOrDefault ["alt_journey", 50];
 
 _startPos = switch (_parameters getOrDefault ["mode", "EDGE_NEAR"] ) do {
