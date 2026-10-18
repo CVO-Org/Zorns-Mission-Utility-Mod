@@ -7,6 +7,7 @@
 *
 * Arguments:
 * 0: _inputData - Crate configuration hashmap with id, displayName, description, box_class, items, backpacks, etc. <HASHMAP>
+* 1: _overwrite - Replace an already registered entry with the same ID instead of rejecting it <BOOL> (default: false)
 *
 * Return Value:
 * Boolean - true on successful registration, false on validation failure <BOOL>
@@ -19,7 +20,10 @@
 
 if (!isServer) exitWith {};
 
-params [ ["_inputData", nil, [createHashMap] ] ];
+params [
+    ["_inputData", nil,   [createHashMap] ],
+    ["_overwrite", false, [true]          ]
+];
 
 if (isNil "_inputData") exitWith { false };
 
@@ -28,11 +32,11 @@ private _id = (_inputData getOrDefault ["id", ""]);
 
 // Autogenerate ID for crates - It is assumed that most users will use #ALL to make all crates accessible
 if (_id isEqualTo "") then { _id = [QADDON,"crate", count GVAR(crates) ] joinString "_"; };
-
 if !(_id isEqualType "")  exitWith { ["CRATE ID must be a string"]            call BIS_fnc_error; ERROR("CRATE ID must be a string"); };
 _id = toLowerANSI _id;
 if  (_id isEqualTo "")    exitWith { ["CRATE ID cannot be empty"]             call BIS_fnc_error; ERROR("CRATE ID cannot be empty"); };
-if  (_id in GVAR(crates)) exitWith { ["CRATE ID: %1 already registered", _id] call BIS_fnc_error; ERROR_1("CRATE ID: %1 already registered",_id); };
+if  (_id in GVAR(crates) && { !_overwrite }) exitWith { ["CRATE ID: %1 already registered", _id] call BIS_fnc_error; ERROR_1("CRATE ID: %1 already registered",_id); };
+if  (_id in GVAR(crates)) then { WARNING_1("CRATE ID: %1 already registered - overwriting",_id); };
 _inputData set ["id", _id];
 
 // Get Default Data
@@ -68,6 +72,6 @@ _data set ["items", _items];
 _data set ["backpacks", _backpacks];
 
 // Store Data
-[QGVAR(EH_setData), [QGVAR(crates), _id, _data]] call CBA_fnc_globalEventJIP;
+[QGVAR(EH_setData), [QGVAR(crates), _id, _data], [QGVAR(crates), _id] joinString ":"] call CBA_fnc_globalEventJIP; // fixed JIP ID, so an overwrite replaces the previous JIP entry
 
 true
