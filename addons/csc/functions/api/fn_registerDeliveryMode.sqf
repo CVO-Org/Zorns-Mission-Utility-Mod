@@ -25,10 +25,10 @@ if (isNil "_inputData") exitWith { false };
 
 // Validate ID
 private _id = (_inputData getOrDefault ["id", ""]);
+if !(_id isEqualType "")         exitWith { ["DELIVERYMODE ID must be a string"]            call BIS_fnc_error; ERROR("DELIVERYMODE ID must be a string"); };
 _id = toLowerANSI _id;
-if !(_id isEqualType "")             exitWith { ["DELIVERYMODE ID must be a string"]            call BIS_fnc_error; ERROR("DELIVERYMODE ID must be a string"); };
-if  (_id isEqualTo "")               exitWith { ["DELIVERYMODE ID cannot be empty"]             call BIS_fnc_error; ERROR("DELIVERYMODE ID cannot be empty"); };
-if  (_id in GVAR(base_deliveryMode)) exitWith { ["DELIVERYMODE ID: %1 already registered", _id] call BIS_fnc_error; ERROR_1("DELIVERYMODE ID: %1 already registered",_id); };
+if  (_id isEqualTo "")           exitWith { ["DELIVERYMODE ID cannot be empty"]             call BIS_fnc_error; ERROR("DELIVERYMODE ID cannot be empty"); };
+if  (_id in GVAR(deliveryModes)) exitWith { ["DELIVERYMODE ID: %1 already registered", _id] call BIS_fnc_error; ERROR_1("DELIVERYMODE ID: %1 already registered",_id); };
 _inputData set ["id", _id];
 
 
