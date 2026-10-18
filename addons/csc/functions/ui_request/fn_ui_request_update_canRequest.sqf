@@ -30,6 +30,11 @@ if (_availableDeliveryModes isEqualTo []) exitWith {
         ctrlSetText [MUM_IDC_CSC_Status, "No delivery mode available."];
 };
 
+if (_curSelIndex isEqualTo -1) exitWith {
+        ctrlEnable [MUM_IDC_CSC_ButtonOK, false];
+        ctrlSetText [MUM_IDC_CSC_Status, "No delivery mode selected."];
+};
+
 private _curSel_delivery_mode = _availableDeliveryModes select _curSelIndex;
 
 

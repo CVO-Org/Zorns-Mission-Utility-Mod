@@ -17,12 +17,34 @@
 
 params ["_display"];
 
-
-//// Update Crates ListNBox
 // Init Vars
 _display setVariable [QGVAR(maxCrates), 3];
 _display setVariable [QGVAR(totalCrates), 0];
 
+// Destination and Delivery Mode ListBoxes are populated first,
+// as selecting a crate below already requires a selected delivery mode.
+
+//// Update Destination ListBox
+{
+    lbAdd [
+        MUM_IDC_CSC_Destination_ListBox,
+        GVAR(destinations) get _x getOrDefault ["displayName", "EMPTY"]
+    ];
+} forEach (_display getVariable QGVAR(destinations));   // array of Configs
+lbSetCurSel [MUM_IDC_CSC_Destination_ListBox, 0];
+
+
+//// Update Delivery Mode ListBox
+{
+    lbAdd [
+        MUM_IDC_CSC_Delivery_ListBox,
+        GVAR(deliveryModes) get _x getOrDefault ["displayName", "EMPTY"]
+    ];
+} forEach (_display getVariable QGVAR(deliveryModes));   // array of Configs
+lbSetCurSel [MUM_IDC_CSC_Delivery_ListBox, 0];
+
+
+//// Update Crates ListNBox
 private _crates = _display getVariable QGVAR(crates);
 
 _crates sort true;
@@ -48,22 +70,3 @@ private _array = [];
 lnbAddArray [ MUM_IDC_CSC_Crates_ListNBox, _array ];
 lbSetCurSel [MUM_IDC_CSC_Crates_ListNBox, 0];
 call FUNC(ui_request_update_crate_desc);
-
-//// Update Destination ListBox
-{
-    lbAdd [
-        MUM_IDC_CSC_Destination_ListBox,
-        GVAR(destinations) get _x getOrDefault ["displayName", "EMPTY"]
-    ];
-} forEach (_display getVariable QGVAR(destinations));   // array of Configs
-lbSetCurSel [MUM_IDC_CSC_Destination_ListBox, 0];
-
-
-//// Update Delivery Mode ListBox
-{
-    lbAdd [
-        MUM_IDC_CSC_Delivery_ListBox,
-        GVAR(deliveryModes) get _x getOrDefault ["displayName", "EMPTY"]
-    ];
-} forEach (_display getVariable QGVAR(deliveryModes));   // array of Configs
-lbSetCurSel [MUM_IDC_CSC_Delivery_ListBox, 0];
