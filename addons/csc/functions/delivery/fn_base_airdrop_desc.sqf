@@ -22,7 +22,7 @@ private _airframeDisplayName = getText (configFile >> "CfgVehicles" >> _delivery
 
 format [
     "<t color='#B3B3B3'>Will be air-dropped by %1</t> %2 <t color='#B3B3B3'>at</t> %3 meters ATL.",
-    ["a", "an"] select ( toLower (_airframeDisplayName select [0,1]) in ["a", "e", "i", "o", "u", "1", "8"] ),
+    ["a", "an"] select ( toLowerANSI (_airframeDisplayName select [0,1]) in ["a", "e", "i", "o", "u", "1", "8"] ),
     _airframeDisplayName,
     _deliveryMap get "parameters" get "airdrop_alt"
 ] // return

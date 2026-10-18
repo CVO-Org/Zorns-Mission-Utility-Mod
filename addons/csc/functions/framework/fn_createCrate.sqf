@@ -93,35 +93,31 @@ if (_entry getOrDefault ["ace_refuel_source", false]) then {
 
 // ACE Drag
 [
+    QGVAR(EH_ace_setDraggable),
     [
-        QGVAR(EH_ace_setDraggable),
-        [
-            _box,
-            _entry getOrDefault ["ace_drag_canDrag", true],
-            _entry getOrDefault ["ace_drag_relPOS", [0,1.5,0]],
-            _entry getOrDefault ["ace_drag_dir", 0],
-            _entry getOrDefault ["ace_drag_ignoreWeight", true]
-        ]
-    ] call CBA_fnc_globalEventJIP,
-    _box
-] call CBA_fnc_removeGlobalEventJIP;
+        _box,
+        _entry getOrDefault ["ace_drag_canDrag", true],
+        _entry getOrDefault ["ace_drag_relPOS", [0,1.5,0]],
+        _entry getOrDefault ["ace_drag_dir", 0],
+        _entry getOrDefault ["ace_drag_ignoreWeight", true]
+    ],
+    _box // JIP entry is removed once the box is deleted
+] call CBA_fnc_globalEventJIP;
 
 
 // ACE Carry
 
 [
+    QGVAR(EH_ace_setCarryable),
     [
-        QGVAR(EH_ace_setCarryable),
-        [
-            _box,
-            _entry getOrDefault ["ace_carry_canCarry", true],
-            _entry getOrDefault ["ace_carry_relPOS", [0,1,1]],
-            _entry getOrDefault ["ace_carry_dir", 0],
-            _entry getOrDefault ["ace_carry_ignoreWeight", false]
-        ]
-    ] call CBA_fnc_globalEventJIP,
-    _box
-] call CBA_fnc_removeGlobalEventJIP;
+        _box,
+        _entry getOrDefault ["ace_carry_canCarry", true],
+        _entry getOrDefault ["ace_carry_relPOS", [0,1,1]],
+        _entry getOrDefault ["ace_carry_dir", 0],
+        _entry getOrDefault ["ace_carry_ignoreWeight", false]
+    ],
+    _box // JIP entry is removed once the box is deleted
+] call CBA_fnc_globalEventJIP;
 
 
 //////////////////////////////////////////////////
@@ -148,9 +144,9 @@ while {_addWheels > 0}    do { ["ACE_Wheel",           _box]  call ace_cargo_fnc
 while {_addJerryCans > 0} do { ["Land_CanisterFuel_F", _box]  call ace_cargo_fnc_loadItem; _addJerryCans = _addJerryCans -1 };
 while {_addTracks > 0}    do { ["ACE_Track",           _box]  call ace_cargo_fnc_loadItem; _addTracks = _addTracks -1};
 
-[QGVAR(api_crateSpawned), [_box] ] call CBA_fnc_ServerEvent;
-
 _box setVehiclePosition [[0,0,0], [], 100];
+
+[QGVAR(api_crateSpawned), [_box] ] call CBA_fnc_ServerEvent;
 
 // add object to all curators
 

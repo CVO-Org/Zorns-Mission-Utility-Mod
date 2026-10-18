@@ -40,16 +40,9 @@ private _ATL_dropZone = _parameters getOrDefault ["airdrop_alt", 50];
 private _ASL_start    = getTerrainHeightASL _pos_startPos;
 private _ASL_dropZone = getTerrainHeightASL _pos_dropZone;
 
-diag_log text format ['[CVO](debug)(fn_base_airdrop) _ATL_dropZone: %1', _ATL_dropZone];
-diag_log text format ['[CVO](debug)(fn_base_airdrop) _ASL_start: %1', _ASL_start];
-diag_log text format ['[CVO](debug)(fn_base_airdrop) _ASL_dropZone: %1', _ASL_dropZone];
-
 // These are the ASL's
 private _ASL_release  = _ASL_dropZone + _ATL_dropZone;
 private _ASL_spawn    = (_ASL_start + _ATL_dropZone) max _ASL_release; // Spawn the airframe at ether Dropzone ASL altude or, when Spawn ASL is higher, use that.
-
-diag_log text format ['[CVO](debug)(fn_base_airdrop) _ASL_release: %1', _ASL_release];
-diag_log text format ['[CVO](debug)(fn_base_airdrop) _ASL_spawn: %1', _ASL_spawn];
 
 _pos_startPos set [2, _ASL_spawn];
 _pos_dropZone set [2, _ASL_release];

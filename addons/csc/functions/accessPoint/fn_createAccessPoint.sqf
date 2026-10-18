@@ -43,7 +43,7 @@ private _accessPointData = createHashMapFromArray [
 
 _accessPointData merge _addParams;
 
-[QGVAR(EH_setData), [QGVAR(accessPoints), _accessPointID, _accessPointData ], _accessPointID] call CBA_fnc_localEvent;
+[QGVAR(EH_setData), [QGVAR(accessPoints), _accessPointID, _accessPointData ]] call CBA_fnc_localEvent;
 
 private _conditionCode = switch (_accessPointData getOrDefault ["conditionType", "ALWAYS"]) do {
     case "CUSTOM": { _accessPointData getOrDefault ["conditionCodeCustom", { true } ] };
