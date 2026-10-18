@@ -25,10 +25,12 @@ private _reference = _parameters getOrDefault ["reference", objNull];
 _reference = switch (true) do {
     case (_reference isEqualTo "PLAYER"): { _request getOrDefault ["requester", ACE_Player] };
     case (_reference isEqualTo "TARGET"): { _request getOrDefault ["target", objNull] };
-    case (!isNil _reference): { missionNamespace getVariable _reference };
+    case (_reference isEqualType objNull): { _reference };
+    case (_reference isEqualType "" && { !isNil _reference }): { missionNamespace getVariable _reference };
     default { objNull };
 };
 
+if !(_reference isEqualType objNull) exitWith { [0,0,0] };
 if (isNull _reference) exitWith { [0,0,0] };
 
 private _mode = _parameters getOrDefault ["mode", "FRONT"];
