@@ -69,17 +69,36 @@ _object setPosASL (AGLToASL _posBehindVehicleAGL);
     };
 
     // Handle Strobe Above Parachute
+    private _strobe = objNull;
     private _class_strobe = _params getOrDefault ["parachute_class_strobe", "ACE_IR_Strobe_Effect"];
     if (! isClass (configFile >> "CfgVehicles" >> _class_strobe) && { ! isClass (configFile >> "CfgAmmo" >> _class_strobe) } ) then { _class_strobe = ""; };
     if (_class_strobe isNotEqualTo "") then {
-        private _strobe = createVehicle [_class_strobe, [0,0,10], [], 0, "CAN_COLLIDE"];
-        _strobe attachTo [attachedTo _object, [0,0,32]];
-        [
-            { getPos (_this#0) select 2 < 1 },
-            { deleteVehicle (_this#1) },
-            [_object, _strobe]
-        ] call CBA_fnc_waitUntilAndExecute;
+        _strobe = createVehicle [_class_strobe, [0,0,10], [], 0, "CAN_COLLIDE"];
+        _strobe attachTo [_parachute, [0,0,32]];
     };
+
+    // Wait until landed - or until the parachute got stuck above ground (eg. in a tree), in which case the crate gets released.
+    private _releaseCrate = {
+        params ["_object", "_parachute", "_strobe"];
+        deleteVehicle _strobe;
+        if (isNull _object || { getPos _object select 2 < 1 }) exitWith {};
+        detach _object;
+        deleteVehicle _parachute;
+    };
+
+    [
+        {
+            params ["_object", "_parachute", "", "_startTime"];
+            isNull _object
+            || { getPos _object select 2 < 1 }
+            || { isNull _parachute }
+            || { CBA_missionTime > _startTime + 5 && { speed _parachute < 1 } } // stuck - grace period while the parachute deploys
+        },
+        _releaseCrate,
+        [_object, _parachute, _strobe, CBA_missionTime],
+        600,
+        _releaseCrate
+    ] call CBA_fnc_waitUntilAndExecute;
 }, [_object, _parameters], 0.7] call CBA_fnc_waitAndExecute;
 
 
