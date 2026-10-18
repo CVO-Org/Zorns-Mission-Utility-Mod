@@ -17,7 +17,7 @@
 
 params ["_display", "_exitCode"];
 
-if (_exitCode == 2) exitWith {}; // 
+if (_exitCode isNotEqualTo 1) exitWith {};
 
 
 // Get Crates
