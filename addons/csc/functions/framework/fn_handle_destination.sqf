@@ -41,6 +41,9 @@ switch (true) do {
     // return is string: handle as gvar name and wait for it to become expected return
     case (_return isEqualType ""): {
 
+        // Clear potential leftover from a previous, timed out request
+        missionNamespace setVariable [_return, nil];
+
         // Closes Zeus Interface and Stores that state
         if ( !isNull (findDisplay 312) ) then {
             findDisplay 312 closeDisplay 2;
