@@ -12,7 +12,7 @@ This mod contains several frameworks, tools and utilities that I have created in
 
 ##
 > [!IMPORTANT]
-> There are no modules and no "easy way" to set things up. Understanding basic config and SQF is a essential to have good time with this.
+> Some frameworks come with Eden modules, but most of the setup is done via config and SQF. Understanding basic config and SQF is essential to have a good time with this.
 > These Addons are made by me for me to make my life easier and reduce repeated effort.
 > I am happy to help with details, but basic sqf and config knowledge is expected.
 ##
@@ -20,7 +20,7 @@ This mod contains several frameworks, tools and utilities that I have created in
 
 ## Features
 - [Role and SteamID based Arsenal Framework](addons/arsenal/readme.md)
-- [Custom Supply Crate Framework (WIP)](addons/csc/readme.md)
+- [Custom Supply Crate Framework](addons/csc/readme.md)
 - [Loadout System (WIP)](addons/loadout/readme.md)
 - [Ambient Audio Framework](addons/ambient/readme.md)
 - [Diary System (WIP)](addons/diary/readme.md)
