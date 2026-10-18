@@ -26,8 +26,8 @@ if (isNil "_inputData") exitWith { false };
 
 // Validate ID
 private _id = (_inputData getOrDefault ["id", ""]);
-_id = toLowerANSI _id;
 if !(_id isEqualType "")  exitWith { ["DESTINATION ID must be a string"]            call BIS_fnc_error; ERROR("DESTINATION ID must be a string"); };
+_id = toLowerANSI _id;
 if  (_id isEqualTo "")    exitWith { ["DESTINATION ID cannot be empty"]             call BIS_fnc_error; ERROR("DESTINATION ID cannot be empty"); };
 if  (_id in GVAR(destinations)) exitWith { ["DESTINATION ID: %1 already registered", _id] call BIS_fnc_error; ERROR_1("DESTINATION ID: %1 already registered",_id); };
 _inputData set ["id", _id];
