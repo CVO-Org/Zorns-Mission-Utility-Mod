@@ -134,9 +134,12 @@ _endWP_Pos = switch true do {
 // Handles the Detaching of the cargo
 [
     {
-        !(_this#0 isNil "decending")
+        !alive (_this#0) || { !(_this#0 isNil "decending") }
     },
     {
+        // Drone got destroyed or deleted before reaching the target
+        if (!alive (_this#0)) exitWith {};
+
         // Wait until Drone is below a certain ATL
         private _statement = {
             params ["_drone"];
