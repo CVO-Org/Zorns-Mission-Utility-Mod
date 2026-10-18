@@ -36,9 +36,6 @@ class default_delivery_modes {
             pos_end = "RETURN";
 
             airdrop_alt = 100;
-            airdrop_speedLimit = "LIMITED";
-
-
 
             parachute_class = "B_Parachute_02_F";
             // CfgVehicles or CfgAmmo
@@ -57,25 +54,10 @@ class default_delivery_modes {
 
         cooldown = 1800;
 
-        class parameters {
-            airframe_side = "CIV";                  // String version: "WEST" "EAST" "GUER" "CIV"
-            airframe_protected = "true";
+        // Inherits all parameters from default_heli, only overwrites what differs
+        class parameters: parameters {
             airframe_class = "C_Plane_Civil_01_F";
-
-
-            pos_start[] = { 8400,7400.00,0 };
-            pos_end = "RETURN";
-
-            airdrop_alt = 100;
-            airdrop_speedLimit = "LIMITED";
-
-
-            parachute_class = "B_Parachute_02_F";
-
-            // CfgVehicles or CfgAmmo
-            parachute_class_strobe = "ACE_IR_Strobe_Effect";
-            parachute_class_chemlight = "Chemlight_yellow";
-            parachute_class_smoke = "SmokeShellOrange";
+            pos_start[] = { 8400, 7400, 0 };
         };
     };
 

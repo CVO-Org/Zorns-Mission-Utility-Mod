@@ -17,6 +17,8 @@
 * Public: Yes
 */
 
+if (!hasInterface) exitWith {};
+
 private _accessPointID =  "#ZEUS";
 
 private _conditionCode = { true };
