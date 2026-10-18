@@ -29,4 +29,5 @@ private _crates =        _logic getVariable "crates"        splitString ", ";
 private _destinations =  _logic getVariable "destinations"  splitString ", ";
 private _deliveryModes = _logic getVariable "deliveryModes" splitString ", ";
 
-[FUNC(registerAccessPoint), [_units#0, _accessPointID, _crates, _deliveryModes, _destinations]] call CBA_fnc_execNextFrame;
+{ [FUNC(registerAccessPoint), [_x, _accessPointID, _crates, _deliveryModes, _destinations]] call CBA_fnc_execNextFrame; } forEach _units;
+
