@@ -40,42 +40,26 @@ GVAR(base_deliveryMode) = (configFile >> QADDON >> "base_deliveryMode") call EFU
 GVAR(base_destination)  = (configFile >> QADDON >> "base_destination")  call EFUNC(common,getCfgDataHashmap);
 
 
-// Crates
-_configs = [];
-_configs append ( "true" configClasses (configFile >> QADDON >> "crates"));
-_configs append ( "true" configClasses (missionConfigFile >> QADDON >> "crates"));
-_configs append ( "getNumber (_x >> ""registerDefault"") isEqualTo 1" configClasses (configFile >> QADDON >> "default_crates"));
+// Registration order: defaults, then mod configs, then mission configs.
+// Mission entries are allowed to overwrite previously registered entries with the same ID.
+private _fnc_register = {
+    params ["_config", "_fnc_api", ["_overwrite", false]];
+    private _map = _config call EFUNC(common,getCfgDataHashmap);
+    _map set ["id", toLowerANSI configName _config];
+    [_map, _overwrite] call _fnc_api;
+};
 
-{
-    private _map = _x call EFUNC(common,getCfgDataHashmap);
-    private _id = toLowerANSI configName _x;
-    _map set ["id", _id];
-    [_map] call FUNC(registerCrate);
-} forEach _configs;
+// Crates
+{ [_x, FUNC(registerCrate)]       call _fnc_register } forEach ( "getNumber (_x >> ""registerDefault"") isEqualTo 1" configClasses (configFile >> QADDON >> "default_crates"));
+{ [_x, FUNC(registerCrate)]       call _fnc_register } forEach ( "true" configClasses (configFile        >> QADDON >> "crates"));
+{ [_x, FUNC(registerCrate), true] call _fnc_register } forEach ( "true" configClasses (missionConfigFile >> QADDON >> "crates"));
 
 // Deliveries
-_configs = [];
-_configs append ( "true" configClasses (configFile >> QADDON >> "delivery_modes"));
-_configs append ( "true" configClasses (missionConfigFile >> QADDON >> "delivery_modes"));
-_configs append ( "getNumber (_x >> ""registerDefault"") isEqualTo 1" configClasses (configFile >> QADDON >> "default_delivery_modes"));
+{ [_x, FUNC(registerDeliveryMode)]       call _fnc_register } forEach ( "getNumber (_x >> ""registerDefault"") isEqualTo 1" configClasses (configFile >> QADDON >> "default_delivery_modes"));
+{ [_x, FUNC(registerDeliveryMode)]       call _fnc_register } forEach ( "true" configClasses (configFile        >> QADDON >> "delivery_modes"));
+{ [_x, FUNC(registerDeliveryMode), true] call _fnc_register } forEach ( "true" configClasses (missionConfigFile >> QADDON >> "delivery_modes"));
 
-{
-    private _map = _x call EFUNC(common,getCfgDataHashmap);
-    private _id = toLower configName _x;
-    _map set ["id", _id];
-    [_map] call FUNC(registerDeliveryMode);
-} forEach _configs;
-
-
-// Destination
-_configs = [];
-_configs append ( "true" configClasses (configFile >> QADDON >> "destinations"));
-_configs append ( "true" configClasses (missionConfigFile >> QADDON >> "destinations"));
-_configs append ( "getNumber (_x >> ""registerDefault"") isEqualTo 1" configClasses (configFile >> QADDON >> "default_destinations"));
-
-{
-    private _map = _x call EFUNC(common,getCfgDataHashmap);
-    private _id = toLower configName _x;
-    _map set ["id", _id];
-    [_map] call FUNC(registerDestination);
-} forEach _configs;
+// Destinations
+{ [_x, FUNC(registerDestination)]       call _fnc_register } forEach ( "getNumber (_x >> ""registerDefault"") isEqualTo 1" configClasses (configFile >> QADDON >> "default_destinations"));
+{ [_x, FUNC(registerDestination)]       call _fnc_register } forEach ( "true" configClasses (configFile        >> QADDON >> "destinations"));
+{ [_x, FUNC(registerDestination), true] call _fnc_register } forEach ( "true" configClasses (missionConfigFile >> QADDON >> "destinations"));
