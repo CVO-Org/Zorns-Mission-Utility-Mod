@@ -5,12 +5,13 @@
 * Function to check the conditions and update the Arrows (Enable/Disable)
 *
 * Arguments:
+* None
 *
 * Return Value:
 * None
 *
 * Example:
-* nil call prefix_component_fnc_functionname
+* call mum_csc_fnc_ui_request_update_arrows
 *
 * Public: No
 */

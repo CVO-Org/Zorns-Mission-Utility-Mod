@@ -2,15 +2,18 @@
 
 /*
 * Author: Zorn
-* 3den Module Function to
+* Registers a crate from the Register Crate module attributes, including the inventory of the synced crate, which is deleted afterwards.
 *
 * Arguments:
+* 0: _logic - Module logic <OBJECT>
+* 1: _units - Synced objects <ARRAY>
+* 2: _activated - Module activated <BOOL>
 *
 * Return Value:
 * None
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [_logic, synchronizedObjects _logic, true] call mum_csc_fnc_module_registerCrate_init
 *
 * Public: No
 */

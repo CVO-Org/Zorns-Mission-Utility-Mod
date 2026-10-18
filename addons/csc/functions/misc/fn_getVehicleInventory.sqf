@@ -2,16 +2,17 @@
 
 /*
 * Author: Zorn
-* Function to return the full item inventory of an vehicle.
+* Returns the full cargo inventory (items, magazines, weapons, backpacks) of an object.
 *
 * Arguments:
+* 0: _object - Object <OBJECT> (default: objNull)
+* 1: _seperateBackpacks - Return items and backpacks separately <BOOL> (default: false)
 *
 * Return Value:
-* Nested Array  of Items as [className, amount] pair including backpacks
-*
+* [[className, amount], ...] or [items, backpacks] when separated <ARRAY>
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [cursorObject, true] call mum_csc_fnc_getVehicleInventory
 *
 * Public: No
 */

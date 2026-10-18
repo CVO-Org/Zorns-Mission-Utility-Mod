@@ -2,15 +2,16 @@
 
 /*
 * Author: Zorn
-* UI Function to verify the provided input.
+* Validates the grid coordinate input and enables the OK button when valid.
 *
 * Arguments:
+* None
 *
 * Return Value:
 * None
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* call mum_csc_fnc_ui_grid_onEditChanged
 *
 * Public: No
 */

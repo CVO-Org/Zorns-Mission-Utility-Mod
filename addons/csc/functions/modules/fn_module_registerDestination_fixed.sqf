@@ -5,12 +5,15 @@
 * INIT Module Function to register a Destination (Fixed Position).
 *
 * Arguments:
+* 0: _logic - Module logic <OBJECT>
+* 1: _units - Synced objects <ARRAY>
+* 2: _activated - Module activated <BOOL>
 *
 * Return Value:
 * None
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* Called by the module
 *
 * Public: No
 */

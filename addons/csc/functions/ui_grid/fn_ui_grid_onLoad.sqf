@@ -2,15 +2,16 @@
 
 /*
 * Author: Zorn
-* [Description]
+* onLoad handler of the grid coordinates dialog. Currently does nothing.
 *
 * Arguments:
+* 0: _display - Dialog <DISPLAY>
 *
 * Return Value:
 * None
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [_display] call mum_csc_fnc_ui_grid_onLoad
 *
 * Public: No
 */

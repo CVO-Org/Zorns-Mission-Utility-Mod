@@ -5,12 +5,13 @@
 * Function to update the Description Text of the Crates Section
 *
 * Arguments:
+* None
 *
 * Return Value:
 * None
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* call mum_csc_fnc_ui_request_update_crate_desc
 *
 * Public: No
 */

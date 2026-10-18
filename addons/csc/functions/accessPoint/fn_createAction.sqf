@@ -2,15 +2,17 @@
 
 /*
 * Author: Zorn
-* Function to Create the Ace Action
+* Creates the ACE action which opens the request dialog for an access point.
 *
 * Arguments:
+* 0: _accessPointID - Access point ID <STRING>
+* 1: _conditionCode - ACE action condition <CODE>
 *
 * Return Value:
-* None
+* ACE action <ARRAY>
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* ["hq", { true }] call mum_csc_fnc_createAction
 *
 * Public: No
 */
