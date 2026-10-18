@@ -21,5 +21,6 @@ params ["_deliveryClassname"];
 switch (true) do {
     case ( isNil QGVAR(cooldowns) ): { false };
     case ( GVAR(cooldowns) isNil _deliveryClassname ): { false };
+    case ( (GVAR(cooldowns) get _deliveryClassname) < CBA_missionTime ): { false }; // expired, but not yet cleaned up
     default { (GVAR(cooldowns) get _deliveryClassname) - CBA_missionTime }
 } // return

@@ -32,9 +32,9 @@ params ["_request"];
 private _className = _request get "delivery_mode";
 private _deliveryMap = [ QGVAR(deliveryModes), _className ] call EFUNC(catalog,getEntry);
 
-// Handle Cooldown
+// Handle Cooldown - Zeus requests ignore and do not trigger the cooldown
 private _cooldown = (_deliveryMap get "cooldown") max 0;
-if (_cooldown isNotEqualTo 0) then { [_className, _cooldown] call FUNC(setCooldown); };
+if (_cooldown isNotEqualTo 0 && { !(_request getOrDefault ["isZeus", false]) }) then { [_className, _cooldown] call FUNC(setCooldown); };
 
 // Execute Delivery
 ZRN_LOG_MSG_1(Request Recieved - Init Delivery,_className);
