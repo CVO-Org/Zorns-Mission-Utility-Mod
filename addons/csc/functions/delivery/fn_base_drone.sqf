@@ -110,6 +110,7 @@ private _i = 0;
 while { _targetPos_empty isEqualTo [] } do {
     _i = _i + 1;
     _targetPos_empty = _targetPos findEmptyPosition [_biggest, _biggest * _i];
+    if (_i > 25) then { _targetPos_empty = + _targetPos; };
 };
 
 private _tgtWP = _grp addWaypoint [_targetPos_empty, 0];
