@@ -2,15 +2,16 @@
 
 /*
 * Author: Zorn
-* Function to update the ListNBox control
+* Fills the destination, delivery mode and crate lists of the request dialog.
 *
 * Arguments:
+* 0: _display - Request dialog <DISPLAY>
 *
 * Return Value:
 * None
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [_display] call mum_csc_fnc_ui_request_crates_init
 *
 * Public: No
 */

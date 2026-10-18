@@ -2,15 +2,17 @@
 
 /*
 * Author: Zorn
-* Function to return the position on the edge of the map which is the closest or furthest from the input position.
+* Returns the point on the map edge closest to the input position, or the map corner furthest from it.
 *
 * Arguments:
+* 0: _input - Reference position or object, random position when nil <ARRAY or OBJECT> (default: nil)
+* 1: _getFurthest - Return the furthest corner instead of the closest edge <BOOL> (default: false)
 *
 * Return Value:
-* None
+* Position [x, y] <ARRAY>
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [getPos player, true] call mum_csc_fnc_getPosEdge
 *
 * Public: No
 */

@@ -2,15 +2,17 @@
 
 /*
 * Author: Zorn
-* Unload Function - Reads UI Variables and creates the request-hashmap
+* onUnload handler of the grid coordinates dialog: stores the entered position, or false when cancelled, in mum_csc_waitForGridCoordinates.
 *
 * Arguments:
+* 0: _display - Dialog <DISPLAY>
+* 1: _exitCode - Exit code, 1 for OK <NUMBER>
 *
 * Return Value:
 * None
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [_display, 1] call mum_csc_fnc_ui_grid_onUnload
 *
 * Public: No
 */

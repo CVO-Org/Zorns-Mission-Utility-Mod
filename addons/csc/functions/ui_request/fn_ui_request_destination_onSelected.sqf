@@ -2,15 +2,17 @@
 
 /*
 * Author: Zorn
-* Function to check and update the max possible crates.
+* Selection handler of the destination list: stores the selection and updates the description.
 *
 * Arguments:
+* 0: _control - Destination list <CONTROL>
+* 1: _index - Selected row <NUMBER>
 *
 * Return Value:
 * None
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [_ctrl, 0] call mum_csc_fnc_ui_request_destination_onSelected
 *
 * Public: No
 */

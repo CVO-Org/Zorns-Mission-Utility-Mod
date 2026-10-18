@@ -2,15 +2,17 @@
 
 /*
 * Author: Zorn
-* Function to check and update the max possible crates.
+* Selection handler of the delivery mode list: stores the selection, updates max crates and the description.
 *
 * Arguments:
+* 0: _control - Delivery mode list <CONTROL>
+* 1: _index - Selected row <NUMBER>
 *
 * Return Value:
 * None
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [_ctrl, 0] call mum_csc_fnc_ui_request_delivery_onSelected
 *
 * Public: No
 */

@@ -2,16 +2,17 @@
 
 /*
 * Author: Zorn
-* This Mission init Function will create 3 GVAR Hashmaps which stores the individual presets from both configFile and missionConfigFile with the configName as a key and the configpath as the value.
-* missionConfigFile entries will overwrite configFile entries, overwriting them.
+* Initializes the CSC registries and registers all config entries.
+* Order: defaults, configFile, missionConfigFile. Mission entries may overwrite previously registered entries with the same ID.
 *
 * Arguments:
+* None
 *
 * Return Value:
 * None
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* Called via preInit
 *
 * Public: No
 */

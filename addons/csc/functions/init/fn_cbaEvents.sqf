@@ -5,12 +5,13 @@
 * Function to add CBA Events
 *
 * Arguments:
+* None
 *
 * Return Value:
 * None
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* Called via preInit
 *
 * Public: No
 */

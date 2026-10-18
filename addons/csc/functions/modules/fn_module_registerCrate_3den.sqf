@@ -2,15 +2,17 @@
 
 /*
 * Author: Zorn
-* 3den Function for the Register Crate (Synced) module
+* Module function of Register Crate: forwards "init" to module_registerCrate_init and validates the module's connections in Eden.
 *
 * Arguments:
+* 0: _mode - "init" or "connectionChanged3DEN" <STRING>
+* 1: _input - Mode specific arguments <ARRAY>
 *
 * Return Value:
-* None
+* true <BOOL>
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* Called by the module
 *
 * Public: No
 */

@@ -2,15 +2,16 @@
 
 /*
 * Author: Zorn
-* [Description]
+* onLoad handler of the request dialog: initializes the lists once the registry is available.
 *
 * Arguments:
+* 0: _display - Request dialog <DISPLAY>
 *
 * Return Value:
 * None
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [_display] call mum_csc_fnc_ui_request_onLoad
 *
 * Public: No
 */

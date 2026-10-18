@@ -2,15 +2,17 @@
 
 /*
 * Author: Zorn
-* Function to ...
+* Selection handler of the crate list: updates the crate description and the +/- buttons.
 *
 * Arguments:
+* 0: _ctrl - Crate list <CONTROL>
+* 1: _index - Selected row <NUMBER>
 *
 * Return Value:
 * None
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [_ctrl, 0] call mum_csc_fnc_ui_request_crates_onLBSelChanged
 *
 * Public: No
 */

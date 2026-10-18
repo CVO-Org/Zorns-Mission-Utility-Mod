@@ -2,15 +2,17 @@
 
 /*
 * Author: Zorn
-* Unload Function - Reads UI Variables and creates the request-hashmap
+* onUnload handler of the request dialog: builds the request hashmap and starts the destination handling. Only when confirmed (exit code 1).
 *
 * Arguments:
+* 0: _display - Request dialog <DISPLAY>
+* 1: _exitCode - Exit code, 1 for OK <NUMBER>
 *
 * Return Value:
 * None
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [_display, 1] call mum_csc_fnc_ui_request_onUnload
 *
 * Public: No
 */

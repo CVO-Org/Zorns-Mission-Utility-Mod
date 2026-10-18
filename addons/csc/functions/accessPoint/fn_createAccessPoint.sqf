@@ -2,21 +2,22 @@
 
 /*
 * Author: Zorn
-* Creates ACE interact menu action on object for CSC access.
-* Validates crate/destination/delivery mode lists, creates condition code, registers with ACE.
+* Local part of registerAccessPoint: stores the access point data and adds the ACE action on this client.
+* Executed via CBA JIP event on every machine, exits without interface.
 *
 * Arguments:
-* 0: _targetObject - Object to add interaction to <OBJECT>
-* 1: _crates - Array of crate IDs or single ID <ARRAY or STRING>
-* 2: _deliveryModes - Array of delivery mode IDs <ARRAY>
-* 3: _destinations - Array of destination IDs <ARRAY>
-* 4: _addParams - Optional additional parameters hashmap <HASHMAP> (default: createHashMapFromArray [])
+* 0: _targetObject - Object to add the interaction to <OBJECT>
+* 1: _accessPointID - Access point ID <STRING>
+* 2: _crates - Crate IDs or "#ALL" <ARRAY or STRING> (default: "#ALL")
+* 3: _deliveryModes - Delivery mode IDs or "#ALL" <ARRAY or STRING> (default: [])
+* 4: _destinations - Destination IDs or "#ALL" <ARRAY or STRING> (default: [])
+* 5: _addParams - Additional parameters <HASHMAP> (default: createHashMap)
 *
 * Return Value:
-* nil
+* None
 *
 * Example:
-* [targetObj, ["crate1", "crate2"], ["airdrop_heli"], ["pos_fixed"]] call mum_csc_fnc_createAccessPoint
+* [laptop_1, "hq", "#ALL", "#ALL", "#ALL"] call mum_csc_fnc_createAccessPoint
 *
 * Public: No
 */
