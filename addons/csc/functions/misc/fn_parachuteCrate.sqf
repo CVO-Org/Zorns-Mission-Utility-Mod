@@ -92,7 +92,7 @@ _object setPosASL (AGLToASL _posBehindVehicleAGL);
             isNull _object
             || { getPos _object select 2 < 1 }
             || { isNull _parachute }
-            || { CBA_missionTime > _startTime + 5 && { speed _parachute < 1 } } // stuck - grace period while the parachute deploys
+            || { CBA_missionTime > _startTime + 30 && { speed _parachute < 1 } } // stuck - grace period while the parachute deploys
         },
         _releaseCrate,
         [_object, _parachute, _strobe, CBA_missionTime],
