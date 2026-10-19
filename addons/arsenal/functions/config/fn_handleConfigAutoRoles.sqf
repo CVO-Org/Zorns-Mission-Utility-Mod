@@ -35,7 +35,7 @@ GVAR(autoRoles) = _autoRolesMap;
         configName _cfg,
         createHashMapFromArray [
             ["condition", getText (_cfg >> "condition") call CBA_fnc_convertStringCode],
-            ["role", (_cfg >> "role") call BIS_fnc_getCfgDataArray select { _x isEqualType "" }],
+            ["role", (_cfg >> "role") call BIS_fnc_getCfgDataArray select { _x isEqualType "" } apply { toLowerANSI _x }],
             ["code", getText (_cfg >> "code") call CBA_fnc_convertStringCode]
         ]
     ];
@@ -56,9 +56,9 @@ GVAR(autoTraits) = _autoTraitsMap;
     private _cfg = _x;
 
     _autoTraitsMap set [
-        configName _cfg,
+        toLowerANSI configName _cfg,
         createHashMapFromArray [
-            ["role", getText (_cfg >> "role")],
+            ["role", toLowerANSI getText (_cfg >> "role")],
             ["code", getText (_cfg >> "code") call CBA_fnc_convertStringCode]
         ]
     ];
