@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="mum-dui">
+    <Package name="3den">
+        <Key ID="STR_mum_dui_3den_teamLeader">
+            <English>Teamleader</English>
+        </Key>
+        <Key ID="STR_mum_dui_3den_teamLeader_desc">
+            <English>Makes this unit the teamleader of its fireteam color, 1-5s after mission start. Requires DUI Tweaks to be enabled. Has no effect on the group leader.</English>
+        </Key>
+        <Key ID="STR_mum_dui_cat_title">
+            <English>MUM - DUI Tweaks</English>
+        </Key>
+    </Package>
     <Package name="aceAction">
         <Key ID="STR_mum_dui_stepDownTeamleader">
             <English>Step Down as Teamleader</English>

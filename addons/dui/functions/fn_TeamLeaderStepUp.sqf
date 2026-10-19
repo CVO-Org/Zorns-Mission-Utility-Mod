@@ -5,6 +5,8 @@
 * Function to become teamleader
 *
 * Arguments:
+* 0: Unit <OBJECT> (default: ACE_Player)
+* 1: Silent - suppresses the hint <BOOL> (default: false)
 *
 * Return Value:
 * None
@@ -15,7 +17,10 @@
 * Public: No
 */
 
-params [ ["_unit", ACE_Player, [objNull] ] ];
+params [
+    ["_unit",   ACE_Player, [objNull] ],
+    ["_silent", false,      [false]   ]
+];
 
 if (_unit isEqualTo leader _unit) exitWith {};
 
@@ -34,7 +39,7 @@ _grp setVariable [QGVAR(TeamLeaders), _teamLeaders, true];
 _unit setVariable [QGVAR(isTeamleader), true, true];
 
 // Display message
-if ( _unit isEqualTo ACE_player ) then {
+if ( !_silent && { _unit isEqualTo ACE_player } ) then {
     private _message = format [LLSTRING(TL_steppedUp), localize format ["str_team_%1", _assignedTeam] ];
     [_message] call ace_common_fnc_displayTextStructured;
 };
