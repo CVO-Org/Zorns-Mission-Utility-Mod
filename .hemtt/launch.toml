@@ -59,9 +59,9 @@ workshop = [
     "751965892", # acre
 ]
 
-[dui]
+[team]
 extends = "default"
-mission = "dui.VR"
+mission = "team.VR"
 workshop = [
     "1638341685", # DUI
 ]

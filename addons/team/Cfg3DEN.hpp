@@ -7,6 +7,47 @@ class Cfg3DEN {
                 displayName = CSTRING(cat_title); // Category name visible in Edit Attributes window
                 collapsed = 1; // When 1, the category is collapsed by default
                 class Attributes {
+                    class GVAR(3den_fireteam) {
+                        control = "Combo";
+                        displayName = CSTRING(3den_fireteam);
+                        tooltip = CSTRING(3den_fireteam_desc);
+                        property = QGVAR(3den_fireteam);
+
+                        condition = "objectControllable"; // Condition for attribute to appear (see the table below)
+                        expression = Q(if (!is3DEN) then {[ARR_2({ _this#0 assignTeam _this#1 },[ARR_2(_this,_value)])] call CBA_fnc_execNextFrame;});
+
+                        validate = "none";
+                        typeName = "STRING";
+                        defaultValue = """White""";
+                        class values {
+                            class White {
+                                default = 1;
+                                name = "White";
+                                value = "MAIN";
+                            };
+                            class Red {
+                                default = 0;
+                                name = "Red";
+                                value = "RED";
+                            };
+                            class Blue {
+                                default = 0;
+                                name = "Blue";
+                                value = "BLUE";
+                            };
+                            class Green {
+                                default = 0;
+                                name = "Green";
+                                value = "GREEN";
+                            };
+                            class YELLOW {
+                                default = 0;
+                                name = "Gold";
+                                value = "YELLOW";
+                            };
+                        };
+                    };
+
                     class GVAR(3den_teamLeader) {
 
                         //--- Mandatory properties
