@@ -2,16 +2,18 @@
 
 /*
 * Author: Zorn
-* Function for Mission Makers to add CVO Arsenal Roles
+* Sets the roles of a unit, replacing its existing roles. Use mum_arsenal_fnc_addUnitRoles to keep them.
 *
 * Arguments:
+* 0: Unit <OBJECT>
+* 1: Role identifier(s) - not case-sensitive <STRING or ARRAY of STRINGS>
 *
 * Return Value:
-* None
+* Roles applied <BOOL>
 *
 * Example:
-* [ this, "EOD" ] call mum_arsenal_fnc_setUnitRoles;
-* [ this, ["EOD", "Officer"] ] call mum_arsenal_fnc_setUnitRoles;
+* [this, "EOD"] call mum_arsenal_fnc_setUnitRoles;
+* [this, ["EOD", "Officer"]] call mum_arsenal_fnc_setUnitRoles;
 *
 * Public: No
 */

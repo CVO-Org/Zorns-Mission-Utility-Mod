@@ -2,15 +2,16 @@
 
 /*
 * Author: Zorn
-* PreInit Function
+* Detects GreenMag and registers the mum_arsenal_EH_initBox event.
 *
 * Arguments:
+* None
 *
 * Return Value:
 * None
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [] call mum_arsenal_fnc_preInit
 *
 * Public: No
 */

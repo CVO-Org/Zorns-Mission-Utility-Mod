@@ -2,15 +2,17 @@
 
 /*
 * Author: Zorn
-* Creates hashmap for AutoRoles and AutoTraits.
+* Reads autoRoles and autoTraits from configFile and missionConfigFile into mum_arsenal_autoRoles and mum_arsenal_autoTraits.
+* Runs only once per client.
 *
 * Arguments:
+* None
 *
 * Return Value:
 * None
 *
 * Example:
-* ['something', player] call mum_arsenal_fnc_handleConfigAutoRoles
+* [] call mum_arsenal_fnc_handleConfigAutoRoles
 *
 * Public: No
 */

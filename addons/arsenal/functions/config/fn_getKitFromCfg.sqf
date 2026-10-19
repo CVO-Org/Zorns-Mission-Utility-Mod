@@ -2,15 +2,16 @@
 
 /*
 * Author: Zorn
-* Function to get the data from a config entry.
+* Reads a kit config entry and converts it into a kit hashmap.
 *
 * Arguments:
+* 0: Kit config <CONFIG>
 *
 * Return Value:
-* HashMap
+* Kit <HASHMAP> - nil when the addon dependency is not loaded
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [configFile >> "mum_arsenal_kits" >> "baseKit_Medical"] call mum_arsenal_fnc_getKitFromCfg
 *
 * Public: No
 */

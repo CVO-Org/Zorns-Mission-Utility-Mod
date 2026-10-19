@@ -2,15 +2,23 @@
 
 /*
 * Author: Zorn
-* "Recursive" Function to iterate over the kits one after another
+* Processes one kit per frame: if the unit meets the kit's requirements, its items are added to the arsenal box.
+* Calls itself in the next frame until all kits are processed.
 *
 * Arguments:
+* 0: Arsenal box <OBJECT>
+* 1: Unit <OBJECT> (default: ACE_player)
+* 2: Side of the unit <STRING> (default: "CIV")
+* 3: Roles of the unit <ARRAY of STRINGS> (default: [])
+* 4: Steam64 ID of the unit <STRING> (default: getPlayerUID player)
+* 5: Kits <HASHMAP> (default: empty hashmap)
+* 6-9: Internal - used for the recursion
 *
 * Return Value:
 * None
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [_box, ACE_player, "WEST", ["medic"], getPlayerUID player, _kits] call mum_arsenal_fnc_addItemsFromKit_recursive
 *
 * Public: No
 */
