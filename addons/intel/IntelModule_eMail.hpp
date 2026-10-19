@@ -27,7 +27,7 @@ class GVAR(module_IntelItem_email): Module_F {
 
         INTEL_GROUP;
         INTEL_TITLE(Recovered eMail);
-        INTEL_DESC(Most of the eMails seem irrelevant but this one cought your eye...);
+        INTEL_DESC(Most of the eMails seem irrelevant but this one caught your eye...);
 
         class GVAR(emailDate): Edit {
             displayName = "eMail Date";
@@ -59,7 +59,7 @@ class GVAR(module_IntelItem_email): Module_F {
             displayName = "eMail Text";
             tooltip = "Body of the eMail.\n Use <br/> for linebreaks.";
             property = QGVAR(emailText);
-            defaultValue = "'We have been trying to reach you regarding your lifes extended warrenty!'"; // Because this is an expression, one must have a string within a string to return a string
+            defaultValue = "'We have been trying to reach you regarding your lifes extended warranty!'"; // Because this is an expression, one must have a string within a string to return a string
         };
 
         MODULE_ATTRIBUTES_META(Check for eMails...);

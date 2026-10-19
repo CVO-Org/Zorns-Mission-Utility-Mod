@@ -59,9 +59,9 @@ eMail Text:
 Intel Group:
 Intel Title:
 Description:
-Handrwitten Note:
+Handwritten Note:
 ```
-- **Handrwitten Note** – the handwritten text itself (field name is spelled this way in the mod's code)
+- **Handwritten Note** – the handwritten text itself
 
 ### Phone Message
 ```

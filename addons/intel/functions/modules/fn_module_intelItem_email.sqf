@@ -29,7 +29,7 @@ private _emailSender =      _logic getVariable [QGVAR(emailSender), "Sender"];
 private _emailRecipient =   _logic getVariable [QGVAR(emailRecipient), "Recipient"];
 private _emailDate =        _logic getVariable [QGVAR(emailDate), ""];
 private _emailSubject =     _logic getVariable [QGVAR(emailSubject), "Subject"];
-private _emailText =        _logic getVariable [QGVAR(emailText), "Dear sir or madam, <\br> we are trying to reach you regarding your cars extended warrenty."];
+private _emailText =        _logic getVariable [QGVAR(emailText), "Dear sir or madam, <\br> we are trying to reach you regarding your cars extended warranty."];
 
 
 // Compose Intel Body
