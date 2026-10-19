@@ -14,6 +14,7 @@ Example mission folder can be found [here](https://github.com/CVO-Org/Zorns-Miss
 - Supports Kits based on players Steam64 IDs
 - Auto Assigns "Roles" based on Traits
 - Auto Assigns "Traits" based on Roles
+- Default Kits, Auto Roles and Auto Traits can be disabled via CBA Settings or a 3den Module
 
 ### How to Implement
    1. Load Zorns Mission Utility Mod
@@ -86,7 +87,7 @@ These requirements will be evaluated every time a player opens the MUM Arsenal.
 
 The following kits can be referenced as examples on how to format a kit.
 
-Further, the following kits are **hardcoded** through the mod itself. They can be disabled through [CBA Settings](#disable-default-kits).
+Further, the following kits are **hardcoded** through the mod itself. Except for the personal kits, they can be disabled through CBA Settings or the "Disable Defaults" module, see [Disable Defaults](#disable-defaults).
 
 - [Base Kits - Available for Everyone](mum_arsenal_kits_base.hpp)
 - [Role Kits - Available for certain Roles](mum_arsenal_kits_role.hpp)
@@ -135,14 +136,21 @@ publicVariable "mum_arsenal_api";
 ```
 
 
-### Disable Default Kits
+### Disable Defaults
 
-The default "baseKits" that come with the mod can be disabled via two ways
+The default kits, auto roles and auto traits that come with the mod can be disabled in three ways.
+An entry is disabled as soon as one of these ways disables it, so one way can never re-enable what another one disabled.
+Personal kits (kits with an `id64`) can not be disabled.
 
 #### 1. Individually via CBA Settings
 ![Image showcasing the cba settings](https://github.com/CVO-Org/Zorns-Mission-Utility-Mod/blob/main/docs/img/arsenal_disable_defaultKits.png)
 
-#### 2. All at once via description.ext
+#### 2. Individually via the "Disable Defaults" module
+Place the module `Systems (F5) > Modules > MUM - Arsenal Modules > Disable Defaults` and uncheck the entries you want to disable.
+The module lists every default kit, auto role and auto trait of the loaded mods, so it also gives a quick overview of what is available.
+The module is 3DEN only. Multiple modules add up.
+
+#### 3. All kits at once via description.ext
 ```cpp
 // Inside description.ext
 mum_arsenal_ignoreBaseKits = 1;

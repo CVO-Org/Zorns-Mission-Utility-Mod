@@ -28,11 +28,15 @@ QSET(test) -> "ADDON_set_test"
 */
 
 
-private _configs = Q(configName _x isNotEqualTo QQ(baseKit)) configClasses (configFile >> QGVAR(kits));
-private _configs = _configs select { getText (_x >> "id64") == ""}; // Remove Hardcoded Personal Kits from Settings
+private _configs = [ "kits" ] call FUNC(getDefaults); // Personal kits are never included
 
 {
-    private _configName = configName _x;
+    private _configName = _x;
+    private _script = compile format [
+        "params ['_value']; [ 'kits', '%1', 'setting', !_value ] call %2",
+        _configName,
+        QFUNC(setDisabled)
+    ];
 
     [
         [QADDON, _configName] joinString "_",                       //    _setting     - Unique setting name. Matches resulting variable name <STRING>
@@ -41,7 +45,7 @@ private _configs = _configs select { getText (_x >> "id64") == ""}; // Remove Ha
         [LSTRING(cat_title),LSTRING(set_defaultKits_subcat_title)], //    _category    - Category for the settings menu + optional sub-category <STRING, ARRAY>
         true,                                                       //    _valueInfo   - Extra properties of the setting depending of _settingType. See examples below <ANY>
         1,                                                          //    _isGlobal    - 1: all clients share the same setting, 2: setting can't be overwritten (optional, default: 0) <NUMBER>
-        {},                                                         //    _script      - Script to execute when setting is changed. (optional) <CODE>
+        _script,                                                    //    _script      - Script to execute when setting is changed. (optional) <CODE>
         false                                                       //    _needRestart - Setting will be marked as needing mission restart after being changed. (optional, default false) <BOOL>
     ] call CBA_fnc_addSetting;
 

@@ -67,9 +67,8 @@ private _kit = _kits get _kitName;
 
 systemChat format ['(Processing)[%1/%2] %3',1 + _total - _count, _total, _kitName];
 
-// #### Check if Setting for Default Kits
-private _settingName = [QADDON, _kitName] joinString "_";
-if (!isNil _settingName && { !(missionNamespace getVariable _settingName) } ) exitWith _nextIteration;
+// #### Check if Default Kit is disabled (CBA Setting or Module) - Personal Kits can not be disabled
+if ( ( _kit getOrDefault [ "id64", "" ] ) in [ "", [] ] && { [ "kits", _kitName ] call FUNC(isDisabled) } ) exitWith _nextIteration;
 
 
 // #### Check Side-Condition

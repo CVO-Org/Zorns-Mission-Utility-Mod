@@ -89,5 +89,49 @@
                 <English>Arsenal AccessPoint</English>
             </Key>
         </Container>
+        <Container name="Module - Disable Defaults">
+            <Key ID="STR_mum_arsenal_disableList_code">
+                <English>+ items added by script</English>
+            </Key>
+            <Key ID="STR_mum_arsenal_disableList_dependency">
+                <English>Requires addon</English>
+            </Key>
+            <Key ID="STR_mum_arsenal_disableList_disableAll">
+                <English>Disable all</English>
+            </Key>
+            <Key ID="STR_mum_arsenal_disableList_enableAll">
+                <English>Enable all</English>
+            </Key>
+            <Key ID="STR_mum_arsenal_disableList_role">
+                <English>Role</English>
+            </Key>
+            <Key ID="STR_mum_arsenal_factionClass">
+                <English>MUM - Arsenal Modules</English>
+            </Key>
+            <Key ID="STR_mum_arsenal_module_disableDefaults">
+                <English>Disable Defaults</English>
+            </Key>
+            <Key ID="STR_mum_arsenal_module_disableDefaults_autoRoles">
+                <English>Auto Roles</English>
+            </Key>
+            <Key ID="STR_mum_arsenal_module_disableDefaults_autoRoles_desc">
+                <English>Roles automatically assigned based on traits. Uncheck to disable.</English>
+            </Key>
+            <Key ID="STR_mum_arsenal_module_disableDefaults_autoTraits">
+                <English>Auto Traits</English>
+            </Key>
+            <Key ID="STR_mum_arsenal_module_disableDefaults_autoTraits_desc">
+                <English>Traits automatically assigned based on roles. Uncheck to disable.</English>
+            </Key>
+            <Key ID="STR_mum_arsenal_module_disableDefaults_desc">
+                <English>Disables the mod's default kits, auto roles and auto traits for this mission. Uncheck an entry to disable it.&lt;br/&gt;Entries disabled via CBA Settings stay disabled. Multiple modules add up. Personal kits can not be disabled.</English>
+            </Key>
+            <Key ID="STR_mum_arsenal_module_disableDefaults_kits">
+                <English>Default Kits</English>
+            </Key>
+            <Key ID="STR_mum_arsenal_module_disableDefaults_kits_desc">
+                <English>Default kits that come with the mod. Uncheck to disable.</English>
+            </Key>
+        </Container>
     </Package>
 </Project>
