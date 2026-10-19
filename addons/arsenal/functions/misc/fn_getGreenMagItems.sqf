@@ -44,7 +44,7 @@ private _items = switch (true) do {
         [ _usedAmmo + "_50", _usedAmmo + "_100", _usedAmmo + "_150", _usedAmmo + "_200" ]
     };
     case ("ammo" in _usedAmmo): {
-        private _usedAmmoString = _usedAmmo trim ["_1Rnd",2];
+        private _usedAmmoString = _usedAmmo select [0, count _usedAmmo - 5]; // strip "_1Rnd"
         [ _usedAmmoString + "_30Rnd", _usedAmmoString + "_60Rnd" ]
     };
     default { [] };
