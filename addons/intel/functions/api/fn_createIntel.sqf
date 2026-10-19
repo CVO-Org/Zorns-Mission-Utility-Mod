@@ -18,8 +18,8 @@
 * 3: _intelGroup    <STRING>  <OPTIONAL> <DEFAULT: "General">
 *           Group Name of the Intel - Only used for the Intel Summary Feature. Can be, for Example, Location based or Type Based.
 *
-* 4: _removeObject  <BOOLEAN> <OPTIONAL> <DEFAULT: true>
-*           Weather the Object gets deleted once it has been picked up or not.
+* 4: _removeObject  <BOOLEAN> <OPTIONAL> <DEFAULT: false>
+*           Whether the object gets deleted once it has been picked up or not.
 *
 * 5: _actonTitle    <STRING>  <OPTIONAL> <DEFAULT: "Gather Intel">
 *           String to be used for the Ace Action and Progress Bar.
@@ -55,7 +55,7 @@ params [
     ["_intelTitle",         "Diary Record Title",   [""]           ],
     ["_intelContent",       "Diary Body",           [""]           ],
     ["_intelGroupName",     "General",              [""]           ],
-    ["_removeObject",       true,                   [true]         ],
+    ["_removeObject",       false,                  [true]         ],
     ["_actionTitle",        "Gather Intel",         [""]           ],
     ["_actionDuration",     15,                     [0]            ],
     ["_actionSound",        "AUTO",                 [""]           ],   // "AUTO", "BODY", "KEYBOARD"

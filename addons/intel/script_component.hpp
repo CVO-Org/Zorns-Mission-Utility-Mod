@@ -37,9 +37,9 @@ class GVAR(intel_desc): Edit {\
 #define MODULE_ATTRIBUTES_META(ACTION_TITLE)\
 class GVAR(removeObject): Checkbox {\
     displayName = "Remove Object";\
-    tooltip = "Wether the Object shall be removed once found or not.";\
+    tooltip = "Whether the object shall be removed once found or not.";\
     property = QGVAR(removeObject);\
-    defaultValue = "true";\
+    defaultValue = "false";\
 };\
 class GVAR(actionTitle): Edit {\
     displayName = "Action Title";\
