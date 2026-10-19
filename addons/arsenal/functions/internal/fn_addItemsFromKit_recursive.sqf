@@ -113,6 +113,7 @@ private _codeResult = if (_codeCode isNotEqualTo {}) then {
 switch (true) do {
     case ( isNil "_codeResult" ):      { _codeResult = []; };
     case (_codeResult isEqualType ""): { _codeResult = [_codeResult]; };
+    case !(_codeResult isEqualType []): { _codeResult = []; };
 };
 _codeResult = _codeResult select { _x call CBA_fnc_getItemConfig isNotEqualTo configNull };
 _returnArray append _codeResult;
