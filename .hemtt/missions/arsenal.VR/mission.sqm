@@ -8,18 +8,18 @@ class EditorData
 	toggles=517;
 	class ItemIDProvider
 	{
-		nextID=192;
+		nextID=194;
 	};
 	class LayerIndexProvider
 	{
-		nextID=11;
+		nextID=14;
 	};
 	class Camera
 	{
-		pos[]={-9.4654274,30,-35.105679};
-		dir[]={0.21887527,-0.70584619,0.67370349};
-		up[]={0.21809657,0.70836473,0.67130679};
-		aside[]={0.95106727,1.371518e-08,-0.30898604};
+		pos[]={4,30,-37};
+		dir[]={0.027119683,-0.62452894,0.78053069};
+		up[]={0.021686288,0.78100163,0.6241523};
+		aside[]={0.99939692,-1.8626451e-09,-0.034724228};
 	};
 };
 binarizationWanted=0;
@@ -84,6 +84,453 @@ class ScenarioData
 {
 	author="Overlord Zorn";
 };
+class CustomAttributes
+{
+	class Category0
+	{
+		name="Scenario";
+		class Attribute0
+		{
+			property="cba_settings_hash";
+			expression="false";
+			class Value
+			{
+				class data
+				{
+					singleType="ARRAY";
+					class value
+					{
+						items=4;
+						class Item0
+						{
+							class data
+							{
+								singleType="STRING";
+								value="#CBA_HASH#";
+							};
+						};
+						class Item1
+						{
+							class data
+							{
+								singleType="ARRAY";
+								class value
+								{
+									items=11;
+									class Item0
+									{
+										class data
+										{
+											singleType="STRING";
+											value="mum_arsenal_basekit_medical";
+										};
+									};
+									class Item1
+									{
+										class data
+										{
+											singleType="STRING";
+											value="mum_arsenal_basekit_utility";
+										};
+									};
+									class Item2
+									{
+										class data
+										{
+											singleType="STRING";
+											value="mum_arsenal_basekit_orientation";
+										};
+									};
+									class Item3
+									{
+										class data
+										{
+											singleType="STRING";
+											value="mum_arsenal_ace_hearing_enabled";
+										};
+									};
+									class Item4
+									{
+										class data
+										{
+											singleType="STRING";
+											value="mum_arsenal_ace_overheating_enabled";
+										};
+									};
+									class Item5
+									{
+										class data
+										{
+											singleType="STRING";
+											value="mum_arsenal_ace_fieldrations_enabled";
+										};
+									};
+									class Item6
+									{
+										class data
+										{
+											singleType="STRING";
+											value="mum_arsenal_basekit_immersioncigs_loaded";
+										};
+									};
+									class Item7
+									{
+										class data
+										{
+											singleType="STRING";
+											value="mum_arsenal_basekit_greenmag_loaded";
+										};
+									};
+									class Item8
+									{
+										class data
+										{
+											singleType="STRING";
+											value="mum_arsenal_baserolekit_medic";
+										};
+									};
+									class Item9
+									{
+										class data
+										{
+											singleType="STRING";
+											value="mum_arsenal_baserolekit_medic_suture";
+										};
+									};
+									class Item10
+									{
+										class data
+										{
+											singleType="STRING";
+											value="mum_arsenal_baserolekit_doctor";
+										};
+									};
+								};
+							};
+						};
+						class Item2
+						{
+							class data
+							{
+								singleType="ARRAY";
+								class value
+								{
+									items=11;
+									class Item0
+									{
+										class data
+										{
+											singleType="ARRAY";
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														singleType="BOOL";
+														value=0;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item1
+									{
+										class data
+										{
+											singleType="ARRAY";
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														singleType="BOOL";
+														value=0;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item2
+									{
+										class data
+										{
+											singleType="ARRAY";
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														singleType="BOOL";
+														value=0;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item3
+									{
+										class data
+										{
+											singleType="ARRAY";
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														singleType="BOOL";
+														value=0;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item4
+									{
+										class data
+										{
+											singleType="ARRAY";
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														singleType="BOOL";
+														value=0;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item5
+									{
+										class data
+										{
+											singleType="ARRAY";
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														singleType="BOOL";
+														value=0;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item6
+									{
+										class data
+										{
+											singleType="ARRAY";
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														singleType="BOOL";
+														value=0;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item7
+									{
+										class data
+										{
+											singleType="ARRAY";
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														singleType="BOOL";
+														value=0;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item8
+									{
+										class data
+										{
+											singleType="ARRAY";
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														singleType="BOOL";
+														value=0;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item9
+									{
+										class data
+										{
+											singleType="ARRAY";
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														singleType="BOOL";
+														value=0;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item10
+									{
+										class data
+										{
+											singleType="ARRAY";
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														singleType="BOOL";
+														value=0;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=1;
+													};
+												};
+											};
+										};
+									};
+								};
+							};
+						};
+						class Item3
+						{
+							class data
+							{
+								nil=1;
+								singleType="ANY";
+							};
+						};
+					};
+				};
+			};
+		};
+		nAttributes=1;
+	};
+};
 class Mission
 {
 	class Intel
@@ -107,7 +554,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=5;
+		items=6;
 		class Item0
 		{
 			dataType="Group";
@@ -147,18 +594,44 @@ class Mission
 						};
 						class Attribute1
 						{
-							property="speaker";
-							expression="_this setspeaker _value;";
+							property="ace_isEngineer";
+							expression="if !(_value == ([0, 1] select (_this getUnitTrait 'engineer')) || {_value == -1}) then {_this setVariable ['ace_isEngineer', _value, true]}";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=2;
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="mum_team_3den_fireteam";
+							expression="if (!is3DEN) then {[{ _this#0 assignTeam _this#1 }, [_this, _value]] call CBA_fnc_execNextFrame;}";
 							class Value
 							{
 								class data
 								{
 									singleType="STRING";
-									value="Male04GRE";
+									value="BLUE";
 								};
 							};
 						};
-						class Attribute2
+						class Attribute3
+						{
+							property="mum_team_3den_teamLeader";
+							expression="if (!is3DEN && {_value}) then {[{ if (mum_team_set_enabled && {alive _this}) then { [_this, true] call mum_team_fnc_TeamLeaderStepUp } }, _this, 1 + random 4] call CBA_fnc_waitAndExecute;}";
+							class Value
+							{
+								class data
+								{
+									singleType="BOOL";
+									value=1;
+								};
+							};
+						};
+						class Attribute4
 						{
 							property="pitch";
 							expression="_this setpitch _value;";
@@ -171,7 +644,33 @@ class Mission
 								};
 							};
 						};
-						nAttributes=3;
+						class Attribute5
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="Male04GRE";
+								};
+							};
+						};
+						class Attribute6
+						{
+							property="ace_isMedic";
+							expression="if (_value != -1 && {_value != (parseNumber (_this getUnitTrait 'medic'))}) then {_this setVariable [""ace_medical_medicClass"", _value, true]}";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=2;
+								};
+							};
+						};
+						nAttributes=7;
 					};
 				};
 			};
@@ -300,6 +799,59 @@ class Mission
 					};
 				};
 				nAttributes=2;
+			};
+		};
+		class Item5
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={16,5,-12};
+			};
+			id=192;
+			type="mum_arsenal_module_disableDefaults";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="mum_arsenal_disabledAutoRoles";
+					expression="_this setVariable ['mum_arsenal_disabledAutoRoles',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[""vanilla_medic"",""ace_medic"",""ace_doctor"",""vanilla_engineer"",""ace_engineer"",""ace_advEngineer"",""vanilla_explosiveSpecialist"",""vanilla_UAVHacker""]";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="mum_arsenal_disabledAutoTraits";
+					expression="_this setVariable ['mum_arsenal_disabledAutoTraits',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[""explosiveSpecialist"",""EWSpecialist""]";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="mum_arsenal_disabledKits";
+					expression="_this setVariable ['mum_arsenal_disabledKits',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[""baseKit_Medical"",""baseKit_Utility"",""baseKit_Orientation"",""ACE_Hearing_Enabled"",""ACE_Overheating_Enabled"",""ACE_FieldRations_Enabled"",""baseKit_ImmersionCigs_Loaded"",""baseKit_GreenMag_Loaded"",""baseRoleKit_Medic"",""baseRoleKit_Medic_suture"",""baseRoleKit_Doctor"",""baseRoleKit_Engineer"",""baseRoleKit_AdvEngineer"",""baseRoleKit_ExplosiveSpecialist"",""baseRoleKit_ExplosiveSpecialist_IEDD"",""baseRoleKit_ExplosiveSpecialist_convertFuses"",""baseRoleKit_Machinegunner"",""baseRoleKit_Marksman"",""baseRoleKit_EWSpecialist"",""baseRoleKit_RTO"",""baseRoleKit_UAV""]";
+						};
+					};
+				};
+				nAttributes=3;
 			};
 		};
 	};
