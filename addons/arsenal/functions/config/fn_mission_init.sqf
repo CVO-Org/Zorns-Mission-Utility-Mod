@@ -23,7 +23,7 @@ private _layerName = getText (missionConfigFile >> QGVAR(kits) >> "editor_layer_
 
 private _objects =  getArray (missionConfigFile >> QGVAR(kits) >> "object_variable_names") apply { missionNamespace getVariable [_x, objNull] };
 
-if (_layerName isNotEqualTo "") then { _objects append flatten (getMissionLayerEntities _layerName # 0); };
+if (_layerName isNotEqualTo "") then { _objects append flatten (getMissionLayerEntities _layerName select 0); };
 
 _objects = flatten _objects select { !isNull _x };
 
