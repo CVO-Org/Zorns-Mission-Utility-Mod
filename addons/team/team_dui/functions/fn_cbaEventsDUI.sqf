@@ -20,19 +20,41 @@
     {
         params ["_setting", "_enabled"];
 
-        if (_setting isNotEqualTo QSET(enabled)) exitWith {};
+        if ( _setting isNotEqualTo QSET(enabled) ) exitWith {};
+
+        // Forced settings: [setting, forced value]
+        private _forcedSettings = createHashMapFromArray [
+            [ "diwako_dui_icon_style", QGVAR(officer) ],  // Forces Icon Style
+            [ "diwako_dui_radar_sqlFirst", false ]        // Forces Leader always first off cause its handled through the sorting method
+        ];
 
         if _enabled then {
-            // Forces Icon Style
-            ["diwako_dui_icon_style", QGVAR(officer), 10, "server"] call CBA_settings_fnc_set;
-            ["diwako_dui_icon_style", QGVAR(officer), 10, "client"] call CBA_settings_fnc_set;
-            // Forces Leader always first off cause its handled through the sorting method
-            ["diwako_dui_radar_sqlFirst", false, 10, "server"] call CBA_settings_fnc_set;
-            ["diwako_dui_radar_sqlFirst", false, 10, "client"] call CBA_settings_fnc_set;
+            // Server source with priority 2 ("overwrite mission") beats any client or mission value, gets synced to all clients incl. JIP and is not stored - only lasts for this mission
+            if ( isServer && { isNil QGVAR(originalSettings) } ) then {
+
+                GVAR(originalSettings) = createHashMap;
+                {
+                    GVAR(originalSettings) set [
+                        _x,
+                        [
+                            [ _x, "server" ] call CBA_settings_fnc_get,
+                            [ _x, "server" ] call CBA_settings_fnc_priority
+                        ]
+                    ];
+
+                    [ _x, _y, 2, "server" ] call CBA_settings_fnc_set;
+                } forEach _forcedSettings;
+            };
 
             diwako_dui_radar_customSort = FUNC(customSortingCode);
 
         } else {
+            // Restores the previous server values
+            if ( isServer && { !isNil QGVAR(originalSettings) } ) then {
+                { [ _x, _y#0, _y#1, "server" ] call CBA_settings_fnc_set; } forEach GVAR(originalSettings);
+                GVAR(originalSettings) = nil;
+            };
+
             diwako_dui_radar_customSort = nil;
         };
     }
