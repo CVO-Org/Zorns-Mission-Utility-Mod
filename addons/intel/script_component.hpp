@@ -99,7 +99,7 @@ class GVAR(shareWith): Combo {\
             name = "UNIT";\
             value = "UNIT";\
         };\
-        class DEFAULT {\
+        class Default {\
             default = 1;\
             name = "DEFAULT";\
             value = "DEFAULT";\
