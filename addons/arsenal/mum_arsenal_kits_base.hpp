@@ -84,7 +84,7 @@ class ACE_FieldRations_Enabled: baseKit {
 
 // Base Kit - Mod Dependent
 class baseKit_ImmersionCigs_Loaded: baseKit {
-    addon_dependency = "cigs_core"; // Find right Addon to be checked
+    addon_dependency = "cigs_core";
     class items {
         class cigs_lighter {};
         class cigs_matches {};

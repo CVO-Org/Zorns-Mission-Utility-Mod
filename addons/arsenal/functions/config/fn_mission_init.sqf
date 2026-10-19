@@ -2,15 +2,17 @@
 
 /*
 * Author: Zorn
-* Function which will check missionConfigFile to initialize CVO Arsenal Interaction Points
+* Server postInit. Reads editor_layer_name and object_variable_names from the mission's mum_arsenal_kits
+* and turns those objects into MUM Arsenals via the JIP event mum_arsenal_EH_initBox.
 *
 * Arguments:
+* None
 *
 * Return Value:
 * None
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [] call mum_arsenal_fnc_mission_init
 *
 * Public: No
 */

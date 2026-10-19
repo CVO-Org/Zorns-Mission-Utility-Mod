@@ -2,15 +2,16 @@
 
 /*
 * Author: Zorn
-* Function to init CBA Custom Events
+* Applies the roles from the 3den attribute "Arsenal Roles" to the local player.
 *
 * Arguments:
+* None
 *
 * Return Value:
 * None
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [] call mum_arsenal_fnc_postInit
 *
 * Public: No
 */

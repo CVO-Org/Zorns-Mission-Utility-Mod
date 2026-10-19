@@ -1,19 +1,19 @@
 #include "../../script_component.hpp"
 
 /*
-    Author: Mr. Zorn
-
-    Description:
-        returns the _finalKit Array to be used in the CVO Arsenal.
-
-    Parameter(s):
-
-    Returns:
-        <Array> List of classnames of additional gear to be used in ACE Arsenal
-
-    Examples:
-        <example>
-        [] call mum_arsenal_fnc_update;
+* Author: Zorn
+* Fills the arsenal box with the items from mum_arsenal_api and all kits available to ACE_player.
+*
+* Arguments:
+* 0: Arsenal box <OBJECT>
+*
+* Return Value:
+* None
+*
+* Example:
+* [mum_arsenal_local_box] call mum_arsenal_fnc_update
+*
+* Public: No
 */
 if (!hasInterface) exitWith {};
 

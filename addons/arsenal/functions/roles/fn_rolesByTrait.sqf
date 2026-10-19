@@ -2,15 +2,17 @@
 
 /*
 * Author: Zorn
-* Handles autoRoles and autoTraits upon opening the arsenal.
+* Applies autoRoles (adds roles based on traits) and autoTraits (runs code based on roles) when opening the arsenal.
 *
 * Arguments:
+* 0: Unit <OBJECT> (default: ACE_player)
+* 1: Current roles of the unit <ARRAY of STRINGS> (default: [])
 *
 * Return Value:
-* _roles - array of roles.
+* Roles including the autoRoles, lowercase <ARRAY of STRINGS>
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [ACE_player, ["medic"]] call mum_arsenal_fnc_rolesByTrait
 *
 * Public: No
 */

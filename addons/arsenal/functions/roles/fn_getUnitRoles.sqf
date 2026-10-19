@@ -2,15 +2,16 @@
 
 /*
 * Author: Zorn
-* Function to get the cvo arsenal roles of a unit
+* Returns the MUM Arsenal roles of a unit.
 *
 * Arguments:
+* 0: Unit <OBJECT> (default: ACE_player)
 *
 * Return Value:
-* Array of Roles
+* Roles, lowercase <ARRAY of STRINGS>
 *
 * Example:
-* [ace_player] call mum_arsenal_fnc_getUnitRoles;
+* [ACE_player] call mum_arsenal_fnc_getUnitRoles;
 *
 * Public: No
 */

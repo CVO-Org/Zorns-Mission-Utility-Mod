@@ -2,20 +2,20 @@
 
 /*
 * Author: Zorn
-* Function to add a role to the Unit
+* Adds one or more roles to a unit, keeping its existing roles.
 *
 * Arguments:
-* 0 - OBJECT - Unit whose roll shall be configured
-* 1 - STRING or ARRAY OF STRINGS - Role Identifier - needs to match the role property of the kit configuration. Not case-sensitive.
+* 0: Unit <OBJECT>
+* 1: Role identifier(s) - need to match the role property of a kit. Not case-sensitive <STRING or ARRAY of STRINGS>
 *
 * Return Value:
-* None
+* Roles applied <BOOL>
 *
 * Example:
 * [this, "someRole"] call mum_arsenal_fnc_addUnitRoles;
 * [this, ["someRole", "anotherRole"]] call mum_arsenal_fnc_addUnitRoles;
 *
-* Public: yes
+* Public: Yes
 */
 
 params [

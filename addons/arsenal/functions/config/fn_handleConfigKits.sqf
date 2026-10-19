@@ -2,15 +2,18 @@
 
 /*
 * Author: Zorn
-* Function to add
+* Reads the kits from configFile and missionConfigFile and adds them to the "arsenal_kits" catalog.
+* Respects mum_arsenal_ignoreBaseKits and mum_arsenal_ignoreBaseRoleKits from the description.ext.
+* Runs only once per client.
 *
 * Arguments:
+* None
 *
 * Return Value:
 * None
 *
 * Example:
-* ['something', player] call mum_arsenal_fnc_handleConfigKits
+* [] call mum_arsenal_fnc_handleConfigKits
 *
 * Public: No
 */

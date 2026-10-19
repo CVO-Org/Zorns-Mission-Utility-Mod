@@ -2,15 +2,17 @@
 
 /*
 * Author: Zorn
-* Function to store the kit for a role.
+* Stores a kit in the "arsenal_kits" catalog.
 *
 * Arguments:
+* 0: Kit <HASHMAP>
+* 1: Key - unique kit name, overwrites an existing kit with the same key <STRING> (default: "" - auto generated)
 *
 * Return Value:
-* None
+* Kit added <BOOL>
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [_kit, "myKit"] call mum_arsenal_fnc_addKit
 *
 * Public: No
 */

@@ -28,6 +28,7 @@ Example mission folder can be found [here](https://github.com/CVO-Org/Zorns-Miss
 Roles are simple "tags" defined by the mission makers via a function call on the unit.
 
 Roles are case-insensitive and will be converted to lowercase ANSI characters.
+Like classnames, roles must not contain spaces.
 
 
 ### Auto Roles - Automatic Role Assignement
@@ -51,7 +52,7 @@ Certain Traits will be automatically assigned, based on the Arsenal Roles.
 | Condition                                | Vanilla Trait           |
 | ---------------------------------------- | ----------------------- |
 | Mum Arsenal Role `"explosiveSpecialist"` | `"explosiveSpecialist"` |
-| Mum Arsenal Role `"EWSpecialist"`        | `"EWSpecialist"`        |
+| Mum Arsenal Role `"EWSpecialist"`        | EW Specialist (`"UAVHacker"`) |
 
 ### How to Assign an Arsenal Role
 
@@ -87,9 +88,9 @@ The following kits can be referenced as examples on how to format a kit.
 
 Further, the following kits are **hardcoded** through the mod itself. They can be disabled through [CBA Settings](#disable-default-kits).
 
-- [Base Kits - Available for Everyone](kits_base.hpp)
-- [Role Kits - Available for certain Roles](kits_role.hpp)
-- [Personal Kits - Available for individual Players](kits_personal.hpp)
+- [Base Kits - Available for Everyone](mum_arsenal_kits_base.hpp)
+- [Role Kits - Available for certain Roles](mum_arsenal_kits_role.hpp)
+- [Personal Kits - Available for individual Players](mum_arsenal_kits_personal.hpp)
 
 
 
@@ -106,13 +107,32 @@ Further, the following kits are **hardcoded** through the mod itself. They can b
 | :--------------- | ---------------------------- | --------------------------------------------------------- | -------------------- |
 | addon_dependency | <STRING>                     | Name of an Addon - Check if  loaded.                      | `""` Skip check.     |
 | sides            | <STRING or ARRAY of STRINGS> | String of Side - `"WEST"`, `"EAST"`, `"GUER"`, `"CIV"`    | `[]` Applied to all. |
-| roles            | <STRING>                     | Name/Identifier of the Role. case-insensitive. ANSI only. | `""` Applied to all. |
+| role             | <STRING>                     | Name/Identifier of the Role. case-insensitive. ANSI only. | `""` Applied to all. |
 | id64             | <STRING>                     | steamID64 (getPlayerUID or https://steamid.io/)           | `""` Applied to all. |
-| condition        | <STRING>                     | Code as String - needs to return boolean.                 | `""` Skip check.     |
+| condition        | <STRING>                     | Code as String - needs to return boolean. Must not be empty. | `"true"`          |
 | code             | <STRING>                     | Code as String - needs to return array of classnames.     | `""` Skipped.        |
 | items            | <CLASS with SUBCLASSES>      | subclasses will get added as item classnames.             |                      |
 
 Note: parameters for the condition and code are `params ["_unit", "_items"];`.
+
+### Kits via Script
+Kits can also be added via script with [`mum_arsenal_fnc_createKit`](functions/kit/fn_createKit.sqf).
+Kits are stored locally, so this needs to run on every client, for example in `initPlayerLocal.sqf`.
+
+```sqf
+// [items, condition, sides, role, id64, addon_dependency, code, key]
+[["ACE_EarPlugs"]] call mum_arsenal_fnc_createKit;
+[["ACE_M26_Clacker"], {true}, ["WEST"], "explosiveSpecialist", "", "", {}, "myClackerKit"] call mum_arsenal_fnc_createKit;
+```
+
+### Ad hoc Items
+For items that should be available to everyone without defining a kit, add their classnames to `mum_arsenal_api`.
+They are added every time the MUM Arsenal is opened. The variable is read locally, so broadcast it if needed.
+
+```sqf
+mum_arsenal_api = ["ACE_Banana", "ACE_Can_Franta"];
+publicVariable "mum_arsenal_api";
+```
 
 
 ### Disable Default Kits

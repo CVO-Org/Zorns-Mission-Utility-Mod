@@ -2,15 +2,16 @@
 
 /*
 * Author: Zorn
-* CBA Settings - Script Function. Adds / Removes Eventhandler to temporary store current loadout on arsenal close.
+* CBA setting script. Adds or removes the event handler that saves the current loadout as "## Last Loadout" when an ACE Arsenal is closed.
 *
 * Arguments:
+* 0: Setting value <BOOL>
 *
 * Return Value:
 * None
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [true] call mum_arsenal_fnc_handleTempLoadout
 *
 * Public: No
 */

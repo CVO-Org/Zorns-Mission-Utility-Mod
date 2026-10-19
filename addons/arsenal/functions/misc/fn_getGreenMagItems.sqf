@@ -2,15 +2,16 @@
 
 /*
 * Author: Zorn
-* Function to retrieve all greenmag Items based from a magazine Classname
+* Returns the GreenMag ammo items matching a magazine. Results are cached in a global namespace.
 *
 * Arguments:
+* 0: Magazine classname <STRING>
 *
 * Return Value:
-* None
+* GreenMag item classnames <ARRAY of STRINGS>
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* ["30Rnd_65x39_caseless_msbs_mag"] call mum_arsenal_fnc_getGreenMagItems
 *
 * Public: No
 */
