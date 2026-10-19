@@ -71,9 +71,9 @@ class GVAR(actionSound): Combo {\
             name = "BODY";\
             value = "BODY";\
         };\
-        class KEYOARD {\
-            name = "KEYOARD";\
-            value = "KEYOARD";\
+        class KEYBOARD {\
+            name = "KEYBOARD";\
+            value = "KEYBOARD";\
         };\
     };\
 };\

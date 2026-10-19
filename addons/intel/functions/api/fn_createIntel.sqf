@@ -71,6 +71,9 @@ _actionDuration = _actionDuration max 1;
 private _intelCatalog = [QGVAR(catalog)] call EFUNC(catalog,getCatalog);
 private _id = [QPREFIX, QCOMPONENT, count keys _intelCatalog] joinString "_";
 
+// Earlier versions of the modules stored the misspelled value "KEYOARD"
+if (_actionSound isEqualTo "KEYOARD") then { _actionSound = "KEYBOARD"; };
+
 // Check if object is type of Laptop, Keyboard or alike
 if (_actionSound isEqualTo "AUTO") then {
     private _laptops = [
