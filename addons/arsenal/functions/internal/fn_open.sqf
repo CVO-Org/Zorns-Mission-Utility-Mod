@@ -1,16 +1,24 @@
 #include "../../script_component.hpp"
 
 /*
-Script Runs when the players open the arsenal.
-1.
-If the player opens the arsenal for the first time,
-it creates the MUM_arsenal_local_box box and updates the content of said arsenal.
-If the player opened it before and the MUM_arsenal_local_box exists already, it will
+* Author: Zorn
+* Opens the MUM Arsenal for the local player.
+* On first use, initialises the config kits and autoRoles and creates a hidden local arsenal box (mum_arsenal_local_box).
+* On later uses, the existing box is emptied. The box is then refilled with the kits available to the player.
+*
+* Arguments:
+* None
+*
+* Return Value:
+* None
+*
+* Example:
+* [] call mum_arsenal_fnc_open
+*
+* Public: No
 */
 
-if (isNull GVAR(local_box)) then { GVAR(local_box) = nil; };
-
-if (isNil QGVAR(local_box)) then {
+if (isNull (missionNamespace getVariable [QGVAR(local_box), objNull])) then {
 
     ZRN_LOG_MSG(Creating Local Box);
 
