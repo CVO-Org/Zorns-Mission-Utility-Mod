@@ -31,7 +31,7 @@ class GVAR(module_IntelItem_handwrittenNote): Module_F {
 
         class GVAR(intel_handwritten): Edit {
             control = "EditMulti5";
-            displayName = "Handrwitten Note";
+            displayName = "Handwritten Note";
             tooltip = "Body of the Intel Content.\nUsed for the actual, handwritten text.\n Use <br/> for linebreaks.";
             property = QGVAR(intel_handwritten);
             defaultValue = "'Meet us in the destroyed village.<br/>Be careful, they are watching!'"; // Because this is an expression, one must have a string within a string to return a string

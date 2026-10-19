@@ -29,8 +29,8 @@ if (_units isEqualTo []) exitWith {};
 private _senderName = _logic getVariable QGVAR(senderName);
 private _senderMeta = _logic getVariable QGVAR(senderMeta);
 
-if (_senderName isEqualTo "") then { _senderName = "Unkown"; };
-if (_senderMeta isEqualTo "") then { _senderMeta = "Last Activity: Unkown"; };
+if (_senderName isEqualTo "") then { _senderName = "Unknown"; };
+if (_senderMeta isEqualTo "") then { _senderMeta = "Last Activity: Unknown"; };
 
 // Get Content as Array
 private _messages = [];
@@ -51,7 +51,7 @@ private _intelContent  = "<br/>";
 private _intelDesc = _logic getVariable QGVAR(intel_desc);
 if (_intelDesc isNotEqualTo "") then { _intelContent = _intelContent + format [Q(<font COLOR_GREY face='RobotoCondensedLight'>%1</font><br/><br/>), _intelDesc]; };
 
-_intelContent = _intelContent + format [Q(<font face='EtelkaMonospaceProBold'COLOR_GREY size='12'>Sender: </font><font face='EtelkaMonospaceProBold' COLOR_SENDER size='15'>%1</font><br/>), _senderName];
+_intelContent = _intelContent + format [Q(<font face='EtelkaMonospaceProBold' COLOR_GREY size='12'>Sender: </font><font face='EtelkaMonospaceProBold' COLOR_SENDER size='15'>%1</font><br/>), _senderName];
 _intelContent = _intelContent + format [Q(<font face='EtelkaMonospacePro' COLOR_GREY size='10'>%1</font><br/><br/>), _senderMeta];
 
 // Process Content Array

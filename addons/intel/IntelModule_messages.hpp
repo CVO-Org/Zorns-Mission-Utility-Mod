@@ -74,7 +74,7 @@ class GVAR(TRIPLES(message,INDEX,type)): Combo {\
 class GVAR(TRIPLES(message,INDEX,text)): Edit {\
     control = "EditMulti3";\
     displayName = Q(INDEX. Message: Text);\
-    tooltip = "Content of the Message\nUse <br\> for linebreaks";\
+    tooltip = "Content of the Message\nUse <br/> for linebreaks";\
     property = QGVAR(TRIPLES(message,INDEX,text));\
     typeName = "STRING";\
     defaultValue = QQ(Q(DEFAULT));\
@@ -83,7 +83,7 @@ class GVAR(TRIPLES(message,INDEX,text)): Edit {\
 class GVAR(TRIPLES(message,INDEX,text)): Edit {\
     control = "EditMulti3";\
     displayName = Q(INDEX. Message: Text);\
-    tooltip = "Content of the Message\nUse <br\> for linebreaks";\
+    tooltip = "Content of the Message\nUse <br/> for linebreaks";\
     property = QGVAR(TRIPLES(message,INDEX,text));\
     typeName = "STRING";\
     defaultValue = """""";\
@@ -118,7 +118,7 @@ class GVAR(module_IntelItem_messages): Module_F {
 
         INTEL_GROUP;
         INTEL_TITLE(Recovered Messages);
-        INTEL_DESC(Most of the messages seem irrelevant but this conversation cought your attention...);
+        INTEL_DESC(Most of the messages seem irrelevant but this conversation caught your attention...);
 
         class GVAR(senderName): Edit {
             displayName = "Message Sender";
