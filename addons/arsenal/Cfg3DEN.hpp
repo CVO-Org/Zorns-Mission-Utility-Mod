@@ -4,14 +4,14 @@ class Cfg3DEN {
     class Object {
         class AttributeCategories {
             class ADDON {
-                displayName = "MUM - Arsenal"; // Category name visible in Edit Attributes window
+                displayName = CSTRING(cat_title); // Category name visible in Edit Attributes window
                 collapsed = 1; // When 1, the category is collapsed by default
                 class Attributes {
                     class GVAR(3den_roles) {
 
                         //--- Mandatory properties
-                        displayName = "Arsenal Roles"; // Name assigned to UI control class Title
-                        tooltip = "Define Arsenal Roles.\nMultiple Roles possible. Sperate with ,\n Example: Teamleader, Grenadier"; // Tooltip assigned to UI control class Title
+                        displayName = CSTRING(3den_roles); // Name assigned to UI control class Title
+                        tooltip = CSTRING(3den_roles_desc); // Tooltip assigned to UI control class Title
                         property = QGVAR(3den_roles); // Unique config property name saved in SQM
                         control = "Edit"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
 

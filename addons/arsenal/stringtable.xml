@@ -1,9 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="mission-utility-mod">
     <Package name="Arsenal">
+        <Container name="3den Attributes">
+            <Key ID="STR_mum_arsenal_3den_roles">
+                <English>Arsenal Roles</English>
+                <Czech>Role arzenálu</Czech>
+                <French>Rôles de l'arsenal</French>
+                <Spanish>Roles del arsenal</Spanish>
+                <Italian>Ruoli dell'arsenale</Italian>
+                <Polish>Role arsenału</Polish>
+                <Portuguese>Funções do arsenal</Portuguese>
+                <Russian>Роли арсенала</Russian>
+                <German>Arsenal-Rollen</German>
+                <Korean>아스널 역할</Korean>
+                <Japanese>アーセナルの役割</Japanese>
+                <Chinese>軍火庫角色</Chinese>
+                <Chinesesimp>军火库角色</Chinesesimp>
+                <Turkish>Cephanelik Rolleri</Turkish>
+            </Key>
+            <Key ID="STR_mum_arsenal_3den_roles_desc">
+                <English>Defines the unit's MUM Arsenal roles. Separate multiple roles with a comma. Example: Teamleader, Grenadier</English>
+                <Czech>Určuje role MUM Arsenalu pro jednotku. Více rolí oddělte čárkou. Příklad: Teamleader, Grenadier</Czech>
+                <French>Définit les rôles MUM Arsenal de l'unité. Séparez plusieurs rôles par une virgule. Exemple : Teamleader, Grenadier</French>
+                <Spanish>Define los roles de MUM Arsenal de la unidad. Separe varios roles con una coma. Ejemplo: Teamleader, Grenadier</Spanish>
+                <Italian>Definisce i ruoli MUM Arsenal dell'unità. Separare più ruoli con una virgola. Esempio: Teamleader, Grenadier</Italian>
+                <Polish>Określa role MUM Arsenal jednostki. Oddziel kilka ról przecinkiem. Przykład: Teamleader, Grenadier</Polish>
+                <Portuguese>Define as funções do MUM Arsenal da unidade. Separe várias funções com vírgula. Exemplo: Teamleader, Grenadier</Portuguese>
+                <Russian>Задаёт роли MUM Arsenal для юнита. Несколько ролей разделяйте запятой. Пример: Teamleader, Grenadier</Russian>
+                <German>Legt die MUM-Arsenal-Rollen der Einheit fest. Mehrere Rollen mit Komma trennen. Beispiel: Teamleader, Grenadier</German>
+                <Korean>유닛의 MUM 아스널 역할을 정의합니다. 여러 역할은 쉼표로 구분합니다. 예: Teamleader, Grenadier</Korean>
+                <Japanese>ユニットのMUMアーセナルの役割を定義します。複数の役割はカンマで区切ります。例: Teamleader, Grenadier</Japanese>
+                <Chinese>定義單位的 MUM 軍火庫角色。多個角色以逗號分隔。範例：Teamleader, Grenadier</Chinese>
+                <Chinesesimp>定义单位的 MUM 军火库角色。多个角色用逗号分隔。示例：Teamleader, Grenadier</Chinesesimp>
+                <Turkish>Birimin MUM Cephanelik rollerini tanımlar. Birden fazla rolü virgülle ayırın. Örnek: Teamleader, Grenadier</Turkish>
+            </Key>
+        </Container>
         <Container name="3den Category">
             <Key ID="STR_mum_arsenal_name">
                 <English>Arsenal</English>
+            </Key>
+        </Container>
+        <Container name="Actions">
+            <Key ID="STR_mum_arsenal_action_open">
+                <English>Open Arsenal</English>
+                <Czech>Otevřít arzenál</Czech>
+                <French>Ouvrir l'arsenal</French>
+                <Spanish>Abrir arsenal</Spanish>
+                <Italian>Apri arsenale</Italian>
+                <Polish>Otwórz arsenał</Polish>
+                <Portuguese>Abrir arsenal</Portuguese>
+                <Russian>Открыть арсенал</Russian>
+                <German>Arsenal öffnen</German>
+                <Korean>아스널 열기</Korean>
+                <Japanese>アーセナルを開く</Japanese>
+                <Chinese>打開軍火庫</Chinese>
+                <Chinesesimp>打开军火库</Chinesesimp>
+                <Turkish>Cephaneliği Aç</Turkish>
             </Key>
         </Container>
         <Container name="CBA Settings">
