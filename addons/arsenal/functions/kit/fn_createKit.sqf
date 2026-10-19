@@ -2,21 +2,31 @@
 
 /*
 * Author: Zorn
-* API Function for Mission Makers or Similar to add a roleKit to the catalog.
+* API Function for mission makers to add a kit to the MUM Arsenal.
+* Kits are stored locally - call it on every client (e.g. initPlayerLocal.sqf).
 *
 * Arguments:
+* 0: Items - classnames to add <ARRAY of STRINGS> (default: [])
+* 1: Condition - params ["_unit", "_items"], needs to return BOOL <CODE> (default: {true})
+* 2: Sides - "WEST", "EAST", "GUER", "CIV" - empty for all <ARRAY of STRINGS> (default: [])
+* 3: Role - empty for all <STRING> (default: "")
+* 4: Steam64 ID - empty for all <STRING> (default: "")
+* 5: Addon dependency - CfgPatches class that needs to be loaded <STRING> (default: "")
+* 6: Code - params ["_unit", "_items"], returns additional classnames <CODE> (default: {})
+* 7: Key - unique kit name, overwrites an existing kit with the same key <STRING> (default: "" - auto generated)
 *
 * Return Value:
-* None
+* Kit added <BOOL>
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [["ACE_EarPlugs"]] call mum_arsenal_fnc_createKit
+* [["ACE_M26_Clacker"], {true}, ["WEST"], "explosiveSpecialist"] call mum_arsenal_fnc_createKit
 *
 * Public: Yes
 */
 params [
     ["_items", [], [[]] ],
-    ["_cond",  {}, [{}] ],
+    ["_cond",  {true}, [{}] ],
     ["_sides", [], [[]] ],
     ["_role",  "", [""] ],
     ["_id64",  "", [""] ],
