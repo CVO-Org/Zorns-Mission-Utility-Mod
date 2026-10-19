@@ -47,6 +47,7 @@ class Cfg3DEN {
 
     // Custom attribute control: dynamic list of checkboxes, one per default entry. Checked = enabled.
     // Filled by mum_arsenal_fnc_disableList_load, saved as stringified array of the disabled entries.
+    // Derived classes need to redeclare every child in Controls - inherited children are not created by the engine.
     class Attributes {
         class GVAR(disableList): ctrlControlsGroupNoScrollbars {
             idc = -1;
@@ -107,6 +108,8 @@ class Cfg3DEN {
                     text = CSTRING(module_disableDefaults_kits);
                     tooltip = CSTRING(module_disableDefaults_kits_desc);
                 };
+                class EnableAll: EnableAll {};
+                class DisableAll: DisableAll {};
                 class Background: Background {
                     h = QUOTE(12 * ATTR_ROW_H * ATTR_GRID_H);
                 };
@@ -124,6 +127,8 @@ class Cfg3DEN {
                     text = CSTRING(module_disableDefaults_autoRoles);
                     tooltip = CSTRING(module_disableDefaults_autoRoles_desc);
                 };
+                class EnableAll: EnableAll {};
+                class DisableAll: DisableAll {};
                 class Background: Background {
                     h = QUOTE(8 * ATTR_ROW_H * ATTR_GRID_H);
                 };
@@ -141,6 +146,8 @@ class Cfg3DEN {
                     text = CSTRING(module_disableDefaults_autoTraits);
                     tooltip = CSTRING(module_disableDefaults_autoTraits_desc);
                 };
+                class EnableAll: EnableAll {};
+                class DisableAll: DisableAll {};
                 class Background: Background {
                     h = QUOTE(4 * ATTR_ROW_H * ATTR_GRID_H);
                 };
