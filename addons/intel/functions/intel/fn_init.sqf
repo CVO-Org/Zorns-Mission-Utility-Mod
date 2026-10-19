@@ -2,15 +2,16 @@
 
 /*
 * Author: Zorn
-* [Description]
+* PreInit function - registers the CBA event handlers of the intel component.
 *
 * Arguments:
+* None
 *
 * Return Value:
 * None
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* call mum_intel_fnc_init
 *
 * Public: No
 */

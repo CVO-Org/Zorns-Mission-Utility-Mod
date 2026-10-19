@@ -2,15 +2,16 @@
 
 /*
 * Author: Zorn
-* Function to remove the Intel Action from a Unit.
+* Removes the ACE intel action from the given object on the local machine.
 *
 * Arguments:
+* 0: Intel object <OBJECT>
 *
 * Return Value:
 * None
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [_object] call mum_intel_fnc_removeintelAction
 *
 * Public: No
 */

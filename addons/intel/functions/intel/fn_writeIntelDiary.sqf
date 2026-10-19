@@ -2,15 +2,17 @@
 
 /*
 * Author: Zorn
-* function to actually create  the intel entry.
+* Writes the intel into the local player's diary and selects the record.
+* If a record with the same title already exists, the content is appended to it below a "NEW INTEL" separator.
 *
 * Arguments:
+* 0: Intel ID <STRING>
 *
 * Return Value:
 * None
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* ["mum_intel_0"] call mum_intel_fnc_writeIntelDiary
 *
 * Public: No
 */

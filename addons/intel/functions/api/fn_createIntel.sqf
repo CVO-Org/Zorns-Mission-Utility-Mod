@@ -2,7 +2,7 @@
 
 /*
 * Author: Zorn
-* Function to create an Intel Item.
+* Function to create an Intel Item. Server only - does nothing on clients.
 *
 * Arguments:
 * 0: _object        <OBJECT>
@@ -21,11 +21,11 @@
 * 4: _removeObject  <BOOLEAN> <OPTIONAL> <DEFAULT: false>
 *           Whether the object gets deleted once it has been picked up or not.
 *
-* 5: _actonTitle    <STRING>  <OPTIONAL> <DEFAULT: "Gather Intel">
+* 5: _actionTitle   <STRING>  <OPTIONAL> <DEFAULT: "Gather Intel">
 *           String to be used for the Ace Action and Progress Bar.
 *
-* 6: _actonDuration <NUMBER>  <OPTIONAL> <DEFAULT: 15>
-*           Duration of the Progressbar in Seconds. Will be reducing in Eden Editor Preview Editor to 1 second.
+* 6: _actionDuration <NUMBER>  <OPTIONAL> <DEFAULT: 15>
+*           Duration of the Progressbar in Seconds. Reduced to 1 second in the Eden Editor preview.
 *
 * 7: _actionSound   <STRING>  <OPTIONAL> <DEFAULT: "AUTO">
 *           Can be "BODY", "KEYBOARD" or "AUTO".
@@ -35,7 +35,7 @@
 * 8: _shareWith     <STRING>  <OPTIONAL> <DEFAULT: "DEFAULT">
 *           Can be "GLOBAL", "SIDE", "GROUP", "UNIT", "DEFAULT".
 *           "DEFAULT" will reference CBA Setting defined default.
-*           Defines who the intel is being shared with once its picked up.
+*           Defines who the intel is being shared with once it is picked up. See readme.
 *
 *
 * Return Value:

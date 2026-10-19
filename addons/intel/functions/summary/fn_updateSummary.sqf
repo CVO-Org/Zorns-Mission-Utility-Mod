@@ -2,15 +2,16 @@
 
 /*
 * Author: Zorn
-* Function to be executed locally - will update/create the Intel Summary Record
+* Function to be executed locally - creates/updates the "Intel Summary" diary record of the local player.
 *
 * Arguments:
+* None
 *
 * Return Value:
 * None
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* call mum_intel_fnc_updateSummary
 *
 * Public: No
 */

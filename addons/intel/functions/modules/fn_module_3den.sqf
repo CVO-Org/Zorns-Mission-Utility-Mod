@@ -2,15 +2,19 @@
 
 /*
 * Author: Zorn
-* 3den Function for Intel Modules
+* Module function shared by all intel modules.
+* "init" calls the module specific function defined in the module config as mum_intel_function.
+* "connectionChanged3DEN" removes invalid connections (non-sync or blacklisted objects) in the Eden Editor.
 *
 * Arguments:
+* 0: Mode <STRING>
+* 1: Input <ARRAY>
 *
 * Return Value:
-* None
+* true <BOOL>
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* Called by the module framework via the "function" config entry.
 *
 * Public: No
 */

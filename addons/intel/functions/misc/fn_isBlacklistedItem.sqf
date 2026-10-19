@@ -11,7 +11,7 @@
 * isBlacklisted <BOOL>
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [_object] call mum_intel_fnc_isBlacklistedItem
 *
 * Public: No
 */
