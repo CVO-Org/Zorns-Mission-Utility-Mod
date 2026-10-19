@@ -8,18 +8,18 @@ class EditorData
 	toggles=517;
 	class ItemIDProvider
 	{
-		nextID=214;
+		nextID=216;
 	};
 	class Camera
 	{
 		pos[]={2.9488199,31.792772,-38.589359};
-		dir[]={-0.12915482,-0.67798525,0.72364163};
-		up[]={-0.1191238,0.73507482,0.66743892};
-		aside[]={0.98444432,3.0486262e-08,0.17570268};
+		dir[]={-0.12915468,-0.67798448,0.72364092};
+		up[]={-0.11912352,0.73507625,0.66743726};
+		aside[]={0.98444337,7.4505806e-09,0.17570244};
 	};
 };
 binarizationWanted=0;
-sourceName="dui";
+sourceName="team";
 addons[]=
 {
 	"A3_Characters_F",
@@ -161,7 +161,7 @@ class Mission
 			side="West";
 			class Entities
 			{
-				items=10;
+				items=11;
 				class Item0
 				{
 					dataType="Object";
@@ -297,7 +297,7 @@ class Mission
 						};
 						class Attribute2
 						{
-							property="mum_common_3den_fireteam";
+							property="mum_team_3den_fireteam";
 							expression="if (!is3DEN) then {[{ _this#0 assignTeam _this#1 }, [_this, _value]] call CBA_fnc_execNextFrame;}";
 							class Value
 							{
@@ -445,7 +445,7 @@ class Mission
 						};
 						class Attribute2
 						{
-							property="mum_common_3den_fireteam";
+							property="mum_team_3den_fireteam";
 							expression="if (!is3DEN) then {[{ _this#0 assignTeam _this#1 }, [_this, _value]] call CBA_fnc_execNextFrame;}";
 							class Value
 							{
@@ -464,7 +464,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={5.7031379,5.0014391,-18.375103};
+						position[]={5.7030001,5.0014391,-18.375};
 					};
 					side="West";
 					flags=5;
@@ -567,6 +567,19 @@ class Mission
 					{
 						class Attribute0
 						{
+							property="mum_team_3den_teamLeader";
+							expression="if (!is3DEN && {_value}) then {[{ if (mum_team_set_enabled && {alive _this}) then { [_this, true] call mum_team_fnc_TeamLeaderStepUp } }, _this, 1 + random 4] call CBA_fnc_waitAndExecute;}";
+							class Value
+							{
+								class data
+								{
+									singleType="BOOL";
+									value=1;
+								};
+							};
+						};
+						class Attribute1
+						{
 							property="speaker";
 							expression="_this setspeaker _value;";
 							class Value
@@ -578,7 +591,7 @@ class Mission
 								};
 							};
 						};
-						class Attribute1
+						class Attribute2
 						{
 							property="pitch";
 							expression="_this setpitch _value;";
@@ -591,9 +604,9 @@ class Mission
 								};
 							};
 						};
-						class Attribute2
+						class Attribute3
 						{
-							property="mum_common_3den_fireteam";
+							property="mum_team_3den_fireteam";
 							expression="if (!is3DEN) then {[{ _this#0 assignTeam _this#1 }, [_this, _value]] call CBA_fnc_execNextFrame;}";
 							class Value
 							{
@@ -604,7 +617,7 @@ class Mission
 								};
 							};
 						};
-						nAttributes=3;
+						nAttributes=4;
 					};
 				};
 				class Item3
@@ -741,7 +754,7 @@ class Mission
 						};
 						class Attribute2
 						{
-							property="mum_common_3den_fireteam";
+							property="mum_team_3den_fireteam";
 							expression="if (!is3DEN) then {[{ _this#0 assignTeam _this#1 }, [_this, _value]] call CBA_fnc_execNextFrame;}";
 							class Value
 							{
@@ -889,7 +902,7 @@ class Mission
 						};
 						class Attribute2
 						{
-							property="mum_common_3den_fireteam";
+							property="mum_team_3den_fireteam";
 							expression="if (!is3DEN) then {[{ _this#0 assignTeam _this#1 }, [_this, _value]] call CBA_fnc_execNextFrame;}";
 							class Value
 							{
@@ -908,7 +921,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={5.7844181,5.0014391,-12.665312};
+						position[]={5.7839999,5.0014391,-12.665};
 					};
 					side="West";
 					flags=5;
@@ -1011,6 +1024,19 @@ class Mission
 					{
 						class Attribute0
 						{
+							property="mum_team_3den_teamLeader";
+							expression="if (!is3DEN && {_value}) then {[{ if (mum_team_set_enabled && {alive _this}) then { [_this, true] call mum_team_fnc_TeamLeaderStepUp } }, _this, 1 + random 4] call CBA_fnc_waitAndExecute;}";
+							class Value
+							{
+								class data
+								{
+									singleType="BOOL";
+									value=1;
+								};
+							};
+						};
+						class Attribute1
+						{
 							property="speaker";
 							expression="_this setspeaker _value;";
 							class Value
@@ -1022,7 +1048,7 @@ class Mission
 								};
 							};
 						};
-						class Attribute1
+						class Attribute2
 						{
 							property="pitch";
 							expression="_this setpitch _value;";
@@ -1035,20 +1061,20 @@ class Mission
 								};
 							};
 						};
-						class Attribute2
+						class Attribute3
 						{
-							property="mum_common_3den_fireteam";
+							property="mum_team_3den_fireteam";
 							expression="if (!is3DEN) then {[{ _this#0 assignTeam _this#1 }, [_this, _value]] call CBA_fnc_execNextFrame;}";
 							class Value
 							{
 								class data
 								{
 									singleType="STRING";
-									value="RED";
+									value="BLUE";
 								};
 							};
 						};
-						nAttributes=3;
+						nAttributes=4;
 					};
 				};
 				class Item6
@@ -1185,7 +1211,7 @@ class Mission
 						};
 						class Attribute2
 						{
-							property="mum_common_3den_fireteam";
+							property="mum_team_3den_fireteam";
 							expression="if (!is3DEN) then {[{ _this#0 assignTeam _this#1 }, [_this, _value]] call CBA_fnc_execNextFrame;}";
 							class Value
 							{
@@ -1204,7 +1230,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={9.6997976,5.0014391,-17.783484};
+						position[]={9.6999998,5.0014391,-17.783001};
 					};
 					side="West";
 					flags=5;
@@ -1333,14 +1359,14 @@ class Mission
 						};
 						class Attribute2
 						{
-							property="mum_common_3den_fireteam";
+							property="mum_team_3den_fireteam";
 							expression="if (!is3DEN) then {[{ _this#0 assignTeam _this#1 }, [_this, _value]] call CBA_fnc_execNextFrame;}";
 							class Value
 							{
 								class data
 								{
 									singleType="STRING";
-									value="RED";
+									value="BLUE";
 								};
 							};
 						};
@@ -1481,7 +1507,7 @@ class Mission
 						};
 						class Attribute2
 						{
-							property="mum_common_3den_fireteam";
+							property="mum_team_3den_fireteam";
 							expression="if (!is3DEN) then {[{ _this#0 assignTeam _this#1 }, [_this, _value]] call CBA_fnc_execNextFrame;}";
 							class Value
 							{
@@ -1513,7 +1539,7 @@ class Mission
 					{
 						class Attribute0
 						{
-							property="mum_common_3den_fireteam";
+							property="mum_team_3den_fireteam";
 							expression="if (!is3DEN) then {[{ _this#0 assignTeam _this#1 }, [_this, _value]] call CBA_fnc_execNextFrame;}";
 							class Value
 							{
@@ -1525,6 +1551,77 @@ class Mission
 							};
 						};
 						nAttributes=1;
+					};
+				};
+				class Item10
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={17.683001,5.0014391,-9.118};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+					};
+					id=215;
+					type="B_Deck_Crew_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="mum_team_3den_teamLeader";
+							expression="if (!is3DEN && {_value}) then {[{ if (mum_team_set_enabled && {alive _this}) then { [_this, true] call mum_team_fnc_TeamLeaderStepUp } }, _this, 1 + random 4] call CBA_fnc_waitAndExecute;}";
+							class Value
+							{
+								class data
+								{
+									singleType="BOOL";
+									value=1;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="Male04ENG";
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="mum_team_3den_fireteam";
+							expression="if (!is3DEN) then {[{ _this#0 assignTeam _this#1 }, [_this, _value]] call CBA_fnc_execNextFrame;}";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="YELLOW";
+								};
+							};
+						};
+						class Attribute3
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=1;
+								};
+							};
+						};
+						nAttributes=4;
 					};
 				};
 			};
