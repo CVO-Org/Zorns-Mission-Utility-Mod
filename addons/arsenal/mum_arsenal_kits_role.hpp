@@ -134,7 +134,7 @@ class baseRoleKit_UAV: baseKit {
     code = "switch (str side ACE_player) do {
         case 'WEST': { 'B_UavTerminal' };
         case 'EAST': { 'O_UavTerminal' };
-        case 'GEUR': { 'I_UavTerminal' };
+        case 'GUER': { 'I_UavTerminal' };
         case 'CIV':  { 'C_UavTerminal' };
         default { '' };
     };";
