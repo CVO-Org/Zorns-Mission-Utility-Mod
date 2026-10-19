@@ -53,6 +53,18 @@ private _checkboxes = [];
         private _dependency = getText ( _cfg >> "addon_dependency" );
         if ( _role isNotEqualTo "" ) then { _tooltip pushBack format [ "%1: %2", LLSTRING(disableList_role), _role ]; };
         if ( _dependency isNotEqualTo "" ) then { _tooltip pushBack format [ "%1: %2", LLSTRING(disableList_dependency), _dependency ]; };
+
+        // Items - display name, classname when not loaded or without display name
+        private _items = "true" configClasses ( _cfg >> "items" ) apply {
+            private _class = configName _x;
+            private _displayName = getText ( _class call CBA_fnc_getItemConfig >> "displayName" );
+            [ _displayName, _class ] select ( _displayName isEqualTo "" )
+        };
+        if ( _items isNotEqualTo [] ) then {
+            _tooltip pushBack "";
+            _tooltip append ( _items apply { "- " + _x } );
+        };
+        if ( getText ( _cfg >> "code" ) isNotEqualTo "" ) then { _tooltip pushBack LLSTRING(disableList_code); };
     };
     _tooltip = _tooltip joinString endl;
 

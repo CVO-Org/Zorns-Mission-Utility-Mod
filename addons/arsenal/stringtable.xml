@@ -90,6 +90,9 @@
             </Key>
         </Container>
         <Container name="Module - Disable Defaults">
+            <Key ID="STR_mum_arsenal_disableList_code">
+                <English>+ items added by script</English>
+            </Key>
             <Key ID="STR_mum_arsenal_disableList_dependency">
                 <English>Requires addon</English>
             </Key>
