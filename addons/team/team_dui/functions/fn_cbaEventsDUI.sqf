@@ -2,7 +2,7 @@
 
 /*
 * Author: Zorn
-* INIT FUnction to establish cba events
+* INIT Function to establish DUI related cba events
 *
 * Arguments:
 *
@@ -14,8 +14,6 @@
 *
 * Public: No
 */
-
-[QGVAR(EH_setUnitIcon), FUNC(setUnitIcon)] call CBA_fnc_addEventHandler;
 
 [
     "CBA_SettingChanged",
@@ -39,5 +37,3 @@
         };
     }
 ] call CBA_fnc_addEventHandler;
-
-["ace_interaction_joinedTeam", { group (_this#0) call FUNC(validateTeamLeaders) }] call CBA_fnc_addEventHandler;

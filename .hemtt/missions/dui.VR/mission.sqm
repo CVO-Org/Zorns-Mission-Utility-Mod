@@ -297,7 +297,7 @@ class Mission
 						};
 						class Attribute2
 						{
-							property="mum_common_3den_fireteam";
+							property="mum_team_3den_fireteam";
 							expression="if (!is3DEN) then {[{ _this#0 assignTeam _this#1 }, [_this, _value]] call CBA_fnc_execNextFrame;}";
 							class Value
 							{
@@ -445,7 +445,7 @@ class Mission
 						};
 						class Attribute2
 						{
-							property="mum_common_3den_fireteam";
+							property="mum_team_3den_fireteam";
 							expression="if (!is3DEN) then {[{ _this#0 assignTeam _this#1 }, [_this, _value]] call CBA_fnc_execNextFrame;}";
 							class Value
 							{
@@ -593,7 +593,7 @@ class Mission
 						};
 						class Attribute2
 						{
-							property="mum_common_3den_fireteam";
+							property="mum_team_3den_fireteam";
 							expression="if (!is3DEN) then {[{ _this#0 assignTeam _this#1 }, [_this, _value]] call CBA_fnc_execNextFrame;}";
 							class Value
 							{
@@ -741,7 +741,7 @@ class Mission
 						};
 						class Attribute2
 						{
-							property="mum_common_3den_fireteam";
+							property="mum_team_3den_fireteam";
 							expression="if (!is3DEN) then {[{ _this#0 assignTeam _this#1 }, [_this, _value]] call CBA_fnc_execNextFrame;}";
 							class Value
 							{
@@ -889,7 +889,7 @@ class Mission
 						};
 						class Attribute2
 						{
-							property="mum_common_3den_fireteam";
+							property="mum_team_3den_fireteam";
 							expression="if (!is3DEN) then {[{ _this#0 assignTeam _this#1 }, [_this, _value]] call CBA_fnc_execNextFrame;}";
 							class Value
 							{
@@ -1037,7 +1037,7 @@ class Mission
 						};
 						class Attribute2
 						{
-							property="mum_common_3den_fireteam";
+							property="mum_team_3den_fireteam";
 							expression="if (!is3DEN) then {[{ _this#0 assignTeam _this#1 }, [_this, _value]] call CBA_fnc_execNextFrame;}";
 							class Value
 							{
@@ -1185,7 +1185,7 @@ class Mission
 						};
 						class Attribute2
 						{
-							property="mum_common_3den_fireteam";
+							property="mum_team_3den_fireteam";
 							expression="if (!is3DEN) then {[{ _this#0 assignTeam _this#1 }, [_this, _value]] call CBA_fnc_execNextFrame;}";
 							class Value
 							{
@@ -1333,7 +1333,7 @@ class Mission
 						};
 						class Attribute2
 						{
-							property="mum_common_3den_fireteam";
+							property="mum_team_3den_fireteam";
 							expression="if (!is3DEN) then {[{ _this#0 assignTeam _this#1 }, [_this, _value]] call CBA_fnc_execNextFrame;}";
 							class Value
 							{
@@ -1481,7 +1481,7 @@ class Mission
 						};
 						class Attribute2
 						{
-							property="mum_common_3den_fireteam";
+							property="mum_team_3den_fireteam";
 							expression="if (!is3DEN) then {[{ _this#0 assignTeam _this#1 }, [_this, _value]] call CBA_fnc_execNextFrame;}";
 							class Value
 							{
@@ -1513,7 +1513,7 @@ class Mission
 					{
 						class Attribute0
 						{
-							property="mum_common_3den_fireteam";
+							property="mum_team_3den_fireteam";
 							expression="if (!is3DEN) then {[{ _this#0 assignTeam _this#1 }, [_this, _value]] call CBA_fnc_execNextFrame;}";
 							class Value
 							{

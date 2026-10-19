@@ -26,6 +26,7 @@ This mod contains several frameworks, tools and utilities that I have created in
 - [Diary System (WIP)](addons/diary/readme.md)
 - [Intel System (WIP)](addons/intel/readme.md)
 - [Unhide-Layer-Action](addons/ula/readme.md)
+- [Team Management](addons/team/readme.md)
 - [Fonts](addons/fonts/readme.md)
 - [Commonly used Functions](addons/common/readme.md)
 

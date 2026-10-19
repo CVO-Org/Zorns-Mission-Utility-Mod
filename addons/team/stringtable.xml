@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="mum-team">
+    <Package name="3den">
+        <Key ID="STR_mum_team_3den_fireteam">
+            <English>Assign Fireteam Color</English>
+        </Key>
+        <Key ID="STR_mum_team_3den_fireteam_desc">
+            <English>Assigns the Fireteam Color for this Unit.</English>
+        </Key>
+        <Key ID="STR_mum_team_3den_teamLeader">
+            <English>Teamleader</English>
+        </Key>
+        <Key ID="STR_mum_team_3den_teamLeader_desc">
+            <English>Makes this unit the teamleader of its fireteam color, 1-5s after mission start. Requires Team Management to be enabled. Has no effect on the group leader.</English>
+        </Key>
+        <Key ID="STR_mum_team_cat_title">
+            <English>MUM - Team Management</English>
+        </Key>
+    </Package>
+    <Package name="aceAction">
+        <Key ID="STR_mum_team_stepDownTeamleader">
+            <English>Step Down as Teamleader</English>
+        </Key>
+        <Key ID="STR_mum_team_stepUpTeamleader">
+            <English>Become Teamleader</English>
+        </Key>
+    </Package>
+    <Package name="cbaSettings">
+        <Key ID="STR_mum_team_cba_category">
+            <English>MUM - Team Management</English>
+        </Key>
+        <Key ID="STR_mum_team_set_enabled">
+            <English>Enable Team Management</English>
+        </Key>
+        <Key ID="STR_mum_team_set_enabled_desc">
+            <English>Enables Team Management: Teamleader Actions and Attribute. With DUI loaded, also Squadleader Icon Style and Custom Sorting</English>
+        </Key>
+    </Package>
+    <Package name="hint">
+        <Key ID="STR_mum_team_TL_steppedDown">
+            <English>You are no longer %1 team leader.</English>
+        </Key>
+        <Key ID="STR_mum_team_TL_steppedUp">
+            <English>You became %1 team leader.</English>
+        </Key>
+    </Package>
+</Project>

@@ -1,10 +1,11 @@
 #include "script_component.hpp"
 
 class CfgPatches {
-    class ADDON {
+    class SUBADDON {
 
         // Meta information for editor
         name = ADDON_NAME;
+        addonRootClass = QUOTE(ADDON);
         author = ECSTRING(main,author);
         authors[] = {"OverlordZorn [CVO]"};
 
@@ -18,7 +19,7 @@ class CfgPatches {
 
         // Required addons, used for setting load order.
         // When any of the addons is missing, pop-up warning will appear when launching the game.
-        requiredAddons[] = {"mum_main", "ace_interaction","cba_common", "diwako_dui_main", "diwako_dui_radar"};
+        requiredAddons[] = {"mum_team", "diwako_dui_main", "diwako_dui_radar"};
 
         // Optional. If this is 1, if any of requiredAddons[] entry is missing in your game the entire config will be ignored and return no error (but in rpt) so useful to make a compat Mod (Since Arma 3 2.14)
         skipWhenMissingDependencies = 1;
@@ -34,9 +35,5 @@ class CfgPatches {
 };
 
 #include "CfgFunctions.hpp"
-#include "Cfg3DEN.hpp"
 
-#include "XEH/CfgXEH.hpp"
-
-#include "AceActions.hpp"
 #include "diwako_dui_icon_style.hpp"

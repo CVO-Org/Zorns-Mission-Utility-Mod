@@ -5,9 +5,6 @@ class CfgFunctions {
 
             class cbaEvents { preInit = 1; };
 
-            class customSortingCode {};
-
-            class getLinesPerCollumn {};
             class setUnitIcon {};
 
             class TeamLeaderStepUp {};
