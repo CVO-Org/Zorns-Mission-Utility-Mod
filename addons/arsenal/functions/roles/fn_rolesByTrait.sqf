@@ -33,9 +33,8 @@ if (isNil "_unit") exitWith { [] };
     private _autoRoleMap = _y;
 
 
-    // Check CBA Setting
-    private _settingName = [QGVAR(autoRoles), _autoRoleName] joinString "_";
-    if (!isNil _settingName && { !(missionNamespace getVariable _settingName) } ) then { continue };
+    // Check if disabled (CBA Setting or Module)
+    if ( [ "autoRoles", _autoRoleName ] call FUNC(isDisabled) ) then { continue };
 
 
     // Condition
@@ -68,9 +67,8 @@ if (isNil "_unit") exitWith { [] };
     private _autoTraitName = _x;
     private _autoTraitMap = _y;
 
-    // Check CBA Setting
-    private _settingName = [QGVAR(autoTraits), _autoTraitName] joinString "_";
-    if (!isNil _settingName && { !(missionNamespace getVariable _settingName) } ) then { continue };
+    // Check if disabled (CBA Setting or Module)
+    if ( [ "autoTraits", _autoTraitName ] call FUNC(isDisabled) ) then { continue };
 
 
     // Check roles

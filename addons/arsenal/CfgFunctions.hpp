@@ -43,5 +43,19 @@ class CfgFunctions {
 
             class handleTempLoadout {};
         };
+
+        class disable {
+            file = PATH_TO_FUNC_SUB(disable);
+            class getDefaults {};
+            class setDisabled {};
+            class isDisabled {};
+            class disableDefaults {};
+
+            class module_disableDefaults {};
+
+            class disableList_load {};
+            class disableList_save {};
+            class disableList_setAll {};
+        };
     };
 };

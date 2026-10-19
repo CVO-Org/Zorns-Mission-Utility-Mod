@@ -137,12 +137,19 @@ publicVariable "mum_arsenal_api";
 
 ### Disable Default Kits
 
-The default "baseKits" that come with the mod can be disabled via two ways
+The default kits, auto roles and auto traits that come with the mod can be disabled in three ways.
+An entry is disabled as soon as one of these ways disables it, so one way can never re-enable what another one disabled.
+Personal kits (kits with an `id64`) can not be disabled.
 
 #### 1. Individually via CBA Settings
 ![Image showcasing the cba settings](https://github.com/CVO-Org/Zorns-Mission-Utility-Mod/blob/main/docs/img/arsenal_disable_defaultKits.png)
 
-#### 2. All at once via description.ext
+#### 2. Individually via the "Disable Defaults" module
+Place the module `Systems (F5) > Modules > MUM - Arsenal Modules > Disable Defaults` and uncheck the entries you want to disable.
+The module lists every default kit, auto role and auto trait of the loaded mods, so it also gives a quick overview of what is available.
+The module is 3DEN only. Multiple modules add up.
+
+#### 3. All kits at once via description.ext
 ```cpp
 // Inside description.ext
 mum_arsenal_ignoreBaseKits = 1;

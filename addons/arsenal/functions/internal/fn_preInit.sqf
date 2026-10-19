@@ -2,7 +2,7 @@
 
 /*
 * Author: Zorn
-* Detects GreenMag and registers the mum_arsenal_EH_initBox event.
+* Detects GreenMag and registers the mum_arsenal_EH_initBox and mum_arsenal_EH_disableDefaults events.
 *
 * Arguments:
 * None
@@ -19,4 +19,5 @@
 GVAR(loaded_greenMag) = isClass (configFile >> "CfgPatches" >> "greenmag_main");
 
 [QGVAR(EH_initBox), FUNC(initBox)] call CBA_fnc_addEventHandler;
+[ QGVAR(EH_disableDefaults), FUNC(disableDefaults) ] call CBA_fnc_addEventHandler;
 
