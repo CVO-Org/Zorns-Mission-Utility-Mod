@@ -2,15 +2,18 @@
 
 /*
 * Author: Zorn
-* Funciton that handles everything needed on the client side when a piece of intel has been found.
+* Client function to handle a piece of intel that has been shared with the local player:
+* notification, diary entry, removal of the action and update of the intel summary.
 *
 * Arguments:
+* 0: Intel ID <STRING>
+* 1: Finder <OBJECT>
 *
 * Return Value:
 * None
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [QGVAR(EH_publishIntel), ["mum_intel_0", _finder], _targets] call CBA_fnc_targetEvent
 *
 * Public: No
 */
@@ -21,7 +24,7 @@ params [ "_id", "_finder"];
 private _intelData = missionNamespace getVariable _id;
 private _intelTitle = _intelData getVariable "intelTitle";
 
-_intelData setVariable ["found", true, false]; // Caches 
+_intelData setVariable ["found", true, false]; // Local cache, used for the summary
 
 private _finderName = switch (true) do {
     case (_finder isEqualTo player): { LLSTRING(PlayerFoundIntel_You) };
