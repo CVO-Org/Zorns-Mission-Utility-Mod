@@ -61,7 +61,7 @@ workshop = [
 
 [team]
 extends = "default"
-mission = "dui.VR"
+mission = "team.VR"
 workshop = [
     "1638341685", # DUI
 ]
