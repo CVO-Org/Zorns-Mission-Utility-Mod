@@ -21,7 +21,7 @@ class CfgVehicles {
 
         class ACE_Actions {
             class GVAR(accessPoint) {
-                displayName = "Open Arsenal";
+                displayName = CSTRING(action_open);
                 statement = Q([] call FUNC(open));
                 condition = "true";
 
