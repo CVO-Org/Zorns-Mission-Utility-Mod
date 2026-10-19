@@ -25,7 +25,8 @@
         // Forced settings: [setting, forced value]
         private _forcedSettings = createHashMapFromArray [
             [ "diwako_dui_icon_style", QGVAR(officer) ],  // Forces Icon Style
-            [ "diwako_dui_radar_sqlFirst", false ]        // Forces Leader always first off cause its handled through the sorting method
+            [ "diwako_dui_radar_sqlFirst", false ],       // Forces Leader always first off cause its handled through the sorting method
+            [ "diwako_dui_radar_sortType", "custom" ]     // Forces DUI to use diwako_dui_radar_customSort
         ];
 
         if _enabled then {
