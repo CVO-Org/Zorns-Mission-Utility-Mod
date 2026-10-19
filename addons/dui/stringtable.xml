@@ -9,7 +9,7 @@
         </Key>
     </Package>
     <Package name="cbaSettings">
-        <Key ID="STR_mum_dui_cbaCategory">
+        <Key ID="STR_mum_dui_cba_category">
             <English>MUM - DUI Tweaks</English>
         </Key>
         <Key ID="STR_mum_dui_set_enabled">
