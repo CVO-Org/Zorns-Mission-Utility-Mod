@@ -2,15 +2,23 @@
 
 /*
 * Author: Zorn
-* Function for the Statement of the Intel Pickup Action
+* Statement of the ACE intel action - runs the progress bar with sounds and reports the find to the server on completion.
+* The progress bar is aborted if the player is incapacitated, the object is gone or the intel has been shared with the player in the meantime.
 *
 * Arguments:
+* 0: Intel object <OBJECT>
+* 1: Player <OBJECT>
+* 2: Action arguments <ARRAY>
+*    0: Intel ID <STRING>
+*    1: Action title <STRING>
+*    2: Action sound - "BODY" or "KEYBOARD", anything else plays no sound <STRING>
+*    3: Action duration in seconds <NUMBER>
 *
 * Return Value:
 * None
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [_object, player, ["mum_intel_0", "Gather Intel", "BODY", 15]] call mum_intel_fnc_action_statement
 *
 * Public: No
 */

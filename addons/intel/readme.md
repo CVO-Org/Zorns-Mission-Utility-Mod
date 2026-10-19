@@ -1,18 +1,70 @@
 # MUM Intel
 An Intel Framework
 
-Highly inspired by the Intel Module from Zeus Enhanced, but made to be used in the  3den Editor.
+Highly inspired by the Intel Module from Zeus Enhanced, but made to be used in the 3den Editor.
 
-This will turn any object into an ace interactable Intel Item. Once found, the players will recieve a hint that the intel has been found and the intel will be visible on the map screen.
+Turns any object into an ACE-interactable intel item. Players gather the intel with an ACE action and a progress bar. Once found, the intel is shared according to its [Share With](#share-with) option: those players get a notification, and the intel is added to the "Intel" section of their map screen.
 
-Revealed intel will visible after JIP or rejoin.
+Requires ACE3 (interaction menu and progress bar) and CBA.
 
+
+## How it works
+
+- **Gathering**: the intel object gets an ACE action. Completing the progress bar reports the find to the server. The progress bar plays body or keyboard sounds, and is aborted if the player goes down or the intel is shared with them in the meantime.
+- **Sharing**: the server stores who the intel has been shared with and sends it only to those players. The action is hidden for every player who already has the intel.
+- **Object**: with "Remove Object" enabled, the object is deleted once found. Otherwise it stays, and players without access to the intel can still gather it.
+- **Diary**: each piece of intel gets a diary record under "Intel". Intel items with the **same title** are combined into one record, separated by a "NEW INTEL" line.
+- **Intel Summary**: a separate "Intel Summary" diary record shows, per intel group, how many items the player has found out of the total (e.g. `2 / 3 - Bomb Makers Hideout`).
+- **Zeus**: all curators are informed when intel is found.
+- **JIP**: players who join (or rejoin) mid-mission get all intel that has been shared with them, without notifications.
+
+
+## Share With
+
+| Option    | Shared with                                                                     |
+| --------- | ------------------------------------------------------------------------------- |
+| `GLOBAL`  | Every player, including players joining the mission later                                |
+| `SIDE`    | Every player on the side of the finder, including players joining the mission later on that side |
+| `GROUP`   | Every player in the group of the finder, including players joining the mission later in that group |
+| `UNIT`    | Only the finder                                                                 |
+| `DEFAULT` | Uses the CBA setting "Default ShareWith" (`MUM - Intel` > `General`, default: `SIDE`) |
+
+The finder always receives the intel, whatever the option is.
+
+
+## Eden Editor Modules
+
+Found under `Modules` > `MUM - Intel Modules`. Place a module and **sync** it to one or more objects; every synced object becomes its own intel item with the module's content.
+
+| Module                         | Content                                                                 |
+| ------------------------------ | ----------------------------------------------------------------------- |
+| Intel Item - Basic             | Free text / structured text                                             |
+| Intel Item - eMail             | Date, sender, recipient, subject and body, formatted as an email        |
+| Intel Item - Handwritten Note  | Text in a handwritten font                                              |
+| Intel Item - Messages          | Chat history with up to 6 messages, each from the sender or the recipient |
+| Intel Item - Photo             | Image (object texture or custom path) with a handwritten note on the back |
+
+All modules share these attributes:
+- **Intel Group**: used to group intel items in the Intel Summary, e.g. by location or objective
+- **Intel Title**: title of the diary record
+- **Intel Description**: short text in grey above the intel content
+- **Remove Object**: whether the object is deleted once found (default: off)
+- **Action Title**: text of the ACE action and progress bar
+- **Action Duration**: duration of the progress bar in seconds (1 second in Eden preview)
+- **Action Sound**: `AUTO` (keyboard sounds for laptops, PCs and similar, body sounds otherwise), `BODY` or `KEYBOARD`
+- **Share With**: see [Share With](#share-with)
+
+Only sync connections are allowed. ACE intel items and inventory items (weapon holders) cannot be intel objects, and such connections are removed in the editor.
+
+Use `<br/>` for line breaks in text fields.
+
+
+## API
 
 ```sqf
-
 /*
 * Author: Zorn
-* Function to create an Intel Item.
+* Function to create an Intel Item. Server only - does nothing on clients.
 *
 * Arguments:
 * 0: _object        <OBJECT>
@@ -28,14 +80,14 @@ Revealed intel will visible after JIP or rejoin.
 * 3: _intelGroup    <STRING>  <OPTIONAL> <DEFAULT: "General">
 *           Group Name of the Intel - Only used for the Intel Summary Feature. Can be, for Example, Location based or Type Based.
 *
-* 4: _removeObject  <BOOLEAN> <OPTIONAL> <DEFAULT: true>
-*           Weather the Object gets deleted once it has been picked up or not.
+* 4: _removeObject  <BOOLEAN> <OPTIONAL> <DEFAULT: false>
+*           Whether the object gets deleted once it has been picked up or not.
 *
-* 5: _actonTitle    <STRING>  <OPTIONAL> <DEFAULT: "Gather Intel">
+* 5: _actionTitle   <STRING>  <OPTIONAL> <DEFAULT: "Gather Intel">
 *           String to be used for the Ace Action and Progress Bar.
 *
-* 6: _actonDuration <NUMBER>  <OPTIONAL> <DEFAULT: 15>
-*           Duration of the Progressbar in Seconds. Will be reducing in Eden Editor Preview Editor to 1 second.
+* 6: _actionDuration <NUMBER>  <OPTIONAL> <DEFAULT: 15>
+*           Duration of the Progressbar in Seconds. Reduced to 1 second in the Eden Editor preview.
 *
 * 7: _actionSound   <STRING>  <OPTIONAL> <DEFAULT: "AUTO">
 *           Can be "BODY", "KEYBOARD" or "AUTO".
@@ -45,15 +97,15 @@ Revealed intel will visible after JIP or rejoin.
 * 8: _shareWith     <STRING>  <OPTIONAL> <DEFAULT: "DEFAULT">
 *           Can be "GLOBAL", "SIDE", "GROUP", "UNIT", "DEFAULT".
 *           "DEFAULT" will reference CBA Setting defined default.
-*           Defines who the intel is being shared with once its picked up.
+*           Defines who the intel is being shared with once it is picked up. See "Share With" above.
 *
 *
 * Return Value:
 * Success? <BOOLEAN>
 *
 * Example:
-* [this, "Secret Documents", "We, the bad guys, will attack the good guys tonight at checkpoint charlie!", "Group", true, _actionTitle] call MUM_intel_fnc_createIntel;
-
+* [this, "Secret Documents", "We, the bad guys, will attack the good guys tonight at checkpoint charlie!", "Group", true, "Read Documents"] call MUM_intel_fnc_createIntel;
+*/
 ```
 
 ## Example
@@ -75,7 +127,11 @@ private _structuredString = "
     "Network-Log",      // Intel Title
     _structuredString,  // Intel Content (Structured Text as STRING)
     nil,                // Intel Group, nil for Default Group (Optional, nil for Default Group: "General")
-    false               // Remove Object once Picked up - (Optional - Default: true)
+    true,               // Remove Object once Picked up - (Optional - Default: false)
+    nil,                // Action Title (Optional - Default: "Gather Intel")
+    nil,                // Action Duration (Optional - Default: 15)
+    nil,                // Action Sound (Optional - Default: "AUTO")
+    "GROUP"             // Share With (Optional - Default: "DEFAULT")
 ] call MUM_intel_fnc_createIntel;
 ```
 

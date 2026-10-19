@@ -2,15 +2,17 @@
 
 /*
 * Author: Zorn
-* Function to Check which intel group has how many discovered intel items
+* Returns, per intel group, how many intel items the local player has found out of the total.
 *
 * Arguments:
-*
-* Return Value:
 * None
 *
+* Return Value:
+* Intel groups, sorted by name <ARRAY>
+*    Each: [Group name <STRING>, Found <NUMBER>, Total <NUMBER>]
+*
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [] call mum_intel_fnc_getGroups
 *
 * Public: No
 */

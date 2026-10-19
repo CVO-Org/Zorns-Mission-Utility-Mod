@@ -5,12 +5,13 @@
 * DEV Function - creates a whiteboard with an example text for each font in config.
 *
 * Arguments:
+* 0: Object to place the whiteboards next to <OBJECT> (default: player)
 *
 * Return Value:
 * None
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [player] call mum_intel_fnc_createFontPreview
 *
 * Public: No
 */

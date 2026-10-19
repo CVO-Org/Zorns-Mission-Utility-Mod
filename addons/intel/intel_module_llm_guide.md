@@ -19,7 +19,7 @@ When asked to generate intel:
 | **Basic**            | Any generic written item that doesn't fit the other categories (documents, ledgers, orders, lists)                          |
 | **eMail**            | A digital email-style message                                                                                               |
 | **Handwritten Note** | A short personal note, warning, or instruction meant to look hand-scrawled                                                  |
-| **Phone Message**    | A back-and-forth text/pager/chat conversation between two parties                                                           |
+| **Messages**         | A back-and-forth text/pager/chat conversation between two parties                                                           |
 | **Photo**            | Rarely used — do not generate this module unless explicitly asked; a human handles the photo and its backside note manually |
 
 ## 3. Module Templates
@@ -63,7 +63,7 @@ Handrwitten Note:
 ```
 - **Handrwitten Note** – the handwritten text itself (field name is spelled this way in the mod's code)
 
-### Phone Message
+### Messages
 ```
 Intel Group:
 Intel Title:

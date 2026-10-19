@@ -2,15 +2,19 @@
 
 /*
 * Author: Zorn
-* Module Function to turn an object into a an MUM Intel item. This will also take the Texture of the linked object and insert it into the intel field.
+* Module function to turn the synced objects into MUM intel items, formatted as a photograph.
+* The image is taken from the synced object's texture or from a custom path, the backside note is shown below it.
 *
 * Arguments:
+* 0: Module logic <OBJECT>
+* 1: Synced objects <ARRAY>
+* 2: Activated <BOOL>
 *
 * Return Value:
 * None
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [_logic, [_object], true] call mum_intel_fnc_module_intelItem_photo
 *
 * Public: No
 */

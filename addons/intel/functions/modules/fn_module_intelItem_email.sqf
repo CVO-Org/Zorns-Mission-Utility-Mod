@@ -2,15 +2,18 @@
 
 /*
 * Author: Zorn
-* Module Function to turn an object into a an MUM Intel item.
+* Module function to turn the synced objects into MUM intel items, formatted as an eMail.
 *
 * Arguments:
+* 0: Module logic <OBJECT>
+* 1: Synced objects <ARRAY>
+* 2: Activated <BOOL>
 *
 * Return Value:
 * None
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [_logic, [_object], true] call mum_intel_fnc_module_intelItem_email
 *
 * Public: No
 */
