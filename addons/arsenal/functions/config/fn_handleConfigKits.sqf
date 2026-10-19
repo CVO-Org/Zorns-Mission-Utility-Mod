@@ -23,8 +23,8 @@ private _configKit_mod = Q(configName _x isNotEqualTo QQ(baseKit)) configClasses
 private _configKit_mis = Q(configName _x isNotEqualTo QQ(baseKit)) configClasses (missionConfigFile >> QGVAR(kits));
 
 // Filter out BaseKit / BaseRoleKit
-if ( getNumber (missionConfigFile >> QGVAR(ignoreBaseKits))     isEqualTo 1 ) then { _configKit_mod = _configKit_mod select { !(toLowerANSI "baseKit"     in toLowerANSI _x) }; };
-if ( getNumber (missionConfigFile >> QGVAR(ignoreBaseRoleKits)) isEqualTo 1 ) then { _configKit_mod = _configKit_mod select { !(toLowerANSI "baseRoleKit" in toLowerANSI _x) }; };
+if ( getNumber (missionConfigFile >> QGVAR(ignoreBaseKits))     isEqualTo 1 ) then { _configKit_mod = _configKit_mod select { !(toLowerANSI "baseKit"     in toLowerANSI configName _x) }; };
+if ( getNumber (missionConfigFile >> QGVAR(ignoreBaseRoleKits)) isEqualTo 1 ) then { _configKit_mod = _configKit_mod select { !(toLowerANSI "baseRoleKit" in toLowerANSI configName _x) }; };
 
 // Sort by Name
 _configKit_mod = [_configKit_mod, [], { configName _x }, "ASCEND"] call BIS_fnc_sortBy;
