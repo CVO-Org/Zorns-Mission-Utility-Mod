@@ -135,7 +135,7 @@ class mum_arsenal_kits {
 
     // Based on CBA Setting
     class ACE_Rations: baseKit {
-        condition = "missionNamespace getVariable ['ace_field_rations_enabled', true]";
+        condition = "missionNamespace getVariable ['ace_field_rations_enabled', false]";
         class items {
             class ACE_MRE_BeefStew {};
             class ACE_MRE_ChickenTikkaMasala {};

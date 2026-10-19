@@ -16,7 +16,7 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={4,30,-37};
+		pos[]={0.27490926,41.365582,-45.565784};
 		dir[]={0.027119683,-0.62452894,0.78053069};
 		up[]={0.021686288,0.78100163,0.6241523};
 		aside[]={0.99939692,-1.8626451e-09,-0.034724228};
@@ -554,7 +554,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=6;
+		items=5;
 		class Item0
 		{
 			dataType="Group";
@@ -755,53 +755,6 @@ class Mission
 			type="CargoNet_01_box_F";
 		};
 		class Item4
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={4,6,-10};
-			};
-			side="Empty";
-			class Attributes
-			{
-				name="test";
-				disableSimulation=1;
-			};
-			id=191;
-			type="mum_arsenal_accessPoint";
-			atlOffset=1;
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="allowDamage";
-					expression="_this allowdamage _value;";
-					class Value
-					{
-						class data
-						{
-							singleType="BOOL";
-							value=0;
-						};
-					};
-				};
-				class Attribute1
-				{
-					property="hideObject";
-					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
-					class Value
-					{
-						class data
-						{
-							singleType="BOOL";
-							value=1;
-						};
-					};
-				};
-				nAttributes=2;
-			};
-		};
-		class Item5
 		{
 			dataType="Logic";
 			class PositionInfo
