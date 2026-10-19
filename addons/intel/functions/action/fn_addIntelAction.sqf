@@ -1,29 +1,22 @@
 #include "../../script_component.hpp"
 
 /*
- * Author: mharis001
- * Add an intel action to the given object.
- *
- * Arguments:
- * 0: Object <OBJECT>
- * 1: Share With (0 - Side, 1 - Group, 2 - Nobody) <NUMBER>
- * 2: Delete On Completion <BOOL>
- * 3: Action Type (0 - Hold Action, 1 - ACE Interaction Menu) <NUMBER>
- * 4: Action Text <STRING>
- * 5: Action Sounds <ARRAY>
- * 6: Action Duration <NUMBER>
- * 7: Intel Title <STRING>
- * 8: Intel Text <STRING>
- *
- * Return Value:
- * None
- *
- * Example:
- * [_object, _id] call zen_modules_fnc_addIntelAction
- *
- * Public: No
- */
-
+* Author: Zorn, based on the intel action of Zeus Enhanced by mharis001
+* Adds the ACE intel action to the given object.
+* The action is hidden for players the intel has already been shared with.
+*
+* Arguments:
+* 0: Intel object <OBJECT>
+* 1: Intel ID <STRING>
+*
+* Return Value:
+* None
+*
+* Example:
+* [_object, "mum_intel_0"] call mum_intel_fnc_addIntelAction
+*
+* Public: No
+*/
 
 params ["_object", "_id"];
 
@@ -38,7 +31,10 @@ private _action = [
     _actionTitle,
     "\a3\ui_f\data\igui\cfg\simpletasks\types\documents_ca.paa",
     FUNC(action_statement),
-    {true},
+    {
+        params ["", "_player", "_args"];
+        !([_player, _args select 0] call FUNC(hasBeenFoundByUnit))
+    },
     {},
     [_id, _actionTitle, _actionSound, _actionDuration]
 ] call ace_interact_menu_fnc_createAction;

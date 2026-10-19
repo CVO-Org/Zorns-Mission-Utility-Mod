@@ -2,15 +2,18 @@
 
 /*
 * Author: Zorn
-* Server Function to handle what to do when the intel has been found
+* Server function to handle a found intel item.
+* Stores who the intel has been shared with (based on its "Share With" option) and publishes it to those players only.
 *
 * Arguments:
+* 0: Intel ID <STRING>
+* 1: Finder <OBJECT>
 *
 * Return Value:
 * None
 *
 * Example:
-* ['something', player] call prefix_component_fnc_functionname
+* [QGVAR(EH_intelFound), ["mum_intel_0", player]] call CBA_fnc_serverEvent
 *
 * Public: No
 */
@@ -18,6 +21,9 @@
 if (!isServer) exitWith {};
 
 params ["_id", "_finder"];
+
+// Already shared with the finder - for example, two players completing the action at the same time
+if ([_finder, _id] call FUNC(hasBeenFoundByUnit)) exitWith {};
 
 // Get Intel Data
 private _intelData = missionNamespace getVariable _id;
@@ -36,14 +42,16 @@ if (_shareWith isEqualTo "DEFAULT") then { _shareWith = SET(default_shareWith); 
 private _targets = switch (toUpper _shareWith) do {
     case "GLOBAL": {
         _intelData setVariable ["foundByAll", true, true];
+
+        call CBA_fnc_players
     };
     case "SIDE": {
-        private _targetSide = side _finder;
+        private _targetSide = side group _finder;
         private _foundBySide = _intelData getVariable "foundBySide";
         _foundBySide pushBackUnique _targetSide;
         _intelData setVariable ["foundBySide", _foundBySide, true];
 
-        [] call CBA_fnc_players select { side _x isEqualTo _targetSide }
+        (call CBA_fnc_players) select { side group _x isEqualTo _targetSide }
     };
     case "GROUP": {
         private _targetGroup = group _finder;
@@ -53,9 +61,8 @@ private _targets = switch (toUpper _shareWith) do {
 
         units _targetGroup select { isPlayer _x }
     };
-    case "UNIT": {
-        _finder
-    };
+    // "UNIT" - only the finder
+    default { [] };
 };
 
 // Always add the finder
@@ -63,10 +70,12 @@ private _foundByUnit = _intelData getVariable "foundByUnit";
 _foundByUnit pushBackUnique _finder;
 _intelData setVariable ["foundByUnit", _foundByUnit, true];
 
-// Publish Intel with targets
-[QGVAR(EH_publishIntel), _this] call CBA_fnc_globalEventJIP;
+_targets pushBackUnique _finder;
+
+// Publish Intel to targets - JIP players are handled via FUNC(handleJIP)
+[QGVAR(EH_publishIntel), _this, _targets] call CBA_fnc_targetEvent;
 
 
-// Delete Object or Remove Action on targets
+// Delete Object - otherwise the action stays available for those who have not received the intel
 private _object = _intelData getVariable "object";
 if (_intelData getVariable "objectRemove") then { deleteVehicle _object; };
