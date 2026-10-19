@@ -59,7 +59,7 @@ workshop = [
     "751965892", # acre
 ]
 
-[dui]
+[team]
 extends = "default"
 mission = "dui.VR"
 workshop = [
