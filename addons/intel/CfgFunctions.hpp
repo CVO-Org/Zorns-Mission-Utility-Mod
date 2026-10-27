@@ -12,6 +12,10 @@ class CfgFunctions {
             file = PATH_TO_FUNC_SUB(api);
 
             class createIntel {};
+            class createIntelBasic {};
+            class createIntelEmail {};
+            class createIntelHandwrittenNote {};
+            class createIntelMessages {};
         };
 
         class intel {
