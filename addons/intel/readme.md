@@ -108,6 +108,21 @@ Use `<br/>` for line breaks in text fields.
 */
 ```
 
+### Per-Type Functions
+
+Create intel formatted the same way as the Eden modules, without writing structured text yourself. Each function takes one object or an array of objects, and ends with the same optional arguments as `createIntel` (remove object, action title, action duration, action sound, share with). Server only.
+
+```sqf
+[_object, "Group", "Title", "Description", "Content"] call MUM_intel_fnc_createIntelBasic;
+[_object, "Group", "Title", "Description", "Date", "Sender", "Recipient", "Subject", "Text"] call MUM_intel_fnc_createIntelEmail;
+[_object, "Group", "Title", "Description", "Note"] call MUM_intel_fnc_createIntelHandwrittenNote;
+[_object, "Group", "Title", "Description", "Sender", "Meta", [["SENDER", "Text"], ["RECIPIENT", "Text"]]] call MUM_intel_fnc_createIntelMessages;
+```
+
+The messages function has no limit on the number of messages. See the function headers for all arguments and defaults.
+
+[`intel_module_llm_guide.md`](intel_module_llm_guide.md) can have an LLM export intel as these function calls, ready to paste into `initServer.sqf`.
+
 ## Example
 ```sqf
 private _structuredString = "
