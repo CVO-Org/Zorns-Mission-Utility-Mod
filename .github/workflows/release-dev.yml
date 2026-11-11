@@ -66,7 +66,7 @@ jobs:
 
       # TODO: switch to @v1 once A3-AZ/workshop-upload-extended is tagged
       - name: Upload to Steam Workshop (DEV)
-        uses: A3-AZ/workshop-upload-extended@main
+        uses: A3-AZ/workshop-upload-extended@fix-vdf-quotes
         with:
           item-id: ${{ env.WORKSHOPID }}
           content-path: .hemttout/release
