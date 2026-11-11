@@ -1,0 +1,78 @@
+# Builds the mod with hemtt and uploads it to the DEV Steam Workshop item.
+#
+# The Workshop page is managed from the repository:
+# - description: .steam/description.md (Markdown, converted to Steam BBCode)
+# - preview:     .steam/preview.png (max. 1 MB)
+# The title and visibility are left as they are on Steam.
+#
+# Runs
+# - manually: Actions -> "Release: Publish to Steam [DEV]" -> Run workflow
+# - on pull requests from this repository that change this file, to test the workflow itself
+#
+# Uses the STEAM_USERNAME / STEAM_PASSWORD secrets, like release.yml.
+# Sets _DEV_VERSION_ 1 (see addons/main/debug_mode.hpp). No Discord notice.
+
+name: "Release: Publish to Steam [DEV]"
+
+env:
+  WORKSHOPID: '3837979618'
+  WORKSHOPNAME: 'Zorns Mission Utility Mod [DEV]'
+
+on:
+  workflow_dispatch:
+    inputs:
+      changelog:
+        description: Change note for this DEV upload
+        required: false
+        default: ''
+  pull_request:
+    paths:
+      - .github/workflows/release-dev.yml
+
+permissions:
+  contents: read
+
+# Never upload two builds to the same item at once
+concurrency:
+  group: release-dev
+  cancel-in-progress: false
+
+jobs:
+  release-addon-dev:
+    # Pull requests from forks have no access to the Steam secrets
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the source code
+        uses: actions/checkout@v4
+
+      - name: Create meta.cpp for the DEV item
+        shell: pwsh
+        run: |
+          & "${{ github.workspace }}/tools/create-meta-cpp.ps1" `
+            -FilePath "${{ github.workspace }}/meta.cpp" `
+            -PublishedId "${{ env.WORKSHOPID }}" `
+            -ModName "${{ env.WORKSHOPNAME }}"
+
+      - name: Setup HEMTT
+        uses: arma-actions/hemtt@v1
+
+      - name: Run HEMTT script set_RELEASE_VERSION_DEV
+        run: hemtt script set_RELEASE_VERSION_DEV
+
+      - name: Run HEMTT build
+        run: hemtt release --no-archive
+
+      # TODO: switch to @v1 once A3-AZ/workshop-upload-extended is tagged
+      - name: Upload to Steam Workshop (DEV)
+        uses: A3-AZ/workshop-upload-extended@main
+        with:
+          item-id: ${{ env.WORKSHOPID }}
+          content-path: .hemttout/release
+          changelog: |
+            ${{ github.event_name == 'pull_request' && format('Test run of the DEV release workflow (PR #{0}). Escaping check: "double quotes" and C:\back\slashes', github.event.pull_request.number) || inputs.changelog }}
+
+            Commit: https://github.com/${{ github.repository }}/commit/${{ github.event.pull_request.head.sha || github.sha }}
+        env:
+          STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
+          STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
