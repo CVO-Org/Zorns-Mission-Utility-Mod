@@ -41,7 +41,8 @@ jobs:
   release-addon-dev:
     # Pull requests from forks have no access to the Steam secrets
     if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
-    runs-on: ubuntu-latest
+    # pinned - steamcmd can't get online on ubuntu-26.04 ("Steamcmd needs to be online to update")
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout the source code
         uses: actions/checkout@v4
