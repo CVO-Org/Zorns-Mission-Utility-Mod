@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project name="zorn-mission-utility-mod">
+<Project name="mum">
     <Package name="Common">
         <Container name="3den Category">
             <Key ID="STR_mum_Common_name">

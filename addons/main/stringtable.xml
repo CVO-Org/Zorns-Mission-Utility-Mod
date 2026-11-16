@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project name="mod-template">
+<Project name="mum">
     <Package name="Main">
         <Key ID="STR_mum_main_URL">
             <English>https://github.com/CVO-Org/Zorns-Mission-Utility-Mod</English>

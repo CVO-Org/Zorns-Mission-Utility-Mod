@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project name="mum-team">
-    <Package name="3den">
+<Project name="mum">
+    <Package name="team">
         <Key ID="STR_mum_team_3den_fireteam">
             <English>Assign Fireteam Color</English>
         </Key>
