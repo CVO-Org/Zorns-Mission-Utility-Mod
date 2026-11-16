@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project name="mum-deploy">
-    <Package name="cbasettings">
+<Project name="mum">
+    <Package name="deploy">
         <Key ID="STR_mum_deploy_cba_category">
             <English>MUM - Deploy</English>
         </Key>

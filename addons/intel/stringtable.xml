@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project name="MUM-auxiliary">
+<Project name="mum">
     <Package name="Intel">
         <Container name="CBA Settings">
             <Key ID="STR_MUM_intel_set_default_shareWith">

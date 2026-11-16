@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project name="mission-utility-mod">
+<Project name="mum">
     <Package name="Loadout">
         <Container name="CBA Settings">
             <Key ID="STR_mum_loadout_cat_title">
